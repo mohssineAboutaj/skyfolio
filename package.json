@@ -1,6 +1,6 @@
 {
   "name": "skyfolio",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A portfolio website",
   "private": true,
   "type": "module",
@@ -15,5 +15,8 @@
     "nuxt": "^3.10.2",
     "vue": "^3.4.19",
     "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "vuetify-nuxt-module": "^0.11.0"
   }
 }
