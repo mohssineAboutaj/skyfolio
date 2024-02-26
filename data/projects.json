@@ -1,0 +1,455 @@
+{
+  "items": [
+    {
+      "id": "JnVJsVKN0CiwExvrM2u1s",
+      "title": "Blogify",
+      "slug": "blogify",
+      "url": "http://blogify.mohssineaboutaj.com/",
+      "description": "A Full featured basic blog system website iwh dashboard and area, user can add posts, comments based on his given permissions",
+      "imgs": [
+        "blogify.png"
+      ],
+      "visible": true,
+      "types": [
+        "blog",
+        "post",
+        "system",
+        "crud"
+      ],
+      "tech": [
+        "vuejs",
+        "css",
+        "html",
+        "javaScript",
+        "web",
+        "nuxt",
+        "laravel"
+      ],
+      "source": ""
+    },
+    {
+      "id": "JnVJsVKN0CiwExvrM2u1F",
+      "title": "Telefaza",
+      "slug": "telefaza",
+      "url": "https://telefaza.netlify.app/",
+      "description": "This is an open source and cross-platform application, built using Quasar Framework\nIt allows you to watch any TV channel you want only through your device and collects you most of the channels you want in one place without having to search for each one separately",
+      "imgs": [
+        "https://images.pexels.com/photos/5721865/pexels-photo-5721865.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+      ],
+      "visible": true,
+      "types": [
+        "moveis",
+        "series",
+        "tv",
+        "iptv",
+        "streaming"
+      ],
+      "tech": [
+        "vuejs",
+        "css",
+        "html",
+        "javaScript",
+        "web",
+        "pwa",
+        "mobile",
+        "quasar"
+      ],
+      "source": "https://github.com/mohssineAboutaj/telefaza"
+    },
+    {
+      "id": "Toh8XpGxz1-v10h2ZnETh",
+      "title": "morocco covid tracker app",
+      "slug": "moroccovid-app",
+      "url": "https://moroccovid-app.netlify.app/",
+      "description": "A tracker app for morocco covid cases",
+      "imgs": [
+        "moroccovid-app.jpg"
+      ],
+      "visible": true,
+      "types": [
+        "SPA (single page application)",
+        "tracker "
+      ],
+      "tech": [
+        "vuejs",
+        "vuetify",
+        "html",
+        "javaScript",
+        "web",
+        "fontawesome",
+        "pwa"
+      ],
+      "source": "https://github.com/mohssineAboutaj/moroccovid-app/"
+    },
+    {
+      "id": "DLTZwZLVq90vYM3RF7TJB",
+      "title": "chhiwat app",
+      "slug": "chhiwat-app",
+      "url": "https://chhiwat.netlify.app/",
+      "description": "A cross-platform app that contains a lot of recipes like chicken, grills, juices, salads, pies, sandwiches, boiled vegetables, ...",
+      "imgs": [
+        "chhiwat-1.png",
+        "chhiwat-2.png",
+        "chhiwat-3.png"
+      ],
+      "visible": true,
+      "types": [
+        "cooking",
+        "SPA (single page application)"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "javaScript",
+        "scss",
+        "web",
+        "fontawesome",
+        "pwa",
+        "mobile",
+        "vuejs",
+        "vuetify",
+        "capacitor"
+      ]
+    },
+    {
+      "id": "142ccc6e-0665-4612-a7e2-ff9ec46877b8",
+      "slug": "meet-nass",
+      "title": "meet nass",
+      "description": "MeetNass is a cross-platform video call conference app",
+      "url": "https://meet-nass.netlify.app/",
+      "source": "",
+      "visible": true,
+      "imgs": [
+        "meet-nass-1.jpg",
+        "meet-nass-2.jpg"
+      ],
+      "types": [
+        "meeting",
+        "SPA (single page application)"
+      ],
+      "tech": [
+        "firebase",
+        "vuejs",
+        "html",
+        "css",
+        "javaScript",
+        "scss",
+        "web",
+        "fontawesome",
+        "webpack",
+        "pwa",
+        "mobile",
+        "vuetify"
+      ]
+    },
+    {
+      "id": "543cfd1e-01d4-446d-ae9d-610a339c8296",
+      "slug": "kech",
+      "title": "KECH - Creative portfolio",
+      "description": "This is the portfolio of Mohssine Aboutaj, and a great biography describing all the skills and services owned by developer Mohssine Aboutaj, using Html5, Css3, JavaScript, jQuery, Pug js, Sass, Gulp js, Bootstrap, Font Awesome, Animation, JavaScript libraries , Frameworks, Plugins ... to build this site and the content of this site is constantly updated",
+      "url": "https://kech.netlify.com/",
+      "source": "https://github.com/mohssineAboutaj/kech",
+      "visible": true,
+      "imgs": [
+        "kech-preview.jpg"
+      ],
+      "types": [
+        "portfolio",
+        "one page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "javaScript",
+        "bootstrap",
+        "gulpjs",
+        "scss",
+        "pugjs",
+        "web",
+        "fontawesome",
+        "jquery"
+      ]
+    },
+    {
+      "id": "aa5e906c-23d3-49f9-8e3a-afe43d3ae7cf",
+      "slug": "zerda",
+      "title": "ZERDA - An awesome restaurant website",
+      "description": "This is an awesome one page website for restaurants",
+      "url": "https://zerda.netlify.com/",
+      "source": "https://github.com/mohssineAboutaj/zerda",
+      "visible": true,
+      "imgs": [
+        "zerda-preview.jpg"
+      ],
+      "types": [
+        "landing page",
+        "one page",
+        "Business",
+        "cooking"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "javaScript",
+        "handlebars",
+        "materializecss",
+        "webpack",
+        "less",
+        "pwa",
+        "web",
+        "fontawesome",
+        "mobile"
+      ]
+    },
+    {
+      "id": "09fe24cc-109c-43ed-a3e2-6168aee8c7c8",
+      "slug": "zeta",
+      "title": "ZETA - creative, wonderful and amazing design",
+      "description": "A creative, wonderful and amazing design, with a host of beautiful features. It is fully responsive to all kinds of small, medium and large screens. It is based on Bootstrap framework version 4 and fontAwesome iconic version 5",
+      "url": "https://zeta.netlify.com/",
+      "source": "https://github.com/mohssineAboutaj/zeta",
+      "visible": true,
+      "imgs": [
+        "zeta-preview.jpg"
+      ],
+      "types": [
+        "portfolio",
+        "one page"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "javaScript",
+        "bootstrap",
+        "jquery",
+        "scss",
+        "fontawesome",
+        "web"
+      ]
+    },
+    {
+      "id": "d5e0a111-dfcb-4f75-917b-f2371d4090d9",
+      "slug": "alpha",
+      "title": "Alpha Industrial - Best industrial template",
+      "description": "An aweseme industrials template to show & get services from the Industrials & factories",
+      "url": "https://alphaindustrial.netlify.com/",
+      "source": "https://github.com/mohssineAboutaj/alpha-industrial",
+      "visible": true,
+      "imgs": [
+        "alpha-preview.jpg"
+      ],
+      "types": [
+        "landing page",
+        "one page",
+        "Business",
+        "industrial"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "javaScript",
+        "jquery",
+        "scss",
+        "fontawesome",
+        "web"
+      ]
+    },
+    {
+      "id": "d92c035a-c355-4f3e-8d40-22c6eef09672",
+      "slug": "fireworks",
+      "title": "happy new year - SVG fireworks",
+      "description": "This is an SVG fireworks animation, It was created to congratulate the new Hijri year 1439, it build with pure Javascript and Css Animation",
+      "url": "https://codepen.io/MohssineAboutajWeb/pen/OxXGdb",
+      "source": "https://codepen.io/MohssineAboutajWeb/pen/OxXGdb",
+      "visible": true,
+      "imgs": [
+        "fireworks-preview.png"
+      ],
+      "types": [
+        "animation"
+      ],
+      "tech": [
+        "html",
+        "svg",
+        "css",
+        "javaScript",
+        "animation"
+      ]
+    },
+    {
+      "id": "cb184319-3853-4510-94f2-d9c38d35ae5d",
+      "slug": "form-purejs",
+      "title": "login & register form purejs",
+      "description": "A pure js form with styling, no css or html just javaScript lines",
+      "url": "https://codepen.io/MohssineAboutajWeb/pen/wpBQEo?editors=0010",
+      "source": "https://codepen.io/MohssineAboutajWeb/pen/wpBQEo?editors=0010",
+      "visible": true,
+      "imgs": [
+        "form-purejs-preview.png"
+      ],
+      "types": [
+        "form"
+      ],
+      "tech": [
+        "javaScript",
+        "purejs"
+      ]
+    },
+    {
+      "id": "fb448bdb-5a93-41c8-a7e2-38b05686d97c",
+      "slug": "form-vuejs",
+      "title": "signup vuejs form with validation",
+      "description": "A simple vuejs form with validation built using materializeCSS & fontawesome",
+      "url": "https://codepen.io/MohssineAboutajWeb/pen/MRaxQq",
+      "source": "https://codepen.io/MohssineAboutajWeb/pen/MRaxQq",
+      "visible": true,
+      "imgs": [
+        "form-vuejs-preview.png"
+      ],
+      "types": [
+        "form"
+      ],
+      "tech": [
+        "javaScript",
+        "vuejs",
+        "materializecss",
+        "fontawesome",
+        "jquery"
+      ]
+    },
+    {
+      "id": "2f156bd4-ab61-45b1-a80e-b6a2d9887082",
+      "slug": "circular-progress",
+      "title": "Circular progress bar",
+      "description": "This is a dynamic circular progress bar pure javaScript using canvas technology, i use the css for make an progresses responsive but the it's pure javaScript and Canvas",
+      "url": "https://codepen.io/MohssineAboutajWeb/pen/JLNWRa",
+      "source": "https://codepen.io/MohssineAboutajWeb/pen/JLNWRa",
+      "visible": true,
+      "imgs": [
+        "circular-progress-preview.png"
+      ],
+      "types": [
+        "progress"
+      ],
+      "tech": [
+        "html",
+        "canvas",
+        "javaScript"
+      ]
+    },
+    {
+      "id": "7ec90651-905f-4835-9455-8b62e4c22fa4",
+      "slug": "loading-animation",
+      "title": "loading animation",
+      "description": "A Beautiful loading animations, it added to the pages when the user wait for content loading",
+      "url": "https://codepen.io/MohssineAboutajWeb/post/loading-animation",
+      "source": "https://codepen.io/MohssineAboutajWeb/post/loading-animation",
+      "visible": true,
+      "imgs": [
+        "loading-preview.png"
+      ],
+      "types": [
+        "animation"
+      ],
+      "tech": [
+        "html",
+        "css",
+        "javaScript"
+      ]
+    },
+    {
+      "id": "9dcb9a6e-f9ac-4c72-9e65-52575b365515",
+      "title": "vue movies db",
+      "slug": "vue-movies-db",
+      "url": "https://vue-movies-db.netlify.app/",
+      "description": "http://placeimg.com/640/480/business",
+      "imgs": [
+        "https://m.media-amazon.com/images/M/MV5BZmIyMDk5NGYtYjQ5NS00ZWQxLTg2YzQtZDk1ZmM4ZDBlN2E3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg"
+      ],
+      "visible": true,
+      "types": [
+        "moveis",
+        "SPA (single page application)",
+        "streaming"
+      ],
+      "tech": [
+        "vuejs",
+        "html",
+        "css",
+        "javaScript",
+        "scss",
+        "web",
+        "fontawesome",
+        "webpack",
+        "pwa"
+      ],
+      "source": "https://github.com/mohssineAboutaj/vue-movies-db"
+    },
+    {
+      "id": "6pi9EbFmZkdw3S3TDp1HN",
+      "title": "Cube Animation",
+      "slug": "cube-animation",
+      "url": "https://codepen.io/MohssineAboutajWeb/full/QQNaoZ",
+      "description": "A simple cube animation created with CSS 3 animation",
+      "imgs": [
+        "cube.png"
+      ],
+      "visible": true,
+      "types": [
+        "animation"
+      ],
+      "tech": [
+        "css",
+        "html",
+        "animation"
+      ],
+      "source": "https://codepen.io/MohssineAboutajWeb/pen/QQNaoZ"
+    }
+  ],
+  "tech": [
+    "vuejs",
+    "css",
+    "html",
+    "javaScript",
+    "web",
+    "pwa",
+    "mobile",
+    "quasar",
+    "vuetify",
+    "fontawesome",
+    "scss",
+    "capacitor",
+    "firebase",
+    "webpack",
+    "bootstrap",
+    "gulpjs",
+    "pugjs",
+    "jquery",
+    "handlebars",
+    "materializecss",
+    "less",
+    "svg",
+    "animation",
+    "purejs",
+    "canvas"
+  ],
+  "types": [
+    "moveis",
+    "series",
+    "tv",
+    "iptv",
+    "streaming",
+    "SPA (single page application)",
+    "tracker ",
+    "cooking",
+    "meeting",
+    "portfolio",
+    "one page",
+    "landing page",
+    "Business",
+    "industrial",
+    "animation",
+    "form",
+    "progress"
+  ]
+}
