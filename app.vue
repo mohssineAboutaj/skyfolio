@@ -1,33 +1,62 @@
+<script setup>
+import { useAboutInfoStore } from "~/stores/about"
+
+const info = useAboutInfoStore().getInfo
+
+const title = "Vuetify"
+const links = [{ icon: "mdi-home", title: "Home", value: "home" }]
+
+const user = {
+  ...info,
+  avatar: "/uploads/" + info.avatar,
+}
+
+const socials = [
+  { icon: "mdi-facebook", link: "https://www.facebook.com" },
+  { icon: "mdi-twitter", link: "https://www.twitter.com" },
+  { icon: "mdi-linkedin", link: "https://www.linkedin.com" },
+]
+</script>
+
 <template>
-  <v-card flat>
-    <v-toolbar color="primary" dark extended flat>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-    </v-toolbar>
+  <v-layout>
+    <v-navigation-drawer>
+      <div class="d-flex align-center justify-center mt-16 mb-8">
+        <v-avatar :size="200">
+          <v-img :src="user.avatar" :alt="`${user.fullName} avatar`"></v-img>
+        </v-avatar>
+      </div>
+      <h3 class="text-h5 mb-8 text-center">{{ user.fullName }}</h3>
 
-    <v-container>
-      <v-card style="margin-top: -80px">
-        <v-toolbar flat> 
-          <v-toolbar-title> Title </v-toolbar-title>
+      <div class="d-flex align-center justify-space-around mb-8">
+        <v-btn
+          v-for="social in socials"
+          :key="social.icon"
+          :icon="social.icon"
+          :href="social.link"
+          target="_blank"
+        />
+      </div>
 
-          <v-spacer></v-spacer>
+      <v-list density="compact" nav>
+        <v-list-item
+          v-for="link in links"
+          :key="link.value"
+          :prepend-icon="link.icon"
+          :title="link.title"
+          :value="link.value"
+        ></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
-          <v-btn icon>
-            <v-icon>mdi-magnify</v-icon>
-          </v-btn>
+    <v-main class="bg-primary">
+      <v-toolbar>
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-          <v-btn icon>
-            <v-icon>mdi-apps</v-icon>
-          </v-btn>
+        <v-toolbar-title class="text-lg-center">{{ title }}</v-toolbar-title>
+      </v-toolbar>
 
-          <v-btn icon>
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-        </v-toolbar>
-
-        <v-divider></v-divider>
-
-        <v-card-text style="height: 200px"></v-card-text>
-      </v-card>
-    </v-container>
-  </v-card>
+      <router-view />
+    </v-main>
+  </v-layout>
 </template>
