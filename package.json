@@ -1,6 +1,6 @@
 {
   "name": "skyfolio",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "A portfolio website",
   "private": true,
   "type": "module",
@@ -9,7 +9,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "make": "nuxt add"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
