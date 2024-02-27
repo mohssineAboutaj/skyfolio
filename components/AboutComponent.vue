@@ -32,15 +32,11 @@ const tab = ref(tabs[0].value as string)
 </script>
 
 <template>
-  <v-card rounded="xl" class="mb-8">
-    <v-card-title class="hidden-md-and-up text-h5 font-weight-bold text-center">
-      About Me
-    </v-card-title>
+  <v-card>
+    <v-card-title class="hidden-md-and-up text-center">About Me</v-card-title>
 
     <v-tabs v-model="tab" color="primary" align-tabs="end" show-arrows>
-      <v-card-title class="hidden-md-and-down text-h5 font-weight-bold">
-        About Me
-      </v-card-title>
+      <v-card-title class="hidden-md-and-down">About Me</v-card-title>
 
       <v-spacer></v-spacer>
 
