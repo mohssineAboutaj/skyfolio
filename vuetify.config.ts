@@ -2,7 +2,7 @@ import { defineVuetifyConfiguration } from "vuetify-nuxt-module/custom-configura
 import { blue } from "vuetify/lib/util/colors.mjs"
 
 const colorPalette = {
-  primary: blue.darken1,
+  primary: blue.darken3,
 }
 
 export default defineVuetifyConfiguration({
