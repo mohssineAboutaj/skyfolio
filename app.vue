@@ -8,7 +8,7 @@ const info = useAboutInfoStore().getInfo
 // data
 /// static
 const title = "Vuetify"
-const links: Link = [
+const links: Link[] = [
   // home, about, statistics
   {
     icon: "mdi-home",
@@ -33,7 +33,7 @@ const user = {
   ...info,
   avatar: "/uploads/" + info.avatar,
 }
-const socials: Social = [
+const socials: Social[] = [
   { icon: "mdi-facebook", link: "https://www.facebook.com" },
   { icon: "mdi-twitter", link: "https://www.twitter.com" },
   { icon: "mdi-linkedin", link: "https://www.linkedin.com" },
@@ -68,13 +68,14 @@ function goToTarget(targetId: string) {
         />
       </div>
 
-      <v-list density="compact" nav>
+      <v-list density="comfortable" class="pr-0" nav>
         <v-list-item
           v-for="link in links"
           :key="link.value"
           :prepend-icon="link.icon"
           :title="link.title"
           :value="link.value"
+          active-class="bg-primary"
           @click="goToTarget(link.targetId)"
         ></v-list-item>
       </v-list>
