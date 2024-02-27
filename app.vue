@@ -1,17 +1,18 @@
-<script setup>
-import { useAboutInfoStore } from "~/stores/about"
+<script setup lang="ts">
+import { useAboutInfoStore } from "@/stores/about"
+import type { Link, Social } from "@/types/general"
 
 const info = useAboutInfoStore().getInfo
 
 const title = "Vuetify"
-const links = [{ icon: "mdi-home", title: "Home", value: "home" }]
+const links: Link = [{ icon: "mdi-home", title: "Home", value: "home" }]
 
 const user = {
   ...info,
   avatar: "/uploads/" + info.avatar,
 }
 
-const socials = [
+const socials: Social = [
   { icon: "mdi-facebook", link: "https://www.facebook.com" },
   { icon: "mdi-twitter", link: "https://www.twitter.com" },
   { icon: "mdi-linkedin", link: "https://www.linkedin.com" },
@@ -51,7 +52,7 @@ const socials = [
 
     <v-main class="bg-primary">
       <v-toolbar>
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon class="hidden-lg-and-down"></v-app-bar-nav-icon>
 
         <v-toolbar-title class="text-lg-center">{{ title }}</v-toolbar-title>
       </v-toolbar>
