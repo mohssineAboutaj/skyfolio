@@ -11,7 +11,10 @@ const user = {
 </script>
 
 <template>
-  <v-parallax src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
+  <v-parallax
+    id="home"
+    src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+  >
     <v-container class="fill-height">
       <v-row
         class="justify-center align-center flex-column-reverse flex-md-row"

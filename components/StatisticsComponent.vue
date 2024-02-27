@@ -37,7 +37,7 @@ getCodingActivity().then((res) => {
 </script>
 
 <template>
-  <v-card variant="text" class="elevation-0">
+  <v-card variant="text" class="elevation-0" id="statistics">
     <v-card-title>Statistics</v-card-title>
     <v-card-text>
       <v-row>

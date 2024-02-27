@@ -2,21 +2,50 @@
 import { useAboutInfoStore } from "@/stores/about"
 import type { Link, Social } from "@/types/general"
 
+// store
 const info = useAboutInfoStore().getInfo
 
+// data
+/// static
 const title = "Vuetify"
-const links: Link = [{ icon: "mdi-home", title: "Home", value: "home" }]
-
+const links: Link = [
+  // home, about, statistics
+  {
+    icon: "mdi-home",
+    title: "Home",
+    value: "home",
+    targetId: "#home",
+  },
+  {
+    icon: "mdi-account",
+    title: "About",
+    value: "about",
+    targetId: "#about",
+  },
+  {
+    icon: "mdi-chart-bar",
+    title: "Statistics",
+    value: "statistics",
+    targetId: "#statistics",
+  },
+]
 const user = {
   ...info,
   avatar: "/uploads/" + info.avatar,
 }
-
 const socials: Social = [
   { icon: "mdi-facebook", link: "https://www.facebook.com" },
   { icon: "mdi-twitter", link: "https://www.twitter.com" },
   { icon: "mdi-linkedin", link: "https://www.linkedin.com" },
 ]
+
+// methods
+function goToTarget(targetId: string) {
+  const el = document.querySelector(targetId)
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" })
+  }
+}
 </script>
 
 <template>
@@ -46,6 +75,7 @@ const socials: Social = [
           :prepend-icon="link.icon"
           :title="link.title"
           :value="link.value"
+          @click="goToTarget(link.targetId)"
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
