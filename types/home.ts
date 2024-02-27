@@ -23,3 +23,9 @@ export interface AboutCertification {
   url: string
   year: number
 }
+
+export interface Statistic {
+  title: string
+  value: number
+  icon: string
+}

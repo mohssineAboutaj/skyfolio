@@ -3,5 +3,7 @@
 
   <v-container>
     <AboutComponent />
+
+    <StatisticsComponent />
   </v-container>
 </template>
