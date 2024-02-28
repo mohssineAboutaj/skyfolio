@@ -23,10 +23,9 @@ export default defineVuetifyConfiguration({
   defaults: {
     VCard: {
       rounded: "xl",
-      class: "mb-8",
-      elevation: 4,
+      class: "mb-8 elevation-12",
       VCardTitle: {
-        class: "text-h5 font-weight-bold ma-2",
+        class: "text-h5 font-weight-bold my-auto",
       },
     },
   },

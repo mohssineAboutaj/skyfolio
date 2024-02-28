@@ -38,25 +38,23 @@ getCodingActivity().then((res) => {
 
 <template>
   <v-card variant="text" class="elevation-0" id="statistics">
-    <v-card-title>Statistics</v-card-title>
-    <v-card-text>
-      <v-row>
-        <v-col
-          v-for="stat in statistics"
-          :key="stat.title"
-          cols="12"
-          sm="6"
-          md="3"
-        >
-          <StatCard
-            :title="stat.title"
-            :value="stat.value"
-            :icon="stat.icon"
-            :elevation="2"
-            color="secondary"
-          />
-        </v-col>
-      </v-row>
-    </v-card-text>
+    <v-card-title class="mb-4">Statistics</v-card-title>
+    <v-row>
+      <v-col
+        v-for="stat in statistics"
+        :key="stat.title"
+        cols="12"
+        sm="6"
+        md="3"
+      >
+        <StatCard
+          :title="stat.title"
+          :value="stat.value"
+          :icon="stat.icon"
+          :elevation="24"
+          color="secondary"
+        />
+      </v-col>
+    </v-row>
   </v-card>
 </template>
