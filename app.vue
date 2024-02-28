@@ -54,6 +54,14 @@ const links: Link[] = reactive([
     targetId: "#services",
     isCurrent: false,
   },
+  // projects
+  {
+    icon: "mdi-briefcase",
+    title: "Projects",
+    value: "projects",
+    targetId: "#projects",
+    isCurrent: false,
+  },
 ])
 
 // methods

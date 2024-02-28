@@ -7,5 +7,7 @@
     <StatisticsComponent />
 
     <ServicesComponent />
+
+    <ProjectsComponent />
   </v-container>
 </template>

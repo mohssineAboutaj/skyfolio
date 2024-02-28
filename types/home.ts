@@ -36,3 +36,17 @@ export interface Service {
   title: string
   description: string
 }
+
+export interface Project {
+  id: string
+  title: string
+  slug: string
+  url?: string
+  description: string
+  imgs: string[]
+  visible: boolean
+  featured: boolean
+  types: string[]
+  tech: string[]
+  source?: string
+}
