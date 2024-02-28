@@ -5,30 +5,12 @@ import type { Link, Social } from "@/types/general"
 // store
 const info = useAboutInfoStore().getInfo
 
+// router
+const router = useRouter()
+
 // data
 /// static
 const title = "Vuetify"
-const links: Link[] = [
-  // home, about, statistics
-  {
-    icon: "mdi-home",
-    title: "Home",
-    value: "home",
-    targetId: "#home",
-  },
-  {
-    icon: "mdi-account",
-    title: "About",
-    value: "about",
-    targetId: "#about",
-  },
-  {
-    icon: "mdi-chart-bar",
-    title: "Statistics",
-    value: "statistics",
-    targetId: "#statistics",
-  },
-]
 const user = {
   ...info,
   avatar: "/uploads/" + info.avatar,
@@ -38,14 +20,55 @@ const socials: Social[] = [
   { icon: "mdi-twitter", link: "https://www.twitter.com" },
   { icon: "mdi-linkedin", link: "https://www.linkedin.com" },
 ]
+/// reactive
+const links: Link[] = reactive([
+  // home, about, statistics
+  {
+    icon: "mdi-home",
+    title: "Home",
+    value: "home",
+    targetId: "#home",
+    isCurrent: false,
+  },
+  {
+    icon: "mdi-account",
+    title: "About",
+    value: "about",
+    targetId: "#about",
+    isCurrent: false,
+  },
+  {
+    icon: "mdi-chart-bar",
+    title: "Statistics",
+    value: "statistics",
+    targetId: "#statistics",
+    isCurrent: false,
+  },
+])
 
 // methods
-function goToTarget(targetId: string) {
+function goToTarget(link: Link) {
+  const targetId = link.targetId
+
   const el = document.querySelector(targetId)
   if (el) {
     el.scrollIntoView({ behavior: "smooth" })
+
+    router.push(targetId)
+    links.forEach((l) => (l.isCurrent = false))
+
+    link.isCurrent = true
   }
 }
+
+// hooks
+onMounted(() => {
+  const targetId = router.currentRoute.value.hash || links[0].targetId
+  const link = links.find((l) => l.targetId === targetId)
+  if (link) {
+    link.isCurrent = true
+  }
+})
 </script>
 
 <template>
@@ -76,7 +99,8 @@ function goToTarget(targetId: string) {
           :title="link.title"
           :value="link.value"
           active-class="bg-primary"
-          @click="goToTarget(link.targetId)"
+          :active="link.isCurrent"
+          @click="goToTarget(link)"
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -88,7 +112,7 @@ function goToTarget(targetId: string) {
         <v-toolbar-title class="text-lg-center">{{ title }}</v-toolbar-title>
       </v-toolbar>
 
-      <router-view />
+      <nuxt-page />
     </v-main>
   </v-layout>
 </template>
