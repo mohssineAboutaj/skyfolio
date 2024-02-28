@@ -22,7 +22,7 @@ const socials: Social[] = [
 ]
 /// reactive
 const links: Link[] = reactive([
-  // home, about, statistics
+  // home
   {
     icon: "mdi-home",
     title: "Home",
@@ -30,6 +30,7 @@ const links: Link[] = reactive([
     targetId: "#home",
     isCurrent: false,
   },
+  // about
   {
     icon: "mdi-account",
     title: "About",
@@ -37,11 +38,20 @@ const links: Link[] = reactive([
     targetId: "#about",
     isCurrent: false,
   },
+  // statistics
   {
     icon: "mdi-chart-bar",
     title: "Statistics",
     value: "statistics",
     targetId: "#statistics",
+    isCurrent: false,
+  },
+  // services
+  {
+    icon: "mdi-cogs",
+    title: "Services",
+    value: "services",
+    targetId: "#services",
     isCurrent: false,
   },
 ])

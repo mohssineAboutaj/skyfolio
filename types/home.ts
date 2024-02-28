@@ -29,3 +29,10 @@ export interface Statistic {
   value: number
   icon: string
 }
+
+export interface Service {
+  id: string
+  icon: string
+  title: string
+  description: string
+}
