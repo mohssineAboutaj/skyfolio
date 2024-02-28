@@ -1,11 +1,26 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useProjectsStore } from "~/stores/projects"
 import type { Project } from "~/types/home"
+import { useDisplay } from "vuetify"
 
 // store
 const { getFeatured } = useProjectsStore()
 
+// vuetify
+const { thresholds } = useDisplay()
+
 // data
+/// static
+const swiperOptions = {
+  modules: [SwiperAutoplay, SwiperEffectCoverflow],
+  slidesPerView: 1,
+  breakpoints: {
+    [thresholds.value.sm]: { slidesPerView: 2, spaceBetween: 20 },
+    [thresholds.value.lg]: { slidesPerView: 3, spaceBetween: 30 },
+    [thresholds.value.xl]: { slidesPerView: 5, spaceBetween: 40 },
+  },
+  autoplay: { delay: 1500 },
+}
 /// reactive
 const projects: Project[] = reactive([])
 
@@ -18,16 +33,10 @@ getFeatured().forEach((project) => {
 <template>
   <v-card id="projects" variant="text" class="elevation-0">
     <v-card-title class="mb-4">Projects</v-card-title>
-    <v-row>
-      <v-col
-        v-for="project in projects"
-        :key="project.id"
-        cols="12"
-        md="6"
-        lg="4"
-      >
+    <Swiper v-bind="swiperOptions">
+      <SwiperSlide v-for="project in projects" :key="project.id">
         <ProjectPreviewCard :project="project" />
-      </v-col>
-    </v-row>
+      </SwiperSlide>
+    </Swiper>
   </v-card>
 </template>
