@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { useAboutInfoStore } from "@/stores/about"
-import type { Link, Social } from "@/types/general"
+import { useContactStore } from "@/stores/contacts"
+import type { Link } from "@/types/general"
+import type { Contact } from "@/types/home"
 
-// store
-const info = useAboutInfoStore().getInfo
+// stores
+const infoStore = useAboutInfoStore().getInfo
+const { getFeatured } = useContactStore()
 
 // router
 const router = useRouter()
@@ -12,15 +15,11 @@ const router = useRouter()
 /// static
 const title = "Vuetify"
 const user = {
-  ...info,
-  avatar: "/uploads/" + info.avatar,
+  ...infoStore,
+  avatar: "/uploads/" + infoStore.avatar,
 }
-const socials: Social[] = [
-  { icon: "mdi-facebook", link: "https://www.facebook.com" },
-  { icon: "mdi-twitter", link: "https://www.twitter.com" },
-  { icon: "mdi-linkedin", link: "https://www.linkedin.com" },
-]
 /// reactive
+const socials: Contact[] = reactive([])
 const links: Link[] = reactive([
   // home
   {
@@ -80,6 +79,11 @@ const links: Link[] = reactive([
   },
 ])
 
+// fill data
+getFeatured.forEach((contact) => {
+  socials.push(contact)
+})
+
 // methods
 function goToTarget(link: Link) {
   const targetId = link.targetId
@@ -109,20 +113,24 @@ onMounted(() => {
   <v-layout>
     <v-navigation-drawer>
       <div class="d-flex align-center justify-center mt-16 mb-8">
-        <v-avatar :size="200">
+        <v-avatar :size="80">
           <v-img :src="user.avatar" :alt="`${user.fullName} avatar`"></v-img>
         </v-avatar>
       </div>
-      <h3 class="text-h5 mb-8 text-center">{{ user.fullName }}</h3>
+      <h3 class="text-h5 mb-8 text-center text-capitalize">
+        {{ user.fullName }}
+      </h3>
 
       <div class="d-flex align-center justify-space-around mb-8">
         <v-btn
           v-for="social in socials"
           :key="social.icon"
-          :icon="social.icon"
           :href="social.link"
           target="_blank"
-        />
+          icon
+        >
+          <Icon :name="social.icon" size="24" />
+        </v-btn>
       </div>
 
       <v-list density="comfortable" class="pr-0" nav>

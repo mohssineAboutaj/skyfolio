@@ -6,8 +6,7 @@ export const useContactStore = defineStore("contacts", {
   state: () => ({ contacts }),
   getters: {
     getAll: (state) => state.contacts,
-    getFeatured(): Contact[] {
-      return this.getAll.filter((contact: Contact) => contact.isFeatured)
-    },
+    getFeatured: (state) =>
+      state.contacts.filter((contact) => contact.isFeatured),
   },
 })
