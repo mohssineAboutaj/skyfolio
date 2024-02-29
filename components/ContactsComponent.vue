@@ -61,7 +61,12 @@ const onSubmit = handleSubmit((values) => {
     </template>
   </v-snackbar>
 
-  <v-card id="contacts" class="my-0 py-0" rounded="none">
+  <v-card
+    id="contacts"
+    class="elevation-0"
+    rounded="none"
+    style="margin-bottom: 0px !important"
+  >
     <v-container>
       <v-card-title class="mb-4">Contacts</v-card-title>
       <v-card-text>

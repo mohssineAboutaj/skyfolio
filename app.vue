@@ -147,6 +147,11 @@ onMounted(() => {
       </v-toolbar>
 
       <nuxt-page />
+
+      <v-footer class="text-h6 text-center justify-center ga-2 text-capitalize">
+        <span>&copy; {{ new Date().getFullYear() }}</span>
+        <b>{{ user.fullName }}</b>
+      </v-footer>
     </v-main>
   </v-layout>
 </template>
