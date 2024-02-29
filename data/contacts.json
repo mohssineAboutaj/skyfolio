@@ -2,65 +2,65 @@
   {
     "id": "39f9da6e-cb8a-4c37-9e0c-121390ea4b8b",
     "label": "send an email",
-    "icon": "envelope",
+    "icon": "simple-icons:gmail",
     "color": "#111",
     "link": "mailto:mohssineaboutaj1995@gmail.com",
-    "isBrand": false
+    "isFeatured": false
   },
   {
     "id": "601cfe06-275f-4d50-9ca3-e1f924fd8342",
     "label": "follow me on linkedin",
-    "icon": "linkedin",
+    "icon": "simple-icons:linkedin",
     "color": "#0077b5",
     "link": "https://www.linkedin.com/in/mohssineAboutaj",
-    "isBrand": true
+    "isFeatured": true
   },
   {
     "id": "c5a6c991-1a57-4071-805f-d617a4d69950",
     "label": "follow me on twitter",
-    "icon": "twitter",
+    "icon": "simple-icons:twitter",
     "color": "#1da1f2",
     "link": "https://twitter.com/mohssineAboutaj",
-    "isBrand": true
+    "isFeatured": true
   },
   {
     "id": "5d5c5fc3-65f7-44dd-9458-84ca9a1255dd",
     "label": "follow & contact me on telegram",
-    "icon": "telegram",
+    "icon": "simple-icons:telegram",
     "color": "#0088cc",
     "link": "https://t.me/mohssineAboutaj",
-    "isBrand": true
+    "isFeatured": false
   },
   {
     "id": "e0e10545-ef29-471e-9487-cc7c040ca79b",
     "label": "follow me on github",
-    "icon": "github",
+    "icon": "simple-icons:github",
     "color": "#333",
     "link": "https://github.com/mohssineAboutaj",
-    "isBrand": true
+    "isFeatured": true
   },
   {
     "id": "d2ef6a01-8dbe-433c-97b9-add15fbadfd5",
     "label": "check my packages on NPM",
-    "icon": "npm",
+    "icon": "simple-icons:npm",
     "color": "#cc3534",
     "link": "https://www.npmjs.com/~mohssineaboutaj",
-    "isBrand": true
+    "isFeatured": false
   },
   {
     "id": "4a088335-17dc-4904-95fe-17c6137e823e",
     "label": "follow me on codepen",
-    "icon": "codepen",
+    "icon": "simple-icons:codepen",
     "color": "#1e1f26",
     "link": "https://codepen.io/MohssineAboutajWeb",
-    "isBrand": true
+    "isFeatured": false
   },
   {
     "id": "74640199-df34-49ea-a21c-ad64fa5f32e9",
     "label": "follow me on facebook (personal)",
-    "icon": "facebook",
+    "icon": "simple-icons:facebook",
     "color": "#3b5998",
     "link": "https://www.facebook.com/vive.mouhssine",
-    "isBrand": true
+    "isFeatured": false
   }
 ]

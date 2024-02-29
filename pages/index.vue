@@ -12,4 +12,6 @@
 
     <ProjectsComponent />
   </v-container>
+
+  <ContactsComponent />
 </template>

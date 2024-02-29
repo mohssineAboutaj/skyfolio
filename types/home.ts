@@ -58,3 +58,12 @@ export interface Skill {
   score: number
   icon: string
 }
+
+export interface Contact {
+  id: string
+  label: string
+  icon: string
+  color: string
+  link: string
+  isFeatured: boolean
+}

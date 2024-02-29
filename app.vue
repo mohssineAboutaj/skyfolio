@@ -70,6 +70,14 @@ const links: Link[] = reactive([
     targetId: "#projects",
     isCurrent: false,
   },
+  // contacts
+  {
+    icon: "mdi-email",
+    title: "Contacts",
+    value: "contacts",
+    targetId: "#contacts",
+    isCurrent: false,
+  },
 ])
 
 // methods
