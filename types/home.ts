@@ -50,3 +50,11 @@ export interface Project {
   tech: string[]
   source?: string
 }
+
+export interface Skill {
+  id: string
+  name: string
+  color: string
+  score: number
+  icon: string
+}

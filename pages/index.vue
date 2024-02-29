@@ -8,6 +8,8 @@
 
     <ServicesComponent />
 
+    <SkillsComponent />
+
     <ProjectsComponent />
   </v-container>
 </template>

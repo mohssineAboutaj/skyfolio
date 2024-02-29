@@ -54,6 +54,14 @@ const links: Link[] = reactive([
     targetId: "#services",
     isCurrent: false,
   },
+  // skills
+  {
+    icon: "mdi-code-tags-check",
+    title: "Skills",
+    value: "skills",
+    targetId: "#skills",
+    isCurrent: false,
+  },
   // projects
   {
     icon: "mdi-briefcase",
