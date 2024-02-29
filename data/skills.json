@@ -4,228 +4,228 @@
     "name": "HTML",
     "score": 100,
     "color": "#e34f26",
-    "icon": "mdi-language-html5"
+    "icon": "simple-icons:html5"
   },
   {
     "id": "98c6e033-7299-46c1-b77f-f170c2bbca5a",
     "name": "CSS",
     "score": 95,
     "color": "#264de4",
-    "icon": "mdi-language-css3"
+    "icon": "simple-icons:css3"
   },
   {
     "id": "a56f9d9f-697b-400f-8fa5-c404fe6e707f",
     "name": "git (github, bitbucket)",
     "score": 78,
     "color": "#333",
-    "icon": "mdi-git"
+    "icon": "simple-icons:git"
   },
   {
     "id": "439a51b8-facb-4ae6-8350-6f70d242897f",
     "name": "scss",
     "score": 90,
     "color": "#CD6799",
-    "icon": "mdi-sass"
+    "icon": "simple-icons:sass"
   },
   {
     "id": "60e4f4b6-f900-454e-8602-ac1a37cd94cb",
     "name": "less",
     "score": 90,
     "color": "#1D365D",
-    "icon": "mdi-less"
+    "icon": "simple-icons:less"
   },
   {
     "id": "8e8d151b-99c7-4ef4-825b-e893b322e660",
     "name": "pugjs (jade)",
     "score": 90,
     "color": "#A86454",
-    "icon": "mdi-language-javascript"
+    "icon": "simple-icons:pug"
   },
   {
     "id": "ada726b9-dff7-41c7-b33c-daa8505c7c67",
     "name": "handlebars",
     "score": 90,
     "color": "#F0772B",
-    "icon": "mdi-code-braces"
+    "icon": "simple-icons:handlebarsdotjs"
   },
   {
     "id": "7e3983f4-6f84-464c-adce-df001bd03993",
     "name": "svg",
     "score": 70,
-    "icon": "mdi-image"
+    "icon": "simple-icons:svg"
   },
   {
     "id": "dc3a631f-0793-4c11-8e78-5e7182ec5b07",
     "name": "canvas",
     "score": 85,
-    "icon": "mdi-canvas"
+    "icon": "simple-icons:canvas"
   },
   {
     "id": "a22c1c7a-f5f6-4f12-b389-abfca6c3b4bd",
     "name": "Svelte",
     "score": 60,
     "color": "#FF3E00",
-    "icon": "mdi-svelte"
+    "icon": "simple-icons:svelte"
   },
   {
     "id": "474393d9-8cdb-473b-b085-ee47ba785ead",
     "name": "Adonis JS",
     "score": 50,
     "color": "#510C59",
-    "icon": "mdi-nodejs"
+    "icon": "simple-icons:nodedotjs"
   },
   {
     "id": "47d6d2e3-bd56-4184-b488-c744e4697ce2",
     "name": "javaScript",
     "score": 90,
     "color": "#C3B128",
-    "icon": "mdi-language-javascript"
+    "icon": "simple-icons:javascript"
   },
   {
     "id": "a2b3daa2-2155-4472-841b-17fb95183703",
     "name": "typeScript",
     "score": 50,
     "color": "#294E80",
-    "icon": "mdi-language-typescript"
+    "icon": "simple-icons:typescript"
   },
   {
     "id": "db165c0e-dff0-4570-87e4-6720d73e61f8",
     "name": "jQuery",
     "score": 95,
     "color": "#0769AD",
-    "icon": "mdi-jquery"
+    "icon": "simple-icons:jquery"
   },
   {
     "id": "fa6a18b7-49cc-4317-8469-81b4a0c6395d",
     "name": "vuejs",
     "score": 91,
     "color": "#41B883",
-    "icon": "mdi-vuejs"
+    "icon": "simple-icons:vuedotjs"
   },
   {
     "id": "f141fc2e-1309-446b-bb4f-490d27eff2d0",
     "name": "nuxtjs",
     "score": 80,
     "color": "#4BA497",
-    "icon": "mdi-nuxt"
+    "icon": "simple-icons:nuxtdotjs"
   },
   {
     "id": "5bdf6797-762b-4df3-880f-4862a1181044",
     "name": "vuetify",
     "score": 90,
     "color": "#2071C6",
-    "icon": "mdi-vuetify"
+    "icon": "simple-icons:vuetify"
   },
   {
     "id": "cfc25a88-0bd1-45f6-9a05-ca3ba777c7e3",
     "name": "gulpjs",
     "score": 90,
     "color": "#CF4647",
-    "icon": "mdi-gulp"
+    "icon": "simple-icons:gulp"
   },
   {
     "id": "8bb31eaa-40ed-4b59-ba5e-d3a061c28085",
     "name": "webpack",
     "score": 90,
     "color": "#75AFCC",
-    "icon": "mdi-webpack"
+    "icon": "simple-icons:webpack"
   },
   {
     "id": "6e63bd82-087c-425b-8028-7ba77fac5b19",
     "name": "materialize css",
     "score": 90,
     "color": "#EB7077",
-    "icon": "mdi-material-ui"
+    "icon": "devicon:materializecss"
   },
   {
     "id": "64171710-d632-44c7-b436-8138ae4f2561",
     "name": "bootstrap",
     "score": 97,
     "color": "#7952B3",
-    "icon": "mdi-bootstrap"
+    "icon": "simple-icons:bootstrap"
   },
   {
     "id": "743bc9f2-6ba1-4e62-8821-06c807871429",
     "name": "jasmine",
     "score": 75,
     "color": "#8A4182",
-    "icon": "mdi-jasmine"
+    "icon": "simple-icons:jasmine"
   },
   {
     "id": "dcba3b7d-3e2d-443f-ad8e-a48f62023404",
     "name": "jest",
     "score": 75,
     "color": "#15C213",
-    "icon": "mdi-jest"
+    "icon": "simple-icons:jest"
   },
   {
     "id": "197f8238-a09d-4b51-9570-31c21f5d5763",
     "name": "PHP",
     "score": 80,
     "color": "#8892be",
-    "icon": "mdi-language-php"
+    "icon": "simple-icons:php"
   },
   {
     "id": "17c2b16c-68e3-4624-b766-43e8858a675b",
     "name": "mySql",
     "score": 80,
     "color": "#00758f",
-    "icon": "mdi-database"
+    "icon": "simple-icons:mysql"
   },
   {
     "id": "6804efa6-c18e-418f-9bed-d51877be61c9",
     "name": "wordpress",
     "score": 77,
     "color": "#21759b",
-    "icon": "mdi-wordpress"
+    "icon": "simple-icons:wordpress"
   },
   {
     "id": "5890ca58-828f-4b41-ab08-b595319fc171",
     "name": "nodejs",
     "score": 56,
     "color": "#6cc24a",
-    "icon": "mdi-nodejs"
+    "icon": "simple-icons:nodedotjs"
   },
   {
     "id": "6633d8d0-bdfd-4df6-aa49-0b6e96fa57e3",
     "name": "expressjs",
     "score": 65,
     "color": "#44453D",
-    "icon": "mdi-nodejs"
+    "icon": "simple-icons:nodedotjs"
   },
   {
     "id": "16d09f11-7aad-45bc-b1ec-168eaf8b7ad6",
     "name": "mongodb",
     "score": 30,
     "color": "#589636",
-    "icon": "mdi-database"
+    "icon": "simple-icons:mongodb"
   },
   {
     "id": "376aad04-6bf4-408d-912f-5460d8cdc08d",
     "name": "electronjs",
     "score": 30,
     "color": "#cc3534",
-    "icon": "mdi-electron-framework"
+    "icon": "simple-icons:electron"
   },
   {
     "id": "a1c95592-eb9d-424c-98b8-e2d560609869",
     "name": "Laravel",
     "color": "#ff6057",
     "score": 61,
-    "icon": "mdi-laravel"
+    "icon": "simple-icons:laravel"
   },
   {
     "id": "B72k5LBvq2SHXVD2AG-01",
     "name": "Quasar",
     "color": "#339ecc",
     "score": 65,
-    "icon": "mdi-quasar"
+    "icon": "simple-icons:quasar"
   },
   {
     "id": "zOn05xrpL0waE3HpXGBjV",
     "name": "React.js",
     "color": "#61DBFBFF",
     "score": 32,
-    "icon": "mdi-react"
+    "icon": "simple-icons:react"
   }
 ]

@@ -24,28 +24,35 @@ getTopSkills(12).forEach((skill) => {
           v-for="skill in skills"
           :key="skill.id"
           cols="12"
-          sm="6"
-          md="4"
-          lg="3"
-          class="text-center my-8"
+          md="6"
+          class="my-8"
         >
-          <v-progress-circular
-            :size="100"
-            :width="12"
-            :value="skill.score"
-            :model-value="skill.score"
-            :color="skill.color || 'primary'"
-          >
-            <template v-slot:default>
+          <v-row>
+            <v-col cols="2" class="d-flex justify-center align-center">
               <v-tooltip location="top" :text="skill.name">
                 <template v-slot:activator="{ props }">
-                  <v-icon v-bind="props" :size="40" class="text-white">
-                    {{ skill.icon }}
-                  </v-icon>
+                  <Icon
+                    :name="skill.icon"
+                    size="60"
+                    :color="skill.color"
+                    v-bind="props"
+                  />
                 </template>
               </v-tooltip>
-            </template>
-          </v-progress-circular>
+            </v-col>
+            <v-col cols="10" class="d-flex justify-center align-center">
+              <v-tooltip location="top" :text="skill.score">
+                <template v-slot:activator="{ props }">
+                  <v-progress-linear
+                    v-model="skill.score"
+                    color="blue-grey"
+                    height="25"
+                    v-bind="props"
+                  ></v-progress-linear>
+                </template>
+              </v-tooltip>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
     </v-card-text>
