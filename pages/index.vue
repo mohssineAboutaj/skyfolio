@@ -11,7 +11,7 @@
     <SkillsComponent />
 
     <ProjectsComponent />
-  </v-container>
 
-  <ContactsComponent />
+    <ContactsComponent />
+  </v-container>
 </template>
