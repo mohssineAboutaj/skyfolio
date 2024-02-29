@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { useAboutInfoStore } from "@/stores/about"
-import { useContactStore } from "@/stores/contacts"
-import type { Link } from "@/types/general"
-import type { Contact } from "@/types/home"
+import type { Link } from "~/types/general"
+import type { Contact } from "~/types/home"
 
 // stores
 const infoStore = useAboutInfoStore().getInfo

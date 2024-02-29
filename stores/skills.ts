@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import skills from "@/data/skills.json"
+import skills from "~/data/skills.json"
 
 export const useSkillsStore = defineStore("skills", {
   state: () => ({ skills }),

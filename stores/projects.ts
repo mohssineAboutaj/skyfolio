@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import projects from "@/data/projects.json"
+import projects from "~/data/projects.json"
 import type { Project } from "~/types/home"
 
 export const useProjectsStore = defineStore("projects", {

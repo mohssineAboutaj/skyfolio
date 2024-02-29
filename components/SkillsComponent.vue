@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { useSkillsStore } from "@/stores/skills"
 import type { Skill } from "~/types/home"
 
 // store

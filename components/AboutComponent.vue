@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useAboutInfoStore } from "@/stores/about"
-import { ref } from "vue"
 import type {
   AboutTab,
   AboutBasicInfo,

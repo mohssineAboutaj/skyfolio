@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Service } from "~/types/home"
-import { useServicesStore } from "~/stores/services"
 
 // store
 const servicesStore = useServicesStore()

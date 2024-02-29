@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import contacts from "@/data/contacts.json"
+import contacts from "~/data/contacts.json"
 import type { Contact } from "~/types/home"
 
 export const useContactStore = defineStore("contacts", {

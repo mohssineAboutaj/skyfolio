@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useProjectsStore } from "~/stores/projects"
 import type { Project } from "~/types/home"
 import { useDisplay } from "vuetify"
 

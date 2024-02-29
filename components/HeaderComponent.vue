@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import { useAboutInfoStore } from "@/stores/about"
-import type { Link, Social } from "@/types/general"
-
-const info = useAboutInfoStore().getInfo
+const infoStore = useAboutInfoStore().getInfo
 
 const user = {
-  ...info,
-  avatar: "/uploads/" + info.avatar,
+  ...infoStore,
+  avatar: "/uploads/" + infoStore.avatar,
 }
 </script>
 
