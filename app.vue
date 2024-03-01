@@ -17,6 +17,7 @@ const user = {
   avatar: "/uploads/" + infoStore.avatar,
 }
 /// reactive
+const drawer = ref(false)
 const socials: Contact[] = reactive([])
 const links: Link[] = reactive([
   // home
@@ -99,6 +100,7 @@ function goToTarget(link: Link) {
 
 // hooks
 onMounted(() => {
+  // set current link
   const targetId = router.currentRoute.value.hash || links[0].targetId
   const link = links.find((l) => l.targetId === targetId)
   if (link) {
@@ -109,7 +111,7 @@ onMounted(() => {
 
 <template>
   <v-layout>
-    <v-navigation-drawer>
+    <v-navigation-drawer v-model="drawer">
       <div class="d-flex align-center justify-center mt-16 mb-8">
         <v-avatar :size="80">
           <v-img :src="user.avatar" :alt="`${user.fullName} avatar`"></v-img>
@@ -146,8 +148,11 @@ onMounted(() => {
     </v-navigation-drawer>
 
     <v-main class="bg-primary">
-      <v-toolbar>
-        <v-app-bar-nav-icon class="hidden-lg-and-down"></v-app-bar-nav-icon>
+      <v-toolbar flat color="transparent">
+        <v-app-bar-nav-icon
+          class="hidden-lg-and-up"
+          @click="drawer = !drawer"
+        ></v-app-bar-nav-icon>
 
         <v-toolbar-title class="text-lg-center">{{ title }}</v-toolbar-title>
       </v-toolbar>
