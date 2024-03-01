@@ -22,18 +22,29 @@ const swiperSharedOptions = {
 /// reactive
 const project: Project = ref({} as Project)
 const slug = ref("")
-const panel = ref([0])
+const title = ref("")
+const breadcrumbItems = reactive([
+  { title: "Home", disabled: false, href: "/" },
+  { title: "Projects", disabled: false, href: "/projects" },
+  { title: "", disabled: true },
+])
 
-// fill data
-slug.value = route.params.slug as string
-project.value = getBySlug(slug.value)
-updateTitle(project.value.title)
+// hooks
+onBeforeMount(() => {
+  slug.value = route.params.slug as string
+  project.value = getBySlug(slug.value)
+  title.value = project.value.title
+  updateTitle(title.value)
+  breadcrumbItems[2].title = title.value
+})
 </script>
 
 <template>
   <v-container>
+    <v-breadcrumbs :items="breadcrumbItems" divider="-"></v-breadcrumbs>
+
     <v-card>
-      <v-card-title class="mb-4 text-center">{{ project.title }}</v-card-title>
+      <v-card-title class="mb-4 text-center">{{ title }}</v-card-title>
       <v-card-text>
         <v-row>
           <v-col cols="12" md="6">
@@ -43,10 +54,11 @@ updateTitle(project.value.title)
               class="main-gallery"
               :thumbs="{ swiper: '.nav-gallery', autoScrollOffset: 3 }"
             >
-              <SwiperSlide v-for="n in 5" :key="n">
-                <v-img
-                  :src="`https://swiperjs.com/demos/images/nature-${n}.jpg`"
-                />
+              <SwiperSlide
+                v-for="(image, n) in project.imgs"
+                :key="`main-img-${n}`"
+              >
+                <v-img :src="useProjectImageFormater(image)" />
               </SwiperSlide>
             </Swiper>
 
@@ -56,10 +68,11 @@ updateTitle(project.value.title)
               class="nav-gallery my-2"
               :spaceBetween="10"
             >
-              <SwiperSlide v-for="n in 5" :key="n">
-                <v-img
-                  :src="`https://swiperjs.com/demos/images/nature-${n}.jpg`"
-                />
+              <SwiperSlide
+                v-for="(image, n) in project.imgs"
+                :key="`gallery-img-${n}`"
+              >
+                <v-img :src="useProjectImageFormater(image)" />
               </SwiperSlide>
             </Swiper>
           </v-col>

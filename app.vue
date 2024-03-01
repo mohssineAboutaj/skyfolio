@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { Link } from "~/types/general"
 import type { Contact } from "~/types/home"
-import { name } from "~/package.json"
 
 // stores
 const infoStore = useAboutInfoStore().getInfo
@@ -52,7 +51,6 @@ onMounted(() => {
   const link = links.find((l) => l.targetId === targetId)
   if (link) {
     link.isCurrent = true
-    updateTitle(name)
   }
 })
 

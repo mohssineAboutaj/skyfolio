@@ -5,13 +5,7 @@ const { project } = defineProps({
 })
 
 // computed
-const projectImg = computed(() => {
-  if (project.imgs[0].startsWith("http")) {
-    return project.imgs[0]
-  } else {
-    return `/uploads/imgs/projects/${project.imgs[0]}`
-  }
-})
+const projectImg = useProjectImageFormater(project.imgs[0])
 </script>
 
 <template>
