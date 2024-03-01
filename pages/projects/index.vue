@@ -24,21 +24,17 @@ onMounted(() => {
 
 <template>
   <v-container>
-    <v-card id="projects">
-      <v-card-text>
-        <v-row>
-          <v-col
-            v-for="project in projects"
-            :key="project.id"
-            cols="12"
-            md="6"
-            lg="4"
-            xl="3"
-          >
-            <ProjectPreviewCard :project="project" />
-          </v-col>
-        </v-row>
-      </v-card-text>
-    </v-card>
+    <v-row>
+      <v-col
+        v-for="project in projects"
+        :key="project.id"
+        cols="12"
+        md="6"
+        lg="4"
+        xl="3"
+      >
+        <ProjectPreviewCard :project="project" />
+      </v-col>
+    </v-row>
   </v-container>
 </template>

@@ -31,11 +31,24 @@ getFeatured().forEach((project) => {
 
 <template>
   <v-card id="projects" variant="text" class="elevation-0">
-    <v-card-title class="mb-4">Projects</v-card-title>
-    <Swiper v-bind="swiperOptions">
-      <SwiperSlide v-for="project in projects" :key="project.id">
-        <ProjectPreviewCard :project="project" />
-      </SwiperSlide>
-    </Swiper>
+    <v-card-title class="mb-4 d-flex justify-space-between">
+      <span>Projects</span>
+      <v-spacer></v-spacer>
+      <v-btn
+        to="/projects"
+        color="dark"
+        rounded="xl"
+        append-icon="mdi-chevron-double-right"
+      >
+        <span class="hidden-sm-and-down">see all</span>
+      </v-btn>
+    </v-card-title>
+    <v-card-text>
+      <Swiper v-bind="swiperOptions">
+        <SwiperSlide v-for="project in projects" :key="project.id">
+          <ProjectPreviewCard :project="project" />
+        </SwiperSlide>
+      </Swiper>
+    </v-card-text>
   </v-card>
 </template>
