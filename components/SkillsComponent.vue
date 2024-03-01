@@ -28,7 +28,7 @@ getTopSkills(12).forEach((skill) => {
         >
           <v-row>
             <v-col cols="2" class="d-flex justify-center align-center">
-              <v-tooltip location="top" :text="skill.name">
+              <v-tooltip location="top" :text="skill.name.toString()">
                 <template v-slot:activator="{ props }">
                   <Icon
                     :name="skill.icon"
@@ -40,7 +40,7 @@ getTopSkills(12).forEach((skill) => {
               </v-tooltip>
             </v-col>
             <v-col cols="10" class="d-flex justify-center align-center">
-              <v-tooltip location="top" :text="skill.score">
+              <v-tooltip location="top" :text="skill.score.toString()">
                 <template v-slot:activator="{ props }">
                   <v-progress-linear
                     v-model="skill.score"

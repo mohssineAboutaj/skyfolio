@@ -26,7 +26,7 @@ const aboutBasicInfos: AboutBasicInfo[] = [
   { title: "Address", subtitle: info.address, icon: "mdi-map-marker" },
 ]
 /// dynamic
-const tab = ref(tabs[0].value as string)
+const tab = ref(null)
 </script>
 
 <template>
