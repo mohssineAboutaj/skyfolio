@@ -15,9 +15,9 @@ const certificates: AboutCertification[] = aboutStore.getCertifications
 // data
 /// static
 const tabs: AboutTab[] = [
-  { name: "Information", value: "info" },
-  { name: "Education", value: "education" },
-  { name: "Certificates", value: "certificates" },
+  { name: "Information", value: "info", icon: "mdi-information" },
+  { name: "Education", value: "education", icon: "mdi-school" },
+  { name: "Certificates", value: "certificates", icon: "mdi-certificate" },
 ]
 const aboutBasicInfos: AboutBasicInfo[] = [
   { title: "Full Name", subtitle: info.fullName, icon: "mdi-account" },
@@ -33,13 +33,14 @@ const tab = ref(null)
   <v-card id="about">
     <v-card-title class="hidden-md-and-up text-center">About Me</v-card-title>
 
-    <v-tabs v-model="tab" color="primary" align-tabs="end" show-arrows>
+    <v-tabs v-model="tab" color="primary" align-tabs="end" grow>
       <v-card-title class="hidden-md-and-down">About Me</v-card-title>
 
-      <v-spacer></v-spacer>
+      <v-spacer class="hidden-md-and-down"></v-spacer>
 
       <v-tab v-for="tab in tabs" :key="tab.value" :value="tab.value">
-        {{ tab.name }}
+        <v-icon class="hidden-md-and-up">{{ tab.icon }}</v-icon>
+        <span class="hidden-md-and-down">{{ tab.name }}</span>
       </v-tab>
     </v-tabs>
     <v-window v-model="tab">

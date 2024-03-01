@@ -44,7 +44,7 @@ onBeforeMount(() => {
     <v-breadcrumbs :items="breadcrumbItems" divider="-"></v-breadcrumbs>
 
     <v-card>
-      <v-card-title class="mb-4 text-center">{{ title }}</v-card-title>
+      <v-card-title class="text-center">{{ title }}</v-card-title>
       <v-card-text>
         <v-row>
           <v-col cols="12" md="6">
@@ -104,7 +104,6 @@ onBeforeMount(() => {
                   target="_blank"
                   prepend-icon="mdi-web"
                   color="primary"
-                  rounded="xl"
                   class="mr-2"
                 >
                   Visit Website
@@ -116,7 +115,6 @@ onBeforeMount(() => {
                   target="_blank"
                   prepend-icon="mdi-code-tags"
                   color="primary"
-                  rounded="xl"
                 >
                   Source Code
                 </v-btn>

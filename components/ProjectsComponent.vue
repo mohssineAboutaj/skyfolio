@@ -31,15 +31,10 @@ getFeatured().forEach((project) => {
 
 <template>
   <v-card id="projects" variant="text" class="elevation-0">
-    <v-card-title class="mb-4 d-flex justify-space-between">
+    <v-card-title class="d-flex justify-space-between">
       <span>Projects</span>
       <v-spacer></v-spacer>
-      <v-btn
-        to="/projects"
-        color="dark"
-        rounded="xl"
-        append-icon="mdi-chevron-double-right"
-      >
+      <v-btn to="/projects" color="dark" append-icon="mdi-chevron-double-right">
         <span class="hidden-sm-and-down">see all</span>
       </v-btn>
     </v-card-title>

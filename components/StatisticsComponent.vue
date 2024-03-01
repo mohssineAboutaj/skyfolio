@@ -38,7 +38,7 @@ getCodingActivity().then((res) => {
 
 <template>
   <v-card variant="text" class="elevation-0" id="statistics">
-    <v-card-title class="mb-4">Statistics</v-card-title>
+    <v-card-title>Statistics</v-card-title>
     <v-row>
       <v-col
         v-for="stat in statistics"

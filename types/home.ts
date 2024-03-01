@@ -1,6 +1,7 @@
 export interface AboutTab {
   name: string
   value: string
+  icon: string
 }
 
 export interface AboutBasicInfo {

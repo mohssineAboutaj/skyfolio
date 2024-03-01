@@ -11,7 +11,7 @@ const services: Service[] = servicesStore.getAll
 
 <template>
   <v-card variant="text" class="elevation-0" id="services">
-    <v-card-title class="mb-4">Services</v-card-title>
+    <v-card-title>Services</v-card-title>
     <v-row>
       <v-col
         v-for="(service, i) in services"
@@ -27,9 +27,7 @@ const services: Service[] = servicesStore.getAll
               <v-icon size="50">{{ service.icon }}</v-icon>
             </v-avatar>
           </v-card-text>
-          <v-card-title
-            class="headline mb-4 text-center text-capitalize font-weight-light"
-          >
+          <v-card-title class="text-center font-weight-light">
             {{ service.title }}
           </v-card-title>
           <v-card-text class="caption text-center">

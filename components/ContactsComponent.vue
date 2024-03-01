@@ -62,7 +62,7 @@ const onSubmit = handleSubmit((values) => {
   </v-snackbar>
 
   <v-card id="contacts">
-    <v-card-title class="mb-4">Contacts</v-card-title>
+    <v-card-title>Contacts</v-card-title>
     <v-card-text>
       <v-row>
         <v-col cols="12" md="6">
@@ -119,16 +119,10 @@ const onSubmit = handleSubmit((values) => {
               prepend-icon="mdi-message"
             ></v-textarea>
             <v-row class="my-4 mx-0 ga-6 justify-end">
-              <v-btn
-                rounded="xl"
-                color="error"
-                variant="outlined"
-                @click="resetForm"
-              >
+              <v-btn color="error" variant="outlined" @click="resetForm">
                 Reset
               </v-btn>
               <v-btn
-                rounded="xl"
                 color="primary"
                 type="submit"
                 :loading="isSubmitting"
