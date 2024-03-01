@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import type { Link } from "~/types/general"
 import type { Contact } from "~/types/home"
+import { name } from "~/package.json"
 
 // stores
 const infoStore = useAboutInfoStore().getInfo
 const { getFeatured } = useContactStore()
+const { getLinks, getTitle, $subscribe, updateTitle } = useSettingsStore()
 
 // router
 const router = useRouter()
 
 // data
 /// static
-const title = "Vuetify"
+const title = ref(getTitle)
 const user = {
   ...infoStore,
   avatar: "/uploads/" + infoStore.avatar,
@@ -19,68 +21,14 @@ const user = {
 /// reactive
 const drawer = ref(false)
 const socials: Contact[] = reactive([])
-const links: Link[] = reactive([
-  // home
-  {
-    icon: "mdi-home",
-    title: "Home",
-    value: "home",
-    targetId: "#home",
-    isCurrent: false,
-  },
-  // about
-  {
-    icon: "mdi-account",
-    title: "About",
-    value: "about",
-    targetId: "#about",
-    isCurrent: false,
-  },
-  // statistics
-  {
-    icon: "mdi-chart-bar",
-    title: "Statistics",
-    value: "statistics",
-    targetId: "#statistics",
-    isCurrent: false,
-  },
-  // services
-  {
-    icon: "mdi-cogs",
-    title: "Services",
-    value: "services",
-    targetId: "#services",
-    isCurrent: false,
-  },
-  // skills
-  {
-    icon: "mdi-code-tags-check",
-    title: "Skills",
-    value: "skills",
-    targetId: "#skills",
-    isCurrent: false,
-  },
-  // projects
-  {
-    icon: "mdi-briefcase",
-    title: "Projects",
-    value: "projects",
-    targetId: "#projects",
-    isCurrent: false,
-  },
-  // contacts
-  {
-    icon: "mdi-email",
-    title: "Contacts",
-    value: "contacts",
-    targetId: "#contacts",
-    isCurrent: false,
-  },
-])
+const links: Link[] = reactive([] as Link[])
 
 // fill data
 getFeatured.forEach((contact) => {
   socials.push(contact)
+})
+getLinks.forEach((link: Link) => {
+  links.push(link)
 })
 
 // methods
@@ -91,7 +39,6 @@ function goToTarget(link: Link) {
   if (el) {
     el.scrollIntoView({ behavior: "smooth" })
 
-    router.push(targetId)
     links.forEach((l) => (l.isCurrent = false))
 
     link.isCurrent = true
@@ -105,7 +52,12 @@ onMounted(() => {
   const link = links.find((l) => l.targetId === targetId)
   if (link) {
     link.isCurrent = true
+    updateTitle(name)
   }
+})
+
+$subscribe((mutate, state) => {
+  title.value = state.title
 })
 </script>
 
@@ -143,12 +95,13 @@ onMounted(() => {
           active-class="bg-primary"
           :active="link.isCurrent"
           @click="goToTarget(link)"
+          :to="`/#${link.value}`"
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
 
     <v-main class="bg-primary">
-      <v-toolbar flat color="transparent">
+      <v-toolbar flat color="primary">
         <v-app-bar-nav-icon
           class="hidden-lg-and-up"
           @click="drawer = !drawer"

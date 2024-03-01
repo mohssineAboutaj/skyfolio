@@ -3,6 +3,7 @@ import type { Project } from "~/types/home"
 
 // store
 const { getBySlug } = useProjectsStore()
+const { updateTitle } = useSettingsStore()
 
 // route
 const route = useRoute()
@@ -26,6 +27,7 @@ const panel = ref([0])
 // fill data
 slug.value = route.params.slug as string
 project.value = getBySlug(slug.value)
+updateTitle(project.value.title)
 </script>
 
 <template>

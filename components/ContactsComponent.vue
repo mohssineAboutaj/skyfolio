@@ -9,7 +9,7 @@ const { getAll } = useContactStore()
 // data
 /// reactive
 const contacts: Contact[] = reactive([])
-const showAlert = ref(!false)
+const showAlert = ref(false)
 
 // validation
 const { defineField, handleSubmit, resetForm, meta, isSubmitting } = useForm({
