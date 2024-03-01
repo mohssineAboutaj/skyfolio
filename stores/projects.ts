@@ -14,5 +14,8 @@ export const useProjectsStore = defineStore("projects", {
     getFeatured(): Project[] {
       return this.getAll().filter((p) => p.featured)
     },
+    getBySlug(slug: string): Project | undefined {
+      return this.getAll().find((p) => p.slug === slug)
+    },
   },
 })

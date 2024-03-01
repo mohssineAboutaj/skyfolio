@@ -15,7 +15,12 @@ const projectImg = computed(() => {
 </script>
 
 <template>
-  <v-card class="mx-auto" max-width="400" hover>
+  <v-card
+    class="mx-auto"
+    max-width="400"
+    hover
+    :to="`projects/${project.slug}`"
+  >
     <v-img
       class="align-end text-white"
       height="200"

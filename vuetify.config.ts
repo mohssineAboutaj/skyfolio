@@ -27,6 +27,9 @@ export default defineVuetifyConfiguration({
       VCardTitle: {
         class: "text-h5 font-weight-bold my-auto",
       },
+      VCardSubtitle: {
+        class: "text-h6 font-weight-light my-auto",
+      },
     },
   },
 })
