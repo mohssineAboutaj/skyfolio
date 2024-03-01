@@ -72,7 +72,7 @@ project.value = getBySlug(slug.value)
               class="elevation-0"
             >
               <v-card-text>
-                <v-chip-group>
+                <v-chip-group column>
                   <v-chip v-for="tech in project.tech" :key="tech">
                     {{ tech }}
                   </v-chip>
