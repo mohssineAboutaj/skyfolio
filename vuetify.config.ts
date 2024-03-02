@@ -33,6 +33,7 @@ export default defineVuetifyConfiguration({
     },
     VBtn: {
       rounded: "xl",
+      class: "font-weight-black",
     },
   },
 })

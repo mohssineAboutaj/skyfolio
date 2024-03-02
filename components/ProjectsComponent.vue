@@ -18,7 +18,7 @@ const swiperOptions = {
     [thresholds.value.lg]: { slidesPerView: 3, spaceBetween: 30 },
     [thresholds.value.xl]: { slidesPerView: 5, spaceBetween: 40 },
   },
-  autoplay: { delay: 1500 },
+  autoplay: { delay: 2500 },
 }
 /// reactive
 const projects: Project[] = reactive([])
