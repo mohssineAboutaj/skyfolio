@@ -10,8 +10,7 @@ const services: Service[] = servicesStore.getAll
 </script>
 
 <template>
-  <v-card variant="text" class="elevation-0" id="services">
-    <v-card-title>Services</v-card-title>
+  <FlatCard id="services" title="Services">
     <v-row>
       <v-col
         v-for="(service, i) in services"
@@ -36,5 +35,5 @@ const services: Service[] = servicesStore.getAll
         </v-card>
       </v-col>
     </v-row>
-  </v-card>
+  </FlatCard>
 </template>

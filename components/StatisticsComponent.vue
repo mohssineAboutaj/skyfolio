@@ -37,8 +37,7 @@ getCodingActivity().then((res) => {
 </script>
 
 <template>
-  <v-card variant="text" class="elevation-0" id="statistics">
-    <v-card-title>Statistics</v-card-title>
+  <FlatCard id="statistics" title="=Statistics">
     <v-row>
       <v-col
         v-for="stat in statistics"
@@ -52,9 +51,9 @@ getCodingActivity().then((res) => {
           :value="stat.value"
           :icon="stat.icon"
           :elevation="24"
-          color="secondary"
+          color="primary"
         />
       </v-col>
     </v-row>
-  </v-card>
+  </FlatCard>
 </template>

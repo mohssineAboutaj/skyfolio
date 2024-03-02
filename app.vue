@@ -106,8 +106,8 @@ $subscribe((mutate, state) => {
       </v-list>
     </v-navigation-drawer>
 
-    <v-main class="bg-primary">
-      <v-toolbar flat color="primary">
+    <v-main>
+      <v-toolbar flat color="transparent">
         <v-app-bar-nav-icon
           class="hidden-lg-and-up"
           @click="drawer = !drawer"

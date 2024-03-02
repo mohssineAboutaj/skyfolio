@@ -30,11 +30,15 @@ getFeatured().forEach((project) => {
 </script>
 
 <template>
-  <v-card id="projects" variant="text" class="elevation-0">
+  <FlatCard id="projects">
     <v-card-title class="d-flex justify-space-between">
       <span>Projects</span>
       <v-spacer></v-spacer>
-      <v-btn to="/projects" color="dark" append-icon="mdi-chevron-double-right">
+      <v-btn
+        to="/projects"
+        color="primary"
+        append-icon="mdi-chevron-double-right"
+      >
         <span class="hidden-sm-and-down">see all</span>
       </v-btn>
     </v-card-title>
@@ -45,5 +49,5 @@ getFeatured().forEach((project) => {
         </SwiperSlide>
       </Swiper>
     </v-card-text>
-  </v-card>
+  </FlatCard>
 </template>
