@@ -2,18 +2,29 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
+    // vuetify nuxt
     "vuetify-nuxt-module",
+    // pinia
     "@pinia/nuxt",
+    // swiper
     "nuxt-swiper",
+    // icon
     "nuxt-icon",
+    // vee-validate
     "@vee-validate/nuxt",
+    // google-fonts
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: { Quicksand: true },
+        display: "swap", // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
+      },
+    ],
+    // mail
     [
       "nuxt-mail",
       {
-        message: {
-          // from .env
-          to: process.env.SMTP_USERNAME,
-        },
+        message: { to: process.env.SMTP_USERNAME },
         smtp: {
           host: "smtp.gmail.com",
           port: 587,

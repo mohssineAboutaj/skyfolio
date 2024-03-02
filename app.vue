@@ -125,3 +125,9 @@ $subscribe((mutate, state) => {
     </v-main>
   </v-layout>
 </template>
+
+<style>
+* {
+  font-family: "Quicksand", sans-serif !important;
+}
+</style>
