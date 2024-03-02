@@ -24,8 +24,8 @@ const project: Project = ref({} as Project)
 const slug = ref("")
 const title = ref("")
 const breadcrumbItems = reactive([
-  { title: "Home", disabled: false, href: "/" },
-  { title: "Projects", disabled: false, href: "/projects" },
+  { title: "Home", disabled: false, to: "/" },
+  { title: "Projects", disabled: false, to: "/projects" },
   { title: "", disabled: true },
 ])
 

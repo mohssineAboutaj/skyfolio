@@ -8,6 +8,10 @@ const { updateTitle } = useSettingsStore()
 // data
 /// static
 const title = "Projects"
+const breadcrumbItems = [
+  { title: "Home", disabled: false, to: "/" },
+  { title: "Projects", disabled: true },
+]
 /// reactive
 const projects: Project[] = reactive([])
 
@@ -24,6 +28,8 @@ onMounted(() => {
 
 <template>
   <v-container>
+    <v-breadcrumbs :items="breadcrumbItems" divider="-"></v-breadcrumbs>
+
     <v-row>
       <v-col
         v-for="project in projects"
