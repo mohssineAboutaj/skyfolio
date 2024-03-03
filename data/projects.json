@@ -8,7 +8,7 @@
     "imgs": ["blogify.png"],
     "visible": true,
     "featured": true,
-    "types": ["blog", "post", "system", "crud"],
+    "types": ["blog"],
     "tech": ["vuejs", "css", "html", "javaScript", "web", "nuxt", "laravel"],
     "source": ""
   },
@@ -23,7 +23,7 @@
     ],
     "visible": true,
     "featured": true,
-    "types": ["moveis", "series", "tv", "iptv", "streaming"],
+    "types": ["tv", "iptv", "streaming"],
     "tech": [
       "vuejs",
       "css",
@@ -45,7 +45,7 @@
     "imgs": ["moroccovid-app.jpg"],
     "visible": true,
     "featured": true,
-    "types": ["SPA (single page application)", "tracker "],
+    "types": ["webapp"],
     "tech": [
       "vuejs",
       "vuetify",
@@ -66,7 +66,7 @@
     "imgs": ["chhiwat-1.png", "chhiwat-2.png", "chhiwat-3.png"],
     "visible": true,
     "featured": true,
-    "types": ["cooking", "SPA (single page application)"],
+    "types": ["cooking"],
     "tech": [
       "html",
       "css",
@@ -91,7 +91,7 @@
     "visible": true,
     "featured": true,
     "imgs": ["meet-nass-1.jpg", "meet-nass-2.jpg"],
-    "types": ["meeting", "SPA (single page application)"],
+    "types": ["meeting"],
     "tech": [
       "firebase",
       "vuejs",
@@ -117,7 +117,7 @@
     "visible": true,
     "featured": false,
     "imgs": ["kech-preview.jpg"],
-    "types": ["portfolio", "one page"],
+    "types": ["portfolio"],
     "tech": [
       "html",
       "css",
@@ -141,7 +141,7 @@
     "visible": true,
     "featured": false,
     "imgs": ["zerda-preview.jpg"],
-    "types": ["landing page", "one page", "Business", "cooking"],
+    "types": ["landing page", "cooking"],
     "tech": [
       "html",
       "css",
@@ -166,7 +166,7 @@
     "visible": true,
     "featured": false,
     "imgs": ["zeta-preview.jpg"],
-    "types": ["portfolio", "one page"],
+    "types": ["portfolio"],
     "tech": [
       "html",
       "css",
@@ -188,7 +188,7 @@
     "visible": true,
     "featured": false,
     "imgs": ["alpha-preview.jpg"],
-    "types": ["landing page", "one page", "Business", "industrial"],
+    "types": ["landing page"],
     "tech": [
       "html",
       "css",
@@ -275,7 +275,7 @@
     ],
     "visible": true,
     "featured": false,
-    "types": ["moveis", "SPA (single page application)", "streaming"],
+    "types": ["listing", "streaming"],
     "tech": [
       "vuejs",
       "html",

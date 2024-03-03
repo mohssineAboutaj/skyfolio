@@ -6,6 +6,19 @@ export const useProjectsStore = defineStore("projects", {
   state: () => ({ projects }),
   getters: {
     getVisible: (state) => state.projects.filter((p) => p.visible),
+    getProjectsTypes() {
+      const types: string[] = []
+
+      this.getVisible.forEach((project) => {
+        project.types.forEach((type) => {
+          if (!types.includes(type)) {
+            types.push(type)
+          }
+        })
+      })
+
+      return types
+    },
   },
   actions: {
     getAll(): Project[] {

@@ -50,6 +50,7 @@ export interface Project {
   types: string[]
   tech: string[]
   source?: string
+  show?: boolean
 }
 
 export interface Skill {
