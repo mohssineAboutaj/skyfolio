@@ -63,7 +63,7 @@ onBeforeMount(() => {
             </Swiper>
 
             <Swiper
-              v-if="project.imgs.length > 1"
+              v-if="project.imgs && project.imgs.length > 1"
               v-bind="swiperSharedOptions"
               :slidesPerView="4"
               class="nav-gallery my-2"
