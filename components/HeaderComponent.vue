@@ -21,6 +21,7 @@ const avatarSize = computed(() => (mdAndDown.value ? 150 : 250))
 
 <template>
   <v-container
+    id="home"
     class="d-flex justify-center align-center flex-column-reverse flex-md-row"
     style="min-height: 90vh"
   >

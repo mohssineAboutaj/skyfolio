@@ -69,7 +69,7 @@ $subscribe((mutate, state) => {
 <template>
   <Particles />
 
-  <v-app>
+  <v-layout>
     <v-navigation-drawer
       v-model="drawer"
       class="hidden-md-and-up"
@@ -143,13 +143,16 @@ $subscribe((mutate, state) => {
 
     <v-main>
       <nuxt-page />
-    </v-main>
 
-    <v-footer class="text-h6 text-center justify-center ga-2 text-capitalize">
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-      <b>{{ user.fullName }}</b>
-    </v-footer>
-  </v-app>
+      <v-footer
+        class="text-h6 text-center justify-center ga-2 text-capitalize"
+        color="primary"
+      >
+        <span>&copy; {{ new Date().getFullYear() }}</span>
+        <b>{{ user.fullName }}</b>
+      </v-footer>
+    </v-main>
+  </v-layout>
 </template>
 
 <style>
