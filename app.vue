@@ -27,6 +27,11 @@ const socials: Contact[] = reactive([])
 const links: Link[] = reactive([] as Link[])
 const activeLink = ref(null)
 
+// computed
+const showBackBtn = computed(() => {
+  return router.currentRoute.value.path !== "/"
+})
+
 // fill data
 getFeatured.forEach((contact) => {
   socials.push(contact)
@@ -72,7 +77,11 @@ $subscribe((mutate, state) => {
 
   <v-app>
     <v-toolbar color="primary">
+      <v-app-bar-nav-icon v-if="showBackBtn" @click="router.go(-1)">
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-app-bar-nav-icon>
       <v-app-bar-nav-icon
+        v-else
         class="hidden-lg-and-up"
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
