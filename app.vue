@@ -123,7 +123,7 @@ $subscribe((mutate, state) => {
 
       <v-toolbar-title>{{ title }}</v-toolbar-title>
 
-      <v-toolbar-items class="hidden-sm-and-down">
+      <v-toolbar-items v-if="!showBackBtn" class="hidden-sm-and-down">
         <v-tabs v-model="activeLink" align-tabs="center" stacked>
           <v-tab
             v-for="link in links"
