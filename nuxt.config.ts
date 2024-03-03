@@ -12,6 +12,8 @@ export default defineNuxtConfig({
     "nuxt-icon",
     // vee-validate
     "@vee-validate/nuxt",
+    // particles
+    "nuxt-particles",
     // google-fonts
     [
       "@nuxtjs/google-fonts",

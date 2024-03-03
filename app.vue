@@ -68,6 +68,8 @@ $subscribe((mutate, state) => {
 </script>
 
 <template>
+  <Particles />
+
   <v-layout>
     <v-navigation-drawer v-model="drawer">
       <div class="d-flex align-center justify-center mt-16 mb-8">
