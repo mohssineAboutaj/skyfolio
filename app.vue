@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { Link } from "~/types/general"
 import type { Contact } from "~/types/home"
-import { useDisplay } from "vuetify"
 
 // stores
 const infoStore = useAboutInfoStore().getInfo
@@ -10,9 +9,6 @@ const { getLinks, getTitle, $subscribe, updateTitle } = useSettingsStore()
 
 // router
 const router = useRouter()
-
-// vuetify
-const { thresholds } = useDisplay()
 
 // data
 /// static
@@ -62,8 +58,6 @@ onMounted(() => {
   if (link) {
     link.isCurrent = true
   }
-
-  drawer.value = thresholds.value.smAndDown
 })
 
 /// watch store

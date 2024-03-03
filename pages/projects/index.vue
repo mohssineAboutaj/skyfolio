@@ -38,13 +38,12 @@ watch(activeType, (newType) => {
 </script>
 
 <template>
-  <v-container>
+  <v-container class="mt-16">
     <v-breadcrumbs :items="breadcrumbItems" divider="-"></v-breadcrumbs>
 
     <v-tabs
       v-model="activeType"
       color="primary"
-      dark
       slider-color="secondary"
       selected-class="text-secondary"
       show-arrows

@@ -1,18 +1,28 @@
 <script setup lang="ts">
 import VueWriter from "vue-writer"
+import { useDisplay } from "vuetify"
 
+// store
 const infoStore = useAboutInfoStore().getInfo
 
+// vuetify
+const { mdAndDown } = useDisplay()
+
+// data
+/// static
 const user = {
   ...infoStore,
   avatar: "/uploads/" + infoStore.avatar,
 }
+
+// computed
+const avatarSize = computed(() => (mdAndDown.value ? 150 : 250))
 </script>
 
 <template>
   <v-container
     class="d-flex justify-center align-center flex-column-reverse flex-md-row"
-    style="min-height: 80vh"
+    style="min-height: 90vh"
   >
     <v-col cols="12" md="6" class="font-weight-thin">
       <h1 class="text-h3 mb-8 text-capitalize">
@@ -33,14 +43,14 @@ const user = {
       </h3>
     </v-col>
     <v-col cols="12" md="6" class="text-center">
-      <v-avatar :size="250" class="elevation-12 mx-auto mb-8">
+      <v-avatar :size="avatarSize" class="elevation-12 mx-auto mb-8">
         <v-img :src="user.avatar" :alt="`${user.fullName} avatar`"></v-img>
       </v-avatar>
     </v-col>
   </v-container>
   <v-container
     class="d-flex justify-center align-center flex-column-reverse flex-md-row"
-    style="min-height: 5vh"
+    style="min-height: 10vh"
   >
     <v-btn class="bounced-btn" density="compact" color="transparent">
       <Icon name="mdi:chevron-double-down" size="40" />

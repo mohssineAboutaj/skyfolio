@@ -40,7 +40,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <v-container>
+  <v-container class="mt-16">
     <v-breadcrumbs :items="breadcrumbItems" divider="-"></v-breadcrumbs>
 
     <v-card>
