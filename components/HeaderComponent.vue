@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import VueWriter from "vue-writer"
+
 const infoStore = useAboutInfoStore().getInfo
 
 const user = {
@@ -17,7 +19,13 @@ const user = {
         Hi, I'm <b>{{ user.fullName }}</b>
       </h1>
       <h3 class="text-h5 mb-8 text-capitalize">
-        Am a <b>{{ user.job }}</b>
+        <span>Am a</span>
+        <vue-writer
+          :array="user.jobs"
+          class="font-weight-bold"
+          :typeSpeed="30"
+          :eraseSpeed="30"
+        />
       </h3>
     </v-col>
     <v-col cols="12" md="6" class="text-center">
