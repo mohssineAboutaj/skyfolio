@@ -25,6 +25,7 @@ const user = {
 const drawer = ref(false)
 const socials: Contact[] = reactive([])
 const links: Link[] = reactive([] as Link[])
+const activeLink = ref(null)
 
 // fill data
 getFeatured.forEach((contact) => {
@@ -56,10 +57,9 @@ onMounted(() => {
   if (link) {
     link.isCurrent = true
   }
-})
 
-// computed
-drawer.value = thresholds.value.smAndDown
+  drawer.value = thresholds.value.smAndDown
+})
 
 /// watch store
 $subscribe((mutate, state) => {
@@ -70,8 +70,43 @@ $subscribe((mutate, state) => {
 <template>
   <Particles />
 
-  <v-layout>
-    <v-navigation-drawer v-model="drawer">
+  <v-app>
+    <v-toolbar color="primary">
+      <v-app-bar-nav-icon
+        class="hidden-lg-and-up"
+        @click="drawer = !drawer"
+      ></v-app-bar-nav-icon>
+
+      <v-toolbar-title>{{ title }}</v-toolbar-title>
+
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-tabs v-model="activeLink" align-tabs="center" stacked>
+          <v-tab
+            v-for="link in links"
+            :key="link.value"
+            :to="`#${link.value}`"
+            @click="goToTarget(link)"
+            :value="link.value"
+            :active="link.isCurrent"
+            hide-slider
+          >
+            <v-icon>{{ link.icon }}</v-icon>
+            {{ link.title }}
+          </v-tab>
+        </v-tabs>
+      </v-toolbar-items>
+    </v-toolbar>
+
+    <v-main>
+      <nuxt-page />
+    </v-main>
+
+    <v-footer class="text-h6 text-center justify-center ga-2 text-capitalize">
+      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <b>{{ user.fullName }}</b>
+    </v-footer>
+
+    <v-navigation-drawer v-model="drawer" class="hidden-md-and-up">
       <div class="d-flex align-center justify-center mt-16 mb-8">
         <v-avatar :size="80">
           <v-img :src="user.avatar" :alt="`${user.fullName} avatar`"></v-img>
@@ -107,25 +142,7 @@ $subscribe((mutate, state) => {
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
-
-    <v-main>
-      <v-toolbar flat color="transparent">
-        <v-app-bar-nav-icon
-          class="hidden-lg-and-up"
-          @click="drawer = !drawer"
-        ></v-app-bar-nav-icon>
-
-        <v-toolbar-title class="text-lg-center">{{ title }}</v-toolbar-title>
-      </v-toolbar>
-
-      <nuxt-page />
-
-      <v-footer class="text-h6 text-center justify-center ga-2 text-capitalize">
-        <span>&copy; {{ new Date().getFullYear() }}</span>
-        <b>{{ user.fullName }}</b>
-      </v-footer>
-    </v-main>
-  </v-layout>
+  </v-app>
 </template>
 
 <style>
