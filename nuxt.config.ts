@@ -1,7 +1,11 @@
+import { shortDescription, fullName } from "./data/about.info.json"
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
+    // SEO
+    "@nuxtjs/seo",
     // vuetify nuxt
     "vuetify-nuxt-module",
     // pinia
@@ -50,5 +54,11 @@ export default defineNuxtConfig({
     // prefix: 'Swiper',
     // styleLang: 'css',
     // modules: ['navigation', 'pagination'], // all modules are imported by default
+  },
+  site: {
+    url: "https://mohssineaboutaj.com/",
+    name: `${fullName} | Portfolio`,
+    description: shortDescription,
+    defaultLocale: "en", // not needed if you have @nuxtjs/i18n installed
   },
 })
