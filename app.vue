@@ -121,7 +121,7 @@ $subscribe((mutate, state) => {
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
 
-      <v-toolbar-title>{{ title }}</v-toolbar-title>
+      <v-toolbar-title class="font-weight-bold">{{ title }}</v-toolbar-title>
 
       <v-toolbar-items v-if="!showBackBtn" class="hidden-sm-and-down">
         <v-tabs v-model="activeLink" align-tabs="center" stacked>
@@ -158,5 +158,12 @@ $subscribe((mutate, state) => {
 <style>
 * {
   font-family: "Quicksand", sans-serif !important;
+}
+
+.v-card-title,
+.v-card-subtitle {
+  font-family: "Dancing Script", cursive !important;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 </style>

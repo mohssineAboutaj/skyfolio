@@ -29,7 +29,7 @@ export default defineVuetifyConfiguration({
       class: "text-h5 font-weight-bold my-auto mb-4 text-capitalize",
     },
     VCardSubtitle: {
-      class: "text-h6 font-weight-light my-auto",
+      class: "text-h1 font-weight-regular my-auto",
     },
     VBtn: {
       rounded: "xl",

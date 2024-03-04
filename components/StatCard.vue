@@ -37,7 +37,7 @@ const { color, icon, title, value, elevation } = defineProps({
         <v-icon size="40" class="my-4" dark>{{ icon }}</v-icon>
       </v-col>
       <v-col cols="8" class="text-right">
-        <h4 class="body-2 text-capitalize font-weight-thin">{{ title }}</h4>
+        <h4 class="body-2 text-capitalize font-weight-light">{{ title }}</h4>
         <h2 class="text-h4 text-capitalize text-right">{{ value }}</h2>
       </v-col>
     </v-row>

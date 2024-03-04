@@ -84,7 +84,9 @@ const tab = ref(null)
                 </div>
               </template>
               <div>
-                <h2 class="mt-n1 headline font-weight-light mb-4 text-primary">
+                <h2
+                  class="mt-n1 headline font-weight-regular mb-4 text-primary"
+                >
                   {{ education.enterprise }}
                 </h2>
                 <h4>{{ education.title }}</h4>
@@ -109,7 +111,7 @@ const tab = ref(null)
               </template>
               <div>
                 <h2
-                  class="mt-n1 headline font-weight-light mb-4 text-primary text-capitalize"
+                  class="mt-n1 headline font-weight-regular mb-4 text-primary text-capitalize"
                 >
                   {{ certificate.enterprise }}
                 </h2>

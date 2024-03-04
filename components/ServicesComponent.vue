@@ -26,7 +26,7 @@ const services: Service[] = servicesStore.getAll
               <v-icon size="50">{{ service.icon }}</v-icon>
             </v-avatar>
           </v-card-text>
-          <v-card-title class="text-center font-weight-light">
+          <v-card-title class="text-center font-weight-regular">
             {{ service.title }}
           </v-card-title>
           <v-card-text class="caption text-center">

@@ -18,7 +18,7 @@ export default defineNuxtConfig({
     [
       "@nuxtjs/google-fonts",
       {
-        families: { Quicksand: true },
+        families: { Quicksand: true, DancingScript: true },
         display: "swap", // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
       },
     ],

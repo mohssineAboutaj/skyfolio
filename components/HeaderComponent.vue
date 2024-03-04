@@ -25,19 +25,19 @@ const avatarSize = computed(() => (mdAndDown.value ? 150 : 250))
     class="d-flex justify-center align-center flex-column-reverse flex-md-row"
     style="min-height: 90vh"
   >
-    <v-col cols="12" md="6" class="font-weight-thin">
-      <h1 class="text-h3 mb-8 text-capitalize">
+    <v-col cols="12" md="6" class="font-weight-light">
+      <h1 class="v-card-title text-h3 mb-8 text-capitalize">
         Hi, I'm <b>{{ user.fullName }}</b>
       </h1>
-      <h3 class="text-h5 mb-8 text-capitalize">
-        <span>Am a </span>
+      <h3 class="v-card-title text-h5 mb-8 text-capitalize">
+        Am a
         <span v-if="user.jobs.length == 1" class="font-weight-bold">
           {{ user.jobs[0] }}
         </span>
         <vue-writer
           v-else
           :array="user.jobs"
-          class="font-weight-bold"
+          class="font-weight-bold d-sm-block d-lg-inline-block"
           :typeSpeed="30"
           :eraseSpeed="30"
         />
