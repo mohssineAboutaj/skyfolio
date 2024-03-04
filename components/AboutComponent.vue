@@ -22,7 +22,7 @@ const tabs: AboutTab[] = [
 const aboutBasicInfos: AboutBasicInfo[] = [
   { title: "Full Name", subtitle: info.fullName, icon: "mdi-account" },
   { title: "Email", subtitle: info.email, icon: "mdi-email" },
-  { title: "Job", subtitle: info.job, icon: "mdi-briefcase" },
+  { title: "Jobs", subtitle: info.jobs.join(", "), icon: "mdi-briefcase" },
   { title: "Address", subtitle: info.address, icon: "mdi-map-marker" },
 ]
 /// dynamic
