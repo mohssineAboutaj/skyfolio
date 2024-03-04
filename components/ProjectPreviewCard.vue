@@ -27,9 +27,10 @@ const projectImg = useProjectImageFormater(project.imgs[0])
     </v-img>
 
     <v-card-text class="pa-0">
-      <v-btn block color="primary" icon="mdi-chevron-right" class="rounded-t-0"
-        >see details</v-btn
-      >
+      <v-btn block color="primary" icon="mdi-chevron-right" class="rounded-t-0">
+        <span class="mx-1">see details</span>
+        <v-icon>mdi-chevron-double-right</v-icon>
+      </v-btn>
     </v-card-text>
   </v-card>
 </template>
