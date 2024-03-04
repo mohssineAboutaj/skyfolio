@@ -41,6 +41,8 @@ export default defineNuxtConfig({
         },
       },
     ],
+    // google analytics
+    "nuxt-gtag",
   ],
   vuetify: {
     moduleOptions: {
@@ -60,5 +62,8 @@ export default defineNuxtConfig({
     name: `${fullName} | Portfolio`,
     description: shortDescription,
     defaultLocale: "en", // not needed if you have @nuxtjs/i18n installed
+  },
+  gtag: {
+    id: "G-420418143",
   },
 })
