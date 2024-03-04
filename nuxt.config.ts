@@ -64,6 +64,6 @@ export default defineNuxtConfig({
     defaultLocale: "en", // not needed if you have @nuxtjs/i18n installed
   },
   gtag: {
-    id: "G-420418143",
+    id: "G-KRLF8VEECK",
   },
 })
