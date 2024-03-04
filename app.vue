@@ -130,7 +130,9 @@ $subscribe((mutate, state) => {
     </v-toolbar>
 
     <v-main>
-      <nuxt-page />
+      <div class="mt-16" style="min-height: 85vh">
+        <nuxt-page />
+      </div>
 
       <v-footer
         class="text-h6 text-center justify-center ga-2 text-capitalize"

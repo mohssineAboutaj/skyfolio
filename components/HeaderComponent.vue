@@ -31,7 +31,7 @@ function goToAbout() {
   <v-container
     id="home"
     class="d-flex justify-center align-center flex-column-reverse flex-md-row"
-    style="min-height: 90vh"
+    style="min-height: 80vh"
   >
     <v-col cols="12" md="6" class="font-weight-light">
       <h1 class="v-card-title text-h3 mb-8 text-capitalize">
@@ -59,7 +59,7 @@ function goToAbout() {
   </v-container>
   <v-container
     class="d-flex justify-center align-center flex-column-reverse flex-md-row"
-    style="min-height: 10vh"
+    style="height: 10vh"
   >
     <v-btn
       class="bounced-btn"
