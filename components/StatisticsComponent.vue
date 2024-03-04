@@ -5,20 +5,23 @@ import {
 } from "~/composables/StatisticsCompasables"
 import type { Statistic } from "~/types/home"
 
+// store
+const { getProjectsCount } = useProjectsStore()
+
 const statistics: Statistic[] = reactive([])
 
 // for now push static projects count
 statistics.push({
-  title: "Projects",
-  value: 10,
+  title: "Projects Count",
+  value: getProjectsCount,
   icon: "mdi-folder-multiple",
 })
 
 getReposCount().then((res) => {
   statistics.push({
-    title: "Repos",
+    title: "Repos Count",
     value: res,
-    icon: "mdi-source-repository",
+    icon: "mdi-source-branch",
   })
 })
 
@@ -31,7 +34,7 @@ getCodingActivity().then((res) => {
   statistics.push({
     title: "Total Coded Lines",
     value: res.totalCodedLines,
-    icon: "mdi-code-braces",
+    icon: "mdi-code-tags",
   })
 })
 </script>

@@ -6,6 +6,9 @@ export const useProjectsStore = defineStore("projects", {
   state: () => ({ projects }),
   getters: {
     getVisible: (state) => state.projects.filter((p) => p.visible),
+    getProjectsCount() {
+      return this.getVisible.length
+    },
     getProjectsTypes() {
       const types: string[] = []
 
