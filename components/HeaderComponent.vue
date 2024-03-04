@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import VueWriter from "vue-writer"
-import { useDisplay } from "vuetify"
+import { useDisplay, useGoTo } from "vuetify"
 
 // store
 const infoStore = useAboutInfoStore().getInfo
 
 // vuetify
 const { mdAndDown } = useDisplay()
+const goTo = useGoTo()
 
 // data
 /// static
@@ -17,6 +18,13 @@ const user = {
 
 // computed
 const avatarSize = computed(() => (mdAndDown.value ? 150 : 250))
+
+// methods
+function goToAbout() {
+  const toolbarHeight = document.querySelector(".v-toolbar")?.clientHeight || 0
+
+  goTo("#about", { offset: -toolbarHeight })
+}
 </script>
 
 <template>
@@ -53,9 +61,13 @@ const avatarSize = computed(() => (mdAndDown.value ? 150 : 250))
     class="d-flex justify-center align-center flex-column-reverse flex-md-row"
     style="min-height: 10vh"
   >
-    <v-btn class="bounced-btn" density="compact" color="transparent">
-      <Icon name="mdi:chevron-double-down" size="40" />
-    </v-btn>
+    <v-btn
+      class="bounced-btn"
+      size="x-large"
+      color="transparent"
+      icon="mdi-chevron-double-down"
+      @click="goToAbout"
+    ></v-btn>
   </v-container>
 </template>
 

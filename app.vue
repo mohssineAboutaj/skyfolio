@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { Link } from "~/types/general"
 import type { Contact } from "~/types/home"
+import { useGoTo } from "vuetify"
+
+const goTo = useGoTo()
 
 // stores
 const infoStore = useAboutInfoStore().getInfo
@@ -38,27 +41,14 @@ getLinks.forEach((link: Link) => {
 
 // methods
 function goToTarget(link: Link) {
-  const targetId = link.targetId
+  const toolbarHeight = document.querySelector(".v-toolbar")?.clientHeight || 0
 
-  const el = document.querySelector(targetId)
-  if (el) {
-    el.scrollIntoView({ behavior: "smooth" })
+  goTo(link.targetId, { offset: -toolbarHeight })
 
-    links.forEach((l) => (l.isCurrent = false))
+  links.forEach((l) => (l.isCurrent = false))
 
-    link.isCurrent = true
-  }
+  link.isCurrent = true
 }
-
-// hooks
-onMounted(() => {
-  // set current link
-  const targetId = router.currentRoute.value.hash || links[0].targetId
-  const link = links.find((l) => l.targetId === targetId)
-  if (link) {
-    link.isCurrent = true
-  }
-})
 
 /// watch store
 $subscribe((mutate, state) => {
@@ -106,7 +96,6 @@ $subscribe((mutate, state) => {
           active-class="bg-primary"
           :active="link.isCurrent"
           @click="goToTarget(link)"
-          :to="`/#${link.value}`"
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -128,7 +117,6 @@ $subscribe((mutate, state) => {
           <v-tab
             v-for="link in links"
             :key="link.value"
-            :to="`#${link.value}`"
             @click="goToTarget(link)"
             :value="link.value"
             :active="link.isCurrent"
