@@ -48,6 +48,11 @@ function goToTarget(link: Link) {
   links.forEach((l) => (l.isCurrent = false))
 
   link.isCurrent = true
+
+  // navigation drawer is open
+  if (drawer.value) {
+    drawer.value = false
+  }
 }
 
 /// watch store
