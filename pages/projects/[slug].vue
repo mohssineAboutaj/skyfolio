@@ -28,6 +28,7 @@ const breadcrumbItems = reactive([
   { title: "Projects", disabled: false, to: "/projects" },
   { title: "", disabled: true },
 ])
+const projectHasImages = ref(false)
 
 // hooks
 onBeforeMount(() => {
@@ -35,6 +36,8 @@ onBeforeMount(() => {
   project.value = getBySlug(slug.value)
   title.value = project.value.title
   updateTitle(title.value)
+  projectHasImages.value = project.value.imgs.length > 1
+
   breadcrumbItems[2].title = title.value
 })
 </script>
@@ -63,7 +66,7 @@ onBeforeMount(() => {
             </Swiper>
 
             <Swiper
-              v-if="project.imgs && project.imgs.length > 1"
+              v-if="projectHasImages"
               v-bind="swiperSharedOptions"
               :slidesPerView="4"
               class="nav-gallery my-2"

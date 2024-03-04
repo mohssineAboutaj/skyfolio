@@ -43,7 +43,8 @@ watch(activeType, (newType) => {
 
     <v-tabs
       v-model="activeType"
-      color="primary"
+      bg-color="background"
+      class="rounded-xl"
       slider-color="secondary"
       selected-class="text-secondary"
       show-arrows
