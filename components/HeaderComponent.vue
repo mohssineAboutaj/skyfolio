@@ -35,7 +35,7 @@ function goToAbout() {
           user.fullName
         }}</b>
       </h1>
-      <h3 class="v-card-title text-h5 mb-8 text-capitalize">
+      <h2 class="v-card-title text-h5 mb-8 text-capitalize">
         Am a
         <span v-if="user.jobs.length == 1" class="font-weight-bold">
           {{ user.jobs[0] }}
@@ -47,7 +47,7 @@ function goToAbout() {
           :typeSpeed="30"
           :eraseSpeed="30"
         />
-      </h3>
+      </h2>
     </v-col>
     <v-col cols="12" md="6" class="text-center">
       <v-avatar
@@ -65,6 +65,7 @@ function goToAbout() {
     <v-btn
       class="bounced-btn"
       size="x-large"
+      aria-label="go to about"
       color="transparent"
       icon="mdi-chevron-double-down"
       @click="goToAbout"

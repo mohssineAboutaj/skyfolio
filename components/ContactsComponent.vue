@@ -71,6 +71,7 @@ const onSubmit = handleSubmit((values) => {
                   v-model="email"
                   v-bind="emailProps"
                   label="Email"
+                  aria-label="email"
                   type="email"
                   outlined
                   prepend-icon="mdi-email"
@@ -81,6 +82,7 @@ const onSubmit = handleSubmit((values) => {
                   v-model="subject"
                   v-bind="subjectProps"
                   label="Subject"
+                  aria-label="subject"
                   outlined
                   prepend-icon="mdi-format-title"
                 ></v-text-field>
@@ -90,6 +92,7 @@ const onSubmit = handleSubmit((values) => {
               v-model="message"
               v-bind="messageProps"
               label="Message"
+              aria-label="message"
               outlined
               prepend-icon="mdi-message"
             ></v-textarea>
@@ -128,6 +131,8 @@ const onSubmit = handleSubmit((values) => {
                   :color="contact.color"
                   :href="contact.link"
                   target="_blank"
+                  :title="contact.label"
+                  :aria-label="contact.label"
                   :class="
                     !$vuetify.display.mdAndDown ? 'd-flex justify-start' : ''
                   "

@@ -38,7 +38,12 @@ const tab = ref(null)
 
       <v-spacer class="hidden-md-and-down"></v-spacer>
 
-      <v-tab v-for="tab in tabs" :key="tab.value" :value="tab.value">
+      <v-tab
+        v-for="tab in tabs"
+        :key="tab.value"
+        :value="tab.value"
+        :aria-label="tab.name"
+      >
         <v-icon class="hidden-md-and-up">{{ tab.icon }}</v-icon>
         <span class="hidden-md-and-down">{{ tab.name }}</span>
       </v-tab>
@@ -54,6 +59,7 @@ const tab = ref(null)
                   :key="basic.title"
                   :title="basic.title"
                   :subtitle="basic.subtitle"
+                  :aria-label="basic.title"
                 >
                   <template v-slot:prepend>
                     <v-avatar color="primary">

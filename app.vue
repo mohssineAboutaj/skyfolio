@@ -101,7 +101,12 @@ watch(
         </v-btn>
       </div>
 
-      <v-list density="comfortable" class="pr-0" nav>
+      <v-list
+        density="comfortable"
+        class="pr-0"
+        nav
+        aria-label="Main navigation"
+      >
         <v-list-item
           v-for="link in links"
           :key="link.value"
@@ -116,12 +121,17 @@ watch(
     </v-navigation-drawer>
 
     <v-toolbar color="primary" class="position-fixed" style="z-index: 999">
-      <v-app-bar-nav-icon v-if="showBackBtn" @click="router.go(-1)">
+      <v-app-bar-nav-icon
+        v-if="showBackBtn"
+        aria-label="Back"
+        @click="router.go(-1)"
+      >
         <v-icon>mdi-arrow-left</v-icon>
       </v-app-bar-nav-icon>
       <v-app-bar-nav-icon
         v-else
         class="hidden-lg-and-up"
+        aria-label="Menu"
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
 
