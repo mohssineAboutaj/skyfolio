@@ -4,46 +4,22 @@ import { shortDescription, fullName, jobs } from "./data/about.info.json"
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    // SEO
-    "@nuxtjs/seo",
-    // vuetify nuxt
-    "vuetify-nuxt-module",
-    // pinia
-    "@pinia/nuxt",
-    // swiper
-    "nuxt-swiper",
-    // icon
-    "nuxt-icon",
-    // vee-validate
-    "@vee-validate/nuxt",
-    // particles
-    "nuxt-particles",
-    // google-fonts
-    [
-      "@nuxtjs/google-fonts",
-      {
-        families: { Quicksand: true, DancingScript: true },
-        display: "swap", // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
-      },
-    ],
-    // mail
-    [
-      "nuxt-mail",
-      {
-        message: { to: process.env.SMTP_USERNAME },
-        smtp: {
-          host: "smtp.gmail.com",
-          port: 587,
-          auth: {
-            user: process.env.SMTP_USERNAME,
-            pass: process.env.SMTP_PASSWORD,
-          },
-        },
-      },
-    ],
-    // google analytics
-    "nuxt-gtag",
+    "@nuxtjs/seo", // seo
+    "vuetify-nuxt-module", // vuetify nuxt
+    "@pinia/nuxt", // pinia
+    "nuxt-swiper", // swiper
+    "nuxt-icon", // icon
+    "@vee-validate/nuxt", // vee-validate
+    "nuxt-particles", // particles
+    "@nuxtjs/google-fonts", // google fonts
+    "nuxt-mail", // mail
+    "nuxt-gtag", // google analytics
   ],
+  /// extend the nuxt modules
+  googleFonts: {
+    families: { Quicksand: true, DancingScript: true },
+    display: "swap", // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
+  },
   vuetify: {
     moduleOptions: {
       /* module specific options */
@@ -56,6 +32,17 @@ export default defineNuxtConfig({
     // prefix: 'Swiper',
     // styleLang: 'css',
     // modules: ['navigation', 'pagination'], // all modules are imported by default
+  },
+  mail: {
+    message: { to: process.env.SMTP_USERNAME },
+    smtp: {
+      host: "smtp.gmail.com",
+      port: 587,
+      auth: {
+        user: process.env.SMTP_USERNAME,
+        pass: process.env.SMTP_PASSWORD,
+      },
+    },
   },
   site: {
     url: "https://mohssineaboutaj.com/",
