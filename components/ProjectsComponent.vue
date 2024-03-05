@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Project } from "~/types/home"
-import { useDisplay } from "vuetify"
 
 // store
 const { getFeatured } = useProjectsStore()
@@ -37,10 +36,12 @@ getFeatured().forEach((project) => {
       <v-btn
         to="/projects"
         color="primary"
-        append-icon="mdi-chevron-double-right"
-      >
-        <span class="hidden-sm-and-down">see all</span>
-      </v-btn>
+        v-bind="
+          $vuetify.display.mdAndDown
+            ? { icon: 'mdi-chevron-double-right' }
+            : { appendIcon: 'mdi-chevron-double-right', text: 'View All' }
+        "
+      ></v-btn>
     </v-card-title>
     <v-card-text>
       <Swiper v-bind="swiperOptions">

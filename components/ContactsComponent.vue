@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { useContactStore } from "#imports"
 import { object, string } from "yup"
 import type { Contact } from "~/types/home"
 
@@ -19,7 +18,7 @@ const { defineField, handleSubmit, resetForm, meta, isSubmitting } = useForm({
     message: string().required(),
   }),
 })
-const vuetifyConfig = (state) => ({
+const vuetifyConfig = (state: { errors: any }) => ({
   props: {
     "error-messages": state.errors,
   },
@@ -61,33 +60,9 @@ const onSubmit = handleSubmit((values) => {
     </template>
   </v-snackbar>
 
-  <v-card id="contacts">
-    <v-card-title>Contacts</v-card-title>
+  <v-card id="contacts" title="contacts" subtitle="Get in touch with me">
     <v-card-text>
       <v-row>
-        <v-col cols="12" md="6">
-          <v-card-subtitle class="text-h6 mb-2">
-            Get in touch with me
-          </v-card-subtitle>
-          <v-card-text class="text-h6">
-            If you have any questions or want to work together, feel free to
-            contact me.
-          </v-card-text>
-          <v-card-text class="text-h6">
-            <v-row class="justify-space-around">
-              <v-col v-for="contact in contacts" :key="contact.id" cols="auto">
-                <v-btn
-                  color="primary"
-                  icon
-                  :href="contact.link"
-                  target="_blank"
-                >
-                  <Icon :name="contact.icon" size="20" />
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-card-text>
-        </v-col>
         <v-col cols="12" md="6">
           <v-form @submit="onSubmit" validate-on="blur">
             <v-row>
@@ -132,6 +107,41 @@ const onSubmit = handleSubmit((values) => {
               </v-btn>
             </v-row>
           </v-form>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-card-text class="text-h6">
+            If you have any questions or want to work together, feel free to
+            contact me.
+          </v-card-text>
+          <v-card-text class="text-h6">
+            <v-row class="justify-space-around">
+              <v-col
+                v-for="contact in contacts"
+                :key="contact.id"
+                v-bind="
+                  $vuetify.display.mdAndDown
+                    ? { cols: 'auto' }
+                    : { cols: 12, md: 6, lg: 4 }
+                "
+              >
+                <v-btn
+                  :color="contact.color"
+                  :href="contact.link"
+                  target="_blank"
+                  :class="
+                    !$vuetify.display.mdAndDown ? 'd-flex justify-start' : ''
+                  "
+                  :icon="$vuetify.display.mdAndDown"
+                  :block="!$vuetify.display.mdAndDown"
+                >
+                  <Icon :name="contact.icon" size="20" />
+                  <span class="hidden-md-and-down mx-2">
+                    {{ contact.label }}
+                  </span>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-card-text>
         </v-col>
       </v-row>
     </v-card-text>

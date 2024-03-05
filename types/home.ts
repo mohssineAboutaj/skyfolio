@@ -64,6 +64,7 @@ export interface Skill {
 export interface Contact {
   id: string
   label: string
+  headline: string
   icon: string
   color: string
   link: string

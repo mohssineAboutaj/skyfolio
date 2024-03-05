@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import VueWriter from "vue-writer"
-import { useDisplay, useGoTo } from "vuetify"
+import { useGoTo } from "vuetify"
 
 // store
 const infoStore = useAboutInfoStore().getInfo
 
-// vuetify
-const { mdAndDown } = useDisplay()
 const goTo = useGoTo()
 
 // data
@@ -15,9 +13,6 @@ const user = {
   ...infoStore,
   avatar: "/uploads/" + infoStore.avatar,
 }
-
-// computed
-const avatarSize = computed(() => (mdAndDown.value ? 150 : 250))
 
 // methods
 function goToAbout() {
@@ -34,8 +29,11 @@ function goToAbout() {
     style="min-height: 80vh"
   >
     <v-col cols="12" md="6" class="font-weight-light">
-      <h1 class="v-card-title text-h3 mb-8 text-capitalize">
-        Hi, I'm <b>{{ user.fullName }}</b>
+      <h1 class="v-card-title text-h4 mb-8 text-capitalize">
+        Hi, I'm
+        <b class="d-sm-block d-lg-inline d-block text-wrap">{{
+          user.fullName
+        }}</b>
       </h1>
       <h3 class="v-card-title text-h5 mb-8 text-capitalize">
         Am a
@@ -45,14 +43,17 @@ function goToAbout() {
         <vue-writer
           v-else
           :array="user.jobs"
-          class="font-weight-bold d-sm-block d-lg-inline-block"
+          class="font-weight-bold d-sm-block d-lg-inline-block text-wrap"
           :typeSpeed="30"
           :eraseSpeed="30"
         />
       </h3>
     </v-col>
     <v-col cols="12" md="6" class="text-center">
-      <v-avatar :size="avatarSize" class="elevation-12 mx-auto mb-8">
+      <v-avatar
+        :size="$vuetify.display.mdAndDown ? 150 : 250"
+        class="elevation-12 mx-auto mb-8"
+      >
         <v-img :src="user.avatar" :alt="`${user.fullName} avatar`"></v-img>
       </v-avatar>
     </v-col>
