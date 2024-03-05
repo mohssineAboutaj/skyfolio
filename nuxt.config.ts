@@ -4,16 +4,16 @@ import { shortDescription, fullName, jobs } from "./data/about.info.json"
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    "@nuxtjs/seo", // seo
-    "vuetify-nuxt-module", // vuetify nuxt
-    "@pinia/nuxt", // pinia
-    "nuxt-swiper", // swiper
-    "nuxt-icon", // icon
-    "@vee-validate/nuxt", // vee-validate
-    "nuxt-particles", // particles
-    "@nuxtjs/google-fonts", // google fonts
-    "nuxt-mail", // mail
-    "nuxt-gtag", // google analytics
+    "@nuxtjs/seo",
+    "vuetify-nuxt-module",
+    "@pinia/nuxt",
+    "nuxt-swiper",
+    "nuxt-icon",
+    "@vee-validate/nuxt",
+    "nuxt-particles",
+    "@nuxtjs/google-fonts",
+    "nuxt-mail",
+    "nuxt-gtag",
   ],
   /// extend the nuxt modules
   googleFonts: {
