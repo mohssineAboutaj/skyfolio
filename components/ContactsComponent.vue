@@ -109,7 +109,7 @@ const onSubmit = handleSubmit((values) => {
           </v-form>
         </v-col>
         <v-col cols="12" md="6">
-          <v-card-text class="text-h6">
+          <v-card-text class="text-h6" tag="p">
             If you have any questions or want to work together, feel free to
             contact me.
           </v-card-text>

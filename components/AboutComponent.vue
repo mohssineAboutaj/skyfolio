@@ -64,7 +64,9 @@ const tab = ref(null)
               </v-list>
             </v-col>
             <v-col cols="12" md="8">
-              <p class="text-md-h5">{{ info.description }}</p>
+              <p class="text-sm-h5 text-md-h6">
+                {{ info.description }}
+              </p>
             </v-col>
           </v-row>
         </v-container>

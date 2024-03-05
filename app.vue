@@ -171,4 +171,8 @@ watch(
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+p {
+  line-height: 1.5 !important;
+}
 </style>
