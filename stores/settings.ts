@@ -71,5 +71,8 @@ export const useSettingsStore = defineStore("settings", {
     updateTitle(title: string) {
       this.title = title
     },
+    resetTitle() {
+      this.title = name
+    },
   },
 })

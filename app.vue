@@ -8,7 +8,7 @@ const goTo = useGoTo()
 // stores
 const infoStore = useAboutInfoStore().getInfo
 const { getFeatured } = useContactStore()
-const { getLinks, getTitle, $subscribe, updateTitle } = useSettingsStore()
+const { getLinks, getTitle, $subscribe, resetTitle } = useSettingsStore()
 
 // router
 const router = useRouter()
@@ -59,6 +59,16 @@ function goToTarget(link: Link) {
 $subscribe((mutate, state) => {
   title.value = state.title
 })
+
+// watch route
+watch(
+  () => router.currentRoute.value.path,
+  () => {
+    if (router.currentRoute.value.path === "/") {
+      resetTitle()
+    }
+  },
+)
 </script>
 
 <template>
