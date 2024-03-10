@@ -11,7 +11,7 @@ const { getFeatured } = useContactStore()
 const { getLinks, getTitle, $subscribe, resetTitle } = useSettingsStore()
 
 // router
-const router = useRouter()
+const route = useRoute()
 
 // data
 /// static
@@ -27,17 +27,11 @@ const links: Link[] = reactive([] as Link[])
 const activeLink = ref(null)
 
 // computed
-const showBackBtn = computed(() => {
-  return (
-    router.currentRoute.value.path !== "/" &&
-    router.currentRoute.value.path !== "/404"
-  )
-})
 const showHomeBtn = computed(() => {
-  return router.currentRoute.value.path === "/404"
+  return route.path === "/404"
 })
 const hideToolbarLinks = computed(() => {
-  return !showBackBtn.value && !showHomeBtn.value
+  return showHomeBtn.value || route.path === "/"
 })
 
 // fill data
@@ -71,9 +65,9 @@ $subscribe((mutate, state) => {
 
 // watch route
 watch(
-  () => router.currentRoute.value.path,
+  () => route.path,
   () => {
-    if (router.currentRoute.value.path === "/") {
+    if (route.path === "/") {
       resetTitle()
     }
   },
@@ -130,14 +124,7 @@ watch(
     </v-navigation-drawer>
 
     <v-toolbar color="primary" class="position-fixed" style="z-index: 999">
-      <v-app-bar-nav-icon
-        v-if="showBackBtn"
-        aria-label="Back"
-        @click="router.go(-1)"
-      >
-        <v-icon>mdi-arrow-left</v-icon>
-      </v-app-bar-nav-icon>
-      <v-app-bar-nav-icon v-else-if="showHomeBtn" aria-label="Home" to="/">
+      <v-app-bar-nav-icon v-if="showHomeBtn" aria-label="Home" to="/">
         <v-icon>mdi-home</v-icon>
       </v-app-bar-nav-icon>
       <v-app-bar-nav-icon
