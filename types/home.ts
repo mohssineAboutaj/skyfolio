@@ -4,6 +4,20 @@ export interface AboutTab {
   icon: string
 }
 
+export interface AboutInfo {
+  avatar: string
+  firstName: string
+  lastName: string
+  fullName: string
+  email: string
+  birth: string
+  address: string
+  phone: string
+  jobs: string[]
+  shortDescription: string
+  description: string
+}
+
 export interface AboutBasicInfo {
   title: string
   subtitle: string

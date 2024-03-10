@@ -48,7 +48,20 @@ onBeforeMount(() => {
 
     <v-card>
       <v-card-title class="text-center">{{ title }}</v-card-title>
-      <v-card-text>
+      <v-card-text v-if="!projectHasImages">
+        <v-row>
+          <v-col cols="12" md="6">
+            <v-skeleton-loader type="image"></v-skeleton-loader>
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-skeleton-loader type="text"></v-skeleton-loader>
+            <v-skeleton-loader type="text"></v-skeleton-loader>
+            <v-skeleton-loader type="text"></v-skeleton-loader>
+          </v-col>
+        </v-row>
+      </v-card-text>
+
+      <v-card-text v-else>
         <v-row>
           <v-col cols="12" md="6">
             <Swiper

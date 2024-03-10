@@ -2,16 +2,34 @@
 import type { Service } from "~/types/home"
 
 // store
-const servicesStore = useServicesStore()
+const { getAll } = useServicesStore()
 
 // data
-/// static
-const services: Service[] = servicesStore.getAll
+/// reactive
+const services: Service[] = reactive([])
+
+// hooks
+onMounted(() => {
+  getAll.forEach((service) => services.push(service))
+})
 </script>
 
 <template>
   <FlatCard id="services" title="Services">
-    <v-row>
+    <v-row v-if="services.length == 0">
+      <v-col
+        v-for="n in 3"
+        :key="`services-skeleton-${n}`"
+        cols="12"
+        sm="12"
+        :md="i < 2 ? 6 : 4"
+        xl="3"
+      >
+        <v-skeleton-loader type="card"></v-skeleton-loader>
+      </v-col>
+    </v-row>
+
+    <v-row v-else>
       <v-col
         v-for="(service, i) in services"
         :key="service.id"

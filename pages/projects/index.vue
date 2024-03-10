@@ -18,13 +18,12 @@ const projects: Project[] = reactive([])
 const activeType = ref("")
 const types = [ALL, ...getProjectsTypes]
 
-// fill data
-getAll().forEach((project) => {
-  projects.push({ ...project, show: true })
-})
-
 // hooks
 onMounted(() => {
+  getAll().forEach((project) => {
+    projects.push({ ...project, show: true })
+  })
+
   updateTitle(title)
   activeType.value = ALL
 })
@@ -54,7 +53,20 @@ watch(activeType, (newType) => {
       </v-tab>
     </v-tabs>
 
-    <v-row>
+    <v-row v-if="projects.length == 0">
+      <v-col
+        v-for="n in 12"
+        :key="`featured-projects-skeleton-${n}`"
+        cols="12"
+        md="6"
+        lg="4"
+        xl="3"
+      >
+        <v-skeleton-loader type="card"></v-skeleton-loader>
+      </v-col>
+    </v-row>
+
+    <v-row v-else>
       <v-col
         v-for="project in projects"
         :key="project.id"

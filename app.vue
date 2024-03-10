@@ -176,7 +176,8 @@ watch(
 }
 
 .v-card-title,
-.v-card-subtitle {
+.v-card-subtitle,
+.title {
   font-family: "Dancing Script", cursive !important;
   font-optical-sizing: auto;
   font-style: normal;

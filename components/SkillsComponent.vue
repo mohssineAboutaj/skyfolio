@@ -5,20 +5,35 @@ import type { Skill } from "~/types/home"
 const { getTopSkills } = useSkillsStore()
 
 // data
+/// static
+const skillsCountToDisplay = 12
 /// reactive
 const skills: Skill[] = reactive([])
 
-// fill data
-getTopSkills(12).forEach((skill) => {
-  skills.push(skill as Skill)
+// hooks
+onMounted(() => {
+  getTopSkills(skillsCountToDisplay).forEach((skill) => {
+    skills.push(skill as Skill)
+  })
 })
 </script>
 
 <template>
-  <v-card id="skills">
-    <v-card-title>Skills</v-card-title>
+  <v-card id="skills" title="Skills">
     <v-card-text>
-      <v-row>
+      <v-row v-if="skills.length == 0">
+        <v-col
+          v-for="n in skillsCountToDisplay"
+          :key="`skills-skeleton-${n}`"
+          cols="12"
+          md="6"
+          class="my-8"
+        >
+          <v-skeleton-loader type="list-item-avatar"></v-skeleton-loader>
+        </v-col>
+      </v-row>
+
+      <v-row v-else>
         <v-col
           v-for="skill in skills"
           :key="skill.id"

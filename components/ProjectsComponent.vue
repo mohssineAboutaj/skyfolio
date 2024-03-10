@@ -22,9 +22,11 @@ const swiperOptions = {
 /// reactive
 const projects: Project[] = reactive([])
 
-// fill data
-getFeatured().forEach((project) => {
-  projects.push(project)
+// hooks
+onMounted(() => {
+  getFeatured().forEach((project) => {
+    projects.push(project)
+  })
 })
 </script>
 
@@ -44,7 +46,19 @@ getFeatured().forEach((project) => {
       ></v-btn>
     </v-card-title>
     <v-card-text>
-      <Swiper v-bind="swiperOptions">
+      <v-row v-if="projects.length == 0">
+        <v-col
+          v-for="n in 4"
+          :key="`featured-projects-skeleton-${n}`"
+          cols="12"
+          md="6"
+          lg="3"
+        >
+          <v-skeleton-loader type="card"></v-skeleton-loader>
+        </v-col>
+      </v-row>
+
+      <Swiper v-else v-bind="swiperOptions">
         <SwiperSlide v-for="project in projects" :key="project.id">
           <ProjectPreviewCard :project="project" />
         </SwiperSlide>

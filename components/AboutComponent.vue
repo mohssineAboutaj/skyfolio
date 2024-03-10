@@ -4,13 +4,11 @@ import type {
   AboutBasicInfo,
   AboutEducation,
   AboutCertification,
+  AboutInfo,
 } from "~/types/home"
 
 // stores
-const aboutStore = useAboutInfoStore()
-const info = aboutStore.getInfo
-const educations: AboutEducation[] = aboutStore.getEducations
-const certificates: AboutCertification[] = aboutStore.getCertifications
+const { getInfo, getEducations, getCertifications } = useAboutInfoStore()
 
 // data
 /// static
@@ -19,14 +17,33 @@ const tabs: AboutTab[] = [
   { name: "Education", value: "education", icon: "mdi-school" },
   { name: "Certificates", value: "certificates", icon: "mdi-certificate" },
 ]
-const aboutBasicInfos: AboutBasicInfo[] = [
-  { title: "Full Name", subtitle: info.fullName, icon: "mdi-account" },
-  { title: "Email", subtitle: info.email, icon: "mdi-email" },
-  { title: "Jobs", subtitle: info.jobs.join(", "), icon: "mdi-briefcase" },
-  { title: "Address", subtitle: info.address, icon: "mdi-map-marker" },
-]
-/// dynamic
+/// reactive
 const tab = ref(null)
+const info = ref({})
+const educations: AboutEducation[] = reactive([])
+const certificates: AboutCertification[] = reactive([])
+const aboutBasicInfos: AboutBasicInfo[] = reactive([])
+
+// hooks
+onMounted(() => {
+  info.value = getInfo
+
+  getEducations.forEach((education) => educations.push(education))
+  getCertifications.forEach((certificate) => certificates.push(certificate))
+})
+
+// watch
+watch(
+  () => info.value as AboutInfo,
+  (value: AboutInfo) => {
+    ;[
+      { title: "Full Name", subtitle: value.fullName, icon: "mdi-account" },
+      { title: "Email", subtitle: value.email, icon: "mdi-email" },
+      { title: "Jobs", subtitle: value.jobs.join(", "), icon: "mdi-briefcase" },
+      { title: "Address", subtitle: value.address, icon: "mdi-map-marker" },
+    ].forEach((item) => aboutBasicInfos.push(item))
+  },
+)
 </script>
 
 <template>
@@ -53,7 +70,14 @@ const tab = ref(null)
         <v-container fluid>
           <v-row>
             <v-col cols="12" md="4">
-              <v-list lines="two">
+              <v-skeleton-loader
+                v-if="aboutBasicInfos.length == 0"
+                v-for="n in 4"
+                :key="`about-basic-info-sketon-${n}`"
+                type="list-item-avatar-two-line"
+              ></v-skeleton-loader>
+
+              <v-list v-else lines="two">
                 <v-list-item
                   v-for="basic in aboutBasicInfos"
                   :key="basic.title"
@@ -70,6 +94,13 @@ const tab = ref(null)
               </v-list>
             </v-col>
             <v-col cols="12" md="8">
+              <v-skeleton-loader
+                v-if="!info.description"
+                v-for="n in 5"
+                :key="`about-info-skeleton-${n}`"
+                type="text"
+              ></v-skeleton-loader>
+
               <p class="text-sm-h5 text-md-h6">
                 {{ info.description }}
               </p>
@@ -79,7 +110,14 @@ const tab = ref(null)
       </v-window-item>
       <v-window-item value="education">
         <v-container fluid>
-          <v-timeline align="start">
+          <v-skeleton-loader
+            v-if="educations.length == 0"
+            v-for="n in 3"
+            :key="`about-education-skeleton-${n}`"
+            type="list-item-three-line"
+          ></v-skeleton-loader>
+
+          <v-timeline v-else align="start">
             <v-timeline-item
               v-for="education in educations"
               :key="education.id"
@@ -105,7 +143,14 @@ const tab = ref(null)
       </v-window-item>
       <v-window-item value="certificates">
         <v-container fluid>
-          <v-timeline align="start" side="end">
+          <v-skeleton-loader
+            v-if="educations.length == 0"
+            v-for="n in 3"
+            :key="`about-certificates-skeleton-${n}`"
+            type="list-item-three-line"
+          ></v-skeleton-loader>
+
+          <v-timeline v-else align="start" side="end">
             <v-timeline-item
               v-for="certificate in certificates"
               :key="certificate.id"

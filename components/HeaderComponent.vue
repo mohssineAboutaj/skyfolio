@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import VueWriter from "vue-writer"
 import { useGoTo } from "vuetify"
+import { lazy } from "yup"
 
 // store
 const infoStore = useAboutInfoStore().getInfo
@@ -8,11 +9,16 @@ const infoStore = useAboutInfoStore().getInfo
 const goTo = useGoTo()
 
 // data
-/// static
-const user = {
-  ...infoStore,
-  avatar: "/uploads/" + infoStore.avatar,
-}
+/// reactive
+const user = ref({})
+
+// fill data
+onMounted(() => {
+  user.value = {
+    ...infoStore,
+    avatar: "/uploads/" + infoStore.avatar,
+  }
+})
 
 // methods
 function goToAbout() {
@@ -29,32 +35,43 @@ function goToAbout() {
     style="min-height: 80vh"
   >
     <v-col cols="12" md="6" class="font-weight-light">
-      <h1 class="v-card-title text-h4 mb-8 text-capitalize">
-        Hi, I'm
-        <b class="d-sm-block d-lg-inline d-block text-wrap">{{
-          user.fullName
-        }}</b>
-      </h1>
-      <h2 class="v-card-title text-h5 mb-8 text-capitalize">
-        Am a
-        <span v-if="user.jobs.length == 1" class="font-weight-bold">
-          {{ user.jobs[0] }}
-        </span>
-        <vue-writer
-          v-else
-          :array="user.jobs"
-          class="font-weight-bold d-sm-block d-lg-inline-block text-wrap"
-          :typeSpeed="30"
-          :eraseSpeed="30"
-        />
-      </h2>
+      <template v-if="!user.fullName">
+        <v-skeleton-loader type="heading" />
+        <v-skeleton-loader type="heading" />
+      </template>
+
+      <template v-else>
+        <h1 class="v-card-title text-h4 mb-8 text-capitalize">
+          <span class="title">Hi, I'm </span>
+          <b class="d-sm-block d-lg-inline d-block text-wrap">
+            {{ user.fullName }}
+          </b>
+        </h1>
+        <h2 class="v-card-title text-h5 mb-8 text-capitalize">
+          <span class="title">Am a </span>
+          <span v-if="user.jobs.length == 1" class="font-weight-bold">
+            {{ user.jobs[0] }}
+          </span>
+          <vue-writer
+            v-else
+            :array="user.jobs"
+            class="font-weight-bold d-sm-block d-lg-inline-block text-wrap"
+            :typeSpeed="30"
+            :eraseSpeed="30"
+          />
+        </h2>
+      </template>
     </v-col>
     <v-col cols="12" md="6" class="text-center">
       <v-avatar
         :size="$vuetify.display.mdAndDown ? 150 : 250"
         class="elevation-12 mx-auto mb-8"
       >
-        <v-img :src="user.avatar" :alt="`${user.fullName} avatar`"></v-img>
+        <v-img
+          :src="user.avatar"
+          :alt="`${user.fullName} avatar`"
+          color="primary"
+        ></v-img>
       </v-avatar>
     </v-col>
   </v-container>

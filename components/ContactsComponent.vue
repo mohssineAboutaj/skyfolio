@@ -27,9 +27,11 @@ const [email, emailProps] = defineField("email", vuetifyConfig)
 const [subject, subjectProps] = defineField("subject", vuetifyConfig)
 const [message, messageProps] = defineField("message", vuetifyConfig)
 
-// fill data
-getAll.forEach((contact: Contact) => {
-  contacts.push(contact)
+// hooks
+onMounted(() => {
+  getAll.forEach((contact: Contact) => {
+    contacts.push(contact)
+  })
 })
 
 // methods
@@ -117,7 +119,13 @@ const onSubmit = handleSubmit((values) => {
             contact me.
           </v-card-text>
           <v-card-text class="text-h6">
-            <v-row class="justify-space-around">
+            <v-row v-if="contacts.length == 0" class="justify-space-around">
+              <v-col v-for="n in 3" :key="`contact-skeleton-${n}`">
+                <v-skeleton-loader type="button"></v-skeleton-loader>
+              </v-col>
+            </v-row>
+
+            <v-row v-else class="justify-space-around">
               <v-col
                 v-for="contact in contacts"
                 :key="contact.id"
