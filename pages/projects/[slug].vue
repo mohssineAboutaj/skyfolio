@@ -7,6 +7,7 @@ const { updateTitle } = useSettingsStore()
 
 // route
 const route = useRoute()
+const router = useRouter()
 
 // data
 /// static
@@ -31,14 +32,20 @@ const breadcrumbItems = reactive([
 const projectHasImages = ref(false)
 
 // hooks
-onBeforeMount(() => {
+onMounted(() => {
   slug.value = route.params.slug as string
-  project.value = getBySlug(slug.value)
-  title.value = project.value.title
-  updateTitle(title.value)
-  projectHasImages.value = project.value.imgs.length > 1
+  const projectFromStore = getBySlug(slug.value)
 
-  breadcrumbItems[2].title = title.value
+  if (projectFromStore) {
+    project.value = projectFromStore
+    title.value = project.value.title
+    updateTitle(title.value)
+    projectHasImages.value = project.value.imgs.length > 1
+
+    breadcrumbItems[2].title = title.value
+  } else {
+    router.push("/404")
+  }
 })
 </script>
 
