@@ -28,7 +28,16 @@ const activeLink = ref(null)
 
 // computed
 const showBackBtn = computed(() => {
-  return router.currentRoute.value.path !== "/"
+  return (
+    router.currentRoute.value.path !== "/" &&
+    router.currentRoute.value.path !== "/404"
+  )
+})
+const showHomeBtn = computed(() => {
+  return router.currentRoute.value.path === "/404"
+})
+const hideToolbarLinks = computed(() => {
+  return !showBackBtn.value && !showHomeBtn.value
 })
 
 // fill data
@@ -128,6 +137,9 @@ watch(
       >
         <v-icon>mdi-arrow-left</v-icon>
       </v-app-bar-nav-icon>
+      <v-app-bar-nav-icon v-else-if="showHomeBtn" aria-label="Home" to="/">
+        <v-icon>mdi-home</v-icon>
+      </v-app-bar-nav-icon>
       <v-app-bar-nav-icon
         v-else
         class="hidden-lg-and-up"
@@ -137,7 +149,7 @@ watch(
 
       <v-toolbar-title class="font-weight-bold">{{ title }}</v-toolbar-title>
 
-      <v-toolbar-items v-if="!showBackBtn" class="hidden-sm-and-down">
+      <v-toolbar-items v-if="hideToolbarLinks" class="hidden-sm-and-down">
         <v-tabs v-model="activeLink" align-tabs="center" stacked>
           <v-tab
             v-for="link in links"

@@ -13,7 +13,7 @@ const projectImg = useProjectImageFormater(project.imgs[0])
     class="mx-auto"
     max-width="400"
     hover
-    :to="`projects/${project.slug}`"
+    :to="`/projects/${project.slug}`"
   >
     <v-img
       class="align-end text-white"
