@@ -66,7 +66,7 @@ watch(activeType, (newType) => {
       </v-col>
     </v-row>
 
-    <v-scale-transition class="v-row" tag="div" group>
+    <v-scale-transition v-else class="v-row" tag="div" group>
       <template v-for="project in projects" :key="project.id">
         <v-col v-if="project.show" cols="12" md="6" lg="4" xl="3">
           <ProjectPreviewCard :project="project" />
