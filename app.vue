@@ -187,4 +187,13 @@ watch(
 p {
   line-height: 1.5 !important;
 }
+
+/* swiper */
+.swiper-thumbs .swiper-slide {
+  opacity: 0.5;
+}
+
+.swiper-thumbs .swiper-slide-thumb-active {
+  opacity: 1;
+}
 </style>
