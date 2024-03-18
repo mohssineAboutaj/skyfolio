@@ -4,6 +4,33 @@ import type { Project } from "~/types/home"
 
 const projects: Project[] = [
   {
+    id: "JnVJsVKN0CiwExvrM2u1a",
+    title: "Weather App",
+    slug: "weather-app",
+    url: "https://veather-app.netlify.app/",
+    source: "",
+    description:
+      "A comprehensive weather application designed to provide real-time weather information for any location. This cross-platform app is built using Vue.js, CSS, HTML, JavaScript, and Quasar Framework, offering a seamless experience for users.",
+    imgs: [
+      "/images/projects/veather/Pasted image.png",
+      "/images/projects/veather/Pasted image 1.png",
+      "/images/projects/veather/Pasted image 2.png",
+      "/images/projects/veather/Pasted image 3.png",
+      "/images/projects/veather/Pasted image 4.png",
+    ],
+    visible: true,
+    featured: true,
+    types: [categories.weather, categories.webapp, categories.mobile],
+    tech: [
+      skills.vuejs.name,
+      skills.css.name,
+      skills.html.name,
+      skills.javascript.name,
+      skills.quasar.name,
+      skills.materialdesignicons.name,
+    ],
+  },
+  {
     id: "JnVJsVKN0CiwExvrM2u1s",
     title: "Blogify",
     slug: "blogify",

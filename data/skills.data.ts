@@ -236,8 +236,15 @@ const skills: Record<string, Skill> = {
     id: "a1c95592-eb9d-424c-98b8-e2d560609869",
     name: "fontawesome",
     color: "#339ecc",
-    score: 90,
+    score: 97,
     icon: "simple-icons:fontawesome",
+  },
+  materialdesignicons: {
+    id: "B72k5LBvq2SHXVD2AG-01",
+    name: "Material Design Icons",
+    color: "#339ecc",
+    score: 97,
+    icon: "simple-icons:materialdesignicons",
   },
   capacitor: {
     id: "zOn05xrpL0waE3HpXGBjV",

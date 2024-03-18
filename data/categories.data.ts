@@ -14,6 +14,7 @@ const categores = {
   mobile: "Mobile",
   progress: "Progress",
   listing: "Listing",
+  weather: "Weather",
 }
 
 export default categores
