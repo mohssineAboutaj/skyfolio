@@ -2,9 +2,9 @@ import type { AboutInfo } from "~/types/home"
 
 const info: AboutInfo = {
   avatar: "/images/avatar.jpeg",
-  firstName: "mohssine",
-  lastName: "aboutaj",
-  fullName: "mohssine aboutaj",
+  firstName: "Mohssine",
+  lastName: "Aboutaj",
+  fullName: "Mohssine Aboutaj",
   email: "mohssineaboutaj1995@gmail.com",
   birth: "1995-07-06",
   address: "Marrakech, Morocco",
