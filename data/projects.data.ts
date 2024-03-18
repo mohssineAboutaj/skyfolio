@@ -4,6 +4,32 @@ import type { Project } from "~/types/home"
 
 const projects: Project[] = [
   {
+    id: "JnVJsVKN0CiwExvrM2u1g",
+    title: "Vuiz",
+    slug: "vuiz",
+    url: "https://vuiz.netlify.app/",
+    source: "https://github.com/mohssineAboutaj/vuiz",
+    description:
+      "Vuiz is a simple quiz app built with Vue.js, Vuetify, TypeScript, and the Opentdb API. It offers a seamless experience for users, allowing them to test their knowledge on a variety of topics.",
+    imgs: [
+      "/images/projects/vuiz/Pasted image.png",
+      "/images/projects/vuiz/Pasted image 1.png",
+      "/images/projects/vuiz/Pasted image 2.png",
+    ],
+    visible: true,
+    featured: false,
+    types: [categories.quiz, categories.webapp],
+    tech: [
+      skills.vuejs.name,
+      skills.vuetify.name,
+      skills.typescript.name,
+      skills.html.name,
+      skills.css.name,
+      skills.scss.name,
+      skills.javascript.name,
+    ],
+  },
+  {
     id: "JnVJsVKN0CiwExvrM2u1e",
     title: "Hisnu Muslim",
     slug: "hisnu-muslim",
