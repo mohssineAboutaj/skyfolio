@@ -10,7 +10,7 @@ const projects: Project[] = [
     url: "http://blogify.mohssineaboutaj.com/",
     source: "",
     description:
-      "An advanced blogging platform offering an intuitive dashboard designed for seamless management of posts and comments, adhering to user permissions. This comprehensive solution incorporates Vue.js, CSS, HTML, Nuxt.js, and Laravel to provide a robust foundation for content creators and readers alike. Ideal for personal and professional blogs, it features a responsive design and an array of customization options. Technologies: Vue.js, CSS, HTML, JavaScript, Nuxt.js, Laravel.",
+      "An advanced blogging platform offering an intuitive dashboard designed for seamless management of posts and comments, adhering to user permissions. This comprehensive solution incorporates Vue.js, CSS, HTML, Nuxt.js, and Laravel to provide a robust foundation for content creators and readers alike. Ideal for personal and professional blogs, it features a responsive design and an array of customization options.",
     imgs: [
       "/images/projects/blogify/Pasted image.png",
       "/images/projects/blogify/Pasted image 1.png",
@@ -43,7 +43,7 @@ const projects: Project[] = [
     slug: "telefaza",
     url: "https://telefaza.netlify.app/",
     description:
-      "A cutting-edge, open-source cross-platform application leveraging the Quasar Framework to deliver a unified TV channel streaming experience. Telefaza simplifies access to an extensive collection of TV channels, eliminating the need for separate searches. Perfect for entertainment enthusiasts seeking convenience and variety. Project Types: TV, IPTV, Streaming, WebApp, PWA, Mobile. Technologies: Vue.js, CSS, HTML, JavaScript, Quasar.",
+      "A cutting-edge, open-source cross-platform application leveraging the Quasar Framework to deliver a unified TV channel streaming experience. Telefaza simplifies access to an extensive collection of TV channels, eliminating the need for separate searches. Perfect for entertainment enthusiasts seeking convenience and variety.",
     imgs: [
       "/images/projects/telefaza/Pasted image.png",
       "/images/projects/telefaza/Pasted image 1.png",
@@ -76,7 +76,7 @@ const projects: Project[] = [
     slug: "moroccovid-app",
     url: "https://moroccovid-app.netlify.app/",
     description:
-      "A dynamic application dedicated to tracking COVID-19 cases in Morocco, developed using Vue.js, Vuetify, HTML, JavaScript, and Font Awesome. It serves as a crucial tool for individuals seeking real-time data on the pandemic within the region. Project Types: WebApp, PWA. Technologies: Vue.js, Vuetify, HTML, JavaScript, Font Awesome.",
+      "A dynamic application dedicated to tracking COVID-19 cases in Morocco, developed using Vue.js, Vuetify, HTML, JavaScript, and Font Awesome. It serves as a crucial tool for individuals seeking real-time data on the pandemic within the region.",
     imgs: [
       "/images/projects/moroccovid/Pasted image.png",
       "/images/projects/moroccovid/Pasted image 1.png",
@@ -101,7 +101,7 @@ const projects: Project[] = [
     slug: "chhiwat-app",
     url: "https://chhiwat.netlify.app/",
     description:
-      "A versatile cross-platform culinary app featuring a diverse collection of recipes, from chicken dishes to juices and salads. Built with HTML, CSS, JavaScript, SCSS, Vue.js, Vuetify, and Capacitor, this app caters to cooking enthusiasts seeking inspiration and variety. Project Types: Cooking, WebApp, PWA, Mobile. Technologies: HTML, CSS, JavaScript, SCSS, Vue.js, Vuetify, Capacitor.",
+      "A versatile cross-platform culinary app featuring a diverse collection of recipes, from chicken dishes to juices and salads. Built with HTML, CSS, JavaScript, SCSS, Vue.js, Vuetify, and Capacitor, this app caters to cooking enthusiasts seeking inspiration and variety.",
     imgs: [
       "/images/projects/chhiwat/chhiwat-1.png",
       "/images/projects/chhiwat/chhiwat-2.png",
@@ -131,7 +131,7 @@ const projects: Project[] = [
     slug: "meet-nass",
     title: "Meet Nass",
     description:
-      "A sophisticated cross-platform video conferencing app crafted with Vue.js, Vuetify, HTML, CSS, JavaScript, SCSS, Font Awesome, Firebase, and Webpack. It offers seamless video communication solutions for businesses and individuals alike. Project Types: Meeting, WebApp, Mobile. Technologies: Vue.js, Vuetify, HTML, CSS, JavaScript, SCSS, Font Awesome, Firebase, Webpack.",
+      "A sophisticated cross-platform video conferencing app crafted with Vue.js, Vuetify, HTML, CSS, JavaScript, SCSS, Font Awesome, Firebase, and Webpack. It offers seamless video communication solutions for businesses and individuals alike.",
     url: "https://meet-nass.netlify.app/",
     source: "",
     visible: true,
@@ -192,7 +192,7 @@ const projects: Project[] = [
     slug: "zerda",
     title: "ZERDA - An Awesome Restaurant Website",
     description:
-      "ZERDA - An Awesome Restaurant Website (Open-Source): A captivating one-page website for restaurants, ZERDA stands out with its exquisite design and functionality. Built to enhance online presence, it uses HTML, CSS, JavaScript, Handlebars, MaterializeCSS, Webpack, Less, and Font Awesome. Project Types: Landing Page, Cooking, WebApp, PWA, Mobile. Technologies: HTML, CSS, JavaScript, Handlebars, MaterializeCSS, Webpack, Less, Font Awesome.",
+      "ZERDA - An Awesome Restaurant Website (Open-Source): A captivating one-page website for restaurants, ZERDA stands out with its exquisite design and functionality. Built to enhance online presence, it uses HTML, CSS, JavaScript, Handlebars, MaterializeCSS, Webpack, Less, and Font Awesome.",
     url: "https://zerda.netlify.com/",
     source: "https://github.com/mohssineAboutaj/zerda",
     visible: true,
@@ -229,7 +229,7 @@ const projects: Project[] = [
     slug: "zeta",
     title: "ZETA - Creative, Wonderful and Amazing Design",
     description:
-      "ZETA embodies creativity and beauty in web design, featuring responsive capabilities for all devices. Based on Bootstrap 4 and Font Awesome 5, it offers a host of stunning features for diverse projects. Project Types: Portfolio, WebApp. Technologies: HTML, CSS, JavaScript, Bootstrap, jQuery, SCSS, Font Awesome.",
+      "ZETA embodies creativity and beauty in web design, featuring responsive capabilities for all devices. Based on Bootstrap 4 and Font Awesome 5, it offers a host of stunning features for diverse projects.",
     url: "https://zeta.netlify.com/",
     source: "https://github.com/mohssineAboutaj/zeta",
     visible: true,
@@ -259,7 +259,7 @@ const projects: Project[] = [
     slug: "alpha",
     title: "Alpha Industrial - Best Industrial Template",
     description:
-      "An exceptional industrial template, Alpha Industrial showcases services for industrial sectors and factories with an impressive design. Project Types: Landing Page, WebApp. Technologies: HTML, CSS, JavaScript, jQuery, SCSS, Font Awesome.",
+      "An exceptional industrial template, Alpha Industrial showcases services for industrial sectors and factories with an impressive design.",
     url: "https://alphaindustrial.netlify.com/",
     source: "https://github.com/mohssineAboutaj/alpha-industrial",
     visible: true,
@@ -287,7 +287,7 @@ const projects: Project[] = [
     slug: "fireworks",
     title: "Happy New Year - SVG Fireworks",
     description:
-      "A festive SVG fireworks animation to celebrate the new Hijri year 1439, created with pure JavaScript and CSS animation. An engaging addition to any celebration-related web content. Project Types: Animation. Technologies: HTML, CSS, JavaScript, SVG.",
+      "A festive SVG fireworks animation to celebrate the new Hijri year 1439, created with pure JavaScript and CSS animation. An engaging addition to any celebration-related web content.",
     url: "https://codepen.io/MohssineAboutajWeb/pen/OxXGdb",
     source: "https://codepen.io/MohssineAboutajWeb/pen/OxXGdb",
     visible: true,
@@ -306,7 +306,7 @@ const projects: Project[] = [
     slug: "form-purejs",
     title: "Login & Register Form Pure JS",
     description:
-      "A demonstration of pure JavaScript prowess, this project presents a login and registration form crafted entirely with JavaScript, showcasing dynamic styling without traditional CSS or HTML. Project Types: Form. Technologies: JavaScript.",
+      "A demonstration of pure JavaScript prowess, this project presents a login and registration form crafted entirely with JavaScript, showcasing dynamic styling without traditional CSS or HTML.",
     url: "https://codepen.io/MohssineAboutajWeb/pen/wpBQEo?editors=0010",
     source: "https://codepen.io/MohssineAboutajWeb/pen/wpBQEo?editors=0010",
     visible: true,
@@ -320,7 +320,7 @@ const projects: Project[] = [
     slug: "form-vuejs",
     title: "Signup Vue.js Form with Validation",
     description:
-      "A simple yet effective Vue.js form featuring validation, built using MaterializeCSS and Font Awesome. This project exemplifies modern web form construction with user input validation. Project Types: Form. Technologies: JavaScript, Vue.js, MaterializeCSS, Font Awesome, jQuery.",
+      "A simple yet effective Vue.js form featuring validation, built using MaterializeCSS and Font Awesome. This project exemplifies modern web form construction with user input validation.",
     url: "https://codepen.io/MohssineAboutajWeb/pen/MRaxQq",
     source: "https://codepen.io/MohssineAboutajWeb/pen/MRaxQq",
     visible: true,
@@ -340,7 +340,7 @@ const projects: Project[] = [
     slug: "circular-progress",
     title: "Circular Progress Bar",
     description:
-      "A dynamic circular progress bar implemented with JavaScript and Canvas, offering a responsive and visually engaging way to display progress. This project utilizes CSS for styling and responsiveness. Project Types: Progress. Technologies: HTML, JavaScript, Canvas.",
+      "A dynamic circular progress bar implemented with JavaScript and Canvas, offering a responsive and visually engaging way to display progress. This project utilizes CSS for styling and responsiveness.",
     url: "https://codepen.io/MohssineAboutajWeb/pen/JLNWRa",
     source: "https://codepen.io/MohssineAboutajWeb/pen/JLNWRa",
     visible: true,
@@ -354,7 +354,7 @@ const projects: Project[] = [
     slug: "loading-animation",
     title: "Loading Animation",
     description:
-      "A collection of exquisite loading animations designed to enhance user experience during content loading. These animations are a creative way to keep users engaged. Project Types: Animation. Technologies: HTML, CSS, JavaScript.",
+      "A collection of exquisite loading animations designed to enhance user experience during content loading. These animations are a creative way to keep users engaged.",
     url: "https://codepen.io/MohssineAboutajWeb/post/loading-animation",
     source: "https://codepen.io/MohssineAboutajWeb/post/loading-animation",
     visible: true,
@@ -369,7 +369,7 @@ const projects: Project[] = [
     slug: "vue-movies-db",
     url: "https://vue-movies-db.netlify.app/",
     description:
-      "An extensive web application for movie enthusiasts, Vue Movies DB enables users to browse and search through a vast database of movies. Built with Vue.js, CSS, HTML, JavaScript, SCSS, Font Awesome, and Webpack, it's a treasure trove for cinema lovers. Project Types: Listing, Streaming, WebApp, PWA. Technologies: Vue.js, CSS, HTML, JavaScript, SCSS, Font Awesome, Webpack.",
+      "An extensive web application for movie enthusiasts, Vue Movies DB enables users to browse and search through a vast database of movies. Built with Vue.js, CSS, HTML, JavaScript, SCSS, Font Awesome, and Webpack, it's a treasure trove for cinema lovers.",
     imgs: [
       "https://m.media-amazon.com/images/M/MV5BZmIyMDk5NGYtYjQ5NS00ZWQxLTg2YzQtZDk1ZmM4ZDBlN2E3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg",
     ],
@@ -398,7 +398,7 @@ const projects: Project[] = [
     slug: "cube-animation",
     url: "https://codepen.io/MohssineAboutajWeb/full/QQNaoZ",
     description:
-      "A mesmerizing cube animation created with CSS3, showcasing the potential of modern web animations with simple geometric shapes. An interesting project for those fascinated by animation and design. Project Types: Animation. Technologies: HTML, CSS.",
+      "A mesmerizing cube animation created with CSS3, showcasing the potential of modern web animations with simple geometric shapes. An interesting project for those fascinated by animation and design.",
     imgs: [
       "/images/projects/cube/Pasted image.png",
       "/images/projects/cube/Pasted image 1.png",
