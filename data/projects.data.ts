@@ -3,7 +3,36 @@ import skills from "~/data/skills.data"
 import type { Project } from "~/types/home"
 
 const projects: Project[] = [
-  // a basic project let user join the #fetrah movement, this webapp let you add the fetrah backgrond to your own image to show support to the movement, name: vetrah
+  {
+    id: "JnVJsVKN0CiwExvrM2u1e",
+    title: "Hisnu Muslim",
+    slug: "hisnu-muslim",
+    url: "https://hisnu-muslim.netlify.app/",
+    source: "",
+    description:
+      "Hisnu Muslim is a web application designed to provide Muslims with a comprehensive collection of adhkar and duaas for daily life. This app is built using Vue.js, CSS, HTML, JavaScript, Electron.js, Vuetify, and Capacitor, offering a seamless experience for users.",
+    imgs: [
+      "/images/projects/hisnu-muslim/Pasted image.png",
+      "/images/projects/hisnu-muslim/Pasted image 1.png",
+      "/images/projects/hisnu-muslim/Pasted image 2.png",
+      "/images/projects/hisnu-muslim/Pasted image 3.png",
+      "/images/projects/hisnu-muslim/Pasted image 4.png",
+      "/images/projects/hisnu-muslim/Pasted image 5.png",
+    ],
+    visible: true,
+    featured: true,
+    types: [categories.webapp, categories.listing, categories.mobile],
+    tech: [
+      skills.vuejs.name,
+      skills.css.name,
+      skills.html.name,
+      skills.javascript.name,
+      skills.fontawesome.name,
+      skills.electronjs.name,
+      skills.vuetify.name,
+      skills.capacitor.name,
+    ],
+  },
   {
     id: "JnVJsVKN0CiwExvrM2u1d",
     title: "Vetrah",
