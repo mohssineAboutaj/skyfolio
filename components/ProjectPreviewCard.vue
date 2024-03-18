@@ -5,7 +5,7 @@ const { project } = defineProps({
 })
 
 // computed
-const projectImg = useProjectImageFormater(project.imgs[0])
+const projectImg = project.imgs[0]
 </script>
 
 <template>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import VueWriter from "vue-writer"
 import { useGoTo } from "vuetify"
-import { lazy } from "yup"
 
 // store
 const infoStore = useAboutInfoStore().getInfo
@@ -14,10 +13,7 @@ const user = ref({})
 
 // fill data
 onMounted(() => {
-  user.value = {
-    ...infoStore,
-    avatar: "/uploads/" + infoStore.avatar,
-  }
+  user.value = infoStore
 })
 
 // methods

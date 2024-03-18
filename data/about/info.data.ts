@@ -1,7 +1,7 @@
 import type { AboutInfo } from "~/types/home"
 
 const info: AboutInfo = {
-  avatar: "avatar.1656617611198.jpeg",
+  avatar: "/images/avatar.jpeg",
   firstName: "mohssine",
   lastName: "aboutaj",
   fullName: "mohssine aboutaj",

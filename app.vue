@@ -16,11 +16,8 @@ const route = useRoute()
 // data
 /// static
 const title = ref(getTitle)
-const user = {
-  ...infoStore,
-  avatar: "/uploads/" + infoStore.avatar,
-}
 /// reactive
+const user = ref({})
 const drawer = ref(false)
 const socials: Contact[] = reactive([])
 const links: Link[] = reactive([] as Link[])
@@ -34,12 +31,17 @@ const hideToolbarLinks = computed(() => {
   return showHomeBtn.value || route.path === "/"
 })
 
-// fill data
-getFeatured.forEach((contact) => {
-  socials.push(contact)
-})
-getLinks.forEach((link: Link) => {
-  links.push(link)
+// hooks
+onMounted(() => {
+  getFeatured.forEach((contact) => {
+    socials.push(contact)
+  })
+
+  getLinks.forEach((link: Link) => {
+    links.push(link)
+  })
+
+  user.value = infoStore
 })
 
 // methods

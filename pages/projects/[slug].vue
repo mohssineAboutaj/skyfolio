@@ -69,7 +69,7 @@ onBeforeMount(() => {
                 v-for="(image, n) in project.imgs"
                 :key="`main-img-${n}`"
               >
-                <v-img :src="useProjectImageFormater(image)" />
+                <v-img :src="image" />
               </SwiperSlide>
             </Swiper>
 
@@ -84,7 +84,7 @@ onBeforeMount(() => {
                 v-for="(image, n) in project.imgs"
                 :key="`gallery-img-${n}`"
               >
-                <v-img :src="useProjectImageFormater(image)" />
+                <v-img :src="image" />
               </SwiperSlide>
             </Swiper>
           </v-col>
