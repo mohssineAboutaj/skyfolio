@@ -3,7 +3,32 @@ import skills from "~/data/skills.data"
 import type { Project } from "~/types/home"
 
 const projects: Project[] = [
-  // a landing page for an NFT project, name: argons, url: https://argons.netlify.app/, page includes hand-made designs and characters
+  // a basic project let user join the #fetrah movement, this webapp let you add the fetrah backgrond to your own image to show support to the movement, name: vetrah
+  {
+    id: "JnVJsVKN0CiwExvrM2u1d",
+    title: "Vetrah",
+    slug: "vetrah",
+    url: "https://vetrah.netlify.app/",
+    source: "https://github.com/mohssineAboutaj/vetrah#readme",
+    description:
+      "A web application that allows users to add the Vetrah background to their images, showing support for the movement. This app is built using Vue.js, Tailwind CSS, HTML, CSS, JavaScript, and Material Design Icons, offering a seamless experience for users.",
+    imgs: [
+      "/images/projects/vetrah/Pasted image.png",
+      "/images/projects/vetrah/Pasted image 1.png",
+      "/images/projects/vetrah/Pasted image 2.png",
+    ],
+    visible: true,
+    featured: true,
+    types: [categories.webapp, categories.pwa],
+    tech: [
+      skills.vuejs.name,
+      skills.css.name,
+      skills.html.name,
+      skills.javascript.name,
+      skills.tailwindcss.name,
+      skills.materialdesignicons.name,
+    ],
+  },
   {
     id: "JnVJsVKN0CiwExvrM2u1c",
     title: "Argons",
