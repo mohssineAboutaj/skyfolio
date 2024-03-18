@@ -260,6 +260,13 @@ const skills: Record<string, Skill> = {
     score: 50,
     icon: "simple-icons:firebase",
   },
+  ionic: {
+    id: "B72k5LBvq2SHXVD2AG-01",
+    name: "ionic",
+    color: "#339ecc",
+    score: 80,
+    icon: "simple-icons:ionic",
+  },
 }
 
 export default skills

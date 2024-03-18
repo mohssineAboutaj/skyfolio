@@ -4,6 +4,27 @@ import type { Project } from "~/types/home"
 
 const projects: Project[] = [
   {
+    id: "JnVJsVKN0CiwExvrM2u1b",
+    title: "Whatsapp Unsaved",
+    slug: "whatsapp-unsaved",
+    url: "https://whatsapp-unsaved.netlify.app/",
+    source: "https://github.com/mohssineAboutaj/whatsapp-unsaved",
+    description:
+      "A simple web application that allows users to send WhatsApp messages without saving the recipient's number. This app is built using Vue.js, Ionic Framework, CSS, HTML, JavaScript, and Capacitor, offering a seamless experience for users.",
+    imgs: ["/images/projects/whatsapp-unsaved/Pasted image.png"],
+    visible: true,
+    featured: true,
+    types: [categories.webapp, categories.pwa, categories.mobile],
+    tech: [
+      skills.vuejs.name,
+      skills.ionic.name,
+      skills.css.name,
+      skills.html.name,
+      skills.javascript.name,
+      skills.capacitor.name,
+    ],
+  },
+  {
     id: "JnVJsVKN0CiwExvrM2u1a",
     title: "Weather App",
     slug: "weather-app",
