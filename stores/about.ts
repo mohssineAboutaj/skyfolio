@@ -1,7 +1,7 @@
 import { defineStore } from "pinia"
-import info from "~/data/about.info.json"
-import edu from "~/data/about.edu.json"
-import cert from "~/data/about.cert.json"
+import info from "~/data/about/info.data"
+import edu from "~/data/about/edu.data"
+import cert from "~/data/about/cert.data"
 
 // About info store
 export const useAboutInfoStore = defineStore("about-info", {

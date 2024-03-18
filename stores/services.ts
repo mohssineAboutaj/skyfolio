@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import services from "~/data/services.json"
+import services from "~/data/services.data"
 
 // Servcies store
 export const useServicesStore = defineStore("services", {

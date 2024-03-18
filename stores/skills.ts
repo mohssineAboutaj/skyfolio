@@ -1,11 +1,13 @@
 import { defineStore } from "pinia"
-import skills from "~/data/skills.json"
+import skills from "~/data/skills.data"
 
 export const useSkillsStore = defineStore("skills", {
   state: () => ({ skills }),
   getters: {
-    getAll: (state) => state.skills,
-    getSortedByScore: (state) => state.skills.sort((a, b) => b.score - a.score),
+    getAll: (state) => Object.values(state.skills),
+    getSortedByScore() {
+      return this.getAll.sort((a, b) => b.score - a.score)
+    },
   },
   actions: {
     getTopSkills(count: number = 5) {

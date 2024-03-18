@@ -1,5 +1,6 @@
 import { defineStore } from "pinia"
-import projects from "~/data/projects.json"
+import categores from "~/data/categories.data"
+import projects from "~/data/projects.data"
 import type { Project } from "~/types/home"
 
 export const useProjectsStore = defineStore("projects", {
@@ -10,17 +11,7 @@ export const useProjectsStore = defineStore("projects", {
       return this.getVisible.length
     },
     getProjectsTypes() {
-      const types: string[] = []
-
-      this.getVisible.forEach((project) => {
-        project.types.forEach((type) => {
-          if (!types.includes(type)) {
-            types.push(type)
-          }
-        })
-      })
-
-      return types
+      return Object.values(categores)
     },
   },
   actions: {

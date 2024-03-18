@@ -1,4 +1,4 @@
-import { shortDescription, fullName, jobs } from "./data/about.info.json"
+import aboutInfo from "./data/about/info.data"
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -46,10 +46,16 @@ export default defineNuxtConfig({
   },
   site: {
     url: "https://mohssineaboutaj.com/",
-    name: `${fullName} Portfolio`,
-    description: shortDescription,
+    name: `${aboutInfo.fullName} Portfolio`,
+    description: aboutInfo.shortDescription,
     defaultLocale: "en", // not needed if you have @nuxtjs/i18n installed
-    keywords: ["Mohssine Aboutaj", "Mohssine", "Aboutaj", "Portfolio", ...jobs],
+    keywords: [
+      "Mohssine Aboutaj",
+      "Mohssine",
+      "Aboutaj",
+      "Portfolio",
+      ...aboutInfo.jobs,
+    ],
   },
   gtag: {
     id: "G-KRLF8VEECK",

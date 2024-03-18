@@ -1,0 +1,25 @@
+import type { AboutInfo } from "~/types/home"
+
+const info: AboutInfo = {
+  avatar: "avatar.1656617611198.jpeg",
+  firstName: "mohssine",
+  lastName: "aboutaj",
+  fullName: "mohssine aboutaj",
+  email: "mohssineaboutaj1995@gmail.com",
+  birth: "1995-07-06",
+  address: "Marrakech, Morocco",
+  phone: "+212606328203",
+  jobs: [
+    "Front-End Vuejs Developer",
+    "Back-End Nodejs Developer",
+    "Back-End Laravel Developer",
+    "Full-Stack Web Developer",
+    "Mobile WebApp Developer",
+  ],
+  shortDescription:
+    "Am a full-stack web developer, I have a passion for creating beautiful and functional websites. I am always looking for new opportunities to learn and grow.",
+  description:
+    "My name is Mohssine Aboutaj. I am a Full-stack developer, i have over 5 years of experience, i have highly experienced in Front-End & Back-End, as well as i can build Mobile apps (Hybrid and Web app types), I use in my work the most popular programming languages & latest technologies & frameworks like: HTML 5, CSS 3, JavaScript, jQuery, Bootstrap Framework, Sass Pre-proccessor, Less Pre-proccessor, Ajax, PHP, mySQL, Vuejs Framework, NodeJs, Vuetifyjs Framework, Ionic Framework, ES6+, MaterializeCss Framework, Webpack, Gulpjs, ... and more.",
+}
+
+export default info
