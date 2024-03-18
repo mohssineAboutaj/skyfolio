@@ -73,7 +73,7 @@ const projects: Project[] = [
       "/images/projects/vetrah/Pasted image 2.png",
     ],
     visible: true,
-    featured: true,
+    featured: false,
     types: [categories.webapp, categories.pwa],
     tech: [
       skills.vuejs.name,
@@ -143,8 +143,8 @@ const projects: Project[] = [
   },
   {
     id: "JnVJsVKN0CiwExvrM2u1a",
-    title: "Weather App",
-    slug: "weather-app",
+    title: "Veather App",
+    slug: "veather-app",
     url: "https://veather-app.netlify.app/",
     source: "",
     description:
@@ -331,7 +331,7 @@ const projects: Project[] = [
     url: "https://kech.netlify.com/",
     source: "https://github.com/mohssineAboutaj/kech",
     visible: true,
-    featured: false,
+    featured: true,
     imgs: [
       "/images/projects/kech/Pasted image.png",
       "/images/projects/kech/Pasted image 1.png",
@@ -456,7 +456,7 @@ const projects: Project[] = [
     url: "https://codepen.io/MohssineAboutajWeb/pen/OxXGdb",
     source: "https://codepen.io/MohssineAboutajWeb/pen/OxXGdb",
     visible: true,
-    featured: false,
+    featured: true,
     imgs: ["/images/projects/fireworks/fireworks-preview.png"],
     types: [categories.animation],
     tech: [
