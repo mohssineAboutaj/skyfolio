@@ -93,6 +93,21 @@ onBeforeMount(() => {
               <v-card-text>{{ project.description }}</v-card-text>
             </v-card>
             <v-divider></v-divider>
+            <!-- categories -->
+            <v-card title="Categories" variant="plain" class="elevation-0">
+              <v-card-text>
+                <v-chip-group column>
+                  <v-chip
+                    v-for="category in project.types"
+                    :key="category"
+                    variant="outlined"
+                  >
+                    {{ category }}
+                  </v-chip>
+                </v-chip-group>
+              </v-card-text>
+            </v-card>
+            <v-divider></v-divider>
             <v-card
               title="Used Technologies"
               variant="plain"
@@ -100,7 +115,11 @@ onBeforeMount(() => {
             >
               <v-card-text>
                 <v-chip-group column>
-                  <v-chip v-for="tech in project.tech" :key="tech">
+                  <v-chip
+                    v-for="tech in project.tech"
+                    :key="tech"
+                    variant="outlined"
+                  >
                     {{ tech }}
                   </v-chip>
                 </v-chip-group>
