@@ -2,7 +2,7 @@
 import type { Skill } from "~/types/home"
 
 // store
-const { getTopSkills } = useSkillsStore()
+const { getAll } = useSkillsStore()
 
 // data
 /// static
@@ -12,7 +12,7 @@ const skills: Skill[] = reactive([])
 
 // hooks
 onMounted(() => {
-  getTopSkills(skillsCountToDisplay).forEach((skill) => {
+  getAll.forEach((skill) => {
     skills.push(skill as Skill)
   })
 })
@@ -34,48 +34,23 @@ onMounted(() => {
       </v-row>
 
       <v-row v-else>
-        <v-col
-          v-for="skill in skills"
-          :key="skill.id"
-          cols="12"
-          md="6"
-          class="my-8"
-        >
-          <v-row>
-            <v-col cols="2" class="d-flex justify-center align-center">
-              <v-tooltip
-                location="top"
-                :text="skill.name.toString()"
-                :aria-label="skill.name"
+        <v-col v-for="skill in skills" :key="skill.id" cols="auto">
+          <v-tooltip location="top" :text="skill.name">
+            <template v-slot:activator="{ props }">
+              <v-progress-circular
+                v-bind="props"
+                :model-value="skill.score"
+                :rotate="360"
+                :size="100"
+                :width="15"
+                color="primary"
               >
-                <template v-slot:activator="{ props }">
-                  <Icon
-                    :name="skill.icon"
-                    size="60"
-                    :color="skill.color"
-                    v-bind="props"
-                  />
+                <template v-slot:default>
+                  <Icon :name="skill.icon" size="30" class="text-secondary" />
                 </template>
-              </v-tooltip>
-            </v-col>
-            <v-col cols="10" class="d-flex justify-center align-center">
-              <v-tooltip
-                location="top"
-                :text="skill.score.toString()"
-                :aria-label="skill.score"
-              >
-                <template v-slot:activator="{ props }">
-                  <v-progress-linear
-                    v-model="skill.score"
-                    color="blue-grey"
-                    height="25"
-                    :aria-label="skill.name"
-                    v-bind="props"
-                  ></v-progress-linear>
-                </template>
-              </v-tooltip>
-            </v-col>
-          </v-row>
+              </v-progress-circular>
+            </template>
+          </v-tooltip>
         </v-col>
       </v-row>
     </v-card-text>
