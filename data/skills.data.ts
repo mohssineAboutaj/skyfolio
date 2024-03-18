@@ -267,6 +267,13 @@ const skills: Record<string, Skill> = {
     score: 80,
     icon: "simple-icons:ionic",
   },
+  tailwindcss: {
+    id: "zOn05xrpL0waE3HpXGBjV",
+    name: "tailwindcss",
+    color: "#61DBFBFF",
+    score: 95,
+    icon: "simple-icons:tailwindcss",
+  },
 }
 
 export default skills

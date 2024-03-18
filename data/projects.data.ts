@@ -3,6 +3,43 @@ import skills from "~/data/skills.data"
 import type { Project } from "~/types/home"
 
 const projects: Project[] = [
+  // a landing page for an NFT project, name: argons, url: https://argons.netlify.app/, page includes hand-made designs and characters
+  {
+    id: "JnVJsVKN0CiwExvrM2u1c",
+    title: "Argons",
+    slug: "argons",
+    url: "https://argons.netlify.app/",
+    source: "",
+    description:
+      "Argons is a landing page for an NFT project, featuring hand-made designs and characters. The page is built using Vue.js, Tailwind CSS, HTML, CSS, JavaScript, and Material Design Icons, offering a visually stunning experience for users.",
+    imgs: [
+      "/images/projects/argons/Pasted image.png",
+      "/images/projects/argons/Pasted image 1.png",
+      "/images/projects/argons/Pasted image 2.png",
+      "/images/projects/argons/Pasted image 3.png",
+      "/images/projects/argons/Pasted image 4.png",
+      "/images/projects/argons/Pasted image 5.png",
+      "/images/projects/argons/Pasted image 6.png",
+      "/images/projects/argons/Pasted image 7.png",
+      "/images/projects/argons/Pasted image 8.png",
+    ],
+    visible: true,
+    featured: true,
+    types: [
+      categories.landingPage,
+      categories.animation,
+      categories.webapp,
+      categories.pwa,
+    ],
+    tech: [
+      skills.html.name,
+      skills.css.name,
+      skills.javascript.name,
+      skills.vuejs.name,
+      skills.tailwindcss.name,
+      skills.materialdesignicons.name,
+    ],
+  },
   {
     id: "JnVJsVKN0CiwExvrM2u1b",
     title: "Whatsapp Unsaved",
