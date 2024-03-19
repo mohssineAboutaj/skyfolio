@@ -45,6 +45,9 @@ onMounted(() => {
         "
       ></v-btn>
     </v-card-title>
+    <v-card-subtitle>
+      Some of my projects and projects that I'm allowed to share.
+    </v-card-subtitle>
     <v-card-text>
       <v-row v-if="projects.length == 0">
         <v-col

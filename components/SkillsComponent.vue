@@ -19,7 +19,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-card id="skills" title="Skills">
+  <v-card
+    id="skills"
+    title="Skills"
+    subtitle="Some of the skills that I have learned and used."
+  >
     <v-card-text>
       <v-row v-if="skills.length == 0">
         <v-col

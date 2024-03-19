@@ -15,7 +15,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <FlatCard id="services" title="Services">
+  <FlatCard
+    id="services"
+    title="Services"
+    subtitle="Some of the services that I can offer."
+  >
     <v-row v-if="services.length == 0">
       <v-col
         v-for="n in 3"
