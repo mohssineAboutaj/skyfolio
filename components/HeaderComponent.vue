@@ -40,7 +40,7 @@ function goToAbout() {
       <template v-else>
         <h1 class="v-card-title text-h4 mb-8 text-capitalize">
           <span class="title">Hi, I'm </span>
-          <b class="d-sm-block d-lg-inline d-block text-wrap">
+          <b class="d-sm-block d-lg-inline d-block text-wrap text-secondary">
             {{ user.fullName }}
           </b>
         </h1>
@@ -52,9 +52,9 @@ function goToAbout() {
           <TypewriterComponent
             v-else
             :strings="user.jobs"
-            class="font-weight-bold d-sm-block d-lg-inline-block text-wrap"
-            :typeSpeed="30"
-            :eraseSpeed="10"
+            class="font-weight-bold d-sm-block d-lg-inline-block text-wrap text-secondary"
+            :typeSpeed="50"
+            :eraseSpeed="25"
           />
         </h2>
       </template>

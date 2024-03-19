@@ -3,7 +3,7 @@ import { blue } from "vuetify/lib/util/colors.mjs"
 
 const colorPalette = {
   primary: blue.darken3,
-  secondary: blue.base,
+  secondary: blue.lighten2,
 }
 
 export default defineVuetifyConfiguration({
