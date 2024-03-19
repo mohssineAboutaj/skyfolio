@@ -30,22 +30,30 @@ onMounted(() => {
 
   getEducations.forEach((education) => educations.push(education))
   getCertifications.forEach((certificate) => certificates.push(certificate))
-})
 
-// watch
-watch(
-  () => info,
-  (value: AboutInfo) => {
-    ;[
-      { title: "Full Name", subtitle: value.fullName, icon: "mdi-account" },
-      { title: "Email", subtitle: value.email, icon: "mdi-email" },
-      { title: "Jobs", subtitle: value.jobs.join(", "), icon: "mdi-briefcase" },
-      { title: "Address", subtitle: value.address, icon: "mdi-map-marker" },
-    ].forEach((item) => {
-      aboutBasicInfos.push(item)
-    })
-  },
-)
+  aboutBasicInfos.push(
+    {
+      title: "Full Name",
+      subtitle: getInfo.fullName,
+      icon: "mdi-account",
+    },
+    {
+      title: "Email",
+      subtitle: getInfo.email,
+      icon: "mdi-email",
+    },
+    {
+      title: "Jobs",
+      subtitle: getInfo.jobs.join(", "),
+      icon: "mdi-briefcase",
+    },
+    {
+      title: "Address",
+      subtitle: getInfo.address,
+      icon: "mdi-map-marker",
+    },
+  )
+})
 </script>
 
 <template>
