@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import VueWriter from "vue-writer"
 import { useGoTo } from "vuetify"
+import type { AboutInfo } from "~/types/home"
 
 // store
 const infoStore = useAboutInfoStore().getInfo
@@ -9,11 +10,11 @@ const goTo = useGoTo()
 
 // data
 /// reactive
-const user = ref({})
+const user: AboutInfo = reactive({} as AboutInfo)
 
 // fill data
 onMounted(() => {
-  user.value = infoStore
+  Object.assign(user, infoStore)
 })
 
 // methods

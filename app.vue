@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Link } from "~/types/general"
-import type { Contact } from "~/types/home"
+import type { AboutInfo, Contact } from "~/types/home"
 import { useGoTo } from "vuetify"
 
 const goTo = useGoTo()
@@ -17,7 +17,7 @@ const route = useRoute()
 /// static
 const title = ref(getTitle)
 /// reactive
-const user = ref({})
+const user: AboutInfo = reactive({} as AboutInfo)
 const drawer = ref(false)
 const socials: Contact[] = reactive([])
 const links: Link[] = reactive([] as Link[])
@@ -41,7 +41,7 @@ onMounted(() => {
     links.push(link)
   })
 
-  user.value = infoStore
+  Object.assign(user, infoStore)
 })
 
 // methods

@@ -21,7 +21,7 @@ const swiperSharedOptions = {
   autoplay: { delay: 1500 },
 }
 /// reactive
-const project: Project = ref({} as Project)
+const project: Project = reactive({} as Project)
 const slug = ref("")
 const title = ref("")
 const breadcrumbItems = reactive([
@@ -37,10 +37,10 @@ onBeforeMount(() => {
   const projectFromStore = getBySlug(slug.value)
 
   if (projectFromStore) {
-    project.value = projectFromStore
-    title.value = project.value.title
+    Object.assign(project, projectFromStore)
+    title.value = project.title
     updateTitle(title.value)
-    projectHasImages.value = project.value.imgs.length > 1
+    projectHasImages.value = project.imgs.length > 1
 
     breadcrumbItems[2].title = title.value
   } else {

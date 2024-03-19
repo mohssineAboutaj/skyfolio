@@ -19,14 +19,14 @@ const tabs: AboutTab[] = [
 ]
 /// reactive
 const tab = ref(null)
-const info = ref({})
+const info: AboutInfo = reactive({} as AboutInfo)
 const educations: AboutEducation[] = reactive([])
 const certificates: AboutCertification[] = reactive([])
 const aboutBasicInfos: AboutBasicInfo[] = reactive([])
 
 // hooks
 onMounted(() => {
-  info.value = getInfo
+  Object.assign(info, getInfo)
 
   getEducations.forEach((education) => educations.push(education))
   getCertifications.forEach((certificate) => certificates.push(certificate))
@@ -34,14 +34,16 @@ onMounted(() => {
 
 // watch
 watch(
-  () => info.value as AboutInfo,
+  () => info,
   (value: AboutInfo) => {
     ;[
       { title: "Full Name", subtitle: value.fullName, icon: "mdi-account" },
       { title: "Email", subtitle: value.email, icon: "mdi-email" },
       { title: "Jobs", subtitle: value.jobs.join(", "), icon: "mdi-briefcase" },
       { title: "Address", subtitle: value.address, icon: "mdi-map-marker" },
-    ].forEach((item) => aboutBasicInfos.push(item))
+    ].forEach((item) => {
+      aboutBasicInfos.push(item)
+    })
   },
 )
 </script>

@@ -1,3 +1,5 @@
+import type { AboutCertification } from "~/types/home"
+
 const certs: AboutCertification[] = [
   {
     id: "ccf64369-3180-4840-b4f6-aba8ddff8ab7",
