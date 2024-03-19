@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import VueWriter from "vue-writer"
 import { useGoTo } from "vuetify"
 import type { AboutInfo } from "~/types/home"
+import TypewriterComponent from "~/components/TypewriterComponent.vue"
 
 // store
 const infoStore = useAboutInfoStore().getInfo
@@ -49,12 +49,12 @@ function goToAbout() {
           <span v-if="user.jobs.length == 1" class="font-weight-bold">
             {{ user.jobs[0] }}
           </span>
-          <vue-writer
+          <TypewriterComponent
             v-else
-            :array="user.jobs"
+            :strings="user.jobs"
             class="font-weight-bold d-sm-block d-lg-inline-block text-wrap"
             :typeSpeed="30"
-            :eraseSpeed="30"
+            :eraseSpeed="10"
           />
         </h2>
       </template>
