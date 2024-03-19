@@ -13,7 +13,7 @@ const currentText = ref("")
 // methods
 /// typing
 function startTyping() {
-  const currentString = strings[currentIndex.value]
+  const currentString: string = (strings[currentIndex.value] as string) || ""
   const currentLength = currentText.value.length
   const currentStringLength = currentString.length
 
@@ -26,7 +26,7 @@ function startTyping() {
 }
 /// erasing
 function eraseText() {
-  const currentString = strings[currentIndex.value]
+  const currentString: string = (strings[currentIndex.value] as string) || ""
   const currentLength = currentText.value.length
 
   if (currentLength > 0) {
