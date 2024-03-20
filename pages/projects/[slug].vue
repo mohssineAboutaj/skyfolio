@@ -125,28 +125,30 @@ onBeforeMount(() => {
                 </v-chip-group>
               </v-card-text>
             </v-card>
-            <v-divider></v-divider>
-            <v-card title="Related Links" variant="text" class="elevation-0">
-              <v-card-text>
-                <v-row>
-                  <v-col cols="auto">
-                    <v-btn
-                      v-for="(platform, n) in project.platforms"
-                      :key="`platform-${n}`"
-                      :href="platform.url"
-                      target="_blank"
-                      color="primary"
-                      class="ma-1"
-                    >
-                      <template #prepend>
-                        <Icon :name="platform.icon" />
-                      </template>
-                      {{ platform.label }}
-                    </v-btn>
-                  </v-col>
-                </v-row>
-              </v-card-text>
-            </v-card>
+            <template v-if="project.platforms && project.platforms.length">
+              <v-divider></v-divider>
+              <v-card title="Related Links" variant="text" class="elevation-0">
+                <v-card-text>
+                  <v-row>
+                    <v-col cols="auto">
+                      <v-btn
+                        v-for="(platform, n) in project.platforms"
+                        :key="`platform-${n}`"
+                        :href="platform.url"
+                        target="_blank"
+                        color="primary"
+                        class="ma-1"
+                      >
+                        <template #prepend>
+                          <Icon :name="platform.icon" />
+                        </template>
+                        {{ platform.label }}
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                </v-card-text>
+              </v-card>
+            </template>
           </v-col>
         </v-row>
       </v-card-text>

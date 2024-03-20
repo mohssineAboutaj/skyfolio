@@ -10,7 +10,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://vuiz.netlify.app/",
       },
       {
@@ -46,7 +46,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://hisnu-muslim.netlify.app/",
       },
       {
@@ -86,7 +86,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://vetrah.netlify.app/",
       },
       {
@@ -121,7 +121,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://argons.netlify.app/",
       },
       {
@@ -167,7 +167,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://whatsapp-unsaved.netlify.app/",
       },
       {
@@ -198,7 +198,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://telefaza.netlify.app/",
       },
       {
@@ -249,7 +249,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://veather-app.netlify.app/",
       },
       {
@@ -283,18 +283,7 @@ const projects: Project[] = [
     id: "JnVJsVKN0CiwExvrM2u1s",
     title: "Blogify",
     slug: "blogify",
-    platforms: [
-      {
-        label: "live preview",
-        icon: "mdi-web",
-        url: "http://blogify.mohssineaboutaj.com/",
-      },
-      {
-        label: "source code",
-        icon: "simple-icons:github",
-        url: "",
-      },
-    ],
+    platforms: [],
     description:
       "An advanced blogging platform offering an intuitive dashboard designed for seamless management of posts and comments, adhering to user permissions. This comprehensive solution incorporates Vue.js, CSS, HTML, Nuxt.js, and Laravel to provide a robust foundation for content creators and readers alike. Ideal for personal and professional blogs, it features a responsive design and an array of customization options.",
     imgs: [
@@ -330,7 +319,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://moroccovid-app.netlify.app/",
       },
       {
@@ -365,7 +354,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://chhiwat.netlify.app/",
       },
       {
@@ -407,7 +396,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://meet-nass.netlify.app/",
       },
       {
@@ -448,7 +437,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://kech.netlify.com/",
       },
       {
@@ -488,7 +477,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://zerda.netlify.com/",
       },
       {
@@ -535,7 +524,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://zeta.netlify.com/",
       },
       {
@@ -575,7 +564,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://alphaindustrial.netlify.com/",
       },
       {
@@ -613,7 +602,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://codepen.io/MohssineAboutajWeb/pen/OxXGdb",
       },
       {
@@ -642,7 +631,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://codepen.io/MohssineAboutajWeb/pen/wpBQEo?editors=0010",
       },
       {
@@ -666,7 +655,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://codepen.io/MohssineAboutajWeb/pen/MRaxQq",
       },
       {
@@ -696,7 +685,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://codepen.io/MohssineAboutajWeb/pen/JLNWRa",
       },
       {
@@ -720,7 +709,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://codepen.io/MohssineAboutajWeb/post/loading-animation",
       },
       {
@@ -744,7 +733,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://vue-movies-db.netlify.app/",
       },
       {
@@ -783,7 +772,7 @@ const projects: Project[] = [
     platforms: [
       {
         label: "live preview",
-        icon: "mdi-web",
+        icon: "mdi:web",
         url: "https://codepen.io/MohssineAboutajWeb/full/QQNaoZ",
       },
       {
