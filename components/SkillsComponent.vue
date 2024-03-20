@@ -41,18 +41,12 @@ onMounted(() => {
         <v-col v-for="skill in skills" :key="skill.id" cols="auto">
           <v-tooltip location="top" :text="skill.name">
             <template v-slot:activator="{ props }">
-              <v-progress-circular
+              <Icon
                 v-bind="props"
-                :model-value="skill.score"
-                :rotate="360"
-                :size="100"
-                :width="15"
-                color="primary"
-              >
-                <template v-slot:default>
-                  <Icon :name="skill.icon" size="30" class="text-secondary" />
-                </template>
-              </v-progress-circular>
+                :name="skill.icon"
+                size="70"
+                class="ma-2 text-secondary"
+              />
             </template>
           </v-tooltip>
         </v-col>
