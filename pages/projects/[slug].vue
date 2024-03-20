@@ -128,27 +128,23 @@ onBeforeMount(() => {
             <v-divider></v-divider>
             <v-card title="Related Links" variant="text" class="elevation-0">
               <v-card-text>
-                <!-- project.url, project.source -->
-                <v-btn
-                  v-if="project.url"
-                  :href="project.url"
-                  target="_blank"
-                  prepend-icon="mdi-web"
-                  color="primary"
-                  class="mr-2"
-                >
-                  Visit Website
-                </v-btn>
-                <span class="mx-1"></span>
-                <v-btn
-                  v-if="project.source"
-                  :href="project.source"
-                  target="_blank"
-                  prepend-icon="mdi-code-tags"
-                  color="primary"
-                >
-                  Source Code
-                </v-btn>
+                <v-row>
+                  <v-col cols="auto">
+                    <v-btn
+                      v-for="(platform, n) in project.platforms"
+                      :key="`platform-${n}`"
+                      :href="platform.url"
+                      target="_blank"
+                      color="primary"
+                      class="ma-1"
+                    >
+                      <template #prepend>
+                        <Icon :name="platform.icon" />
+                      </template>
+                      {{ platform.label }}
+                    </v-btn>
+                  </v-col>
+                </v-row>
               </v-card-text>
             </v-card>
           </v-col>

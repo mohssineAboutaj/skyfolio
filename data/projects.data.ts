@@ -7,8 +7,18 @@ const projects: Project[] = [
     id: "JnVJsVKN0CiwExvrM2u1g",
     title: "Vuiz",
     slug: "vuiz",
-    url: "https://vuiz.netlify.app/",
-    source: "https://github.com/mohssineAboutaj/vuiz",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://vuiz.netlify.app/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://github.com/mohssineAboutaj/vuiz",
+      },
+    ],
     description:
       "Vuiz is a simple quiz app built with Vue.js, Vuetify, TypeScript, and the Opentdb API. It offers a seamless experience for users, allowing them to test their knowledge on a variety of topics.",
     imgs: [
@@ -33,8 +43,18 @@ const projects: Project[] = [
     id: "JnVJsVKN0CiwExvrM2u1e",
     title: "Hisnu Muslim",
     slug: "hisnu-muslim",
-    url: "https://hisnu-muslim.netlify.app/",
-    source: "",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://hisnu-muslim.netlify.app/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "",
+      },
+    ],
     description:
       "Hisnu Muslim is a web application designed to provide Muslims with a comprehensive collection of adhkar and duaas for daily life. This app is built using Vue.js, CSS, HTML, JavaScript, Electron.js, Vuetify, and Capacitor, offering a seamless experience for users.",
     imgs: [
@@ -63,8 +83,18 @@ const projects: Project[] = [
     id: "JnVJsVKN0CiwExvrM2u1d",
     title: "Vetrah",
     slug: "vetrah",
-    url: "https://vetrah.netlify.app/",
-    source: "https://github.com/mohssineAboutaj/vetrah#readme",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://vetrah.netlify.app/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://github.com/mohssineAboutaj/vetrah#readme",
+      },
+    ],
     description:
       "A web application that allows users to add the Vetrah background to their images, showing support for the movement. This app is built using Vue.js, Tailwind CSS, HTML, CSS, JavaScript, and Material Design Icons, offering a seamless experience for users.",
     imgs: [
@@ -88,8 +118,18 @@ const projects: Project[] = [
     id: "JnVJsVKN0CiwExvrM2u1c",
     title: "Argons",
     slug: "argons",
-    url: "https://argons.netlify.app/",
-    source: "",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://argons.netlify.app/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "",
+      },
+    ],
     description:
       "Argons is a landing page for an NFT project, featuring hand-made designs and characters. The page is built using Vue.js, Tailwind CSS, HTML, CSS, JavaScript, and Material Design Icons, offering a visually stunning experience for users.",
     imgs: [
@@ -124,8 +164,18 @@ const projects: Project[] = [
     id: "JnVJsVKN0CiwExvrM2u1b",
     title: "Whatsapp Unsaved",
     slug: "whatsapp-unsaved",
-    url: "https://whatsapp-unsaved.netlify.app/",
-    source: "https://github.com/mohssineAboutaj/whatsapp-unsaved",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://whatsapp-unsaved.netlify.app/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://github.com/mohssineAboutaj/whatsapp-unsaved",
+      },
+    ],
     description:
       "A simple web application that allows users to send WhatsApp messages without saving the recipient's number. This app is built using Vue.js, Ionic Framework, CSS, HTML, JavaScript, and Capacitor, offering a seamless experience for users.",
     imgs: ["/images/projects/whatsapp-unsaved/Pasted image.png"],
@@ -142,11 +192,67 @@ const projects: Project[] = [
     ],
   },
   {
+    id: "JnVJsVKN0CiwExvrM2u1F",
+    title: "Telefaza",
+    slug: "telefaza",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://telefaza.netlify.app/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://github.com/mohssineAboutaj/telefaza",
+      },
+    ],
+    description:
+      "A cutting-edge, open-source cross-platform application leveraging the Quasar Framework to deliver a unified TV channel streaming experience. Telefaza simplifies access to an extensive collection of TV channels, eliminating the need for separate searches. Perfect for entertainment enthusiasts seeking convenience and variety.",
+    imgs: [
+      "/images/projects/telefaza/Pasted image.png",
+      "/images/projects/telefaza/Pasted image 1.png",
+      "/images/projects/telefaza/Pasted image 2.png",
+      "/images/projects/telefaza/Pasted image 3.png",
+      "/images/projects/telefaza/Pasted image 4.png",
+    ],
+    visible: true,
+    featured: true,
+    types: [
+      categories.tv,
+      categories.iptv,
+      categories.streaming,
+      categories.webapp,
+      categories.pwa,
+      categories.mobile,
+      categories.desktop,
+    ],
+    tech: [
+      skills.vuejs.name,
+      skills.css.name,
+      skills.html.name,
+      skills.javascript.name,
+      skills.quasar.name,
+      skills.electronjs.name,
+      skills.capacitor.name,
+    ],
+  },
+  {
     id: "JnVJsVKN0CiwExvrM2u1a",
     title: "Veather App",
     slug: "veather-app",
-    url: "https://veather-app.netlify.app/",
-    source: "",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://veather-app.netlify.app/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "",
+      },
+    ],
     description:
       "A comprehensive weather application designed to provide real-time weather information for any location. This cross-platform app is built using Vue.js, CSS, HTML, JavaScript, and Quasar Framework, offering a seamless experience for users.",
     imgs: [
@@ -172,8 +278,18 @@ const projects: Project[] = [
     id: "JnVJsVKN0CiwExvrM2u1s",
     title: "Blogify",
     slug: "blogify",
-    url: "http://blogify.mohssineaboutaj.com/",
-    source: "",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "http://blogify.mohssineaboutaj.com/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "",
+      },
+    ],
     description:
       "An advanced blogging platform offering an intuitive dashboard designed for seamless management of posts and comments, adhering to user permissions. This comprehensive solution incorporates Vue.js, CSS, HTML, Nuxt.js, and Laravel to provide a robust foundation for content creators and readers alike. Ideal for personal and professional blogs, it features a responsive design and an array of customization options.",
     imgs: [
@@ -203,43 +319,21 @@ const projects: Project[] = [
     ],
   },
   {
-    id: "JnVJsVKN0CiwExvrM2u1F",
-    title: "Telefaza",
-    slug: "telefaza",
-    url: "https://telefaza.netlify.app/",
-    description:
-      "A cutting-edge, open-source cross-platform application leveraging the Quasar Framework to deliver a unified TV channel streaming experience. Telefaza simplifies access to an extensive collection of TV channels, eliminating the need for separate searches. Perfect for entertainment enthusiasts seeking convenience and variety.",
-    imgs: [
-      "/images/projects/telefaza/Pasted image.png",
-      "/images/projects/telefaza/Pasted image 1.png",
-      "/images/projects/telefaza/Pasted image 2.png",
-      "/images/projects/telefaza/Pasted image 3.png",
-      "/images/projects/telefaza/Pasted image 4.png",
-    ],
-    visible: true,
-    featured: true,
-    types: [
-      categories.tv,
-      categories.iptv,
-      categories.streaming,
-      categories.webapp,
-      categories.pwa,
-      categories.mobile,
-    ],
-    tech: [
-      skills.vuejs.name,
-      skills.css.name,
-      skills.html.name,
-      skills.javascript.name,
-      skills.quasar.name,
-    ],
-    source: "https://github.com/mohssineAboutaj/telefaza",
-  },
-  {
     id: "Toh8XpGxz1-v10h2ZnETh",
     title: "Morocco Covid Tracker App",
     slug: "moroccovid-app",
-    url: "https://moroccovid-app.netlify.app/",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://moroccovid-app.netlify.app/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://github.com/mohssineAboutaj/moroccovid-app/",
+      },
+    ],
     description:
       "A dynamic application dedicated to tracking COVID-19 cases in Morocco, developed using Vue.js, Vuetify, HTML, JavaScript, and Font Awesome. It serves as a crucial tool for individuals seeking real-time data on the pandemic within the region.",
     imgs: [
@@ -258,13 +352,23 @@ const projects: Project[] = [
       skills.javascript.name,
       skills.fontawesome.name,
     ],
-    source: "https://github.com/mohssineAboutaj/moroccovid-app/",
   },
   {
     id: "DLTZwZLVq90vYM3RF7TJB",
     title: "Chhiwat App",
     slug: "chhiwat-app",
-    url: "https://chhiwat.netlify.app/",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://chhiwat.netlify.app/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "",
+      },
+    ],
     description:
       "A versatile cross-platform culinary app featuring a diverse collection of recipes, from chicken dishes to juices and salads. Built with HTML, CSS, JavaScript, SCSS, Vue.js, Vuetify, and Capacitor, this app caters to cooking enthusiasts seeking inspiration and variety.",
     imgs: [
@@ -295,10 +399,20 @@ const projects: Project[] = [
     id: "142ccc6e-0665-4612-a7e2-ff9ec46877b8",
     slug: "meet-nass",
     title: "Meet Nass",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://meet-nass.netlify.app/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "",
+      },
+    ],
     description:
       "A sophisticated cross-platform video conferencing app crafted with Vue.js, Vuetify, HTML, CSS, JavaScript, SCSS, Font Awesome, Firebase, and Webpack. It offers seamless video communication solutions for businesses and individuals alike.",
-    url: "https://meet-nass.netlify.app/",
-    source: "",
     visible: true,
     featured: true,
     imgs: [
@@ -326,10 +440,20 @@ const projects: Project[] = [
     id: "543cfd1e-01d4-446d-ae9d-610a339c8296",
     slug: "kech",
     title: "KECH - Creative Portfolio",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://kech.netlify.com/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://github.com/mohssineAboutaj/kech",
+      },
+    ],
     description:
       "The personal portfolio of Mohssine Aboutaj, showcasing a creative blend of skills and services. This portfolio is constructed with HTML5, CSS3, JavaScript, jQuery, Pug.js, Sass, Gulp.js, Bootstrap, Font Awesome, and more, offering a glimpse into Mohssine's professional capabilities. Project Types: Portfolio, WebApp. Technologies: HTML, CSS, JavaScript, jQuery, Pug.js, SCSS, Gulp.js, Bootstrap, Font Awesome.",
-    url: "https://kech.netlify.com/",
-    source: "https://github.com/mohssineAboutaj/kech",
     visible: true,
     featured: true,
     imgs: [
@@ -356,10 +480,20 @@ const projects: Project[] = [
     id: "aa5e906c-23d3-49f9-8e3a-afe43d3ae7cf",
     slug: "zerda",
     title: "ZERDA - An Awesome Restaurant Website",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://zerda.netlify.com/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://github.com/mohssineAboutaj/zerda",
+      },
+    ],
     description:
       "ZERDA - An Awesome Restaurant Website (Open-Source): A captivating one-page website for restaurants, ZERDA stands out with its exquisite design and functionality. Built to enhance online presence, it uses HTML, CSS, JavaScript, Handlebars, MaterializeCSS, Webpack, Less, and Font Awesome.",
-    url: "https://zerda.netlify.com/",
-    source: "https://github.com/mohssineAboutaj/zerda",
     visible: true,
     featured: false,
     imgs: [
@@ -393,10 +527,20 @@ const projects: Project[] = [
     id: "09fe24cc-109c-43ed-a3e2-6168aee8c7c8",
     slug: "zeta",
     title: "ZETA - Creative, Wonderful and Amazing Design",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://zeta.netlify.com/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://github.com/mohssineAboutaj/zeta",
+      },
+    ],
     description:
       "ZETA embodies creativity and beauty in web design, featuring responsive capabilities for all devices. Based on Bootstrap 4 and Font Awesome 5, it offers a host of stunning features for diverse projects.",
-    url: "https://zeta.netlify.com/",
-    source: "https://github.com/mohssineAboutaj/zeta",
     visible: true,
     featured: false,
     imgs: [
@@ -423,10 +567,20 @@ const projects: Project[] = [
     id: "d5e0a111-dfcb-4f75-917b-f2371d4090d9",
     slug: "alpha",
     title: "Alpha Industrial - Best Industrial Template",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://alphaindustrial.netlify.com/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://github.com/mohssineAboutaj/alpha-industrial",
+      },
+    ],
     description:
       "An exceptional industrial template, Alpha Industrial showcases services for industrial sectors and factories with an impressive design.",
-    url: "https://alphaindustrial.netlify.com/",
-    source: "https://github.com/mohssineAboutaj/alpha-industrial",
     visible: true,
     featured: false,
     imgs: [
@@ -451,10 +605,20 @@ const projects: Project[] = [
     id: "d92c035a-c355-4f3e-8d40-22c6eef09672",
     slug: "fireworks",
     title: "Happy New Year - SVG Fireworks",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://codepen.io/MohssineAboutajWeb/pen/OxXGdb",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://codepen.io/MohssineAboutajWeb/pen/OxXGdb",
+      },
+    ],
     description:
       "A festive SVG fireworks animation to celebrate the new Hijri year 1439, created with pure JavaScript and CSS animation. An engaging addition to any celebration-related web content.",
-    url: "https://codepen.io/MohssineAboutajWeb/pen/OxXGdb",
-    source: "https://codepen.io/MohssineAboutajWeb/pen/OxXGdb",
     visible: true,
     featured: true,
     imgs: ["/images/projects/fireworks/fireworks-preview.png"],
@@ -470,10 +634,20 @@ const projects: Project[] = [
     id: "cb184319-3853-4510-94f2-d9c38d35ae5d",
     slug: "form-purejs",
     title: "Login & Register Form Pure JS",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://codepen.io/MohssineAboutajWeb/pen/wpBQEo?editors=0010",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://codepen.io/MohssineAboutajWeb/pen/wpBQEo?editors=0010",
+      },
+    ],
     description:
       "A demonstration of pure JavaScript prowess, this project presents a login and registration form crafted entirely with JavaScript, showcasing dynamic styling without traditional CSS or HTML.",
-    url: "https://codepen.io/MohssineAboutajWeb/pen/wpBQEo?editors=0010",
-    source: "https://codepen.io/MohssineAboutajWeb/pen/wpBQEo?editors=0010",
     visible: true,
     featured: false,
     imgs: ["/images/projects/forms/form-purejs-preview.png"],
@@ -484,10 +658,20 @@ const projects: Project[] = [
     id: "fb448bdb-5a93-41c8-a7e2-38b05686d97c",
     slug: "form-vuejs",
     title: "Signup Vue.js Form with Validation",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://codepen.io/MohssineAboutajWeb/pen/MRaxQq",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://codepen.io/MohssineAboutajWeb/pen/MRaxQq",
+      },
+    ],
     description:
       "A simple yet effective Vue.js form featuring validation, built using MaterializeCSS and Font Awesome. This project exemplifies modern web form construction with user input validation.",
-    url: "https://codepen.io/MohssineAboutajWeb/pen/MRaxQq",
-    source: "https://codepen.io/MohssineAboutajWeb/pen/MRaxQq",
     visible: true,
     featured: false,
     imgs: ["/images/projects/forms/form-vuejs-preview.png"],
@@ -504,10 +688,20 @@ const projects: Project[] = [
     id: "2f156bd4-ab61-45b1-a80e-b6a2d9887082",
     slug: "circular-progress",
     title: "Circular Progress Bar",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://codepen.io/MohssineAboutajWeb/pen/JLNWRa",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://codepen.io/MohssineAboutajWeb/pen/JLNWRa",
+      },
+    ],
     description:
       "A dynamic circular progress bar implemented with JavaScript and Canvas, offering a responsive and visually engaging way to display progress. This project utilizes CSS for styling and responsiveness.",
-    url: "https://codepen.io/MohssineAboutajWeb/pen/JLNWRa",
-    source: "https://codepen.io/MohssineAboutajWeb/pen/JLNWRa",
     visible: true,
     featured: false,
     imgs: ["/images/projects/progress/circular-progress-preview.png"],
@@ -518,10 +712,20 @@ const projects: Project[] = [
     id: "7ec90651-905f-4835-9455-8b62e4c22fa4",
     slug: "loading-animation",
     title: "Loading Animation",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://codepen.io/MohssineAboutajWeb/post/loading-animation",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://codepen.io/MohssineAboutajWeb/post/loading-animation",
+      },
+    ],
     description:
       "A collection of exquisite loading animations designed to enhance user experience during content loading. These animations are a creative way to keep users engaged.",
-    url: "https://codepen.io/MohssineAboutajWeb/post/loading-animation",
-    source: "https://codepen.io/MohssineAboutajWeb/post/loading-animation",
     visible: true,
     featured: false,
     imgs: ["/images/projects/loading/loading-preview.png"],
@@ -532,7 +736,18 @@ const projects: Project[] = [
     id: "9dcb9a6e-f9ac-4c72-9e65-52575b365515",
     title: "Vue Movies DB",
     slug: "vue-movies-db",
-    url: "https://vue-movies-db.netlify.app/",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://vue-movies-db.netlify.app/",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://github.com/mohssineAboutaj/vue-movies-db",
+      },
+    ],
     description:
       "An extensive web application for movie enthusiasts, Vue Movies DB enables users to browse and search through a vast database of movies. Built with Vue.js, CSS, HTML, JavaScript, SCSS, Font Awesome, and Webpack, it's a treasure trove for cinema lovers.",
     imgs: [
@@ -555,13 +770,23 @@ const projects: Project[] = [
       skills.fontawesome.name,
       skills.webpack.name,
     ],
-    source: "https://github.com/mohssineAboutaj/vue-movies-db",
   },
   {
     id: "6pi9EbFmZkdw3S3TDp1HN",
     title: "Cube Animation",
     slug: "cube-animation",
-    url: "https://codepen.io/MohssineAboutajWeb/full/QQNaoZ",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi-web",
+        url: "https://codepen.io/MohssineAboutajWeb/full/QQNaoZ",
+      },
+      {
+        label: "source code",
+        icon: "simple-icons:github",
+        url: "https://codepen.io/MohssineAboutajWeb/pen/QQNaoZ",
+      },
+    ],
     description:
       "A mesmerizing cube animation created with CSS3, showcasing the potential of modern web animations with simple geometric shapes. An interesting project for those fascinated by animation and design.",
     imgs: [
@@ -572,7 +797,6 @@ const projects: Project[] = [
     featured: false,
     types: [categories.animation],
     tech: [skills.html.name, skills.css.name],
-    source: "https://codepen.io/MohssineAboutajWeb/pen/QQNaoZ",
   },
 ]
 

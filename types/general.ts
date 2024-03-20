@@ -1,3 +1,11 @@
+// non-exported types
+interface ProjectPlatform {
+  label: string
+  icon: string
+  url: string
+}
+
+// exported types
 export interface Link {
   icon: string
   title: string
@@ -69,15 +77,14 @@ export interface Project {
   id: string
   title: string
   slug: string
-  url?: string
   description: string
   imgs: string[]
   visible: boolean
   featured: boolean
   types: string[]
   tech: string[]
-  source?: string
   show?: boolean
+  platforms?: ProjectPlatform[]
 }
 
 export interface Skill {
