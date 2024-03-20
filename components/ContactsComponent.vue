@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { object, string } from "yup"
-import type { Contact } from "~/types/home"
+import type { Contact } from "~/types/general"
 
 // store
 const { getAll } = useContactStore()

@@ -1,4 +1,4 @@
-import type { AboutInfo } from "~/types/home"
+import type { AboutInfo } from "~/types/general"
 
 const info: AboutInfo = {
   avatar: "/images/avatar.jpeg",

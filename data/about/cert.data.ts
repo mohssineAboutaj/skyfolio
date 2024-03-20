@@ -1,4 +1,4 @@
-import type { AboutCertification } from "~/types/home"
+import type { AboutCertification } from "~/types/general"
 
 const certs: AboutCertification[] = [
   {

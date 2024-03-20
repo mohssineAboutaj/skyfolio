@@ -1,6 +1,6 @@
 import { defineStore } from "pinia"
 import contacts from "~/data/contacts.data"
-import type { Contact } from "~/types/home"
+import type { Contact } from "~/types/general"
 
 export const useContactStore = defineStore("contacts", {
   state: () => ({ contacts }),

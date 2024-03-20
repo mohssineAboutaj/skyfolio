@@ -1,4 +1,4 @@
-import type { Service } from "~/types/home"
+import type { Service } from "~/types/general"
 
 const services: Service[] = [
   {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Project } from "~/types/home"
+import type { Project } from "~/types/general"
 
 // store
 const { getAll, getProjectsTypes } = useProjectsStore()

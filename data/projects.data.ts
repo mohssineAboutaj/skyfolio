@@ -1,6 +1,6 @@
 import categories from "~/data/categories.data"
 import skills from "~/data/skills.data"
-import type { Project } from "~/types/home"
+import type { Project } from "~/types/general"
 
 const projects: Project[] = [
   {

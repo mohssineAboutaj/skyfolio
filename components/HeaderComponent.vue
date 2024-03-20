@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useGoTo } from "vuetify"
-import type { AboutInfo } from "~/types/home"
+import type { AboutInfo } from "~/types/general"
 import TypewriterComponent from "~/components/TypewriterComponent.vue"
 
 // store

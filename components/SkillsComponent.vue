@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Skill } from "~/types/home"
+import type { Skill } from "~/types/general"
 
 // store
 const { getAll } = useSkillsStore()

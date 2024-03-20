@@ -1,4 +1,4 @@
-import type { Skill } from "~/types/home"
+import type { Skill } from "~/types/general"
 
 const skills: Record<string, Skill> = {
   html: {

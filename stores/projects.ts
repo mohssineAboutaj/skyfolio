@@ -1,7 +1,7 @@
 import { defineStore } from "pinia"
 import categores from "~/data/categories.data"
 import projects from "~/data/projects.data"
-import type { Project } from "~/types/home"
+import type { Project } from "~/types/general"
 
 export const useProjectsStore = defineStore("projects", {
   state: () => ({ projects }),

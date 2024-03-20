@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Link } from "~/types/general"
-import type { AboutInfo, Contact } from "~/types/home"
+import type { AboutInfo, Contact } from "~/types/general"
 import { useGoTo } from "vuetify"
 
 const goTo = useGoTo()

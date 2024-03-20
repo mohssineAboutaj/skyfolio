@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Service } from "~/types/home"
+import type { Service } from "~/types/general"
 
 // store
 const { getAll } = useServicesStore()

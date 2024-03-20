@@ -3,7 +3,7 @@ import {
   getReposCount,
   getCodingActivity,
 } from "~/composables/StatisticsCompasables"
-import type { Statistic } from "~/types/home"
+import type { Statistic } from "~/types/general"
 
 // store
 const { getProjectsCount } = useProjectsStore()

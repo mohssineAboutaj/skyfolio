@@ -5,7 +5,7 @@ import type {
   AboutEducation,
   AboutCertification,
   AboutInfo,
-} from "~/types/home"
+} from "~/types/general"
 
 // stores
 const { getInfo, getEducations, getCertifications } = useAboutInfoStore()

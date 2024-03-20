@@ -1,4 +1,4 @@
-import type { AboutEducation } from "~/types/home"
+import type { AboutEducation } from "~/types/general"
 
 const educations: AboutEducation[] = [
   {
