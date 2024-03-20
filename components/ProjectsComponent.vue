@@ -33,7 +33,7 @@ onMounted(() => {
 <template>
   <FlatCard id="projects">
     <v-card-title class="d-flex justify-space-between">
-      <span>Projects</span>
+      <span class="title">Projects</span>
       <v-spacer></v-spacer>
       <v-btn
         to="/projects"

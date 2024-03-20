@@ -68,7 +68,7 @@ const onSubmit = handleSubmit((values) => {
     subtitle="If you have any questions or want to work together, feel free to contact me."
   >
     <v-card-text>
-      <v-row>
+      <v-row :class="{ 'flex-column-reverse': $vuetify.display.mdAndDown }">
         <v-col cols="12" md="6">
           <v-card-text class="text-h6">
             <v-row v-if="contacts.length == 0" class="justify-space-around">

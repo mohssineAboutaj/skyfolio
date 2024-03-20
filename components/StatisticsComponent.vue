@@ -44,7 +44,7 @@ onMounted(() => {
 <template>
   <FlatCard
     id="statistics"
-    title="=Statistics"
+    title="Statistics"
     subtitle="Some of the statistics that I have collected."
   >
     <v-row v-if="statistics.length == 0">

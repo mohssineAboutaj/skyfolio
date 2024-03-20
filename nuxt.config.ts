@@ -17,7 +17,7 @@ export default defineNuxtConfig({
   ],
   /// extend the nuxt modules
   googleFonts: {
-    families: { Quicksand: true, DancingScript: true },
+    families: { Quicksand: true, Charm: true },
     display: "swap", // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
   },
   vuetify: {
