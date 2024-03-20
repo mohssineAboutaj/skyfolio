@@ -206,6 +206,11 @@ const projects: Project[] = [
         icon: "simple-icons:github",
         url: "https://github.com/mohssineAboutaj/telefaza",
       },
+      {
+        label: "snapcraft",
+        icon: "simple-icons:snapcraft",
+        url: "https://snapcraft.io/telefaza",
+      },
     ],
     description:
       "A cutting-edge, open-source cross-platform application leveraging the Quasar Framework to deliver a unified TV channel streaming experience. Telefaza simplifies access to an extensive collection of TV channels, eliminating the need for separate searches. Perfect for entertainment enthusiasts seeking convenience and variety.",
