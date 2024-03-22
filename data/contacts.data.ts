@@ -73,6 +73,15 @@ const contacts: Contact[] = [
     isFeatured: false,
     label: "Facebook",
   },
+  {
+    id: "f5b2d1f1-4b5c-4c3f-9e7a-4b7f4f1f7d1e",
+    headline: "check my coding activity on wakatime",
+    icon: "simple-icons:wakatime",
+    color: "#000",
+    link: "https://wakatime.com/@mohssineAboutaj",
+    isFeatured: false,
+    label: "Wakatime",
+  },
 ]
 
 export default contacts
