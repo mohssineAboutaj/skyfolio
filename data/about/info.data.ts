@@ -19,7 +19,7 @@ const info: AboutInfo = {
   shortDescription:
     "Am a full-stack web developer, I have a passion for creating beautiful and functional websites. I am always looking for new opportunities to learn and grow.",
   description:
-    "My name is Mohssine Aboutaj. I am a Full-stack developer, i have over 5 years of experience, i have highly experienced in Front-End & Back-End, as well as i can build Mobile apps (Hybrid and Web app types), I use in my work the most popular programming languages & latest technologies & frameworks like: HTML 5, CSS 3, JavaScript, jQuery, Bootstrap Framework, Sass Pre-proccessor, Less Pre-proccessor, Ajax, PHP, mySQL, Vuejs Framework, NodeJs, Vuetifyjs Framework, Ionic Framework, ES6+, MaterializeCss Framework, Webpack, Gulpjs, ... and more.",
+    "I am <b>Mohssine Aboutaj</b>, a seasoned <b>Full-stack Developer</b> with over <i>6</i> years of hands-on experience. My expertise spans across both <b>Front-End</b> and <b>Back-End</b> development, with proficiency in crafting versatile <b>Mobile applications</b> encompassing both <b>Hybrid</b> and <b>Web app</b> formats.<br>In my practice, I leverage a comprehensive arsenal of cutting-edge programming languages and frameworks to deliver robust solutions. My toolkit includes HTML 5, CSS 3, JavaScript, jQuery, Bootstrap Framework, Sass Pre-processor, Less Pre-processor, Ajax, PHP, MySQL, Vue.js Framework, Node.js, Vuetify.js Framework, Ionic Framework, ES6+, MaterializeCss Framework, Webpack, Gulp.js, among others.<br>My commitment to staying abreast of the latest technologies ensures that my work remains at the forefront of innovation, empowering me to engineer scalable and efficient solutions for diverse projects.",
 }
 
 export default info
