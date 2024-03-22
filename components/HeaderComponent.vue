@@ -1,20 +1,25 @@
 <script setup lang="ts">
 import { useGoTo } from "vuetify"
-import type { AboutInfo } from "~/types/general"
+import type { AboutInfo, Contact } from "~/types/general"
 import TypewriterComponent from "~/components/TypewriterComponent.vue"
 
 // store
-const infoStore = useAboutInfoStore().getInfo
+const { getInfo } = useAboutInfoStore()
+const { getFeatured } = useContactStore()
 
 const goTo = useGoTo()
 
 // data
 /// reactive
 const user: AboutInfo = reactive({} as AboutInfo)
+const contacts: Contact[] = reactive([])
 
 // fill data
 onMounted(() => {
-  Object.assign(user, infoStore)
+  Object.assign(user, getInfo)
+  getFeatured.forEach((contact) => {
+    contacts.push(contact)
+  })
 })
 
 // methods
@@ -57,6 +62,26 @@ function goToAbout() {
             :eraseSpeed="25"
           />
         </h2>
+
+        <v-row v-if="contacts.length == 0">
+          <v-col v-for="n in 3" :key="`contact-skeleton-${n}`">
+            <v-skeleton-loader type="button"></v-skeleton-loader>
+          </v-col>
+        </v-row>
+        <v-row v-else class="mt-4">
+          <v-col v-for="contact in contacts" :key="contact.id" cols="auto">
+            <v-btn
+              :color="contact.color"
+              :href="contact.link"
+              target="_blank"
+              :title="contact.label"
+              :aria-label="contact.label"
+              icon
+            >
+              <Icon :name="contact.icon" size="20" />
+            </v-btn>
+          </v-col>
+        </v-row>
       </template>
     </v-col>
     <v-col cols="12" md="6" class="text-center">
