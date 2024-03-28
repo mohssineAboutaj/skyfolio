@@ -23,7 +23,7 @@ export default defineVuetifyConfiguration({
   defaults: {
     VCard: {
       rounded: "xl",
-      class: "my-8 elevation-12",
+      class: "my-16 elevation-12",
     },
     VCardTitle: {
       class: "text-h5 font-weight-bold my-auto mb-4 text-capitalize",

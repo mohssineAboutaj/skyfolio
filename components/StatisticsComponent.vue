@@ -14,6 +14,7 @@ onMounted(() => {
   // for now push static projects count
   statistics.push({
     title: "Projects Count",
+    subtitle: "Total projects available in my portfolio.",
     value: getProjectsCount,
     icon: "mdi-folder-multiple",
   })
@@ -21,6 +22,7 @@ onMounted(() => {
   getReposCount().then((res) => {
     statistics.push({
       title: "Repos Count",
+      subtitle: "Total public repositories on my GitHub.",
       value: res,
       icon: "mdi-source-branch",
     })
@@ -29,11 +31,13 @@ onMounted(() => {
   getCodingActivity().then((res) => {
     statistics.push({
       title: "Total Worked Hours",
+      subtitle: "Total hours spent on coding coming from WakaTime.",
       value: res.totalHours,
       icon: "mdi-clock-time-four-outline",
     })
     statistics.push({
       title: "Total Coded Lines",
+      subtitle: "Total lines of code written based on working hours.",
       value: res.totalCodedLines,
       icon: "mdi-code-tags",
     })
@@ -69,6 +73,7 @@ onMounted(() => {
       >
         <StatCard
           :title="stat.title"
+          :subtitle="stat.subtitle"
           :value="stat.value"
           :icon="stat.icon"
           :elevation="24"
