@@ -44,7 +44,7 @@ onMounted(() => {
               <Icon
                 v-bind="props"
                 :name="skill.icon"
-                size="70"
+                size="100"
                 class="ma-2 text-secondary"
               />
             </template>
