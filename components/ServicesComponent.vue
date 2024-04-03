@@ -26,7 +26,7 @@ onMounted(() => {
         :key="`services-skeleton-${n}`"
         cols="12"
         sm="12"
-        :md="i < 2 ? 6 : 4"
+        :md="n < 2 ? 6 : 4"
         xl="3"
       >
         <v-skeleton-loader type="card"></v-skeleton-loader>
