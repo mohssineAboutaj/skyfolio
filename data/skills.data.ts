@@ -57,6 +57,13 @@ const skills: Record<string, Skill> = {
     score: 80,
     icon: "devicon:laravel",
   },
+  redis: {
+    id: "a1c95592-eb9d-424c-98b8-e2d560609869",
+    name: "redis",
+    color: "#ff6057",
+    score: 70,
+    icon: "simple-icons:redis",
+  },
   alpinejs: {
     id: "a1c95592-eb9d-424c-98b8-e2d560609869",
     name: "alpinejs",
