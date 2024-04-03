@@ -45,7 +45,8 @@ onMounted(() => {
                 v-bind="props"
                 :name="skill.icon"
                 size="100"
-                class="ma-2 text-secondary"
+                class="ma-2"
+                :color="skill.color"
               />
             </template>
           </v-tooltip>
