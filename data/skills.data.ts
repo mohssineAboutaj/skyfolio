@@ -57,6 +57,13 @@ const skills: Record<string, Skill> = {
     score: 80,
     icon: "devicon:laravel",
   },
+  alpinejs: {
+    id: "a1c95592-eb9d-424c-98b8-e2d560609869",
+    name: "alpinejs",
+    color: "#339ecc",
+    score: 95,
+    icon: "devicon:alpinejs",
+  },
   quasar: {
     id: "B72k5LBvq2SHXVD2AG-01",
     name: "Quasar",
