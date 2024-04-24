@@ -49,11 +49,6 @@ const projects: Project[] = [
         icon: "mdi:web",
         url: "https://hisnu-muslim.netlify.app/",
       },
-      {
-        label: "source code",
-        icon: "simple-icons:github",
-        url: "",
-      },
     ],
     description:
       "Hisnu Muslim is a web application designed to provide Muslims with a comprehensive collection of adhkar and duaas for daily life. This app is built using Vue.js, CSS, HTML, JavaScript, Electron.js, Vuetify, and Capacitor, offering a seamless experience for users.",
@@ -123,11 +118,6 @@ const projects: Project[] = [
         label: "live preview",
         icon: "mdi:web",
         url: "https://argons.netlify.app/",
-      },
-      {
-        label: "source code",
-        icon: "simple-icons:github",
-        url: "",
       },
     ],
     description:
@@ -252,11 +242,6 @@ const projects: Project[] = [
         icon: "mdi:web",
         url: "https://veather-app.netlify.app/",
       },
-      {
-        label: "source code",
-        icon: "simple-icons:github",
-        url: "",
-      },
     ],
     description:
       "A comprehensive weather application designed to provide real-time weather information for any location. This cross-platform app is built using Vue.js, CSS, HTML, JavaScript, and Quasar Framework, offering a seamless experience for users.",
@@ -357,11 +342,6 @@ const projects: Project[] = [
         icon: "mdi:web",
         url: "https://chhiwat.netlify.app/",
       },
-      {
-        label: "source code",
-        icon: "simple-icons:github",
-        url: "",
-      },
     ],
     description:
       "A versatile cross-platform culinary app featuring a diverse collection of recipes, from chicken dishes to juices and salads. Built with HTML, CSS, JavaScript, SCSS, Vue.js, Vuetify, and Capacitor, this app caters to cooking enthusiasts seeking inspiration and variety.",
@@ -398,11 +378,6 @@ const projects: Project[] = [
         label: "live preview",
         icon: "mdi:web",
         url: "https://meet-nass.netlify.app/",
-      },
-      {
-        label: "source code",
-        icon: "simple-icons:github",
-        url: "",
       },
     ],
     description:
