@@ -30,7 +30,7 @@ export const useSettingsStore = defineStore("settings", {
       },
       // services
       {
-        icon: "mdi-cogs",
+        icon: "mdi-view-list",
         title: "Services",
         value: "services",
         targetId: "#services",
@@ -38,7 +38,7 @@ export const useSettingsStore = defineStore("settings", {
       },
       // skills
       {
-        icon: "mdi-code-tags-check",
+        icon: "mdi-code-tags",
         title: "Skills",
         value: "skills",
         targetId: "#skills",
@@ -46,7 +46,7 @@ export const useSettingsStore = defineStore("settings", {
       },
       // projects
       {
-        icon: "mdi-briefcase",
+        icon: "mdi-folder-multiple",
         title: "Projects",
         value: "projects",
         targetId: "#projects",
