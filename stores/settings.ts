@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import { name } from "~/package.json"
+import info from "~/data/about/info.data"
 
 export const useSettingsStore = defineStore("settings", {
   state: () => ({
@@ -61,7 +61,7 @@ export const useSettingsStore = defineStore("settings", {
         isCurrent: false,
       },
     ],
-    title: name,
+    title: info.fullName,
   }),
   getters: {
     getLinks: (state) => state.links,
