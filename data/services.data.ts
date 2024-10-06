@@ -16,6 +16,13 @@ const services: Service[] = [
       "imagine and execute the ideas with the perfect UI (User Interface) to let visitor browse and use the service easily ",
   },
   {
+    id: "uub763c4af-dc65-4dec-af9c-712e61d9a91e",
+    icon: "mdi-server",
+    title: "back end",
+    description:
+      "Manage the application from behind the scenes in a secure manner and control the course of events",
+  },
+  {
     id: "uub892e520-a2b2-442c-b142-5de84ea694f5",
     icon: "mdi-tablet-android",
     title: "web apps",
@@ -24,17 +31,17 @@ const services: Service[] = [
   },
   {
     id: "uub763c4af-dc65-4dec-af9c-712e61d9a91e",
-    icon: "mdi-server",
-    title: "back end",
+    icon: "mdi-cloud-upload",
+    title: "deployment",
     description:
-      "Manage the application from behind the scenes in a secure manner and control the course of events",
+      "Deploy the application to the server and make it available to the public and the world",
   },
   {
-    id: "uu0e2a86ed-dc9c-44b8-b1c5-a69bae97d734",
-    icon: "mdi-database",
-    title: "data scrapping",
+    id: "uub763c4af-dc65-4dec-af9c-712e61d9a91e",
+    icon: "mdi-wrench",
+    title: "maintenance",
     description:
-      "Take advantage of the data provided by other sites in the absence of an API that provides that data",
+      "Maintain and repair the application and keep it up to date and secure",
   },
 ]
 

@@ -39,7 +39,7 @@ onMounted(() => {
         :key="service.id"
         cols="12"
         sm="12"
-        :md="i < 2 ? 6 : 4"
+        md="4"
         xl="3"
       >
         <v-card min-height="350">
