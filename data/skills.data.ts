@@ -173,7 +173,7 @@ const skills: Record<string, Skill> = {
     id: "a2b3daa2-2155-4472-841b-17fb95183703",
     name: "typeScript",
     score: 70,
-    color: "#294E80",
+    color: "#007ACC",
     icon: "simple-icons:typescript",
   },
   jquery: {
