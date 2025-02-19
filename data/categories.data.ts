@@ -18,6 +18,8 @@ const categores = {
   weather: "Weather",
   nft: "NFT",
   quiz: "Quiz",
+  chat: "Chat",
+  education: "Education",
 }
 
 export default categores
