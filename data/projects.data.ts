@@ -4,6 +4,56 @@ import type { Project } from "~/types/general"
 
 const projects: Project[] = [
   {
+    id: "Fity123", // Replace with a unique identifier if needed
+    title: "Fity",
+    slug: "fity",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi:web",
+        url: "https://fity.at/",
+      },
+      {
+        label: "Google Play",
+        icon: "mdi:google-play",
+        url: "https://play.google.com/store/apps/details?id=at.info.fity&hl=en",
+      },
+      {
+        label: "App Store",
+        icon: "mdi:apple",
+        url: "https://apps.apple.com/us/app/fity-healthy-food-delivery/id1636686030",
+      },
+    ],
+    description:
+      "Fity is a health and fitness platform that provides a seamless experience for users looking for healthy meal options. It offers a mobile app and website where users can explore nutritious recipes, order healthy food, and maintain a balanced lifestyle. I contributed to this project by developing the backend, ensuring smooth data processing, API integrations, and secure transactions.",
+    imgs: [
+      "/images/projects/fity/image.png",
+      "/images/projects/fity/image copy.png",
+      "/images/projects/fity/image copy 2.png",
+      "/images/projects/fity/image copy 3.png",
+      "/images/projects/fity/image copy 4.png",
+      "/images/projects/fity/image copy 5.png",
+      "/images/projects/fity/image copy 6.png",
+      "/images/projects/fity/image copy 7.png",
+      "/images/projects/fity/image copy 8.png",
+      "/images/projects/fity/image copy 9.png",
+    ],
+    visible: true,
+    featured: true,
+    types: [categories.cooking, categories.webapp, categories.mobile],
+    tech: [
+      skills.php.name,
+      skills.laravel.name,
+      skills.mysql.name,
+      skills.javascript.name,
+      skills.html.name,
+      skills.css.name,
+      skills.tailwindcss.name,
+      skills.flutter.name,
+      skills.dart.name,
+    ],
+  },
+  {
     id: "JnVJsVKN0CiwExvrM2u1g",
     title: "Vuiz",
     slug: "vuiz",

@@ -288,6 +288,20 @@ const skills: Record<string, Skill> = {
     score: 55,
     icon: "simple-icons:capacitor",
   },
+  flutter: {
+    id: "B72k5LBvq2SHXVD2AG-01",
+    name: "Flutter",
+    color: "#339ecc",
+    score: 30,
+    icon: "simple-icons:flutter",
+  },
+  dart: {
+    id: "zOn05xrpL0waE3HpXGBjV",
+    name: "Dart",
+    color: "#61DBFBFF",
+    score: 30,
+    icon: "simple-icons:dart",
+  },
 }
 
 export default skills
