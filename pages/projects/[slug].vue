@@ -17,7 +17,7 @@ const swiperSharedOptions = {
   // spaceBetween: 10,
   grabCursor: true,
   loop: true,
-  autoplay: { delay: 1500 },
+  autoplay: { delay: 2500 },
 }
 /// reactive
 const project: Project = reactive({} as Project)
@@ -73,7 +73,7 @@ onBeforeMount(() => {
                 v-for="(image, n) in project.imgs"
                 :key="`main-img-${n}`"
               >
-                <v-img :src="image" />
+                <v-img :src="image" max-height="400" />
               </swiper-slide>
             </swiper-container>
 
@@ -88,7 +88,7 @@ onBeforeMount(() => {
                 v-for="(image, n) in project.imgs"
                 :key="`gallery-img-${n}`"
               >
-                <v-img :src="image" />
+                <v-img :src="image" max-height="100" />
               </swiper-slide>
             </swiper-container>
           </v-col>
