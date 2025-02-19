@@ -79,7 +79,7 @@ watch(
 <template>
   <Particles />
 
-  <v-app>
+  <v-layout>
     <v-navigation-drawer
       v-model="drawer"
       class="hidden-md-and-up"
@@ -168,7 +168,7 @@ watch(
         <b>{{ user.fullName }}</b>
       </v-footer>
     </v-main>
-  </v-app>
+  </v-layout>
 </template>
 
 <style>
