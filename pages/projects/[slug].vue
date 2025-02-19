@@ -12,7 +12,6 @@ const router = useRouter()
 // data
 /// static
 const swiperSharedOptions = {
-  modules: [SwiperThumbs, SwiperAutoplay],
   centeredSlides: true,
   centeredSlidesBounds: true,
   // spaceBetween: 10,
@@ -42,6 +41,11 @@ onBeforeMount(() => {
     updateTitle(title.value)
     projectHasImages.value = project.imgs.length > 1
 
+    // if project images length is less than 4, duplicate the images
+    if (project.imgs.length < 4) {
+      project.imgs = [...project.imgs, ...project.imgs]
+    }
+
     breadcrumbItems[2].title = title.value
   } else {
     router.push("/404")
@@ -59,34 +63,34 @@ onBeforeMount(() => {
       <v-card-text>
         <v-row>
           <v-col cols="12" md="6">
-            <Swiper
+            <swiper-container
               v-bind="swiperSharedOptions"
               :slidesPerView="1"
               class="main-gallery"
               :thumbs="{ swiper: '.nav-gallery', autoScrollOffset: 3 }"
             >
-              <SwiperSlide
+              <swiper-slide
                 v-for="(image, n) in project.imgs"
                 :key="`main-img-${n}`"
               >
                 <v-img :src="image" />
-              </SwiperSlide>
-            </Swiper>
+              </swiper-slide>
+            </swiper-container>
 
-            <Swiper
+            <swiper-container
               v-if="projectHasImages"
               v-bind="swiperSharedOptions"
               :slidesPerView="4"
               class="nav-gallery my-2"
               :spaceBetween="10"
             >
-              <SwiperSlide
+              <swiper-slide
                 v-for="(image, n) in project.imgs"
                 :key="`gallery-img-${n}`"
               >
                 <v-img :src="image" />
-              </SwiperSlide>
-            </Swiper>
+              </swiper-slide>
+            </swiper-container>
           </v-col>
           <v-col cols="12" md="6">
             <v-card title="Description" variant="plain" class="elevation-0">

@@ -1,6 +1,6 @@
 {
   "name": "skyfolio",
-  "version": "0.98.0",
+  "version": "0.99.0",
   "description": "A portfolio website",
   "private": true,
   "type": "module",
@@ -13,18 +13,18 @@
     "make": "nuxt add"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.5.5",
-    "nuxt": "^3.13.2",
+    "@pinia/nuxt": "^0.10.1",
+    "nuxt": "^3.15.4",
     "nuxt-icon": "^0.6.10",
-    "nuxt-swiper": "^1.2.2",
-    "pinia": "^2.2.4",
-    "vue": "^3.5.11",
-    "vue-router": "^4.4.5"
+    "nuxt-swiper": "^2.0.0",
+    "pinia": "^3.0.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/seo": "^2.0.0-rc.23",
-    "nuxt-gtag": "^3.0.1",
+    "@nuxtjs/seo": "^2.2.0",
+    "nuxt-gtag": "^3.0.2",
     "nuxt-particles": "^0.3.0",
     "vuetify-nuxt-module": "^0.18.3"
   }

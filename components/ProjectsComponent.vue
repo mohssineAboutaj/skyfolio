@@ -10,7 +10,6 @@ const { thresholds } = useDisplay()
 // data
 /// static
 const swiperOptions = {
-  modules: [SwiperAutoplay, SwiperEffectCoverflow],
   slidesPerView: 1,
   breakpoints: {
     [thresholds.value.sm]: { slidesPerView: 2, spaceBetween: 20 },
@@ -61,11 +60,11 @@ onMounted(() => {
         </v-col>
       </v-row>
 
-      <Swiper v-else v-bind="swiperOptions">
-        <SwiperSlide v-for="project in projects" :key="project.id">
+      <swiper-container v-else v-bind="swiperOptions">
+        <swiper-slide v-for="project in projects" :key="project.id">
           <ProjectPreviewCard :project="project" />
-        </SwiperSlide>
-      </Swiper>
+        </swiper-slide>
+      </swiper-container>
     </v-card-text>
   </FlatCard>
 </template>
