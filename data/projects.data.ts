@@ -13,18 +13,23 @@ const projects: Project[] = [
         icon: "mdi:google-play",
         url: "https://play.google.com/store/apps/details?id=at.chatspace.app&hl=en",
       },
+      {
+        label: "App Store",
+        icon: "mdi:apple",
+        url: "https://apps.apple.com/ma/app/die-berater-workspace/id6621223966",
+      },
     ],
     description:
       "die Berater Workspace is a secure and efficient communication platform designed for companies and organizations to streamline internal communication and information distribution. The app centralizes onboarding, delivers real-time updates, and ensures data security through encrypted chat functionality. Users can access important documents, receive company-wide announcements, and communicate seamlessly within teams. My role in this project focused on backend development, ensuring data security, real-time messaging, and seamless integration of key features.",
     imgs: [
-      "/images/projects/die-berater-workspace/iamge.png",
+      "/images/projects/die-berater-workspace/image.png",
       "/images/projects/die-berater-workspace/image copy.png",
       "/images/projects/die-berater-workspace/image copy 2.png",
       "/images/projects/die-berater-workspace/image copy 3.png",
       "/images/projects/die-berater-workspace/image copy 4.png",
     ],
     visible: true,
-    featured: false,
+    featured: true,
     types: [categories.chat, categories.education, categories.mobile],
     tech: [
       skills.php.name,
