@@ -11,6 +11,9 @@ tests/
 │   ├── components.mock.ts   # Reusable components mock data
 │   ├── main-components.mock.ts # Main components mock data
 │   ├── pages.mock.ts        # Pages mock data
+│   ├── data.mock.ts         # Data files mock data
+│   ├── stores.mock.ts       # Stores mock data
+│   ├── composables.mock.ts  # Composables mock data
 │   ├── vuetify.mock.ts      # Vuetify component mocks
 │   └── nuxt.mock.ts         # Nuxt composables mocks
 ├── unit/                     # Unit tests
@@ -26,16 +29,26 @@ tests/
 │   │   ├── StatCard.test.ts
 │   │   ├── TypewriterComponent.test.ts
 │   │   └── Particles.test.ts
-│   └── pages/               # Page unit tests
-│       ├── HomePage.test.ts
-│       ├── ProjectsPage.test.ts
-│       ├── ProjectDetailPage.test.ts
-│       └── NotFoundPage.test.ts
+│   ├── pages/               # Page unit tests
+│   │   ├── HomePage.test.ts
+│   │   ├── ProjectsPage.test.ts
+│   │   ├── ProjectDetailPage.test.ts
+│   │   └── NotFoundPage.test.ts
+│   ├── data/                # Data files unit tests
+│   │   ├── skills.data.test.ts
+│   │   └── projects.data.test.ts
+│   ├── stores/              # Stores unit tests
+│   │   └── about.test.ts
+│   ├── composables/         # Composables unit tests
+│   │   └── StatisticsCompasables.test.ts
+│   └── types/               # Types unit tests
+│       └── general.test.ts
 ├── e2e/                      # End-to-end tests
 │   ├── skills.spec.ts       # Skills page E2E tests
 │   ├── reusable-components.spec.ts  # Reusable components E2E tests
 │   ├── main-components.spec.ts      # Main components E2E tests
-│   └── pages.spec.ts        # Pages E2E tests
+│   ├── pages.spec.ts        # Pages E2E tests
+│   └── data-stores-composables.spec.ts # Data, stores, composables E2E tests
 ├── utils/                    # Test utilities
 │   └── test-utils.ts        # Common testing utilities
 ├── setup.ts                  # Global test setup
@@ -173,6 +186,83 @@ export const mockProjectDetail = {
 }
 ```
 
+### Data Mock (`data.mock.ts`)
+
+```typescript
+export const mockSkillsData: Record<string, Skill> = {
+  html: {
+    id: "18636b66-f793-421e-b8ee-c07c45110a8e",
+    name: "HTML",
+    score: 100,
+    color: "#e34f26",
+    icon: "simple-icons:html5",
+  },
+  // ... more skills
+}
+
+export const mockProjectsData: Project[] = [
+  {
+    id: "1",
+    title: "Test Project 1",
+    slug: "test-project-1",
+    description: "A test project for testing",
+    imgs: ["/images/projects/test/test-1.png"],
+    visible: true,
+    featured: true,
+    types: ["web"],
+    tech: ["Vue.js", "TypeScript"],
+  },
+  // ... more projects
+]
+```
+
+### Stores Mock (`stores.mock.ts`)
+
+```typescript
+export const mockAboutStore = {
+  info: mockAboutInfoData,
+  edu: mockAboutEducationData,
+  cert: mockAboutCertificationData,
+  getInfo: vi.fn(() => mockAboutInfoData),
+  getEducations: vi.fn(() => mockAboutEducationData),
+  getCertifications: vi.fn(() => mockAboutCertificationData),
+}
+
+export const mockProjectsStore = {
+  projects: mockProjectsData,
+  getAll: vi.fn(() => mockProjectsData.filter((p) => p.visible)),
+  getFeatured: vi.fn(() =>
+    mockProjectsData.filter((p) => p.visible && p.featured),
+  ),
+  getBySlug: vi.fn((slug: string) =>
+    mockProjectsData.find((p) => p.slug === slug),
+  ),
+}
+```
+
+### Composables Mock (`composables.mock.ts`)
+
+```typescript
+export const mockComposables = {
+  getReposCount: vi.fn(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 100))
+    return mockGitHubResponse.public_repos
+  }),
+
+  getCodingActivity: vi.fn(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 100))
+    const averageCodingLinesPerHour = 150
+    const totalHours = Math.floor(
+      mockWakatimeResponse.data.grand_total
+        .total_seconds_including_other_language / 3600,
+    )
+    const totalCodedLines = totalHours * averageCodingLinesPerHour
+
+    return { totalHours, totalCodedLines }
+  }),
+}
+```
+
 ### Vuetify Mock (`vuetify.mock.ts`)
 
 - Mocks Vuetify components to avoid CSS import issues
@@ -300,10 +390,10 @@ The testing structure provides comprehensive coverage:
 
 ### **Current Test Status** ✅
 
-- **Total Tests**: 487 tests passing
-- **Unit Tests**: 375 tests (11 components + 4 pages)
-- **E2E Tests**: 112 tests (4 test suites)
-- **Test Files**: 19 files
+- **Total Tests**: 620 tests passing
+- **Unit Tests**: 508 tests (11 components + 4 pages + 2 data files + 1 store + 1 composable + 1 types)
+- **E2E Tests**: 112 tests (5 test suites)
+- **Test Files**: 25 files
 
 ### **Components Tested** ✅
 
@@ -332,6 +422,31 @@ The testing structure provides comprehensive coverage:
 - **ProjectsPage**: Projects listing, filtering logic, data validation, store integration
 - **ProjectDetailPage**: Project detail rendering, image gallery, breadcrumb navigation
 - **NotFoundPage**: 404 page structure, navigation, user experience
+
+### **Data Files Tested** ✅
+
+**Data Validation:**
+
+- **Skills Data**: Data structure, properties validation, consistency checks
+- **Projects Data**: Data structure, properties validation, consistency checks
+
+### **Stores Tested** ✅
+
+**State Management:**
+
+- **About Store**: About info, education, certification data management
+
+### **Composables Tested** ✅
+
+**Business Logic:**
+
+- **StatisticsCompasables**: GitHub API integration, Wakatime API integration, error handling
+
+### **Types Tested** ✅
+
+**Type Definitions:**
+
+- **General Types**: Interface validation, type compatibility, structure validation
 
 ### **Coverage Areas**
 
