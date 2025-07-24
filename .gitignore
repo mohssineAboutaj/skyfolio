@@ -26,3 +26,8 @@ logs
 
 # Local Netlify folder
 .netlify
+
+# Testing
+coverage
+*.lcov
+.nyc_output

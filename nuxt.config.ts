@@ -55,4 +55,12 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2025-02-19",
+
+  // Testing configuration
+  vite: {
+    test: {
+      environment: 'jsdom',
+      globals: true,
+    },
+  },
 })
