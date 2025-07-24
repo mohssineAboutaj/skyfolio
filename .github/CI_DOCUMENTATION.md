@@ -1,20 +1,20 @@
-# GitHub Actions CI/CD
+# GitHub Actions CI/CD Documentation
 
-This directory contains GitHub Actions workflows for automated testing, building, and deployment of the Skyfolio project.
+This directory contains GitHub Actions workflows for automated testing and quality assurance of the Skyfolio project.
 
-## 📁 Workflows
+## Workflows
 
-### 1. **test.yml** - Main Test Suite
+### `test.yml` - Main Test Suite
 
 - **Triggers**: Push to main/master/develop, Pull Requests
 - **Purpose**: Runs the complete test suite
 - **Features**:
-  - Installs dependencies
+  - Installs dependencies with `npm ci`
   - Runs all tests (`npm run test:all`)
   - Uploads test results as artifacts
   - Generates coverage reports
 
-### 2. **pr-check.yml** - Pull Request Quality Check
+### `pr-check.yml` - Pull Request Quality Check
 
 - **Triggers**: Pull Requests to main/master/develop
 - **Purpose**: Quality assurance for PRs
@@ -24,28 +24,7 @@ This directory contains GitHub Actions workflows for automated testing, building
   - Comments on PRs with test results
   - Provides detailed feedback
 
-### 3. **deploy.yml** - Production Deployment
-
-- **Triggers**: Push to main/master
-- **Purpose**: Automated deployment to production
-- **Features**:
-  - Runs full test suite
-  - Builds the project
-  - Generates static site
-  - Deploys to Vercel and Netlify
-
-### 4. **ci.yml** - Comprehensive CI (Advanced)
-
-- **Triggers**: Push to main/master/develop, Pull Requests
-- **Purpose**: Full CI pipeline with multiple checks
-- **Features**:
-  - Matrix testing with Node.js versions
-  - Security audits
-  - Performance checks
-  - Build verification
-  - Coverage reporting
-
-## 🚀 Quick Start
+## Quick Setup
 
 ### 1. Enable GitHub Actions
 
@@ -54,26 +33,7 @@ This directory contains GitHub Actions workflows for automated testing, building
 3. Enable "Allow all actions and reusable workflows"
 4. Save the changes
 
-### 2. Set up Secrets (for deployment)
-
-If you want to use the deployment workflow, add these secrets to your repository:
-
-#### For Vercel:
-
-- `VERCEL_TOKEN`: Your Vercel API token
-- `VERCEL_ORG_ID`: Your Vercel organization ID
-- `VERCEL_PROJECT_ID`: Your Vercel project ID
-
-#### For Netlify:
-
-- `NETLIFY_AUTH_TOKEN`: Your Netlify API token
-- `NETLIFY_SITE_ID`: Your Netlify site ID
-
-#### For Codecov (optional):
-
-- `CODECOV_TOKEN`: Your Codecov token
-
-### 3. Configure Branch Protection
+### 2. Set up Branch Protection
 
 1. Go to **Settings** → **Branches**
 2. Add rule for `main` branch
@@ -82,7 +42,7 @@ If you want to use the deployment workflow, add these secrets to your repository
    - ✅ Require branches to be up to date before merging
    - ✅ Select the test workflows as required status checks
 
-## 📊 Test Results
+## Test Results
 
 ### Coverage Reports
 
@@ -96,7 +56,7 @@ If you want to use the deployment workflow, add these secrets to your repository
 - Available for 30 days
 - Can be downloaded from the Actions tab
 
-## 🔧 Customization
+## Customization
 
 ### Adding New Test Scripts
 
@@ -119,17 +79,7 @@ on:
     branches: [main]
 ```
 
-### Adding New Environments
-
-To add staging deployment:
-
-```yaml
-- name: Deploy to Staging
-  if: github.ref == 'refs/heads/develop'
-  run: npm run deploy:staging
-```
-
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -139,13 +89,7 @@ To add staging deployment:
    - Verify all dependencies are in `package-lock.json`
    - Ensure environment variables are set
 
-2. **Deployment failures**
-
-   - Verify secrets are correctly set
-   - Check deployment platform credentials
-   - Ensure build process completes successfully
-
-3. **Performance issues**
+2. **Performance issues**
    - Tests taking too long: Check for infinite loops
    - Memory issues: Consider increasing Node.js memory limit
    - Timeout issues: Increase timeout in workflow
@@ -157,7 +101,7 @@ To add staging deployment:
 3. Click on the failed job
 4. Check the logs for error messages
 
-## 📈 Monitoring
+## Monitoring
 
 ### Workflow Status
 
@@ -171,7 +115,7 @@ To add staging deployment:
 - Monitor coverage trends
 - Set up alerts for performance regressions
 
-## 🔒 Security
+## Security
 
 ### Best Practices
 
@@ -185,10 +129,9 @@ To add staging deployment:
 The CI includes:
 
 - `npm audit` for dependency vulnerabilities
-- `audit-ci` for automated security checks
 - Regular dependency updates
 
-## 📝 Contributing
+## Contributing
 
 ### Adding New Workflows
 
@@ -203,14 +146,6 @@ The CI includes:
 2. Update documentation if needed
 3. Consider backward compatibility
 4. Notify team of changes
-
-## 🎯 Next Steps
-
-1. **Set up branch protection rules**
-2. **Configure deployment platforms**
-3. **Add performance monitoring**
-4. **Set up notifications**
-5. **Integrate with external tools** (Codecov, etc.)
 
 ---
 

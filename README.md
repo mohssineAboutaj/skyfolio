@@ -377,9 +377,11 @@ Copyright (c) 2024 mohssineAboutaj
 If you have any questions or need help:
 
 1. **Check the documentation**: Review this README and `CI_SETUP.md`
-2. **Run tests locally**: Ensure all tests pass with `npm run test:all`
-3. **Check GitHub Actions**: View detailed logs in the Actions tab
-4. **Open an issue**: Report bugs or request features
+2. **CI/CD Documentation**: See `.github/CI_DOCUMENTATION.md` for workflow details
+3. **Badge Configuration**: See `BADGE_CONFIGURATION.md` for status badge setup
+4. **Run tests locally**: Ensure all tests pass with `npm run test:all`
+5. **Check GitHub Actions**: View detailed logs in the Actions tab
+6. **Open an issue**: Report bugs or request features
 
 ---
 
