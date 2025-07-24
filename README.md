@@ -362,6 +362,8 @@ npm run preview
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+Copyright (c) 2024 mohssineAboutaj
+
 ## Acknowledgments
 
 - **Vue.js**: Progressive JavaScript framework
