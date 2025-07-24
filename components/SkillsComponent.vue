@@ -23,6 +23,7 @@ onMounted(() => {
     id="skills"
     title="Skills"
     subtitle="Some of the skills that I have learned and used."
+    class="bg-transparent"
   >
     <v-card-text>
       <v-row v-if="skills.length == 0">
@@ -38,20 +39,56 @@ onMounted(() => {
       </v-row>
 
       <v-row v-else>
-        <v-col v-for="skill in skills" :key="skill.id" cols="auto">
-          <v-tooltip location="top" :text="skill.name">
-            <template v-slot:activator="{ props }">
-              <Icon
-                v-bind="props"
-                :name="skill.icon"
-                size="100"
-                class="ma-2"
-                :color="skill.color"
-              />
-            </template>
-          </v-tooltip>
+        <v-col
+          v-for="skill in skills"
+          :key="skill.id"
+          cols="12"
+          sm="6"
+          md="4"
+          lg="3"
+        >
+          <v-card elevation="4" class="my-0-force">
+            <v-card-text class="pa-4">
+              <!-- Skill Icon -->
+              <div class="d-flex align-center mb-2">
+                <Icon
+                  :name="skill.icon"
+                  size="34"
+                  :color="skill.color"
+                  class="mr-4"
+                />
+                <v-card-title class="pa-0 text-body-1 my-0-force">
+                  {{ skill.name }}
+                </v-card-title>
+              </div>
+
+              <!-- Proficiency Section -->
+              <div class="d-flex justify-space-between">
+                <div class="text-caption text-medium-emphasis mb-2">
+                  Proficiency
+                </div>
+                <div class="text-body-2 font-weight-medium">
+                  {{ skill.score }}%
+                </div>
+              </div>
+
+              <!-- Progress Bar -->
+              <v-progress-linear
+                :model-value="skill.score"
+                color="primary"
+                height="8"
+              ></v-progress-linear>
+            </v-card-text>
+          </v-card>
         </v-col>
       </v-row>
     </v-card-text>
   </v-card>
 </template>
+
+<style scoped>
+.my-0-force {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+</style>

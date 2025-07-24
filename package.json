@@ -1,6 +1,6 @@
 {
   "name": "skyfolio",
-  "version": "0.104.1",
+  "version": "0.105.0",
   "description": "A portfolio website",
   "private": true,
   "type": "module",
