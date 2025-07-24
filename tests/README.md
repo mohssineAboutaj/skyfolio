@@ -8,11 +8,18 @@ This directory contains a comprehensive testing setup for the Skyfolio project w
 tests/
 ├── mocks/                    # Mock data and utilities
 │   ├── skills.mock.ts       # Skills data and store mocks
+│   ├── components.mock.ts   # Reusable components mock data
+│   ├── main-components.mock.ts # Main components mock data
 │   ├── vuetify.mock.ts      # Vuetify component mocks
 │   └── nuxt.mock.ts         # Nuxt composables mocks
 ├── unit/                     # Unit tests
 │   └── components/          # Component unit tests
 │       ├── SkillsComponent.test.ts
+│       ├── AboutComponent.test.ts
+│       ├── ProjectsComponent.test.ts
+│       ├── ServicesComponent.test.ts
+│       ├── ContactsComponent.test.ts
+│       ├── StatisticsComponent.test.ts
 │       ├── FlatCard.test.ts
 │       ├── ProjectPreviewCard.test.ts
 │       ├── StatCard.test.ts
@@ -20,7 +27,8 @@ tests/
 │       └── Particles.test.ts
 ├── e2e/                      # End-to-end tests
 │   ├── skills.spec.ts       # Skills page E2E tests
-│   └── reusable-components.spec.ts  # Reusable components E2E tests
+│   ├── reusable-components.spec.ts  # Reusable components E2E tests
+│   └── main-components.spec.ts      # Main components E2E tests
 ├── utils/                    # Test utilities
 │   └── test-utils.ts        # Common testing utilities
 ├── setup.ts                  # Global test setup
@@ -83,6 +91,44 @@ export const mockStatCardData = {
   value: 150,
   elevation: 2,
 }
+```
+
+### Main Components Mock (`main-components.mock.ts`)
+
+```typescript
+export const mockAboutInfo: AboutInfo = {
+  avatar: "/images/avatar.jpg",
+  firstName: "John",
+  lastName: "Doe",
+  fullName: "John Doe",
+  email: "john.doe@example.com",
+  // ... more properties
+}
+
+export const mockFeaturedProjects: Project[] = [
+  {
+    id: "1",
+    title: "E-commerce Platform",
+    slug: "ecommerce-platform",
+    description: "A modern e-commerce platform built with Vue.js",
+    imgs: ["/images/projects/ecommerce/ecommerce-1.png"],
+    visible: true,
+    featured: true,
+    types: ["web"],
+    tech: ["Vue.js", "Node.js", "MongoDB"],
+  },
+  // ... more projects
+]
+
+export const mockServices: Service[] = [
+  {
+    id: "1",
+    icon: "mdi-web",
+    title: "Web Development",
+    description: "Custom web applications using modern technologies",
+  },
+  // ... more services
+]
 ```
 
 ### Vuetify Mock (`vuetify.mock.ts`)
@@ -212,12 +258,22 @@ The testing structure provides comprehensive coverage:
 
 ### **Current Test Status** ✅
 
-- **Total Tests**: 154 tests passing
-- **Unit Tests**: 108 tests (6 components)
-- **E2E Tests**: 46 tests (2 test suites)
-- **Test Files**: 8 files
+- **Total Tests**: 334 tests passing
+- **Unit Tests**: 255 tests (11 components)
+- **E2E Tests**: 79 tests (3 test suites)
+- **Test Files**: 14 files
 
 ### **Components Tested** ✅
+
+**Main Components:**
+
+- **AboutComponent**: About info data processing, education/certification validation, tab configuration
+- **ProjectsComponent**: Featured projects integration, swiper configuration, project data validation
+- **ServicesComponent**: Services data validation, store integration, responsive design
+- **ContactsComponent**: Contact data validation, link formats, color validation, featured distribution
+- **StatisticsComponent**: Async data loading, composables integration, statistics processing
+
+**Reusable Components:**
 
 - **SkillsComponent**: Skills data validation, structure, processing logic
 - **FlatCard**: Component structure, props, styling, accessibility
