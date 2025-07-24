@@ -10,25 +10,32 @@ tests/
 │   ├── skills.mock.ts       # Skills data and store mocks
 │   ├── components.mock.ts   # Reusable components mock data
 │   ├── main-components.mock.ts # Main components mock data
+│   ├── pages.mock.ts        # Pages mock data
 │   ├── vuetify.mock.ts      # Vuetify component mocks
 │   └── nuxt.mock.ts         # Nuxt composables mocks
 ├── unit/                     # Unit tests
-│   └── components/          # Component unit tests
-│       ├── SkillsComponent.test.ts
-│       ├── AboutComponent.test.ts
-│       ├── ProjectsComponent.test.ts
-│       ├── ServicesComponent.test.ts
-│       ├── ContactsComponent.test.ts
-│       ├── StatisticsComponent.test.ts
-│       ├── FlatCard.test.ts
-│       ├── ProjectPreviewCard.test.ts
-│       ├── StatCard.test.ts
-│       ├── TypewriterComponent.test.ts
-│       └── Particles.test.ts
+│   ├── components/          # Component unit tests
+│   │   ├── SkillsComponent.test.ts
+│   │   ├── AboutComponent.test.ts
+│   │   ├── ProjectsComponent.test.ts
+│   │   ├── ServicesComponent.test.ts
+│   │   ├── ContactsComponent.test.ts
+│   │   ├── StatisticsComponent.test.ts
+│   │   ├── FlatCard.test.ts
+│   │   ├── ProjectPreviewCard.test.ts
+│   │   ├── StatCard.test.ts
+│   │   ├── TypewriterComponent.test.ts
+│   │   └── Particles.test.ts
+│   └── pages/               # Page unit tests
+│       ├── HomePage.test.ts
+│       ├── ProjectsPage.test.ts
+│       ├── ProjectDetailPage.test.ts
+│       └── NotFoundPage.test.ts
 ├── e2e/                      # End-to-end tests
 │   ├── skills.spec.ts       # Skills page E2E tests
 │   ├── reusable-components.spec.ts  # Reusable components E2E tests
-│   └── main-components.spec.ts      # Main components E2E tests
+│   ├── main-components.spec.ts      # Main components E2E tests
+│   └── pages.spec.ts        # Pages E2E tests
 ├── utils/                    # Test utilities
 │   └── test-utils.ts        # Common testing utilities
 ├── setup.ts                  # Global test setup
@@ -129,6 +136,41 @@ export const mockServices: Service[] = [
   },
   // ... more services
 ]
+```
+
+### Pages Mock (`pages.mock.ts`)
+
+```typescript
+export const mockHomePageComponents = {
+  header: true,
+  about: true,
+  statistics: true,
+  services: true,
+  skills: true,
+  projects: true,
+  contacts: true,
+}
+
+export const mockProjectsPageData = {
+  title: "Projects",
+  breadcrumbs: [
+    { title: "Home", to: "/" },
+    { title: "Projects", to: "/projects" },
+  ],
+  types: ["all", "web", "mobile", "desktop"],
+}
+
+export const mockProjectDetail = {
+  id: "1",
+  title: "E-commerce Platform",
+  slug: "ecommerce-platform",
+  description: "A modern e-commerce platform built with Vue.js and Node.js",
+  imgs: ["/images/projects/ecommerce/ecommerce-1.png"],
+  visible: true,
+  featured: true,
+  types: ["web"],
+  tech: ["Vue.js", "Node.js", "MongoDB"],
+}
 ```
 
 ### Vuetify Mock (`vuetify.mock.ts`)
@@ -258,10 +300,10 @@ The testing structure provides comprehensive coverage:
 
 ### **Current Test Status** ✅
 
-- **Total Tests**: 334 tests passing
-- **Unit Tests**: 255 tests (11 components)
-- **E2E Tests**: 79 tests (3 test suites)
-- **Test Files**: 14 files
+- **Total Tests**: 487 tests passing
+- **Unit Tests**: 375 tests (11 components + 4 pages)
+- **E2E Tests**: 112 tests (4 test suites)
+- **Test Files**: 19 files
 
 ### **Components Tested** ✅
 
@@ -281,6 +323,15 @@ The testing structure provides comprehensive coverage:
 - **StatCard**: Props validation, number formatting, data validation
 - **TypewriterComponent**: String array validation, cycling logic, text processing
 - **Particles**: Theme integration, configuration, performance optimization
+
+### **Pages Tested** ✅
+
+**Main Pages:**
+
+- **HomePage**: Page structure, component integration, layout validation
+- **ProjectsPage**: Projects listing, filtering logic, data validation, store integration
+- **ProjectDetailPage**: Project detail rendering, image gallery, breadcrumb navigation
+- **NotFoundPage**: 404 page structure, navigation, user experience
 
 ### **Coverage Areas**
 
