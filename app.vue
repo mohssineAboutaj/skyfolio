@@ -10,6 +10,9 @@ const infoStore = useAboutInfoStore().getInfo
 const { getFeatured } = useContactStore()
 const { getLinks, getTitle, $subscribe, resetTitle } = useSettingsStore()
 
+// composables
+const { generatePDF } = useResumePDF()
+
 // router
 const route = useRoute()
 
@@ -22,6 +25,7 @@ const drawer = ref(false)
 const socials: Contact[] = reactive([])
 const links: Link[] = reactive([] as Link[])
 const activeLink = ref(null)
+const isGeneratingPDF = ref(false)
 
 // computed
 const showHomeBtn = computed(() => {
@@ -57,6 +61,17 @@ function goToTarget(link: Link) {
   // navigation drawer is open
   if (drawer.value) {
     drawer.value = false
+  }
+}
+
+async function handleDownloadResume() {
+  try {
+    isGeneratingPDF.value = true
+    await generatePDF()
+  } catch (error) {
+    console.error("Error generating PDF:", error)
+  } finally {
+    isGeneratingPDF.value = false
   }
 }
 
@@ -122,6 +137,21 @@ watch(
           :active="link.isCurrent"
           @click="goToTarget(link)"
         ></v-list-item>
+        <v-divider class="my-2"></v-divider>
+        <v-list-item
+          prepend-icon="mdi-download"
+          title="Download Resume"
+          :disabled="isGeneratingPDF"
+          @click="handleDownloadResume"
+        >
+          <template v-slot:append v-if="isGeneratingPDF">
+            <v-progress-circular
+              indeterminate
+              size="20"
+              color="primary"
+            ></v-progress-circular>
+          </template>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
@@ -150,6 +180,15 @@ watch(
           >
             <v-icon>{{ link.icon }}</v-icon>
             {{ link.title }}
+          </v-tab>
+          <v-tab
+            :loading="isGeneratingPDF"
+            :disabled="isGeneratingPDF"
+            @click="handleDownloadResume"
+            hide-slider
+          >
+            <v-icon>mdi-download</v-icon>
+            Resume
           </v-tab>
         </v-tabs>
       </v-toolbar-items>
