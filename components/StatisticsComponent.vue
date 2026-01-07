@@ -48,7 +48,7 @@ onMounted(() => {
     title: "Experience in Years",
     subtitle: "Real experience in years since 2018.",
     value: new Date().getFullYear() - 2018,
-    icon: "mdi-clock-time-four-outline",
+    icon: "mdi-calendar-check-outline",
   })
 })
 </script>
