@@ -42,6 +42,14 @@ onMounted(() => {
       icon: "mdi-code-tags",
     })
   })
+
+  // experience in years since 2018
+  statistics.push({
+    title: "Experience in Years",
+    subtitle: "Real experience in years since 2018.",
+    value: new Date().getFullYear() - 2018,
+    icon: "mdi-clock-time-four-outline",
+  })
 })
 </script>
 
@@ -57,19 +65,19 @@ onMounted(() => {
         :key="`about-statistics-skeleton-${n}`"
         cols="12"
         sm="6"
-        md="3"
+        md="4"
       >
         <v-skeleton-loader type="card"></v-skeleton-loader>
       </v-col>
     </v-row>
 
-    <v-row v-else>
+    <v-row v-else justify="space-around">
       <v-col
         v-for="stat in statistics"
         :key="stat.title"
         cols="12"
         sm="6"
-        md="3"
+        md="4"
       >
         <StatCard
           :title="stat.title"

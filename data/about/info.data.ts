@@ -15,6 +15,7 @@ const info: AboutInfo = {
     "Back-End Laravel Developer",
     "Full-Stack Web Developer",
     "Mobile WebApp Developer",
+    "Real experienced developer",
   ],
   shortDescription:
     "Am a full-stack web developer, I have a passion for creating beautiful and functional websites. I am always looking for new opportunities to learn and grow.",

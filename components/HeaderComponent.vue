@@ -50,7 +50,7 @@ function goToAbout() {
           </b>
         </h1>
         <h2 class="v-card-title text-h5 mb-8 text-capitalize">
-          <span class="title">Am a </span>
+          <span class="title">I'am a </span>
           <span v-if="user.jobs.length == 1" class="font-weight-bold">
             {{ user.jobs[0] }}
           </span>

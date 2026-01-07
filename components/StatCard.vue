@@ -20,7 +20,7 @@ function numberWithCommas(x: number = 0) {
 </script>
 
 <template>
-  <v-card :class="[`elevation-${elevation}`, 'px-6', 'py-4', 'my-4']">
+  <v-card :class="[`elevation-${elevation}`, 'px-6', 'py-4']">
     <div class="d-flex justify-space-between">
       <span class="font-weight-light text-capitalize mr-2 text-subtitle-2">
         {{ title }}
