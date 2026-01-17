@@ -4,6 +4,39 @@ import type { Project } from "~/types/general"
 
 const projects: Project[] = [
   {
+    id: "a8f3c2d1-4e5b-6c7d-8e9f-0a1b2c3d4e5f",
+    title: "Flowxtra",
+    slug: "flowxtra",
+    platforms: [
+      {
+        label: "live preview",
+        icon: "mdi:web",
+        url: "https://flowxtra.com",
+      },
+    ],
+    description:
+      "Flowxtra is a cutting-edge, AI-powered recruitment platform that transforms how businesses find and hire talent. This comprehensive solution automates the entire hiring journey—from posting jobs across multiple platforms to intelligently matching candidates, scheduling interviews, and managing communications—all through one intuitive dashboard. As a backend developer, I played a crucial role in building the platform's robust infrastructure. I integrated Canva's API to enable seamless design capabilities, implemented Discord notifications for streamlined team collaboration, set up Sentry for real-time error tracking and monitoring, and developed Google Meet and Jitsi integrations to make interview scheduling effortless. I also created comprehensive API documentation to ensure smooth developer experience. These integrations empower HR teams and recruiters to work more efficiently, reduce manual tasks, and make better hiring decisions faster.",
+    imgs: [
+      "/images/projects/flowxtra/image.png",
+      "/images/projects/flowxtra/image copy.png",
+      "/images/projects/flowxtra/image copy 2.png",
+      "/images/projects/flowxtra/image copy 3.png",
+      "/images/projects/flowxtra/image copy 4.png",
+      "/images/projects/flowxtra/image copy 5.png",
+      "/images/projects/flowxtra/image copy 6.png",
+    ],
+    visible: true,
+    featured: true,
+    types: [categories.webapp, categories.listing, categories.meeting, categories.ai, categories.recruitment],
+    tech: [
+      skills.php.name,
+      skills.laravel.name,
+      skills.mysql.name,
+      skills.javascript.name,
+      skills.nodejs.name,
+    ],
+  },
+  {
     id: "23e7309c-969c-4781-b5b0-c760ff9ff2c9",
     title: "die Berater Workspace",
     slug: "die-berater-workspace",
@@ -20,7 +53,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "die Berater Workspace is a secure and efficient communication platform designed for companies and organizations to streamline internal communication and information distribution. The app centralizes onboarding, delivers real-time updates, and ensures data security through encrypted chat functionality. Users can access important documents, receive company-wide announcements, and communicate seamlessly within teams. My role in this project focused on backend development, ensuring data security, real-time messaging, and seamless integration of key features.",
+      "die Berater Workspace is a secure, all-in-one communication platform that helps companies keep their teams connected and informed. Whether it's onboarding new employees, sharing important updates, or collaborating on projects, everything happens in one place. The platform features encrypted messaging for secure conversations, centralized document access, and real-time notifications so nothing gets missed. As a backend developer, I built the robust infrastructure that powers this platform, focusing on creating a secure, scalable system with real-time messaging capabilities and seamless feature integrations. The result is a reliable tool that helps organizations communicate more effectively while keeping sensitive information protected.",
     imgs: [
       "/images/projects/die-berater-workspace/image.png",
       "/images/projects/die-berater-workspace/image copy.png",
@@ -63,7 +96,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "Fity is a health and fitness platform that provides a seamless experience for users looking for healthy meal options. It offers a mobile app and website where users can explore nutritious recipes, order healthy food, and maintain a balanced lifestyle. I contributed to this project by developing the backend, ensuring smooth data processing, API integrations, and secure transactions.",
+      "Fity is your go-to platform for healthy living, making it easy to discover nutritious recipes, order wholesome meals, and stay on track with your wellness goals. Available as both a mobile app and website, Fity brings together everything you need for a balanced lifestyle in one convenient place. Browse through curated healthy recipes, place orders for nutritious meals delivered to your door, and track your progress—all designed to make healthy choices simple and enjoyable. As a backend developer, I built the platform's core infrastructure, ensuring fast and reliable data processing, seamless payment integrations, and secure transactions so users can focus on their health journey without worrying about technical hiccups.",
     imgs: [
       "/images/projects/fity/image.png",
       "/images/projects/fity/image copy.png",
@@ -108,7 +141,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "Vuiz is a simple quiz app built with Vue.js, Vuetify, TypeScript, and the Opentdb API. It offers a seamless experience for users, allowing them to test their knowledge on a variety of topics.",
+      "Vuiz is an engaging quiz application that makes learning fun and interactive. Test your knowledge across a wide range of topics, from science and history to pop culture and general trivia. With a clean, user-friendly interface, Vuiz provides instant feedback and keeps track of your progress, making it perfect for both casual learners and quiz enthusiasts. Whether you're looking to challenge yourself or just pass the time, Vuiz offers an enjoyable way to expand your knowledge while having fun.",
     imgs: [
       "/images/projects/vuiz/Pasted image.png",
       "/images/projects/vuiz/Pasted image 1.png",
@@ -139,7 +172,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "Hisnu Muslim is a web application designed to provide Muslims with a comprehensive collection of adhkar and duaas for daily life. This app is built using Vue.js, CSS, HTML, JavaScript, Electron.js, Vuetify, and Capacitor, offering a seamless experience for users.",
+      "Hisnu Muslim is a beautifully designed spiritual companion app that brings together a comprehensive collection of adhkar (remembrances) and duaas (supplications) for daily use. Whether you're at home, on the go, or at work, this app helps you stay connected to your faith with easy access to authentic Islamic prayers and remembrances. The app works seamlessly across web browsers, desktop computers, and mobile devices, ensuring you can access these spiritual resources whenever you need them. With an intuitive interface and carefully curated content, Hisnu Muslim makes it easier to incorporate these important practices into your daily routine.",
     imgs: [
       "/images/projects/hisnu-muslim/Pasted image.png",
       "/images/projects/hisnu-muslim/Pasted image 1.png",
@@ -179,7 +212,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A web application that allows users to add the Vetrah background to their images, showing support for the movement. This app is built using Vue.js, Tailwind CSS, HTML, CSS, JavaScript, and Material Design Icons, offering a seamless experience for users.",
+      "Vetrah is a simple yet powerful web tool that lets you show your support by adding the Vetrah background to any image. Whether you want to personalize your profile picture or create social media content, this app makes it quick and easy. Just upload your photo, and with a single click, you can add the distinctive Vetrah background to express your solidarity. The app features a clean, modern interface that works smoothly on any device, making it accessible to everyone who wants to participate in the movement.",
     imgs: [
       "/images/projects/vetrah/Pasted image.png",
       "/images/projects/vetrah/Pasted image 1.png",
@@ -209,7 +242,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "Argons is a landing page for an NFT project, featuring hand-made designs and characters. The page is built using Vue.js, Tailwind CSS, HTML, CSS, JavaScript, and Material Design Icons, offering a visually stunning experience for users.",
+      "Argons is a visually stunning landing page for an innovative NFT project that showcases beautifully hand-crafted designs and unique characters. The page features smooth animations, engaging interactions, and a modern design that brings the NFT collection to life. Visitors can explore the project's story, view the artwork, and learn about the community—all presented in an immersive, eye-catching experience. Built with attention to detail and performance, Argons creates a memorable first impression that captures the essence of the NFT collection and invites visitors to become part of the community.",
     imgs: [
       "/images/projects/argons/Pasted image.png",
       "/images/projects/argons/Pasted image 1.png",
@@ -255,7 +288,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A simple web application that allows users to send WhatsApp messages without saving the recipient's number. This app is built using Vue.js, Ionic Framework, CSS, HTML, JavaScript, and Capacitor, offering a seamless experience for users.",
+      "WhatsApp Unsaved is a convenient web application that solves a common problem: sending WhatsApp messages without cluttering your contacts list. Perfect for one-time communications, business inquiries, or reaching out to people you don't need to save permanently. Simply enter the phone number, type your message, and send—no need to save the contact first. The app works seamlessly on both web browsers and mobile devices, making it easy to use wherever you are. It's a simple solution that saves time and keeps your contact list clean.",
     imgs: ["/images/projects/whatsapp-unsaved/Pasted image.png"],
     visible: true,
     featured: true,
@@ -291,7 +324,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A cutting-edge, open-source cross-platform application leveraging the Quasar Framework to deliver a unified TV channel streaming experience. Telefaza simplifies access to an extensive collection of TV channels, eliminating the need for separate searches. Perfect for entertainment enthusiasts seeking convenience and variety.",
+      "Telefaza is a powerful, open-source streaming application that brings together TV channels from around the world in one convenient platform. No more jumping between different websites or apps—Telefaza gives you instant access to a vast collection of channels, all organized and easy to browse. Whether you're looking for news, sports, entertainment, or international content, everything is just a click away. The app works seamlessly on web browsers, mobile devices, and desktop computers, so you can enjoy your favorite channels wherever you are. Perfect for anyone who loves variety and convenience in their entertainment.",
     imgs: [
       "/images/projects/telefaza/Pasted image.png",
       "/images/projects/telefaza/Pasted image 1.png",
@@ -332,7 +365,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A comprehensive weather application designed to provide real-time weather information for any location. This cross-platform app is built using Vue.js, CSS, HTML, JavaScript, and Quasar Framework, offering a seamless experience for users.",
+      "Veather App is your reliable weather companion, providing accurate, real-time weather information for any location worldwide. Whether you're planning a trip, checking conditions for your daily commute, or just curious about the weather elsewhere, Veather delivers detailed forecasts with a beautiful, easy-to-use interface. The app works perfectly on your phone, tablet, or computer, so you can check the weather wherever you are. With comprehensive weather data and an intuitive design, Veather helps you stay prepared and make informed decisions about your day.",
     imgs: [
       "/images/projects/veather/Pasted image.png",
       "/images/projects/veather/Pasted image 1.png",
@@ -358,7 +391,7 @@ const projects: Project[] = [
     slug: "blogify",
     platforms: [],
     description:
-      "An advanced blogging platform offering an intuitive dashboard designed for seamless management of posts and comments, adhering to user permissions. This comprehensive solution incorporates Vue.js, CSS, HTML, Nuxt.js, and Laravel to provide a robust foundation for content creators and readers alike. Ideal for personal and professional blogs, it features a responsive design and an array of customization options.",
+      "Blogify is a powerful, feature-rich blogging platform designed for both content creators and readers. Writers get an intuitive dashboard that makes managing posts, comments, and settings effortless, while readers enjoy a smooth, engaging reading experience. The platform includes smart permission controls, so you can manage who sees what, and offers extensive customization options to make your blog truly yours. Whether you're starting a personal blog or running a professional content site, Blogify provides all the tools you need to create, publish, and grow your audience. With a responsive design that looks great on any device, your content will shine everywhere.",
     imgs: [
       "/images/projects/blogify/Pasted image.png",
       "/images/projects/blogify/Pasted image 1.png",
@@ -402,7 +435,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A dynamic application dedicated to tracking COVID-19 cases in Morocco, developed using Vue.js, Vuetify, HTML, JavaScript, and Font Awesome. It serves as a crucial tool for individuals seeking real-time data on the pandemic within the region.",
+      "Morocco Covid Tracker App was created during the pandemic to provide Moroccans with accurate, real-time information about COVID-19 cases in their country. The app presents essential statistics, trends, and updates in an easy-to-understand format, helping people stay informed and make safer decisions. With clear visualizations and up-to-date data, users can quickly see the current situation, track changes over time, and access important health information. This tool served as a valuable resource for individuals, families, and communities navigating the challenges of the pandemic, providing transparency and peace of mind during uncertain times.",
     imgs: [
       "/images/projects/moroccovid/Pasted image.png",
       "/images/projects/moroccovid/Pasted image 1.png",
@@ -432,7 +465,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A versatile cross-platform culinary app featuring a diverse collection of recipes, from chicken dishes to juices and salads. Built with HTML, CSS, JavaScript, SCSS, Vue.js, Vuetify, and Capacitor, this app caters to cooking enthusiasts seeking inspiration and variety.",
+      "Chhiwat App is a culinary treasure trove for food lovers, offering a diverse collection of delicious recipes ranging from hearty chicken dishes to refreshing juices and fresh salads. Whether you're a seasoned cook or just starting your culinary journey, Chhiwat provides step-by-step instructions, beautiful food photography, and inspiration for every meal. The app works seamlessly on your phone, tablet, or computer, so you can access your favorite recipes whether you're meal planning at home or shopping at the market. With an easy-to-navigate interface and recipes for every occasion, Chhiwat helps you discover new flavors and create memorable meals.",
     imgs: [
       "/images/projects/chhiwat/chhiwat-1.png",
       "/images/projects/chhiwat/chhiwat-2.png",
@@ -469,7 +502,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A sophisticated cross-platform video conferencing app crafted with Vue.js, Vuetify, HTML, CSS, JavaScript, SCSS, Font Awesome, Firebase, and Webpack. It offers seamless video communication solutions for businesses and individuals alike.",
+      "Meet Nass is a professional video conferencing solution that brings people together, whether for business meetings, virtual classrooms, or catching up with friends and family. The platform offers crystal-clear video and audio quality, screen sharing capabilities, and all the features you need for productive online meetings. With a user-friendly interface that works on any device, Meet Nass makes it easy to connect with anyone, anywhere. Perfect for remote teams, online education, or personal video calls, this platform provides reliable, secure communication that helps you stay connected in today's digital world.",
     visible: true,
     featured: true,
     imgs: [
@@ -510,7 +543,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "The personal portfolio of Mohssine Aboutaj, showcasing a creative blend of skills and services. This portfolio is constructed with HTML5, CSS3, JavaScript, jQuery, Pug.js, Sass, Gulp.js, Bootstrap, Font Awesome, and more, offering a glimpse into Mohssine's professional capabilities. Project Types: Portfolio, WebApp. Technologies: HTML, CSS, JavaScript, jQuery, Pug.js, SCSS, Gulp.js, Bootstrap, Font Awesome.",
+      "KECH is a creative, modern portfolio website that showcases professional work, skills, and services in an engaging and visually appealing way. The design combines clean aesthetics with smooth animations and interactive elements that capture visitors' attention. Built with attention to detail and user experience, this portfolio demonstrates how thoughtful design and technical expertise can come together to create something truly impressive. Whether you're a potential client exploring services or a fellow professional seeking inspiration, KECH offers an enjoyable browsing experience that effectively communicates its creator's capabilities and vision.",
     visible: true,
     featured: true,
     imgs: [
@@ -550,7 +583,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "ZERDA - An Awesome Restaurant Website (Open-Source): A captivating one-page website for restaurants, ZERDA stands out with its exquisite design and functionality. Built to enhance online presence, it uses HTML, CSS, JavaScript, Handlebars, MaterializeCSS, Webpack, Less, and Font Awesome.",
+      "ZERDA is a stunning, open-source one-page website template designed specifically for restaurants. This beautifully crafted template helps restaurants showcase their menu, ambiance, and story in an elegant, easy-to-navigate format. With smooth scrolling, appetizing food photography sections, and an intuitive layout, ZERDA creates an online presence that makes visitors want to visit in person. The template is fully responsive, so it looks perfect on phones, tablets, and desktops, ensuring potential customers have a great experience no matter how they discover your restaurant. Perfect for new restaurants looking to establish their online presence or existing ones wanting to refresh their website.",
     visible: true,
     featured: false,
     imgs: [
@@ -597,7 +630,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "ZETA embodies creativity and beauty in web design, featuring responsive capabilities for all devices. Based on Bootstrap 4 and Font Awesome 5, it offers a host of stunning features for diverse projects.",
+      "ZETA is a creative, versatile website template that combines beautiful design with powerful functionality. Perfect for portfolios, business websites, or creative projects, ZETA offers a modern aesthetic that adapts beautifully to any screen size. The template includes smooth animations, engaging layouts, and carefully crafted sections that help you tell your story effectively. Whether you're showcasing your work, promoting your business, or building your personal brand, ZETA provides a solid foundation that looks professional and performs flawlessly across all devices.",
     visible: true,
     featured: false,
     imgs: [
@@ -637,7 +670,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "An exceptional industrial template, Alpha Industrial showcases services for industrial sectors and factories with an impressive design.",
+      "Alpha Industrial is a professional website template designed specifically for industrial companies, factories, and manufacturing businesses. The template features a robust, professional design that effectively communicates strength, reliability, and expertise—qualities essential in the industrial sector. With dedicated sections for services, projects, and company information, Alpha Industrial helps businesses establish a strong online presence that builds trust with potential clients and partners. The clean, organized layout ensures visitors can easily find the information they need, while the professional aesthetic reinforces the company's credibility and attention to detail.",
     visible: true,
     featured: false,
     imgs: [
@@ -675,7 +708,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A festive SVG fireworks animation to celebrate the new Hijri year 1439, created with pure JavaScript and CSS animation. An engaging addition to any celebration-related web content.",
+      "Happy New Year - SVG Fireworks is a delightful, festive animation created to celebrate special occasions. This beautiful fireworks display uses smooth SVG animations to create a mesmerizing visual effect that brings joy and excitement to any webpage. Perfect for New Year celebrations, special announcements, or any moment worth celebrating, this animation adds a touch of magic and festivity. The lightweight, pure JavaScript and CSS implementation ensures it runs smoothly without slowing down your site, making it an elegant way to mark special moments and create memorable user experiences.",
     visible: true,
     featured: true,
     imgs: ["/images/projects/fireworks/fireworks-preview.png"],
@@ -704,7 +737,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A demonstration of pure JavaScript prowess, this project presents a login and registration form crafted entirely with JavaScript, showcasing dynamic styling without traditional CSS or HTML.",
+      "Login & Register Form Pure JS is a unique demonstration of JavaScript's capabilities, featuring a fully functional login and registration form built entirely with JavaScript—no traditional HTML or CSS required. This innovative approach showcases how modern JavaScript can handle everything from structure to styling dynamically. The form includes smooth animations, validation, and a polished user interface, all created programmatically. It's a fascinating example of creative problem-solving and technical skill, perfect for developers interested in exploring the boundaries of what's possible with pure JavaScript.",
     visible: true,
     featured: false,
     imgs: ["/images/projects/forms/form-purejs-preview.png"],
@@ -728,7 +761,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A simple yet effective Vue.js form featuring validation, built using MaterializeCSS and Font Awesome. This project exemplifies modern web form construction with user input validation.",
+      "Signup Vue.js Form with Validation is a well-crafted registration form that demonstrates best practices in modern web development. The form features real-time input validation, providing immediate feedback to users as they fill out their information. Built with Vue.js for smooth interactivity and MaterializeCSS for a clean, modern design, this form offers an excellent user experience. It's a perfect example of how thoughtful design and proper validation can make form-filling feel effortless rather than frustrating, making it ideal for any website that requires user registration.",
     visible: true,
     featured: false,
     imgs: ["/images/projects/forms/form-vuejs-preview.png"],
@@ -758,7 +791,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A dynamic circular progress bar implemented with JavaScript and Canvas, offering a responsive and visually engaging way to display progress. This project utilizes CSS for styling and responsiveness.",
+      "Circular Progress Bar is a visually appealing component that displays progress in an elegant, circular format. Perfect for showing download progress, completion percentages, or any metric that needs visual representation, this component combines smooth animations with clean design. Built with JavaScript and Canvas for precise rendering, the progress bar is fully responsive and adapts beautifully to any screen size. Whether you're building a dashboard, tracking user achievements, or displaying loading states, this component adds a professional touch that makes data more engaging and easier to understand at a glance.",
     visible: true,
     featured: false,
     imgs: ["/images/projects/progress/circular-progress-preview.png"],
@@ -782,7 +815,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A collection of exquisite loading animations designed to enhance user experience during content loading. These animations are a creative way to keep users engaged.",
+      "Loading Animation is a collection of beautiful, thoughtfully designed loading indicators that transform the waiting experience into something pleasant. Instead of blank screens or generic spinners, these animations provide visual feedback that keeps users engaged while content loads. Each animation is carefully crafted to be smooth, eye-catching, and appropriate for different contexts. Whether you need something subtle for a professional site or something more playful for a creative project, this collection offers options that enhance rather than distract from the user experience. A small detail that makes a big difference in how users perceive your site's quality and attention to detail.",
     visible: true,
     featured: false,
     imgs: ["/images/projects/loading/loading-preview.png"],
@@ -806,7 +839,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "An extensive web application for movie enthusiasts, Vue Movies DB enables users to browse and search through a vast database of movies. Built with Vue.js, CSS, HTML, JavaScript, SCSS, Font Awesome, and Webpack, it's a treasure trove for cinema lovers.",
+      "Vue Movies DB is a comprehensive movie database application that movie lovers will adore. Browse through an extensive collection of films, search for your favorites, discover new releases, and explore detailed information about movies, actors, and directors. The app features an intuitive interface that makes it easy to find exactly what you're looking for, whether you're planning a movie night or researching film history. With beautiful movie posters, detailed descriptions, and smooth navigation, Vue Movies DB transforms movie discovery into an enjoyable experience. Perfect for cinephiles who want to explore, organize, and learn about the world of cinema.",
     imgs: [
       "https://m.media-amazon.com/images/M/MV5BZmIyMDk5NGYtYjQ5NS00ZWQxLTg2YzQtZDk1ZmM4ZDBlN2E3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg",
     ],
@@ -845,7 +878,7 @@ const projects: Project[] = [
       },
     ],
     description:
-      "A mesmerizing cube animation created with CSS3, showcasing the potential of modern web animations with simple geometric shapes. An interesting project for those fascinated by animation and design.",
+      "Cube Animation is a mesmerizing 3D animation that demonstrates the beauty and power of CSS3 transforms. Watch as geometric shapes rotate, transform, and create stunning visual patterns that capture the eye. This project showcases how simple elements can create complex, engaging animations that add life and movement to web pages. Perfect for learning about CSS animations, inspiring creative projects, or simply enjoying the visual artistry of geometric design. It's a testament to how modern web technologies can create captivating experiences with elegant, efficient code.",
     imgs: [
       "/images/projects/cube/Pasted image.png",
       "/images/projects/cube/Pasted image 1.png",

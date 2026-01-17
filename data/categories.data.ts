@@ -20,6 +20,8 @@ const categores = {
   quiz: "Quiz",
   chat: "Chat",
   education: "Education",
+  recruitment: "Recruitment",
+  ai: "AI (Artificial Intelligence)",
 }
 
 export default categores
