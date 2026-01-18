@@ -4,6 +4,9 @@ import aboutInfo from "./data/about/info.data"
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  // Enable SPA mode for client-side routing
+  ssr: false,
+
   modules: [
     "@nuxtjs/seo",
     "vuetify-nuxt-module",
@@ -55,6 +58,13 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2025-02-19",
+
+  // Router configuration for SPA mode
+  router: {
+    options: {
+      hashMode: false, // Use history mode (default)
+    },
+  },
 
   // Testing configuration
   vite: {
