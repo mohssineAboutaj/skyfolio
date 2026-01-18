@@ -1,11 +1,23 @@
 import aboutInfo from "./data/about/info.data"
+import projects from "./data/projects.data"
+
+// Generate all project routes for prerendering
+const projectRoutes = projects
+  .filter((project) => project.visible)
+  .map((project) => `/projects/${project.slug}`)
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  // Enable SPA mode for client-side routing
-  ssr: false,
+  // Enable SSG (Static Site Generation) - generates static HTML files
+  ssr: true,
+
+  // App configuration for proper asset paths
+  app: {
+    baseURL: '/',
+    buildAssetsDir: '_nuxt/',
+  },
 
   modules: [
     "@nuxtjs/seo",
@@ -59,10 +71,21 @@ export default defineNuxtConfig({
 
   compatibilityDate: "2025-02-19",
 
-  // Router configuration for SPA mode
-  router: {
-    options: {
-      hashMode: false, // Use history mode (default)
+  // Nitro configuration for static site generation
+  nitro: {
+    prerender: {
+      routes: [
+        '/',
+        '/projects',
+        ...projectRoutes, // All project detail pages
+        '/404'
+      ],
+      crawlLinks: true, // Automatically discover and prerender linked pages
+      failOnError: false, // Don't fail build if some routes can't be prerendered
+    },
+    // Ensure static assets are properly generated
+    output: {
+      publicDir: '.output/public',
     },
   },
 

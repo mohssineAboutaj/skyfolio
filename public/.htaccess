@@ -5,16 +5,22 @@
   RewriteEngine On
   RewriteBase /
   
-  # Handle client-side routing for Nuxt.js SPA
-  # Skip rewriting if the requested resource is a file
-  RewriteCond %{REQUEST_FILENAME} !-f
-  # Skip rewriting if the requested resource is a directory
-  RewriteCond %{REQUEST_FILENAME} !-d
+  # Allow access to _nuxt directory (JavaScript chunks and assets)
+  RewriteCond %{REQUEST_URI} ^/_nuxt/ [NC]
+  RewriteRule ^ - [L]
+  
+  # Allow access to static files (images, CSS, etc.)
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+  
+  # Allow access to directories
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+  
+  # For SSG, each route has its own HTML file, but we keep this as fallback
   # Skip rewriting for files with extensions (static assets)
   RewriteCond %{REQUEST_URI} !^.*\.[^/]+$
-  # Rewrite all other requests to index.html
-  # This allows Vue Router to handle the routing client-side
-  # Examples: /projects, /projects/flowxtra, /projects/vuiz all go to index.html
+  # Rewrite all other requests to index.html (fallback for client-side routing)
   RewriteRule ^(.*)$ /index.html [L,QSA]
 </IfModule>
 
