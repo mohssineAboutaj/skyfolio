@@ -65,29 +65,3 @@ export const mockTypewriterStringsSpecial = [
   'Full-Stack Developer',
   'Open Source Contributor',
 ]
-
-// Mock particles options
-export const mockParticlesOptions = {
-  fullScreen: { enable: true, zIndex: -1 },
-  background: { color: { value: '#ffffff' } },
-  particles: {
-    color: { value: '#1976d2' },
-    links: { color: '#424242', enable: true },
-    move: { enable: true },
-    number: { value: 150 },
-  },
-  interactivity: {
-    events: { onClick: { enable: true, mode: 'push' } },
-  },
-}
-
-// Mock theme data
-export const mockTheme = {
-  current: {
-    colors: {
-      background: '#ffffff',
-      primary: '#1976d2',
-      secondary: '#424242',
-    },
-  },
-} 

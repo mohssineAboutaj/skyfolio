@@ -27,8 +27,7 @@ tests/
 │   │   ├── FlatCard.test.ts
 │   │   ├── ProjectPreviewCard.test.ts
 │   │   ├── StatCard.test.ts
-│   │   ├── TypewriterComponent.test.ts
-│   │   └── Particles.test.ts
+│   │   └── TypewriterComponent.test.ts
 │   ├── pages/               # Page unit tests
 │   │   ├── HomePage.test.ts
 │   │   ├── ProjectsPage.test.ts
@@ -391,7 +390,7 @@ The testing structure provides comprehensive coverage:
 ### **Current Test Status** ✅
 
 - **Total Tests**: 620 tests passing
-- **Unit Tests**: 508 tests (11 components + 4 pages + 2 data files + 1 store + 1 composable + 1 types)
+- **Unit Tests**: 508 tests (10 components + 4 pages + 2 data files + 1 store + 1 composable + 1 types)
 - **E2E Tests**: 112 tests (5 test suites)
 - **Test Files**: 25 files
 
@@ -412,7 +411,6 @@ The testing structure provides comprehensive coverage:
 - **ProjectPreviewCard**: Project data processing, navigation, image handling
 - **StatCard**: Props validation, number formatting, data validation
 - **TypewriterComponent**: String array validation, cycling logic, text processing
-- **Particles**: Theme integration, configuration, performance optimization
 
 ### **Pages Tested** ✅
 

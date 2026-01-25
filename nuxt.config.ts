@@ -24,10 +24,9 @@ export default defineNuxtConfig({
     "vuetify-nuxt-module",
     "@pinia/nuxt",
     "nuxt-swiper",
-    "nuxt-icon",
-    "nuxt-particles",
     "@nuxtjs/google-fonts",
     "nuxt-gtag",
+    "@nuxt/icon",
   ],
 
   /// extend the nuxt modules

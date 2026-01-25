@@ -6,8 +6,6 @@ import {
   mockStatCardData2,
   mockTypewriterStrings,
   mockTypewriterStringsSpecial,
-  mockParticlesOptions,
-  mockTheme
 } from '~/tests/mocks/components.mock'
 
 describe('Reusable Components E2E', () => {
@@ -130,46 +128,6 @@ describe('Reusable Components E2E', () => {
     })
   })
 
-  describe('Particles Component', () => {
-    it('should have valid particles configuration', () => {
-      expect(mockParticlesOptions).toBeDefined()
-      expect(mockParticlesOptions.fullScreen.enable).toBe(true)
-      expect(mockParticlesOptions.particles.number.value).toBe(150)
-    })
-
-    it('should use theme colors', () => {
-      expect(mockTheme.current.colors.background).toBe('#ffffff')
-      expect(mockTheme.current.colors.primary).toBe('#1976d2')
-      expect(mockTheme.current.colors.secondary).toBe('#424242')
-    })
-
-    it('should have valid color values', () => {
-      const backgroundColor = mockParticlesOptions.background.color.value
-      const particleColor = mockParticlesOptions.particles.color.value
-      const linkColor = mockParticlesOptions.particles.links.color
-
-      expect(backgroundColor).toMatch(/^#[0-9A-Fa-f]{6}$/)
-      expect(particleColor).toMatch(/^#[0-9A-Fa-f]{6}$/)
-      expect(linkColor).toMatch(/^#[0-9A-Fa-f]{6}$/)
-    })
-
-    it('should have proper z-index for background', () => {
-      expect(mockParticlesOptions.fullScreen.zIndex).toBe(-1)
-    })
-
-    it('should have interactive configuration', () => {
-      const clickConfig = mockParticlesOptions.interactivity.events.onClick
-      expect(clickConfig.enable).toBe(true)
-      expect(clickConfig.mode).toBe('push')
-    })
-
-    it('should have performance-optimized settings', () => {
-      const particleCount = mockParticlesOptions.particles.number.value
-      expect(particleCount).toBeLessThan(500) // Performance limit
-      expect(mockParticlesOptions.particles.move.enable).toBe(true)
-    })
-  })
-
   describe('Component Integration', () => {
     it('should work together in a page context', () => {
       expect(true).toBe(true) // Integration validation
@@ -190,7 +148,6 @@ describe('Reusable Components E2E', () => {
       expect(mockProject.id).toBeDefined()
       expect(mockStatCardData.title).toBeDefined()
       expect(mockTypewriterStrings.length).toBeGreaterThan(0)
-      expect(mockParticlesOptions.particles).toBeDefined()
     })
 
     it('should handle edge cases gracefully', () => {
@@ -200,9 +157,6 @@ describe('Reusable Components E2E', () => {
 
   describe('Performance Considerations', () => {
     it('should have optimized configurations', () => {
-      // Particles should have reasonable limits
-      expect(mockParticlesOptions.particles.number.value).toBeLessThan(500)
-
       // Typewriter should have reasonable string counts
       expect(mockTypewriterStrings.length).toBeLessThan(20)
 

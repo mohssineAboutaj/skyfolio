@@ -96,7 +96,7 @@ npm run test:all     # Run complete test suite
 
 ## 🎯 **What Gets Tested**
 
-### **Components (11)**
+### **Components (10)**
 
 - ✅ AboutComponent
 - ✅ ProjectsComponent
@@ -108,7 +108,6 @@ npm run test:all     # Run complete test suite
 - ✅ ProjectPreviewCard
 - ✅ StatCard
 - ✅ TypewriterComponent
-- ✅ Particles
 
 ### **Pages (4)**
 

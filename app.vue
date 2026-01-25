@@ -92,8 +92,6 @@ watch(
 </script>
 
 <template>
-  <Particles />
-
   <v-layout>
     <v-navigation-drawer
       v-model="drawer"
