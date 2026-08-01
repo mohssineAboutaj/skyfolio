@@ -3,10 +3,12 @@ import type { Contact } from "~/types/general"
 
 // store
 const { getAll } = useContactStore()
+const { revealSection } = useGsap()
 
 // data
 /// reactive
 const contacts: Contact[] = reactive([])
+let motionWired = false
 
 // hooks
 onMounted(() => {
@@ -14,6 +16,18 @@ onMounted(() => {
     contacts.push(contact)
   })
 })
+
+watch(
+  () => contacts.length,
+  async (len) => {
+    if (!len || motionWired) return
+    motionWired = true
+    await nextTick()
+    revealSection("#contacts", {
+      childSelector: "[data-animate-child]",
+    })
+  },
+)
 </script>
 
 <template>
@@ -31,7 +45,13 @@ onMounted(() => {
         </v-row>
 
         <v-row v-else class="justify-space-around">
-          <v-col v-for="contact in contacts" :key="contact.id" cols="auto">
+          <v-col
+            v-for="contact in contacts"
+            :key="contact.id"
+            cols="auto"
+            data-animate-child
+            data-magnetic
+          >
             <v-btn
               :color="contact.color"
               :href="contact.link"

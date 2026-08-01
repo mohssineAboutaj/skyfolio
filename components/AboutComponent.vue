@@ -10,6 +10,7 @@ import FlatCard from "./FlatCard.vue"
 
 // stores
 const { getInfo, getEducations, getCertifications } = useAboutInfoStore()
+const { revealSection } = useGsap()
 
 // data
 /// static
@@ -24,6 +25,7 @@ const info: AboutInfo = reactive({} as AboutInfo)
 const educations: AboutEducation[] = reactive([])
 const certificates: AboutCertification[] = reactive([])
 const aboutBasicInfos: AboutBasicInfo[] = reactive([])
+let motionWired = false
 
 // hooks
 onMounted(() => {
@@ -55,12 +57,24 @@ onMounted(() => {
     },
   )
 })
+
+watch(
+  () => aboutBasicInfos.length,
+  async (len) => {
+    if (!len || motionWired) return
+    motionWired = true
+    await nextTick()
+    revealSection("#about", {
+      childSelector: "[data-animate-child]",
+    })
+  },
+)
 </script>
 
 <template>
   <v-card id="about">
     <v-row>
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="4" data-animate-child>
         <FlatCard title="About Me">
           <v-skeleton-loader
             v-if="aboutBasicInfos.length == 0"
@@ -86,7 +100,7 @@ onMounted(() => {
           </v-list>
         </FlatCard>
       </v-col>
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="8" data-animate-child>
         <v-tabs
           v-model="tab"
           color="primary"

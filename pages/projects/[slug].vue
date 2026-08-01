@@ -4,6 +4,7 @@ import type { Project } from "~/types/general"
 // store
 const { getBySlug } = useProjectsStore()
 const { updateTitle } = useSettingsStore()
+const { gsap, reducedMotion, getScrollStart, ScrollTrigger } = useGsap()
 
 // route
 const route = useRoute()
@@ -29,6 +30,7 @@ const breadcrumbItems = reactive([
   { title: "", disabled: true },
 ])
 const projectHasImages = ref(false)
+const galleryRef = ref<HTMLElement | null>(null)
 
 // hooks
 onBeforeMount(() => {
@@ -51,6 +53,27 @@ onBeforeMount(() => {
     router.push("/404")
   }
 })
+
+onMounted(async () => {
+  if (reducedMotion) return
+  await nextTick()
+  const el = galleryRef.value
+  if (!el) return
+  gsap.set(el, { clipPath: "inset(8% 8% 8% 8% round 16px)", opacity: 0.85 })
+  ScrollTrigger.create({
+    trigger: el,
+    start: getScrollStart(),
+    once: true,
+    onEnter: () => {
+      gsap.to(el, {
+        clipPath: "inset(0% 0% 0% 0% round 16px)",
+        opacity: 1,
+        duration: 0.85,
+        ease: "power3.out",
+      })
+    },
+  })
+})
 </script>
 
 <template>
@@ -63,6 +86,7 @@ onBeforeMount(() => {
       <v-card-text>
         <v-row>
           <v-col cols="12" md="6">
+            <div ref="galleryRef" class="project-gallery">
             <swiper-container
               v-bind="swiperSharedOptions"
               :slidesPerView="1"
@@ -91,6 +115,7 @@ onBeforeMount(() => {
                 <v-img :src="image" max-height="100" />
               </swiper-slide>
             </swiper-container>
+            </div>
           </v-col>
           <v-col cols="12" md="6">
             <v-card title="Description" variant="plain" class="elevation-0">
@@ -168,5 +193,10 @@ onBeforeMount(() => {
 
 .swiper-thumbs .swiper-slide-thumb-active {
   opacity: 1;
+}
+
+.project-gallery {
+  overflow: hidden;
+  will-change: clip-path, opacity;
 }
 </style>

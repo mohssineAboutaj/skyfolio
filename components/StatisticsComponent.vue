@@ -7,8 +7,10 @@ import type { Statistic } from "~/types/general"
 
 // store
 const { getProjectsCount } = useProjectsStore()
+const { revealSection } = useGsap()
 
 const statistics: Statistic[] = reactive([])
+let motionWired = false
 
 onMounted(() => {
   // for now push static projects count
@@ -51,6 +53,18 @@ onMounted(() => {
     icon: "mdi-calendar-check-outline",
   })
 })
+
+watch(
+  () => statistics.length,
+  async (len) => {
+    if (len < 2 || motionWired) return
+    motionWired = true
+    await nextTick()
+    revealSection("#statistics", {
+      childSelector: "[data-animate-child]",
+    })
+  },
+)
 </script>
 
 <template>

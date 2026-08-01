@@ -3,6 +3,7 @@ import type { Project } from "~/types/general"
 
 // store
 const { getFeatured } = useProjectsStore()
+const { revealSection } = useGsap()
 
 // vuetify
 const { thresholds } = useDisplay()
@@ -20,6 +21,7 @@ const swiperOptions = {
 }
 /// reactive
 const projects: Project[] = reactive([])
+let motionWired = false
 
 // hooks
 onMounted(() => {
@@ -27,6 +29,16 @@ onMounted(() => {
     projects.push(project)
   })
 })
+
+watch(
+  () => projects.length,
+  async (len) => {
+    if (!len || motionWired) return
+    motionWired = true
+    await nextTick()
+    revealSection("#projects")
+  },
+)
 </script>
 
 <template>
@@ -37,6 +49,7 @@ onMounted(() => {
       <v-btn
         to="/projects"
         color="primary"
+        data-magnetic
         v-bind="
           $vuetify.display.mdAndDown
             ? { icon: 'mdi-chevron-double-right' }

@@ -3,15 +3,27 @@ import type { Service } from "~/types/general"
 
 // store
 const { getAll } = useServicesStore()
+const { pinServicesStory } = useGsap()
 
 // data
 /// reactive
 const services: Service[] = reactive([])
+let motionWired = false
 
 // hooks
 onMounted(() => {
   getAll.forEach((service) => services.push(service))
 })
+
+watch(
+  () => services.length,
+  async (len) => {
+    if (!len || motionWired) return
+    motionWired = true
+    await nextTick()
+    pinServicesStory("#services", "[data-animate-child]")
+  },
+)
 </script>
 
 <template>
@@ -35,14 +47,14 @@ onMounted(() => {
 
     <v-row v-else>
       <v-col
-        v-for="(service, i) in services"
+        v-for="service in services"
         :key="service.id"
         cols="12"
         sm="12"
         md="4"
         xl="3"
       >
-        <v-card min-height="350">
+        <v-card min-height="350" data-animate-child data-magnetic>
           <v-card-text class="text-center pa-12">
             <v-avatar class="pa-10" color="primary">
               <v-icon size="50">{{ service.icon }}</v-icon>

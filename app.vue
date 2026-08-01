@@ -12,6 +12,7 @@ const { getLinks, getTitle, $subscribe, resetTitle } = useSettingsStore()
 
 // composables
 const { generatePDF } = useResumePDF()
+const { bindMagneticAll } = useGsap()
 
 // router
 const route = useRoute()
@@ -26,6 +27,7 @@ const socials: Contact[] = reactive([])
 const links: Link[] = reactive([] as Link[])
 const activeLink = ref(null)
 const isGeneratingPDF = ref(false)
+let cleanupMagnetic = () => {}
 
 // computed
 const showHomeBtn = computed(() => {
@@ -46,6 +48,14 @@ onMounted(() => {
   })
 
   Object.assign(user, infoStore)
+
+  nextTick(() => {
+    cleanupMagnetic = bindMagneticAll(document.body, "[data-magnetic]")
+  })
+})
+
+onBeforeUnmount(() => {
+  cleanupMagnetic()
 })
 
 // methods
@@ -114,6 +124,7 @@ watch(
           :href="social.link"
           target="_blank"
           icon
+          data-magnetic
         >
           <Icon :name="social.icon" size="24" />
         </v-btn>
@@ -182,6 +193,7 @@ watch(
           <v-tab
             :loading="isGeneratingPDF"
             :disabled="isGeneratingPDF"
+            data-magnetic
             @click="handleDownloadResume"
             hide-slider
           >
@@ -193,8 +205,13 @@ watch(
     </v-toolbar>
 
     <v-main>
-      <div class="mt-16" style="min-height: 85vh">
-        <nuxt-page />
+      <div class="mt-16 page-shell" style="min-height: 85vh">
+        <NuxtPage
+          :transition="{
+            name: 'folio',
+            mode: 'out-in',
+          }"
+        />
       </div>
 
       <v-footer
@@ -223,5 +240,34 @@ watch(
 
 p {
   line-height: 1.5 !important;
+}
+
+.folio-enter-active,
+.folio-leave-active {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.folio-enter-from {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.folio-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .folio-enter-active,
+  .folio-leave-active {
+    transition: none;
+  }
+
+  .folio-enter-from,
+  .folio-leave-to {
+    transform: none;
+  }
 }
 </style>

@@ -3,12 +3,15 @@ import type { Skill } from "~/types/general"
 
 // store
 const { getAll } = useSkillsStore()
+const { revealSection, animateScores, reducedMotion } = useGsap()
 
 // data
 /// static
 const skillsCountToDisplay = 12
 /// reactive
 const skills: Skill[] = reactive([])
+const animatedScores = ref<number[]>([])
+let motionWired = false
 
 // hooks
 onMounted(() => {
@@ -16,6 +19,28 @@ onMounted(() => {
     skills.push(skill as Skill)
   })
 })
+
+watch(
+  () => skills.length,
+  async (len) => {
+    if (!len || motionWired) return
+    motionWired = true
+    animatedScores.value = skills.map((s) =>
+      reducedMotion ? s.score : 0,
+    )
+    await nextTick()
+    revealSection("#skills", {
+      childSelector: "[data-animate-child]",
+    })
+    animateScores(
+      "#skills",
+      skills.map((s) => s.score),
+      (index, value) => {
+        animatedScores.value[index] = value
+      },
+    )
+  },
+)
 </script>
 
 <template>
@@ -40,14 +65,14 @@ onMounted(() => {
 
       <v-row v-else>
         <v-col
-          v-for="skill in skills"
+          v-for="(skill, index) in skills"
           :key="skill.id"
           cols="12"
           sm="6"
           md="4"
           lg="3"
         >
-          <v-card elevation="4" class="my-0-force">
+          <v-card elevation="4" class="my-0-force" data-animate-child>
             <v-card-text class="pa-4">
               <!-- Skill Icon -->
               <div class="d-flex align-center mb-2">
@@ -68,13 +93,13 @@ onMounted(() => {
                   Proficiency
                 </div>
                 <div class="text-body-2 font-weight-medium">
-                  {{ skill.score }}%
+                  {{ animatedScores[index] ?? 0 }}%
                 </div>
               </div>
 
               <!-- Progress Bar -->
               <v-progress-linear
-                :model-value="skill.score"
+                :model-value="animatedScores[index] ?? 0"
                 color="primary"
                 height="8"
               ></v-progress-linear>

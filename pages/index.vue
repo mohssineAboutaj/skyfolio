@@ -1,17 +1,19 @@
 <template>
-  <HeaderComponent />
+  <div>
+    <HeaderComponent />
 
-  <v-container>
-    <AboutComponent />
+    <v-container>
+      <AboutComponent />
 
-    <StatisticsComponent />
+      <StatisticsComponent />
 
-    <ServicesComponent />
+      <ServicesComponent />
 
-    <SkillsComponent />
+      <SkillsComponent />
 
-    <ProjectsComponent />
+      <ProjectsComponent />
 
-    <ContactsComponent />
-  </v-container>
+      <ContactsComponent />
+    </v-container>
+  </div>
 </template>
