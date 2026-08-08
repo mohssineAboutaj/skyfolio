@@ -405,6 +405,7 @@ describe('Type Definitions Validation', () => {
         color: "#41B883",
         score: 90,
         icon: "devicon:vuejs",
+        categories: ["frontend"],
       }
 
       expect(skill).toMatchObject({
@@ -413,6 +414,7 @@ describe('Type Definitions Validation', () => {
         color: expect.any(String),
         score: expect.any(Number),
         icon: expect.any(String),
+        categories: expect.any(Array),
       })
     })
 
@@ -423,6 +425,7 @@ describe('Type Definitions Validation', () => {
         color: "#41B883",
         score: 90,
         icon: "devicon:vuejs",
+        categories: ["frontend"],
       }
 
       expect(typeof skill.id).toBe('string')
@@ -485,8 +488,8 @@ describe('Type Definitions Validation', () => {
       ]
 
       const skills: Skill[] = [
-        { id: "1", name: "Vue.js", color: "#41B883", score: 90, icon: "devicon:vuejs" },
-        { id: "2", name: "React", color: "#61DAFB", score: 85, icon: "devicon:react" },
+        { id: "1", name: "Vue.js", color: "#41B883", score: 90, icon: "devicon:vuejs", categories: ["frontend"] },
+        { id: "2", name: "React", color: "#61DAFB", score: 85, icon: "devicon:react", categories: ["frontend"] },
       ]
 
       expect(Array.isArray(links)).toBe(true)

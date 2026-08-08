@@ -1,3 +1,5 @@
+import type { SkillCategory } from "~/data/skillsTab.data"
+
 // non-exported types
 interface ProjectPlatform {
   label: string
@@ -93,6 +95,7 @@ export interface Skill {
   color: string
   score: number
   icon: string
+  categories: SkillCategory[]
 }
 
 export interface Contact {

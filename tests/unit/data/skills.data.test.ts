@@ -34,6 +34,7 @@ describe('Skills Data Validation', () => {
         score: expect.any(Number),
         color: expect.any(String),
         icon: expect.any(String),
+        categories: expect.any(Array),
       })
     })
 
@@ -106,6 +107,7 @@ describe('Skills Data Validation', () => {
         expect(typeof skill.score).toBe('number')
         expect(typeof skill.color).toBe('string')
         expect(typeof skill.icon).toBe('string')
+        expect(Array.isArray(skill.categories)).toBe(true)
       })
     })
 

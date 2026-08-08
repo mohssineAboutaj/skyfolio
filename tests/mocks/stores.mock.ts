@@ -26,6 +26,22 @@ export const mockProjectsStore = {
 // Skills Store Mock
 export const mockSkillsStore = {
   getAll: vi.fn(() => Object.values(mockSkillsData)),
+  getByTab: vi.fn((tab: string) => {
+    const all = Object.values(mockSkillsData)
+    if (tab === 'top') return all.filter(s => s.score >= 85)
+    if (tab === 'all') return all
+    return all.filter(s => s.categories.includes(tab as any))
+  }),
+  getTabs: vi.fn(() => ({
+    top: 'Top',
+    all: 'All',
+    frontend: 'Frontend',
+    backend: 'Backend',
+    mobile: 'Mobile',
+    ai: 'AI',
+    testing: 'Testing',
+    tools: 'Tools',
+  })),
   getSkillById: vi.fn((id: string) => Object.values(mockSkillsData).find(s => s.id === id)),
   getSkillsByScore: vi.fn((minScore: number) => Object.values(mockSkillsData).filter(s => s.score >= minScore)),
 }

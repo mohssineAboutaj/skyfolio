@@ -7,6 +7,7 @@ const skills: Record<string, Skill> = {
     score: 92,
     color: "#e34f26",
     icon: "simple-icons:html5",
+    categories: ["frontend"],
   },
   css: {
     id: "d7c10b5f-415d-4a4f-b863-678423a0f309",
@@ -14,6 +15,7 @@ const skills: Record<string, Skill> = {
     score: 90,
     color: "#264de4",
     icon: "simple-icons:css3",
+    categories: ["frontend"],
   },
   javascript: {
     id: "082b9619-45c3-4dea-a9e9-3cdfdf0a2fc2",
@@ -21,6 +23,7 @@ const skills: Record<string, Skill> = {
     score: 88,
     color: "#f7df1e",
     icon: "simple-icons:javascript",
+    categories: ["frontend", "backend"],
   },
   typescript: {
     id: "c65ed2cc-1ce0-4db3-9e57-2b2431a21c37",
@@ -28,6 +31,7 @@ const skills: Record<string, Skill> = {
     score: 75,
     color: "#3178c6",
     icon: "simple-icons:typescript",
+    categories: ["frontend", "backend"],
   },
   vuejs: {
     id: "d8b645c6-3f56-44b6-b96b-24c0432935a0",
@@ -35,6 +39,7 @@ const skills: Record<string, Skill> = {
     score: 90,
     color: "#42b883",
     icon: "simple-icons:vuedotjs",
+    categories: ["frontend"],
   },
   nuxtjs: {
     id: "d6300cc9-23d4-4568-bc47-f02a09f1d29f",
@@ -42,6 +47,7 @@ const skills: Record<string, Skill> = {
     score: 82,
     color: "#00dc82",
     icon: "simple-icons:nuxtdotjs",
+    categories: ["frontend"],
   },
   reactjs: {
     id: "31d69a74-2a4e-4a5a-9b87-e9daddbe3798",
@@ -49,6 +55,7 @@ const skills: Record<string, Skill> = {
     score: 72,
     color: "#61dafb",
     icon: "simple-icons:react",
+    categories: ["frontend"],
   },
   php: {
     id: "e2b0d8e9-c3d3-4739-ad0c-2a4c2b97f86b",
@@ -56,6 +63,7 @@ const skills: Record<string, Skill> = {
     score: 85,
     color: "#777bb4",
     icon: "simple-icons:php",
+    categories: ["backend"],
   },
   laravel: {
     id: "f7636061-b0ff-4314-9b29-258ffb2868d0",
@@ -63,6 +71,7 @@ const skills: Record<string, Skill> = {
     score: 84,
     color: "#ff2d20",
     icon: "simple-icons:laravel",
+    categories: ["backend"],
   },
   filamentphp: {
     id: "4225e19d-e1d0-49d0-867e-522831b0db2b",
@@ -70,6 +79,7 @@ const skills: Record<string, Skill> = {
     score: 65,
     color: "#f59e0b",
     icon: "simple-icons:filament",
+    categories: ["backend"],
   },
   nodejs: {
     id: "91f734d9-3aa5-43b3-abda-eb740de09af4",
@@ -77,6 +87,7 @@ const skills: Record<string, Skill> = {
     score: 72,
     color: "#5fa04e",
     icon: "simple-icons:nodedotjs",
+    categories: ["backend"],
   },
   expressjs: {
     id: "12bc10bd-515b-4a40-9e41-0cd32a7056ea",
@@ -84,6 +95,7 @@ const skills: Record<string, Skill> = {
     score: 70,
     color: "#000000",
     icon: "simple-icons:express",
+    categories: ["backend"],
   },
   mysql: {
     id: "e9526880-19d9-46d9-88b5-c7b0a95180d4",
@@ -91,6 +103,7 @@ const skills: Record<string, Skill> = {
     score: 82,
     color: "#4479a1",
     icon: "simple-icons:mysql",
+    categories: ["backend"],
   },
   mongodb: {
     id: "6fadb0bc-45c9-448d-a567-2a6f38dc08ed",
@@ -98,6 +111,7 @@ const skills: Record<string, Skill> = {
     score: 68,
     color: "#47a248",
     icon: "simple-icons:mongodb",
+    categories: ["backend"],
   },
   mongoose: {
     id: "566c5762-1382-4c07-8225-6f40bb7cb9e1",
@@ -105,6 +119,7 @@ const skills: Record<string, Skill> = {
     score: 65,
     color: "#880000",
     icon: "simple-icons:mongoose",
+    categories: ["backend"],
   },
   firebase: {
     id: "193e034f-4f2a-4270-ab55-43ea4e7853f0",
@@ -112,6 +127,7 @@ const skills: Record<string, Skill> = {
     score: 62,
     color: "#dd2c00",
     icon: "simple-icons:firebase",
+    categories: ["backend"],
   },
   redis: {
     id: "d7fa6886-650a-407a-b1a4-9b93b7f0a86b",
@@ -119,6 +135,7 @@ const skills: Record<string, Skill> = {
     score: 65,
     color: "#ff4438",
     icon: "simple-icons:redis",
+    categories: ["backend"],
   },
   tailwindcss: {
     id: "d36e9532-7cd9-4ee3-a072-7af87c7e5f4b",
@@ -126,6 +143,7 @@ const skills: Record<string, Skill> = {
     score: 82,
     color: "#06b6d4",
     icon: "simple-icons:tailwindcss",
+    categories: ["frontend"],
   },
   scss: {
     id: "4fda18d0-6e9b-45c6-9411-685d8a7105a4",
@@ -133,6 +151,7 @@ const skills: Record<string, Skill> = {
     score: 80,
     color: "#cc6699",
     icon: "simple-icons:sass",
+    categories: ["frontend"],
   },
   vuetify: {
     id: "824216c5-8048-40de-91ef-7d89fb1a5ce9",
@@ -140,6 +159,7 @@ const skills: Record<string, Skill> = {
     score: 80,
     color: "#1867c0",
     icon: "simple-icons:vuetify",
+    categories: ["frontend"],
   },
   quasar: {
     id: "3e8c957d-4dd3-4bb9-b2a8-65b781178825",
@@ -147,6 +167,7 @@ const skills: Record<string, Skill> = {
     score: 78,
     color: "#1976d2",
     icon: "simple-icons:quasar",
+    categories: ["frontend"],
   },
   ionic: {
     id: "17e7dd53-62f5-44d2-863f-4d351bd2e7d5",
@@ -154,6 +175,7 @@ const skills: Record<string, Skill> = {
     score: 75,
     color: "#3880ff",
     icon: "simple-icons:ionic",
+    categories: ["mobile"],
   },
   capacitor: {
     id: "da25c798-9e64-490e-8ce3-3dd5b06eb801",
@@ -161,6 +183,7 @@ const skills: Record<string, Skill> = {
     score: 75,
     color: "#119eff",
     icon: "simple-icons:capacitor",
+    categories: ["mobile"],
   },
   electronjs: {
     id: "cf4a918e-8d66-4abf-a2c1-3b531faac4d8",
@@ -168,6 +191,7 @@ const skills: Record<string, Skill> = {
     score: 68,
     color: "#47848f",
     icon: "simple-icons:electron",
+    categories: ["mobile"],
   },
   flutter: {
     id: "b6d5410e-4e90-48d2-a5c3-c65e2b2a9194",
@@ -175,6 +199,7 @@ const skills: Record<string, Skill> = {
     score: 55,
     color: "#02569b",
     icon: "simple-icons:flutter",
+    categories: ["mobile"],
   },
   dart: {
     id: "f44a24aa-e9f2-4bd8-998d-16de4c7a03c2",
@@ -182,6 +207,7 @@ const skills: Record<string, Skill> = {
     score: 55,
     color: "#0175c2",
     icon: "simple-icons:dart",
+    categories: ["mobile"],
   },
   vite: {
     id: "705a8df3-587e-4bce-8601-cd5d36696b1f",
@@ -189,6 +215,7 @@ const skills: Record<string, Skill> = {
     score: 70,
     color: "#646cff",
     icon: "simple-icons:vite",
+    categories: ["tools"],
   },
   reduxtoolkit: {
     id: "0e43618c-bd68-460b-90ff-9a37d4fbf29b",
@@ -196,6 +223,7 @@ const skills: Record<string, Skill> = {
     score: 65,
     color: "#764abc",
     icon: "simple-icons:redux",
+    categories: ["frontend"],
   },
   materialui: {
     id: "c07c5579-6080-4a6a-8384-6ea83b63093e",
@@ -203,6 +231,7 @@ const skills: Record<string, Skill> = {
     score: 65,
     color: "#007fff",
     icon: "simple-icons:mui",
+    categories: ["frontend"],
   },
   cryptojs: {
     id: "7ce9f112-7672-41f8-8e99-57052c5d4f14",
@@ -210,6 +239,7 @@ const skills: Record<string, Skill> = {
     score: 62,
     color: "#000000",
     icon: "mdi:lock",
+    categories: ["tools"],
   },
   vitest: {
     id: "1f666d79-20f6-4998-a2c3-c6e39996166b",
@@ -217,6 +247,7 @@ const skills: Record<string, Skill> = {
     score: 60,
     color: "#6e9f18",
     icon: "simple-icons:vitest",
+    categories: ["testing"],
   },
   passportjs: {
     id: "3e981ed6-c27c-47e6-bf52-54a0f052ca81",
@@ -224,6 +255,7 @@ const skills: Record<string, Skill> = {
     score: 62,
     color: "#34e27a",
     icon: "simple-icons:passport",
+    categories: ["backend"],
   },
   webpack: {
     id: "eb15eb4e-6820-4b08-80be-dcaa827d9ba5",
@@ -231,6 +263,7 @@ const skills: Record<string, Skill> = {
     score: 70,
     color: "#8dd6f9",
     icon: "simple-icons:webpack",
+    categories: ["tools"],
   },
   axios: {
     id: "8799f46d-e00e-40cd-8409-eaf788b4a179",
@@ -238,6 +271,7 @@ const skills: Record<string, Skill> = {
     score: 68,
     color: "#5a29e4",
     icon: "simple-icons:axios",
+    categories: ["frontend", "backend"],
   },
   cheerio: {
     id: "b3c1b9c3-dc6f-43cb-9fa8-2d6ed94e4f53",
@@ -245,6 +279,7 @@ const skills: Record<string, Skill> = {
     score: 62,
     color: "#e88c1f",
     icon: "simple-icons:cheerio",
+    categories: ["backend"],
   },
   reactrouter: {
     id: "c31b47eb-ab05-418d-bcdd-b717ea3391ce",
@@ -252,6 +287,7 @@ const skills: Record<string, Skill> = {
     score: 65,
     color: "#ca4245",
     icon: "simple-icons:reactrouter",
+    categories: ["frontend"],
   },
   npm: {
     id: "22be876e-526b-4dd7-9566-5639b4ab2283",
@@ -259,6 +295,7 @@ const skills: Record<string, Skill> = {
     score: 75,
     color: "#cb3837",
     icon: "simple-icons:npm",
+    categories: ["tools"],
   },
   yarn: {
     id: "363bb6e3-2393-4d42-8815-77391dc52525",
@@ -266,6 +303,7 @@ const skills: Record<string, Skill> = {
     score: 65,
     color: "#2c8ebb",
     icon: "simple-icons:yarn",
+    categories: ["tools"],
   },
   git: {
     id: "1d62ee7c-d49e-4daa-bd79-b3f270b7420b",
@@ -273,6 +311,224 @@ const skills: Record<string, Skill> = {
     score: 85,
     color: "#f05032",
     icon: "simple-icons:git",
+    categories: ["tools"],
+  },
+  svelte: {
+    id: "91f8a05e-1b6f-4edf-8fcd-110c5fcd4b2d",
+    name: "Svelte",
+    score: 65,
+    color: "#ff3e00",
+    icon: "simple-icons:svelte",
+    categories: ["frontend"],
+  },
+  alpinejs: {
+    id: "ad234d9b-8d5b-442e-b6e9-aac71f14d159",
+    name: "Alpine.js",
+    score: 65,
+    color: "#8bc0d0",
+    icon: "simple-icons:alpinedotjs",
+    categories: ["frontend"],
+  },
+  jquery: {
+    id: "50b64c53-0408-451e-9acd-716ba421a6a8",
+    name: "jQuery",
+    score: 70,
+    color: "#0769ad",
+    icon: "simple-icons:jquery",
+    categories: ["frontend"],
+  },
+  d3js: {
+    id: "46d3f390-4f1e-49da-9606-3b9a4cae139b",
+    name: "D3.js",
+    score: 65,
+    color: "#f9a03c",
+    icon: "simple-icons:d3dotjs",
+    categories: ["frontend"],
+  },
+  bootstrap: {
+    id: "09c09370-13f2-492c-8a2e-f74ec9ea545d",
+    name: "Bootstrap",
+    score: 72,
+    color: "#7952b3",
+    icon: "simple-icons:bootstrap",
+    categories: ["frontend"],
+  },
+  less: {
+    id: "d4b05367-3945-4d02-90c0-b14a7f293764",
+    name: "Less",
+    score: 65,
+    color: "#1d365d",
+    icon: "simple-icons:less",
+    categories: ["frontend"],
+  },
+  materializecss: {
+    id: "0d0037af-5107-4625-9ca2-a85d0a2d2f66",
+    name: "Materialize CSS",
+    score: 65,
+    color: "#ee6e73",
+    icon: "mdi:material-design",
+    categories: ["frontend"],
+  },
+  fontawesome: {
+    id: "fea5d15a-7030-4ecc-a967-0eae3eb16c43",
+    name: "Font Awesome",
+    score: 70,
+    color: "#528dd7",
+    icon: "simple-icons:fontawesome",
+    categories: ["frontend"],
+  },
+  materialdesignicons: {
+    id: "70241e73-c7e3-4330-971d-6ddf9d3131f4",
+    name: "Material Design Icons",
+    score: 65,
+    color: "#2196f3",
+    icon: "simple-icons:materialdesignicons",
+    categories: ["frontend"],
+  },
+  symfony: {
+    id: "5d3a1b98-4c1f-4e89-8c59-a3192d378a83",
+    name: "Symfony",
+    score: 65,
+    color: "#000000",
+    icon: "simple-icons:symfony",
+    categories: ["backend"],
+  },
+  adonisjs: {
+    id: "5f5d92b8-434d-4fe2-a9fa-6d4ffdd4d531",
+    name: "AdonisJS",
+    score: 65,
+    color: "#5a45ff",
+    icon: "simple-icons:adonisjs",
+    categories: ["backend"],
+  },
+  sqlite: {
+    id: "807e5af7-dda4-4215-8bdd-4a511c4c6c6c",
+    name: "SQLite",
+    score: 65,
+    color: "#003b57",
+    icon: "simple-icons:sqlite",
+    categories: ["backend"],
+  },
+  pug: {
+    id: "8c944bce-f151-4a87-a512-f102337ee0d9",
+    name: "Pug",
+    score: 65,
+    color: "#a86454",
+    icon: "simple-icons:pug",
+    categories: ["frontend"],
+  },
+  handlebars: {
+    id: "9bb442ca-7ecc-4f1f-9fa6-f777406adb4c",
+    name: "Handlebars",
+    score: 65,
+    color: "#000000",
+    icon: "simple-icons:handlebarsdotjs",
+    categories: ["frontend"],
+  },
+  svg: {
+    id: "b7673e7c-7ad6-442b-9c5a-8250064a0199",
+    name: "SVG",
+    score: 70,
+    color: "#ffb13b",
+    icon: "simple-icons:svg",
+    categories: ["frontend"],
+  },
+  canvas: {
+    id: "27da72cd-d4cb-4b88-aceb-90b1943f2999",
+    name: "Canvas",
+    score: 65,
+    color: "#e34f26",
+    icon: "mdi:canvas",
+    categories: ["frontend"],
+  },
+  jasmine: {
+    id: "a284bb9b-cb1c-4d16-a6a4-c35736c005de",
+    name: "Jasmine",
+    score: 65,
+    color: "#8a4182",
+    icon: "simple-icons:jasmine",
+    categories: ["testing"],
+  },
+  jest: {
+    id: "51c404e5-7380-4d35-8d5b-2916dc7f4d8d",
+    name: "Jest",
+    score: 65,
+    color: "#c21325",
+    icon: "simple-icons:jest",
+    categories: ["testing"],
+  },
+  gulp: {
+    id: "cc60aeb6-f29c-4d5c-92cd-6ce2d6594632",
+    name: "Gulp.js",
+    score: 65,
+    color: "#cf4647",
+    icon: "simple-icons:gulp",
+    categories: ["tools"],
+  },
+  wordpress: {
+    id: "ec9713f4-a3d1-49da-afd6-9818b5f86f85",
+    name: "WordPress",
+    score: 65,
+    color: "#21759b",
+    icon: "simple-icons:wordpress",
+    categories: ["backend"],
+  },
+  github: {
+    id: "51874e76-5aeb-4ea9-895b-f2a974085f26",
+    name: "GitHub",
+    score: 75,
+    color: "#181717",
+    icon: "simple-icons:github",
+    categories: ["tools"],
+  },
+  bitbucket: {
+    id: "667665f3-a26c-4202-a0f5-4669c1f02692",
+    name: "Bitbucket",
+    score: 65,
+    color: "#0052cc",
+    icon: "simple-icons:bitbucket",
+    categories: ["tools"],
+  },
+  gitlab: {
+    id: "12345678-9012-3456-7890-123456789012",
+    name: "GitLab",
+    score: 65,
+    color: "#fc6d26",
+    icon: "simple-icons:gitlab",
+    categories: ["tools"],
+  },
+  // AI tools
+  cursor: {
+    id: "c0a1b2d3-e4f5-6789-abcd-ef0123456789",
+    name: "Cursor",
+    score: 85,
+    color: "#000000",
+    icon: "simple-icons:cursor",
+    categories: ["ai"],
+  },
+  openai: {
+    id: "d1b2c3d4-e5f6-7890-bcde-f01234567890",
+    name: "OpenAI / ChatGPT",
+    score: 80,
+    color: "#412991",
+    icon: "simple-icons:openai",
+    categories: ["ai"],
+  },
+  githubcopilot: {
+    id: "e2c3d4e5-f6a7-8901-cdef-012345678901",
+    name: "GitHub Copilot",
+    score: 78,
+    color: "#000000",
+    icon: "simple-icons:githubcopilot",
+    categories: ["ai"],
+  },
+  codex: {
+    id: "f3d4e5f6-a7b8-9012-def0-123456789012",
+    name: "Codex",
+    score: 75,
+    color: "#412991",
+    icon: "simple-icons:openai",
+    categories: ["ai"],
   },
 }
 

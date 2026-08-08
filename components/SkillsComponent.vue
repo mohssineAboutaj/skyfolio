@@ -1,34 +1,31 @@
 <script lang="ts" setup>
 import type { Skill } from "~/types/general"
+import { skillsTab, type SkillsTabKey } from "~/data/skillsTab.data"
 
 // store
-const { getAll } = useSkillsStore()
+const skillsStore = useSkillsStore()
 const { revealSection } = useGsap()
 
 // data
 /// static
 const skillsCountToDisplay = 12
+const tabs = skillsTab
 /// reactive
-const skills: Skill[] = reactive([])
+const activeTab = ref<SkillsTabKey>("top")
+const skills = computed<Skill[]>(() => skillsStore.getByTab(activeTab.value))
 let motionWired = false
 
-// hooks
-onMounted(() => {
-  getAll.forEach((skill) => {
-    skills.push(skill as Skill)
-  })
-})
-
 watch(
-  () => skills.length,
-  async (len) => {
-    if (!len || motionWired) return
+  skills,
+  async (list) => {
+    if (!list.length || motionWired) return
     motionWired = true
     await nextTick()
     revealSection("#skills", {
       childSelector: "[data-animate-child]",
     })
   },
+  { immediate: true },
 )
 </script>
 
@@ -40,6 +37,23 @@ watch(
     class="bg-transparent"
   >
     <v-card-text>
+      <v-tabs
+        v-model="activeTab"
+        bg-color="background"
+        class="rounded-xl mb-6"
+        slider-color="secondary"
+        selected-class="text-secondary"
+        show-arrows
+      >
+        <v-tab
+          v-for="(label, key) in tabs"
+          :key="key"
+          :value="key"
+        >
+          {{ label }}
+        </v-tab>
+      </v-tabs>
+
       <v-row v-if="skills.length == 0">
         <v-col
           v-for="n in skillsCountToDisplay"
@@ -55,7 +69,7 @@ watch(
       <v-row v-else>
         <v-col
           v-for="skill in skills"
-          :key="skill.id"
+          :key="`${activeTab}-${skill.id}`"
           cols="12"
           sm="6"
           md="4"

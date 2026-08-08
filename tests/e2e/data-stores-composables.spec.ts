@@ -144,6 +144,7 @@ describe('Data, Stores, and Composables Integration', () => {
         expect(skill).toHaveProperty('color')
         expect(skill).toHaveProperty('score')
         expect(skill).toHaveProperty('icon')
+        expect(skill).toHaveProperty('categories')
       })
     })
   })
