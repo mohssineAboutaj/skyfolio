@@ -3,14 +3,13 @@ import type { Skill } from "~/types/general"
 
 // store
 const { getAll } = useSkillsStore()
-const { revealSection, animateScores, reducedMotion } = useGsap()
+const { revealSection } = useGsap()
 
 // data
 /// static
 const skillsCountToDisplay = 12
 /// reactive
 const skills: Skill[] = reactive([])
-const animatedScores = ref<number[]>([])
 let motionWired = false
 
 // hooks
@@ -25,20 +24,10 @@ watch(
   async (len) => {
     if (!len || motionWired) return
     motionWired = true
-    animatedScores.value = skills.map((s) =>
-      reducedMotion ? s.score : 0,
-    )
     await nextTick()
     revealSection("#skills", {
       childSelector: "[data-animate-child]",
     })
-    animateScores(
-      "#skills",
-      skills.map((s) => s.score),
-      (index, value) => {
-        animatedScores.value[index] = value
-      },
-    )
   },
 )
 </script>
@@ -65,7 +54,7 @@ watch(
 
       <v-row v-else>
         <v-col
-          v-for="(skill, index) in skills"
+          v-for="skill in skills"
           :key="skill.id"
           cols="12"
           sm="6"
@@ -87,22 +76,21 @@ watch(
                 </v-card-title>
               </div>
 
-              <!-- Proficiency Section -->
-              <div class="d-flex justify-space-between">
-                <div class="text-caption text-medium-emphasis mb-2">
+              <!-- Proficiency stars (mapped from 0–100 score) -->
+              <div class="d-flex align-center justify-space-between">
+                <div class="text-caption text-medium-emphasis">
                   Proficiency
                 </div>
-                <div class="text-body-2 font-weight-medium">
-                  {{ animatedScores[index] ?? 0 }}%
-                </div>
+                <v-rating
+                  :model-value="scoreToStars(skill.score)"
+                  :length="5"
+                  density="compact"
+                  size="small"
+                  color="secondary"
+                  active-color="secondary"
+                  readonly
+                />
               </div>
-
-              <!-- Progress Bar -->
-              <v-progress-linear
-                :model-value="animatedScores[index] ?? 0"
-                color="primary"
-                height="8"
-              ></v-progress-linear>
             </v-card-text>
           </v-card>
         </v-col>

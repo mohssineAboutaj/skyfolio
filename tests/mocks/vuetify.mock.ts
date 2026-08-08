@@ -37,6 +37,11 @@ export const mockVuetifyComponents = {
     template: '<div class="v-progress-linear"></div>',
     props: ['modelValue', 'color', 'height'],
   },
+  VRating: {
+    name: 'VRating',
+    template: '<div class="v-rating"></div>',
+    props: ['modelValue', 'length', 'density', 'size', 'color', 'activeColor', 'readonly'],
+  },
   VSkeletonLoader: {
     name: 'VSkeletonLoader',
     template: '<div class="v-skeleton-loader"></div>',

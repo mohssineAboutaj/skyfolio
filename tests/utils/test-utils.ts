@@ -62,5 +62,5 @@ export const createMockSkill = (overrides = {}) => ({
 // Assertion helpers
 export const expectSkillCardToHaveCorrectData = (wrapper: VueWrapper<any>, skill: any) => {
   expect(wrapper.text()).toContain(skill.name)
-  expect(wrapper.text()).toContain(`${skill.score}%`)
-} 
+}
+ 
