@@ -3,7 +3,7 @@ import type { Service } from "~/types/general"
 
 // store
 const { getAll } = useServicesStore()
-const { pinServicesStory } = useGsap()
+const { revealSection } = useGsap()
 
 // data
 /// reactive
@@ -21,7 +21,10 @@ watch(
     if (!len || motionWired) return
     motionWired = true
     await nextTick()
-    pinServicesStory("#services", "[data-animate-child]")
+    revealSection("#services", {
+      childSelector: "[data-animate-child]",
+      stagger: 0.1,
+    })
   },
 )
 </script>

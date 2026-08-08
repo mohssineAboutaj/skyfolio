@@ -64,86 +64,95 @@ function goToAbout() {
   <div ref="heroRef" class="hero-stage">
     <v-container
       id="home"
-      class="d-flex justify-center align-center flex-column-reverse flex-md-row hero-stage__content"
+      fluid
+      class="hero-stage__content"
       style="min-height: 80vh"
     >
-      <v-col cols="12" md="6" class="font-weight-light">
-        <template v-if="!user.fullName">
-          <v-skeleton-loader type="heading" />
-          <v-skeleton-loader type="heading" />
-        </template>
+      <v-row
+        align="center"
+        justify="center"
+        class="flex-column-reverse flex-md-row ma-0"
+        style="min-height: 80vh"
+      >
+        <v-col cols="12" md="6" class="font-weight-light">
+          <template v-if="!user.fullName">
+            <v-skeleton-loader type="heading" />
+            <v-skeleton-loader type="heading" />
+          </template>
 
-        <template v-else>
-          <h1
-            ref="nameRef"
-            class="v-card-title text-h4 mb-8 text-capitalize"
-          >
-            <span class="title">Hi, I'm </span>
-            <b class="d-sm-block d-lg-inline d-block text-wrap text-secondary">
-              {{ user.fullName }}
-            </b>
-          </h1>
-          <h2
-            ref="jobRef"
-            class="v-card-title text-h5 mb-8 text-capitalize"
-          >
-            <span class="title">I'am a </span>
-            <span v-if="user.jobs.length == 1" class="font-weight-bold">
-              {{ user.jobs[0] }}
-            </span>
-            <TypewriterComponent
-              v-else
-              :strings="user.jobs"
-              class="font-weight-bold d-sm-block d-lg-inline-block text-wrap text-secondary"
-              :typeSpeed="50"
-              :eraseSpeed="25"
-            />
-          </h2>
-
-          <v-row v-if="contacts.length == 0">
-            <v-col v-for="n in 3" :key="`contact-skeleton-${n}`">
-              <v-skeleton-loader type="button"></v-skeleton-loader>
-            </v-col>
-          </v-row>
-          <v-row v-else ref="socialsRef" class="mt-4">
-            <v-col
-              v-for="contact in contacts"
-              :key="contact.id"
-              cols="auto"
-              data-hero-social
-              data-magnetic
+          <template v-else>
+            <h1
+              ref="nameRef"
+              class="v-card-title text-h4 mb-8 text-capitalize"
             >
-              <v-btn
-                :color="contact.color"
-                :href="contact.link"
-                target="_blank"
-                :title="contact.label"
-                :aria-label="contact.label"
-                icon
+              <span class="title">Hi, I'm </span>
+              <b class="d-sm-block d-lg-inline d-block text-wrap text-secondary">
+                {{ user.fullName }}
+              </b>
+            </h1>
+            <h2
+              ref="jobRef"
+              class="v-card-title text-h5 mb-8 text-capitalize"
+            >
+              <span class="title">I'am a </span>
+              <span v-if="user.jobs.length == 1" class="font-weight-bold">
+                {{ user.jobs[0] }}
+              </span>
+              <TypewriterComponent
+                v-else
+                :strings="user.jobs"
+                class="font-weight-bold d-sm-block d-lg-inline-block text-wrap text-secondary"
+                :typeSpeed="50"
+                :eraseSpeed="25"
+              />
+            </h2>
+
+            <v-row v-if="contacts.length == 0">
+              <v-col v-for="n in 3" :key="`contact-skeleton-${n}`">
+                <v-skeleton-loader type="button"></v-skeleton-loader>
+              </v-col>
+            </v-row>
+            <v-row v-else ref="socialsRef" class="mt-4">
+              <v-col
+                v-for="contact in contacts"
+                :key="contact.id"
+                cols="auto"
+                data-hero-social
+                data-magnetic
               >
-                <Icon :name="contact.icon" size="20" />
-              </v-btn>
-            </v-col>
-          </v-row>
-        </template>
-      </v-col>
-      <v-col cols="12" md="6" class="text-center">
-        <div ref="avatarRef" class="d-inline-block" data-magnetic>
-          <v-avatar
-            :size="$vuetify.display.mdAndDown ? 150 : 250"
-            class="elevation-12 mx-auto mb-8"
-          >
-            <v-img
-              :src="user.avatar"
-              :alt="`${user.fullName} avatar`"
-              color="primary"
-            ></v-img>
-          </v-avatar>
-        </div>
-      </v-col>
+                <v-btn
+                  :color="contact.color"
+                  :href="contact.link"
+                  target="_blank"
+                  :title="contact.label"
+                  :aria-label="contact.label"
+                  icon
+                >
+                  <Icon :name="contact.icon" size="20" />
+                </v-btn>
+              </v-col>
+            </v-row>
+          </template>
+        </v-col>
+        <v-col cols="12" md="6" class="text-center">
+          <div ref="avatarRef" class="d-inline-block" data-magnetic>
+            <v-avatar
+              :size="$vuetify.display.mdAndDown ? 150 : 250"
+              class="elevation-12 mx-auto mb-8"
+            >
+              <v-img
+                :src="user.avatar"
+                :alt="`${user.fullName} avatar`"
+                color="primary"
+              ></v-img>
+            </v-avatar>
+          </div>
+        </v-col>
+      </v-row>
     </v-container>
     <v-container
-      class="d-flex justify-center align-center flex-column-reverse flex-md-row"
+      fluid
+      class="d-flex justify-center align-center"
       style="height: 10vh"
     >
       <div ref="chevronRef" data-magnetic>

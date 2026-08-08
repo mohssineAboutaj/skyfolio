@@ -539,82 +539,6 @@ export function useGsap() {
     return cleanHover
   }
 
-  /**
-   * Pinned services story (desktop): scrub highlight across cards while pinned.
-   * Falls back to a normal stagger reveal on small screens / reduced motion.
-   */
-  function pinServicesStory(
-    section: Element | string | { $el?: unknown } | null,
-    cardSelector = "[data-animate-child]",
-  ) {
-    if (!import.meta.client || !section) return
-
-    if (reducedMotion) {
-      revealSection(section, { childSelector: cardSelector })
-      return
-    }
-
-    run(() => {
-      const sectionEl = resolveEl(section)
-      if (!sectionEl) return
-
-      const cards = sectionEl.querySelectorAll(cardSelector)
-      if (!cards.length) return
-
-      const mm = gsap.matchMedia()
-
-      mm.add("(min-width: 960px)", () => {
-        gsap.set(cards, { opacity: 0.35, scale: 0.94, y: 24 })
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionEl,
-            start: "top top+=72",
-            end: () => `+=${Math.max(cards.length, 3) * 35}%`,
-            pin: true,
-            scrub: 0.65,
-            anticipatePin: 1,
-          },
-        })
-
-        cards.forEach((card, i) => {
-          tl.to(
-            card,
-            {
-              opacity: 1,
-              scale: 1,
-              y: 0,
-              duration: 1,
-              ease: "power2.out",
-            },
-            i,
-          )
-          if (i < cards.length - 1) {
-            tl.to(
-              card,
-              {
-                opacity: 0.55,
-                scale: 0.97,
-                duration: 0.6,
-                ease: "power1.inOut",
-              },
-              i + 0.75,
-            )
-          }
-        })
-
-        return () => {
-          tl.scrollTrigger?.kill()
-          tl.kill()
-        }
-      })
-
-      mm.add("(max-width: 959px)", () => {
-        revealSection(sectionEl, { childSelector: cardSelector })
-      })
-    })
-  }
-
   onBeforeUnmount(() => {
     ctx?.revert()
     ctx = null
@@ -632,7 +556,6 @@ export function useGsap() {
     bindMagneticAll,
     bindSpotlight,
     bindProjectCard,
-    pinServicesStory,
     getScrollStart,
     resolveEl,
   }

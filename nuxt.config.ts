@@ -37,7 +37,8 @@ export default defineNuxtConfig({
 
   vuetify: {
     moduleOptions: {
-      /* module specific options */
+      // Nuxt 4.5 and Vuetify both export useLayout (NUXT_B6002)
+      prefixComposables: ["useLayout"],
     },
     vuetifyOptions: "./vuetify.config.ts",
   },
