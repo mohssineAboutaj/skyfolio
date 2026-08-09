@@ -19,8 +19,7 @@ onMounted(async () => {
 <template>
   <v-card
     ref="cardRef"
-    class="mx-auto project-card"
-    max-width="400"
+    class="project-card h-100"
     :to="`/projects/${project.slug}`"
   >
     <div data-project-media class="project-card__media">
@@ -48,6 +47,7 @@ onMounted(async () => {
 <style scoped>
 .project-card {
   overflow: hidden;
+  width: 100%;
   will-change: transform;
 }
 

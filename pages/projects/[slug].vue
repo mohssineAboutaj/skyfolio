@@ -11,17 +11,19 @@ const route = useRoute()
 const router = useRouter()
 
 // data
-/// static
-const swiperSharedOptions = {
-  centeredSlides: true,
-  centeredSlidesBounds: true,
-  // spaceBetween: 10,
-  grabCursor: true,
-  loop: true,
-  autoplay: { delay: 2500 },
-}
 /// reactive
-const project: Project = reactive({} as Project)
+const project = reactive<Project>({
+  id: "",
+  title: "",
+  slug: "",
+  description: "",
+  imgs: [],
+  visible: false,
+  featured: false,
+  types: [],
+  tech: [],
+  platforms: [],
+})
 const slug = ref("")
 const title = ref("")
 const breadcrumbItems = reactive([
@@ -29,27 +31,63 @@ const breadcrumbItems = reactive([
   { title: "Projects", disabled: false, to: "/projects" },
   { title: "", disabled: true },
 ])
-const projectHasImages = ref(false)
 const galleryRef = ref<HTMLElement | null>(null)
+const mainSwiperRef = ref(null)
+const thumbsSwiperRef = ref(null)
 
-// hooks
-onBeforeMount(() => {
+const imageCount = computed(() => project.imgs?.length ?? 0)
+const hasGallery = computed(() => imageCount.value > 1)
+const hasSingleImage = computed(() => imageCount.value === 1)
+
+const { instance: mainSwiper } = useSwiper(mainSwiperRef, {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  grabCursor: true,
+  loop: true,
+  autoplay: { delay: 2500, disableOnInteraction: false },
+})
+
+const { instance: thumbsSwiper } = useSwiper(thumbsSwiperRef, {
+  slidesPerView: Math.min(4, imageCount.value || 4),
+  spaceBetween: 10,
+  grabCursor: true,
+  watchSlidesProgress: true,
+  slideToClickedSlide: true,
+})
+
+watch([mainSwiper, thumbsSwiper], ([main, thumbs]) => {
+  if (!main || !thumbs) return
+  main.params.thumbs = { swiper: thumbs }
+  main.thumbs?.init()
+  main.thumbs?.update(true)
+})
+
+function loadProject() {
   slug.value = route.params.slug as string
   const projectFromStore = getBySlug(slug.value)
 
   if (projectFromStore) {
-    Object.assign(project, projectFromStore)
+    Object.assign(project, {
+      ...projectFromStore,
+      imgs: [...(projectFromStore.imgs ?? [])],
+      platforms: [...(projectFromStore.platforms ?? [])],
+    })
     title.value = project.title
     updateTitle(title.value)
-    projectHasImages.value = project.imgs.length > 1
-
-    // if project images length is less than 4, duplicate the images
-    if (project.imgs.length < 4) {
-      project.imgs = [...project.imgs, ...project.imgs]
-    }
-
     breadcrumbItems[2].title = title.value
-  } else {
+    return true
+  }
+
+  return false
+}
+
+// Load during setup so SSR has imgs defined
+if (!loadProject() && import.meta.client) {
+  router.push("/404")
+}
+
+onBeforeMount(() => {
+  if (!project.id && !loadProject()) {
     router.push("/404")
   }
 })
@@ -85,39 +123,49 @@ onMounted(async () => {
 
       <v-card-text>
         <v-row>
-          <v-col cols="12" md="6">
+          <v-col v-if="imageCount" cols="12" md="6">
             <div ref="galleryRef" class="project-gallery">
-            <swiper-container
-              v-bind="swiperSharedOptions"
-              :slidesPerView="1"
-              class="main-gallery"
-              :thumbs="{ swiper: '.nav-gallery', autoScrollOffset: 3 }"
-            >
-              <swiper-slide
-                v-for="(image, n) in project.imgs"
-                :key="`main-img-${n}`"
-              >
-                <v-img :src="image" max-height="400" />
-              </swiper-slide>
-            </swiper-container>
+              <!-- Static image when there is only one -->
+              <v-img
+                v-if="hasSingleImage"
+                :src="project.imgs[0]"
+                :alt="title"
+                max-height="400"
+                cover
+                class="rounded-lg"
+              />
 
-            <swiper-container
-              v-if="projectHasImages"
-              v-bind="swiperSharedOptions"
-              :slidesPerView="4"
-              class="nav-gallery my-2"
-              :spaceBetween="10"
-            >
-              <swiper-slide
-                v-for="(image, n) in project.imgs"
-                :key="`gallery-img-${n}`"
-              >
-                <v-img :src="image" max-height="100" />
-              </swiper-slide>
-            </swiper-container>
+              <!-- Swiper gallery only when there are multiple images -->
+              <ClientOnly v-else-if="hasGallery">
+                <swiper-container
+                  ref="mainSwiperRef"
+                  class="main-gallery"
+                  :init="false"
+                >
+                  <swiper-slide
+                    v-for="(image, n) in project.imgs"
+                    :key="`main-img-${n}`"
+                  >
+                    <v-img :src="image" :alt="title" max-height="400" cover />
+                  </swiper-slide>
+                </swiper-container>
+
+                <swiper-container
+                  ref="thumbsSwiperRef"
+                  class="nav-gallery my-2"
+                  :init="false"
+                >
+                  <swiper-slide
+                    v-for="(image, n) in project.imgs"
+                    :key="`gallery-img-${n}`"
+                  >
+                    <v-img :src="image" :alt="title" max-height="100" cover />
+                  </swiper-slide>
+                </swiper-container>
+              </ClientOnly>
             </div>
           </v-col>
-          <v-col cols="12" md="6">
+          <v-col cols="12" :md="imageCount ? 6 : 12">
             <v-card title="Description" variant="plain" class="elevation-0">
               <v-card-text>{{ project.description }}</v-card-text>
             </v-card>
@@ -186,12 +234,13 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-/* swiper */
-.swiper-thumbs .swiper-slide {
+.nav-gallery swiper-slide {
   opacity: 0.5;
+  cursor: pointer;
 }
 
-.swiper-thumbs .swiper-slide-thumb-active {
+.nav-gallery swiper-slide.swiper-slide-thumb-active,
+.nav-gallery swiper-slide.swiper-slide-active {
   opacity: 1;
 }
 

@@ -18,6 +18,10 @@ const projects: Project[] = reactive([])
 const activeType = ref("")
 const types = [ALL, ...getProjectsTypes]
 
+const visibleProjects = computed(() =>
+  projects.filter((project) => project.show !== false),
+)
+
 // hooks
 onMounted(() => {
   getAll().forEach((project) => {
@@ -43,7 +47,7 @@ watch(activeType, (newType) => {
     <v-tabs
       v-model="activeType"
       bg-color="background"
-      class="rounded-xl"
+      class="rounded-xl mb-4"
       slider-color="secondary"
       selected-class="text-secondary"
       show-arrows
@@ -58,20 +62,25 @@ watch(activeType, (newType) => {
         v-for="n in 12"
         :key="`featured-projects-skeleton-${n}`"
         cols="12"
-        md="6"
-        lg="4"
-        xl="3"
+        sm="6"
+        md="4"
+        lg="3"
       >
         <v-skeleton-loader type="card"></v-skeleton-loader>
       </v-col>
     </v-row>
 
-    <v-scale-transition v-else class="v-row" tag="div" group>
-      <template v-for="project in projects" :key="project.id">
-        <v-col v-if="project.show" cols="12" md="6" lg="4" xl="3">
-          <ProjectPreviewCard :project="project" />
-        </v-col>
-      </template>
-    </v-scale-transition>
+    <v-row v-else>
+      <v-col
+        v-for="project in visibleProjects"
+        :key="project.id"
+        cols="12"
+        sm="6"
+        md="4"
+        lg="3"
+      >
+        <ProjectPreviewCard :project="project" />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
