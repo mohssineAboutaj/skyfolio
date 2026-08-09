@@ -3,7 +3,7 @@ export const skillsTab = {
   all: "All",
   frontend: "Frontend",
   backend: "Backend",
-  mobile: "Mobile",
+  mobile: "Mobile & Desktop",
   ai: "AI",
   testing: "Testing",
   tools: "Tools",
@@ -11,9 +11,24 @@ export const skillsTab = {
 
 export type SkillsTabKey = keyof typeof skillsTab
 
-/** Real skill tags (excludes special tabs: top / all). */
-export type SkillCategory = Exclude<SkillsTabKey, "top" | "all">
+/** Real skill tags (excludes special tabs: top / all). Same idea as categories.data for projects. */
+export type SkillCategory = Exclude<
+  (typeof skillsTab)[SkillsTabKey],
+  (typeof skillsTab)["top"] | (typeof skillsTab)["all"]
+>
 
-export const skillCategories = Object.keys(skillsTab).filter(
-  (key): key is SkillCategory => key !== "top" && key !== "all",
-)
+export type SkillCategoryKey = Exclude<SkillsTabKey, "top" | "all">
+
+export const skillCategoryKeys = (
+  Object.keys(skillsTab) as SkillsTabKey[]
+).filter((key): key is SkillCategoryKey => key !== "top" && key !== "all")
+
+/** Category labels for tagging skills — use like categories.webapp on projects. */
+export const skillCategories = {
+  frontend: skillsTab.frontend,
+  backend: skillsTab.backend,
+  mobile: skillsTab.mobile,
+  ai: skillsTab.ai,
+  testing: skillsTab.testing,
+  tools: skillsTab.tools,
+} as const satisfies Record<SkillCategoryKey, SkillCategory>

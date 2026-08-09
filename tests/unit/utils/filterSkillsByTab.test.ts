@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest"
 import skills from "~/data/skills.data"
-import { skillsTab } from "~/data/skillsTab.data"
+import { skillCategories, skillsTab } from "~/data/skillsTab.data"
 import { filterSkillsByTab } from "~/utils/filterSkillsByTab"
 import { scoreToStars } from "~/utils/scoreToStars"
 
@@ -10,7 +10,7 @@ describe("skillsTab data", () => {
     expect(skillsTab.all).toBe("All")
     expect(skillsTab.frontend).toBe("Frontend")
     expect(skillsTab.backend).toBe("Backend")
-    expect(skillsTab.mobile).toBe("Mobile")
+    expect(skillsTab.mobile).toBe("Mobile & Desktop")
     expect(skillsTab.ai).toBe("AI")
     expect(skillsTab.testing).toBe("Testing")
     expect(skillsTab.tools).toBe("Tools")
@@ -36,7 +36,7 @@ describe("filterSkillsByTab", () => {
     const frontend = filterSkillsByTab(all, "frontend")
     expect(frontend.length).toBeGreaterThan(0)
     frontend.forEach((skill) => {
-      expect(skill.categories).toContain("frontend")
+      expect(skill.categories).toContain(skillCategories.frontend)
     })
   })
 
@@ -45,7 +45,7 @@ describe("filterSkillsByTab", () => {
     const names = testing.map((s) => s.name)
     expect(names).toEqual(expect.arrayContaining(["Jest", "Jasmine", "Vitest"]))
     testing.forEach((skill) => {
-      expect(skill.categories).toContain("testing")
+      expect(skill.categories).toContain(skillCategories.testing)
     })
   })
 
@@ -53,13 +53,15 @@ describe("filterSkillsByTab", () => {
     const ai = filterSkillsByTab(all, "ai")
     expect(ai.length).toBeGreaterThan(0)
     ai.forEach((skill) => {
-      expect(skill.categories).toContain("ai")
+      expect(skill.categories).toContain(skillCategories.ai)
     })
   })
 
   it("allows a skill in multiple category tabs", () => {
     const js = all.find((s) => s.name === "JavaScript")
-    expect(js?.categories).toEqual(expect.arrayContaining(["frontend", "backend"]))
+    expect(js?.categories).toEqual(
+      expect.arrayContaining([skillCategories.frontend, skillCategories.backend]),
+    )
     expect(filterSkillsByTab(all, "frontend").some((s) => s.name === "JavaScript")).toBe(true)
     expect(filterSkillsByTab(all, "backend").some((s) => s.name === "JavaScript")).toBe(true)
   })

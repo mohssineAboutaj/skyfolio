@@ -6,6 +6,31 @@ import { setupVuetifyMocks } from './mocks/vuetify.mock'
 setupNuxtMocks()
 setupVuetifyMocks()
 
+const { skillCategories, skillsTab } = vi.hoisted(() => {
+  const skillsTab = {
+    top: 'Top',
+    all: 'All',
+    frontend: 'Frontend',
+    backend: 'Backend',
+    mobile: 'Mobile & Desktop',
+    ai: 'AI',
+    testing: 'Testing',
+    tools: 'Tools',
+  } as const
+
+  return {
+    skillsTab,
+    skillCategories: {
+      frontend: skillsTab.frontend,
+      backend: skillsTab.backend,
+      mobile: skillsTab.mobile,
+      ai: skillsTab.ai,
+      testing: skillsTab.testing,
+      tools: skillsTab.tools,
+    },
+  }
+})
+
 // Mock the skills store
 vi.mock('~/stores/skills', () => ({
   useSkillsStore: () => ({
@@ -16,7 +41,7 @@ vi.mock('~/stores/skills', () => ({
         score: 95,
         color: '#e34f26',
         icon: 'devicon:html5',
-        categories: ['frontend'],
+        categories: [skillCategories.frontend],
       },
       {
         id: '2',
@@ -24,7 +49,7 @@ vi.mock('~/stores/skills', () => ({
         score: 90,
         color: '#264de4',
         icon: 'devicon:css3',
-        categories: ['frontend'],
+        categories: [skillCategories.frontend],
       },
     ],
     getByTab: (tab: string) => {
@@ -35,7 +60,7 @@ vi.mock('~/stores/skills', () => ({
           score: 95,
           color: '#e34f26',
           icon: 'devicon:html5',
-          categories: ['frontend'] as const,
+          categories: [skillCategories.frontend],
         },
         {
           id: '2',
@@ -43,23 +68,18 @@ vi.mock('~/stores/skills', () => ({
           score: 90,
           color: '#264de4',
           icon: 'devicon:css3',
-          categories: ['frontend'] as const,
+          categories: [skillCategories.frontend],
         },
       ]
       if (tab === 'top') return all.filter((s) => s.score >= 85)
       if (tab === 'all') return all
-      return all.filter((s) => s.categories.includes(tab as 'frontend'))
+      if (tab in skillsTab) {
+        const label = skillsTab[tab as keyof typeof skillsTab]
+        return all.filter((s) => s.categories.includes(label as typeof skillCategories.frontend))
+      }
+      return []
     },
-    getTabs: {
-      top: 'Top',
-      all: 'All',
-      frontend: 'Frontend',
-      backend: 'Backend',
-      mobile: 'Mobile',
-      ai: 'AI',
-      testing: 'Testing',
-      tools: 'Tools',
-    },
+    getTabs: skillsTab,
   }),
 }))
 

@@ -1,4 +1,4 @@
-import type { SkillsTabKey } from "~/data/skillsTab.data"
+import { skillsTab, type SkillsTabKey } from "~/data/skillsTab.data"
 import type { Skill } from "~/types/general"
 import { scoreToStars } from "~/utils/scoreToStars"
 
@@ -10,5 +10,5 @@ export function filterSkillsByTab(all: Skill[], tab: SkillsTabKey): Skill[] {
   if (tab === "all") {
     return all
   }
-  return all.filter((skill) => skill.categories.includes(tab))
+  return all.filter((skill) => skill.categories.includes(skillsTab[tab]))
 }

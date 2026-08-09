@@ -56,7 +56,7 @@ export const createMockSkill = (overrides = {}) => ({
   score: 85,
   color: '#ff0000',
   icon: 'test-icon',
-  categories: ['frontend'] as const,
+  categories: ['Frontend'] as const,
   ...overrides,
 })
 

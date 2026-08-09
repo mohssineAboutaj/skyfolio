@@ -1,5 +1,6 @@
 import { vi } from 'vitest'
 import type { Skill, Project, Service, Contact, AboutInfo, AboutEducation, AboutCertification } from '~/types/general'
+import { skillCategories } from '~/data/skillsTab.data'
 
 // Skills Data Mock
 export const mockSkillsData: Record<string, Skill> = {
@@ -9,7 +10,7 @@ export const mockSkillsData: Record<string, Skill> = {
     score: 100,
     color: "#e34f26",
     icon: "simple-icons:html5",
-    categories: ["frontend"],
+    categories: [skillCategories.frontend],
   },
   css: {
     id: "98c6e033-7299-46c1-b77f-f170c2bbca5a",
@@ -17,7 +18,7 @@ export const mockSkillsData: Record<string, Skill> = {
     score: 98,
     color: "#264de4",
     icon: "simple-icons:css3",
-    categories: ["frontend"],
+    categories: [skillCategories.frontend],
   },
   vuejs: {
     id: "fa6a18b7-49cc-4317-8469-81b4a0c6395d",
@@ -25,7 +26,7 @@ export const mockSkillsData: Record<string, Skill> = {
     score: 91,
     color: "#41B883",
     icon: "devicon:vuejs",
-    categories: ["frontend"],
+    categories: [skillCategories.frontend],
   },
   jest: {
     id: "51c404e5-7380-4d35-8d5b-2916dc7f4d8d",
@@ -33,7 +34,7 @@ export const mockSkillsData: Record<string, Skill> = {
     score: 65,
     color: "#c21325",
     icon: "simple-icons:jest",
-    categories: ["testing"],
+    categories: [skillCategories.testing],
   },
 }
 

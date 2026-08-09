@@ -1,4 +1,5 @@
 import type { Skill } from '~/types/general'
+import { skillCategories, skillsTab } from '~/data/skillsTab.data'
 
 export const mockSkills: Skill[] = [
   {
@@ -7,7 +8,7 @@ export const mockSkills: Skill[] = [
     score: 95,
     color: '#e34f26',
     icon: 'devicon:html5',
-    categories: ['frontend'],
+    categories: [skillCategories.frontend],
   },
   {
     id: '2',
@@ -15,7 +16,7 @@ export const mockSkills: Skill[] = [
     score: 90,
     color: '#264de4',
     icon: 'devicon:css3',
-    categories: ['frontend'],
+    categories: [skillCategories.frontend],
   },
   {
     id: '3',
@@ -23,7 +24,7 @@ export const mockSkills: Skill[] = [
     score: 88,
     color: '#C3B128',
     icon: 'simple-icons:javascript',
-    categories: ['frontend', 'backend'],
+    categories: [skillCategories.frontend, skillCategories.backend],
   },
   {
     id: '4',
@@ -31,7 +32,7 @@ export const mockSkills: Skill[] = [
     score: 91,
     color: '#41B883',
     icon: 'devicon:vuejs',
-    categories: ['frontend'],
+    categories: [skillCategories.frontend],
   },
   {
     id: '5',
@@ -39,7 +40,7 @@ export const mockSkills: Skill[] = [
     score: 90,
     color: '#4BA497',
     icon: 'simple-icons:nuxtdotjs',
-    categories: ['frontend'],
+    categories: [skillCategories.frontend],
   },
   {
     id: '6',
@@ -47,7 +48,7 @@ export const mockSkills: Skill[] = [
     score: 65,
     color: '#c21325',
     icon: 'simple-icons:jest',
-    categories: ['testing'],
+    categories: [skillCategories.testing],
   },
   {
     id: '7',
@@ -55,7 +56,7 @@ export const mockSkills: Skill[] = [
     score: 85,
     color: '#000000',
     icon: 'simple-icons:cursor',
-    categories: ['ai'],
+    categories: [skillCategories.ai],
   },
 ]
 
@@ -66,18 +67,13 @@ export const mockSkillsStore = {
   getByTab: (tab: string) => {
     if (tab === 'top') return mockSkills.filter((s) => s.score >= 85)
     if (tab === 'all') return mockSkills
-    return mockSkills.filter((s) => s.categories.includes(tab as Skill['categories'][number]))
+    if (tab in skillsTab) {
+      const label = skillsTab[tab as keyof typeof skillsTab]
+      return mockSkills.filter((s) => s.categories.includes(label as Skill['categories'][number]))
+    }
+    return []
   },
-  getTabs: {
-    top: 'Top',
-    all: 'All',
-    frontend: 'Frontend',
-    backend: 'Backend',
-    mobile: 'Mobile',
-    ai: 'AI',
-    testing: 'Testing',
-    tools: 'Tools',
-  },
+  getTabs: skillsTab,
 }
 
 export const mockEmptySkillsStore = {

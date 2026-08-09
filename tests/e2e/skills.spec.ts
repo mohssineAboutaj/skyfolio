@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
+import { skillsTab } from '~/data/skillsTab.data'
 import { mockSkills } from '~/tests/mocks/skills.mock'
 
 // Mock the skills store
@@ -8,20 +9,15 @@ vi.mock('~/stores/skills', () => ({
     getByTab: (tab: string) => {
       if (tab === 'top') return mockSkills.filter((s) => s.score >= 85)
       if (tab === 'all') return mockSkills
-      return mockSkills.filter((s) =>
-        s.categories.includes(tab as (typeof s.categories)[number]),
-      )
+      if (tab in skillsTab) {
+        const label = skillsTab[tab as keyof typeof skillsTab]
+        return mockSkills.filter((s) =>
+          s.categories.includes(label as (typeof s.categories)[number]),
+        )
+      }
+      return []
     },
-    getTabs: {
-      top: 'Top',
-      all: 'All',
-      frontend: 'Frontend',
-      backend: 'Backend',
-      mobile: 'Mobile',
-      ai: 'AI',
-      testing: 'Testing',
-      tools: 'Tools',
-    },
+    getTabs: skillsTab,
   }),
 }))
 
