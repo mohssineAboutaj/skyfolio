@@ -5,7 +5,7 @@ export const skillsTab = {
   backend: "Backend",
   mobile: "Mobile & Desktop",
   ai: "AI",
-  testing: "Testing",
+  testing: "Unit Testing",
   tools: "Tools",
 } as const
 
