@@ -12,7 +12,7 @@ describe("skillsTab data", () => {
     expect(skillsTab.backend).toBe("Backend")
     expect(skillsTab.mobile).toBe("Mobile & Desktop")
     expect(skillsTab.ai).toBe("AI")
-    expect(skillsTab.testing).toBe("Testing")
+    expect(skillsTab.testing).toBe("Unit Testing")
     expect(skillsTab.tools).toBe("Tools")
   })
 })

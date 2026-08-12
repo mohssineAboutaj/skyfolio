@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { skillsTab } from '~/data/skillsTab.data'
+import { skillCategories, skillsTab } from '~/data/skillsTab.data'
 import { mockSkills } from '~/tests/mocks/skills.mock'
 
 // Mock the skills store
@@ -127,12 +127,16 @@ describe('Skills Page E2E', () => {
 
   describe('Skills Tab Filtering', () => {
     it('should filter testing skills from mock data', () => {
-      const testing = mockSkills.filter((s) => s.categories.includes('testing'))
+      const testing = mockSkills.filter((s) =>
+        s.categories.includes(skillCategories.testing),
+      )
       expect(testing.some((s) => s.name === 'Jest')).toBe(true)
     })
 
     it('should filter AI skills from mock data', () => {
-      const ai = mockSkills.filter((s) => s.categories.includes('ai'))
+      const ai = mockSkills.filter((s) =>
+        s.categories.includes(skillCategories.ai),
+      )
       expect(ai.some((s) => s.name === 'Cursor')).toBe(true)
     })
 

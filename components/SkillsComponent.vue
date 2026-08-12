@@ -72,7 +72,7 @@ watch(
           lg="3"
         >
           <v-card elevation="4" class="my-0-force" data-animate-child>
-            <v-card-content>
+            <v-card-text>
               <v-row>
                 <v-col cols="auto" class="d-flex">
                   <Icon
@@ -97,7 +97,7 @@ watch(
                   />
                 </v-col>
               </v-row>
-            </v-card-content>
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
