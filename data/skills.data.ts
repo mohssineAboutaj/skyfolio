@@ -1,5 +1,5 @@
-import type { Skill } from "~/types/general"
-import { skillCategories as categories } from "~/data/skillsTab.data"
+import type { Skill } from "../types/general"
+import { skillCategories as categories } from "./skillsTab.data"
 
 const skills: Record<string, Skill> = {
   html: {

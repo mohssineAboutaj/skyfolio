@@ -45,11 +45,7 @@ watch(
         selected-class="text-secondary"
         show-arrows
       >
-        <v-tab
-          v-for="(label, key) in tabs"
-          :key="key"
-          :value="key"
-        >
+        <v-tab v-for="(label, key) in tabs" :key="key" :value="key">
           {{ label }}
         </v-tab>
       </v-tabs>
@@ -76,36 +72,32 @@ watch(
           lg="3"
         >
           <v-card elevation="4" class="my-0-force" data-animate-child>
-            <v-card-text class="pa-4">
-              <!-- Skill Icon -->
-              <div class="d-flex align-center mb-2">
-                <Icon
-                  :name="skill.icon"
-                  size="34"
-                  :color="skill.color"
-                  class="mr-4"
-                />
-                <v-card-title class="pa-0 text-body-1 my-0-force">
-                  {{ skill.name }}
-                </v-card-title>
-              </div>
-
-              <!-- Proficiency stars (mapped from 0–100 score) -->
-              <div class="d-flex align-center justify-space-between">
-                <div class="text-caption text-medium-emphasis">
-                  Proficiency
-                </div>
-                <v-rating
-                  :model-value="scoreToStars(skill.score)"
-                  :length="5"
-                  density="compact"
-                  size="small"
-                  color="secondary"
-                  active-color="secondary"
-                  readonly
-                />
-              </div>
-            </v-card-text>
+            <v-card-content>
+              <v-row>
+                <v-col cols="auto" class="d-flex">
+                  <Icon
+                    :name="skill.icon"
+                    size="50"
+                    :color="skill.color"
+                    class="my-auto"
+                  />
+                </v-col>
+                <v-col>
+                  <v-card-title class="ml-0 text-left pl-1">
+                    {{ skill.name }}
+                  </v-card-title>
+                  <v-rating
+                    :model-value="scoreToStars(skill.score)"
+                    :length="5"
+                    density="compact"
+                    size="small"
+                    color="secondary"
+                    active-color="secondary"
+                    readonly
+                  />
+                </v-col>
+              </v-row>
+            </v-card-content>
           </v-card>
         </v-col>
       </v-row>
@@ -116,6 +108,9 @@ watch(
 <style scoped>
 .my-0-force {
   margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+:deep(.v-card-title) {
   margin-bottom: 0 !important;
 }
 </style>
