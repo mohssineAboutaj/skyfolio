@@ -1,2 +1,12 @@
+[build]
+  command = "npm run generate"
+  publish = ".output/public"
+
 [build.environment]
   NODE_VERSION = "22"
+
+# SPA fallback for client-side routes that were not prerendered
+[[redirects]]
+  from = "/*"
+  to = "/200.html"
+  status = 200
