@@ -1,5 +1,6 @@
 import aboutInfo from "./data/about/info.data"
 import projects from "./data/projects.data"
+import vuetifyMdiClientIcons from "./iconsets/client-icons.json"
 
 // Generate all project routes for prerendering
 const projectRoutes = projects
@@ -33,6 +34,19 @@ export default defineNuxtConfig({
   googleFonts: {
     families: { Quicksand: true, Charm: true },
     display: "swap", // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
+  },
+
+  icon: {
+    // Bundle collections locally for SSG (no Iconify CDN at runtime)
+    serverBundle: {
+      collections: ["mdi", "simple-icons"],
+    },
+    clientBundle: {
+      // Scan Iconify names in source (simple-icons:*, mdi:*); plus explicit Vuetify MDI usage
+      scan: true,
+      icons: [...vuetifyMdiClientIcons],
+      sizeLimitKb: 512,
+    },
   },
 
   vuetify: {

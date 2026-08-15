@@ -7,6 +7,10 @@ const colorPalette = {
 }
 
 export default defineVuetifyConfiguration({
+  // Disable MDI webfont CDN; icons are registered via plugins/vuetify-icons.ts
+  icons: {
+    defaultSet: "custom",
+  },
   theme: {
     defaultTheme: "dark",
     themes: {
