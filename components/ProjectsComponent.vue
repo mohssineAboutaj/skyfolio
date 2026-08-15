@@ -50,6 +50,7 @@ watch(
         to="/projects"
         color="primary"
         data-magnetic
+        aria-label="View all projects"
         v-bind="
           $vuetify.display.mdAndDown
             ? { icon: 'mdi-chevron-double-right' }

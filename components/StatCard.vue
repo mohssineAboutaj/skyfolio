@@ -50,13 +50,16 @@ watch(
       <span class="font-weight-light text-capitalize mr-2 text-subtitle-2">
         {{ title }}
       </span>
-      <v-tooltip location="top" :text="subtitle">
-        <template v-slot:activator="{ props }">
-          <v-icon v-bind="props" color="secondary" size="15">
-            mdi-information
-          </v-icon>
-        </template>
-      </v-tooltip>
+      <v-icon
+        v-if="subtitle"
+        color="secondary"
+        size="15"
+        :title="subtitle"
+        :aria-label="subtitle"
+        role="img"
+      >
+        mdi-information
+      </v-icon>
     </div>
 
     <v-row class="justify-space-between align-center">
