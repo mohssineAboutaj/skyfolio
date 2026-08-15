@@ -37,14 +37,25 @@ export default defineNuxtConfig({
   },
 
   icon: {
-    // Bundle collections locally for SSG (no Iconify CDN at runtime)
+    // Static hosting: never fetch from api.iconify.design at runtime
+    provider: "none",
     serverBundle: {
       collections: ["mdi", "simple-icons"],
     },
     clientBundle: {
-      // Scan Iconify names in source (simple-icons:*, mdi:*); plus explicit Vuetify MDI usage
-      scan: true,
+      // Explicit list (data/ is outside default scan globs) + scan Vue/source for leftovers
       icons: [...vuetifyMdiClientIcons],
+      scan: {
+        globInclude: [
+          "app.vue",
+          "components/**/*.vue",
+          "pages/**/*.vue",
+          "layouts/**/*.vue",
+          "data/**/*.{ts,js}",
+          "stores/**/*.{ts,js}",
+          "iconsets/**/*.{ts,js,json}",
+        ],
+      },
       sizeLimitKb: 512,
     },
   },
