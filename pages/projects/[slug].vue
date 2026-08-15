@@ -55,6 +55,12 @@ const { instance: thumbsSwiper } = useSwiper(thumbsSwiperRef, {
   slideToClickedSlide: true,
 })
 
+const { optimize } = useOptimizedImage()
+
+function optimizedGallerySrc(src: string, height: number) {
+  return optimize(src, { height, quality: 75 })
+}
+
 watch([mainSwiper, thumbsSwiper], ([main, thumbs]) => {
   if (!main || !thumbs) return
   main.params.thumbs = { swiper: thumbs }
@@ -128,7 +134,7 @@ onMounted(async () => {
               <!-- Static image when there is only one -->
               <v-img
                 v-if="hasSingleImage"
-                :src="project.imgs[0]"
+                :src="optimizedGallerySrc(project.imgs[0], 400)"
                 :alt="title"
                 max-height="400"
                 cover
@@ -146,7 +152,12 @@ onMounted(async () => {
                     v-for="(image, n) in project.imgs"
                     :key="`main-img-${n}`"
                   >
-                    <v-img :src="image" :alt="title" max-height="400" cover />
+                    <v-img
+                      :src="optimizedGallerySrc(image, 400)"
+                      :alt="title"
+                      max-height="400"
+                      cover
+                    />
                   </swiper-slide>
                 </swiper-container>
 
@@ -159,7 +170,12 @@ onMounted(async () => {
                     v-for="(image, n) in project.imgs"
                     :key="`gallery-img-${n}`"
                   >
-                    <v-img :src="image" :alt="title" max-height="100" cover />
+                    <v-img
+                      :src="optimizedGallerySrc(image, 100)"
+                      :alt="title"
+                      max-height="100"
+                      cover
+                    />
                   </swiper-slide>
                 </swiper-container>
               </ClientOnly>

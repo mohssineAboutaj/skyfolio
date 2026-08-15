@@ -28,6 +28,7 @@ export default defineNuxtConfig({
     "@nuxtjs/google-fonts",
     "nuxt-gtag",
     "@nuxt/icon",
+    "@nuxt/image",
   ],
 
   /// extend the nuxt modules
@@ -92,6 +93,14 @@ export default defineNuxtConfig({
 
   gtag: {
     id: "G-KRLF8VEECK",
+  },
+
+  // Netlify Image CDN — optimize via useImage(); keep existing v-img UI
+  image: {
+    provider: "netlify",
+    quality: 80,
+    format: ["webp"],
+    densities: [1, 2],
   },
 
   compatibilityDate: "2025-02-19",

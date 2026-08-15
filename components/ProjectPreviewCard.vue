@@ -5,10 +5,17 @@ const { project } = defineProps({
 })
 
 const { bindProjectCard } = useGsap()
+const { optimizeSizes } = useOptimizedImage()
 const cardRef = ref<{ $el?: Element } | null>(null)
 
 // computed
 const projectImg = project.imgs[0]
+const optimizedCover = computed(() =>
+  optimizeSizes(projectImg, "100vw sm:50vw md:400px", {
+    height: 200,
+    quality: 75,
+  }),
+)
 
 onMounted(async () => {
   await nextTick()
@@ -27,7 +34,9 @@ onMounted(async () => {
         class="align-end text-white"
         height="200"
         cover
-        :src="projectImg"
+        :src="optimizedCover.src"
+        :srcset="optimizedCover.srcset"
+        :sizes="optimizedCover.sizes"
         :alt="project.title"
         gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.9)"
       >

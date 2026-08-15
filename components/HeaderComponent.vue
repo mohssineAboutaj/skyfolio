@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useGoTo } from "vuetify"
+import { useGoTo, useDisplay } from "vuetify"
 import type { AboutInfo, Contact } from "~/types/general"
 import TypewriterComponent from "~/components/TypewriterComponent.vue"
 
@@ -9,6 +9,8 @@ const { getFeatured } = useContactStore()
 
 const goTo = useGoTo()
 const { playHeroEntrance, bindSpotlight } = useGsap()
+const { optimize } = useOptimizedImage()
+const { mdAndDown } = useDisplay()
 
 // data
 /// reactive
@@ -22,6 +24,30 @@ const avatarRef = ref<HTMLElement | null>(null)
 const chevronRef = ref<HTMLElement | null>(null)
 let heroPlayed = false
 let cleanupSpotlight = () => {}
+
+const avatarSize = computed(() => (mdAndDown.value ? 150 : 250))
+const optimizedAvatar = computed(() =>
+  optimize(user.avatar || getInfo.avatar, {
+    width: avatarSize.value,
+    height: avatarSize.value,
+  }),
+)
+
+// LCP: discover hero image early (optimized Netlify CDN URL)
+useHead({
+  link: computed(() => {
+    const href = optimizedAvatar.value
+    if (!href) return []
+    return [
+      {
+        rel: "preload",
+        as: "image",
+        href,
+        fetchpriority: "high",
+      },
+    ]
+  }),
+})
 
 // fill data
 onMounted(() => {
@@ -141,7 +167,7 @@ function goToAbout() {
               class="elevation-12 mx-auto mb-8"
             >
               <v-img
-                :src="user.avatar"
+                :src="optimizedAvatar"
                 :alt="`${user.fullName} avatar`"
                 color="primary"
               ></v-img>

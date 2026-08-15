@@ -13,6 +13,7 @@ const { getLinks, getTitle, $subscribe, resetTitle } = useSettingsStore()
 // composables
 const { generatePDF } = useResumePDF()
 const { bindMagneticAll } = useGsap()
+const { optimize } = useOptimizedImage()
 
 // router
 const route = useRoute()
@@ -28,6 +29,10 @@ const links: Link[] = reactive([] as Link[])
 const activeLink = ref(null)
 const isGeneratingPDF = ref(false)
 let cleanupMagnetic = () => {}
+
+const drawerAvatar = computed(() =>
+  optimize(user.avatar || infoStore.avatar, { width: 80, height: 80 }),
+)
 
 // computed
 const showHomeBtn = computed(() => {
@@ -112,7 +117,7 @@ watch(
       >
         <div class="d-flex align-center justify-center mt-16 mb-8">
           <v-avatar :size="80">
-            <v-img :src="user.avatar" :alt="`${user.fullName} avatar`"></v-img>
+            <v-img :src="drawerAvatar" :alt="`${user.fullName} avatar`"></v-img>
           </v-avatar>
         </div>
         <h3 class="text-h5 mb-8 text-center text-capitalize">
