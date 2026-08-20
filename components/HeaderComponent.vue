@@ -195,6 +195,7 @@ function goToAbout() {
 
 <style scoped>
 .hero-stage {
+  min-height: 100vh;
   position: relative;
   isolation: isolate;
   --spot-x: 70%;
