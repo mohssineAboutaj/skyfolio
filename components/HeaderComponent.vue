@@ -107,23 +107,22 @@ function goToAbout() {
           </template>
 
           <template v-else>
-            <h1
+            <div
               ref="nameRef"
               class="v-card-title text-h4 mb-8 text-capitalize"
             >
-              <span class="title">Hi, I'm </span>
-              <b class="d-sm-block d-lg-inline d-block text-wrap text-secondary">
+              <div class="title">Hi, I'm</div>
+              <h1
+                class="d-sm-block d-lg-inline d-block text-wrap text-secondary"
+              >
                 {{ user.fullName }}
-              </b>
-            </h1>
-            <h2
-              ref="jobRef"
-              class="v-card-title text-h5 mb-8 text-capitalize"
-            >
-              <span class="title">I'am a </span>
-              <span v-if="user.jobs.length == 1" class="font-weight-bold">
+              </h1>
+            </div>
+            <div ref="jobRef" class="v-card-title text-h5 mb-8 text-capitalize">
+              <div class="title">I'am a</div>
+              <h2 v-if="user.jobs.length == 1" class="font-weight-bold">
                 {{ user.jobs[0] }}
-              </span>
+              </h2>
               <TypewriterComponent
                 v-else
                 :strings="user.jobs"
@@ -131,7 +130,7 @@ function goToAbout() {
                 :typeSpeed="50"
                 :eraseSpeed="25"
               />
-            </h2>
+            </div>
 
             <v-row v-if="contacts.length == 0">
               <v-col v-for="n in 3" :key="`contact-skeleton-${n}`">
