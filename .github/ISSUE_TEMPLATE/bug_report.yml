@@ -1,0 +1,105 @@
+name: Bug Report
+description: Report a broken feature, visual glitch, or unexpected behavior.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Fill in each section so we can reproduce and fix it quickly.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the site is affected?
+      options:
+        - Header / Navigation
+        - Hero
+        - About
+        - Skills
+        - Projects
+        - Services
+        - Statistics
+        - Contact
+        - Theme / Layout
+        - Data / Content
+        - Build / CI
+        - Tests
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What went wrong?
+      placeholder: Briefly describe the bug and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps someone else can follow.
+      placeholder: |
+        1. Go to ...
+        2. Click on ...
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: What should have happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: What happened instead?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Local (nuxt dev)
+        - Preview (nuxt preview / generate)
+        - Production
+        - CI
+        - Unknown
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser / device
+      description: e.g. Chrome 128, Firefox, Safari iOS
+      placeholder: Chrome 128 on Linux
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / logs
+      description: Paste error logs or drag screenshots here.
+      render: shell
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and did not find a duplicate
+          required: true
+        - label: I can reproduce this consistently
+          required: false

@@ -1,0 +1,74 @@
+name: Content Update
+description: Update about info, skills, services, contacts, education, or certifications.
+title: "[Content]: "
+labels: ["content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for portfolio **data** changes (not new projects — use the Project template for those).
+
+        Typical files: `data/about/*`, `data/skills.data.ts`, `data/services.data.ts`, `data/contacts.data.ts`.
+
+  - type: dropdown
+    id: content_type
+    attributes:
+      label: Content type
+      options:
+        - About / personal info
+        - Education
+        - Certifications
+        - Skills
+        - Services
+        - Contacts / social links
+        - Categories
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: action
+    attributes:
+      label: Action
+      options:
+        - Add
+        - Update
+        - Remove
+        - Reorder
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current content
+      description: What exists today? Quote the relevant text or field if possible.
+      placeholder: Current role title is "..."
+
+  - type: textarea
+    id: requested
+    attributes:
+      label: Requested change
+      description: Exact new values or wording.
+      placeholder: |
+        Change role to: ...
+        Add skill: TypeScript — Advanced
+    validations:
+      required: true
+
+  - type: input
+    id: data_file
+    attributes:
+      label: Data file (if known)
+      description: Path under `data/` if you know it.
+      placeholder: data/skills.data.ts
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: Spelling and links have been double-checked
+          required: true
+        - label: This is not a new portfolio project (use the Project template instead)
+          required: true

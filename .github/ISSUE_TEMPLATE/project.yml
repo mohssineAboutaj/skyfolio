@@ -1,0 +1,106 @@
+name: Project
+description: Add, update, or remove a portfolio project entry.
+title: "[Project]: "
+labels: ["content", "project"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Structured form for project entries in `data/projects.data.ts`.
+
+  - type: dropdown
+    id: action
+    attributes:
+      label: Action
+      options:
+        - Add new project
+        - Update existing project
+        - Remove project
+    validations:
+      required: true
+
+  - type: input
+    id: project_name
+    attributes:
+      label: Project name
+      placeholder: Skyfolio
+    validations:
+      required: true
+
+  - type: input
+    id: existing_id
+    attributes:
+      label: Existing project id / slug (updates & removals)
+      description: Leave blank when adding a new project.
+      placeholder: skyfolio
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Short description
+      description: One or two sentences for the card/list view.
+      placeholder: A modern portfolio site built with Nuxt and Vuetify.
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Full description
+      description: Longer copy for the project detail view (optional for removals).
+      placeholder: |
+        Features, role, challenges, outcomes...
+
+  - type: input
+    id: tech_stack
+    attributes:
+      label: Tech stack
+      description: Comma-separated list.
+      placeholder: Nuxt, Vue, TypeScript, Vuetify, Vitest
+
+  - type: input
+    id: category
+    attributes:
+      label: Category
+      description: Must match an existing category when possible.
+      placeholder: Web App
+
+  - type: input
+    id: live_url
+    attributes:
+      label: Live URL
+      placeholder: https://example.com
+
+  - type: input
+    id: repo_url
+    attributes:
+      label: Repository URL
+      placeholder: https://github.com/user/repo
+
+  - type: input
+    id: image
+    attributes:
+      label: Image / asset path
+      description: Path or filename for the project screenshot.
+      placeholder: /images/projects/skyfolio.png
+
+  - type: dropdown
+    id: featured
+    attributes:
+      label: Featured?
+      options:
+        - "No"
+        - "Yes"
+        - Unchanged
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: Links open correctly
+          required: true
+        - label: Image asset is ready (or will be provided in a follow-up)
+          required: false
+        - label: Tech stack and category are accurate
+          required: true

@@ -1,0 +1,77 @@
+name: Feature Request
+description: Propose a new feature or improvement to the site or tooling.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the feature clearly. Focus on the problem it solves and the outcome you want.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Where would this feature live?
+      options:
+        - Header / Navigation
+        - Hero
+        - About
+        - Skills
+        - Projects
+        - Services
+        - Statistics
+        - Contact
+        - Theme / Layout
+        - SEO / Analytics
+        - Testing
+        - CI / DX
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this solve? Who benefits?
+      placeholder: Visitors cannot filter projects by tech stack easily...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How should it work from the user's perspective?
+      placeholder: Add a filter bar above the projects grid that...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches you thought about (optional).
+      placeholder: Could also be a search box instead of filters...
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - Nice to have
+        - Should have
+        - Must have
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and did not find a duplicate
+          required: true
+        - label: This is not a content/data update (use Content or Project templates for those)
+          required: true
