@@ -543,7 +543,7 @@ const projects: Project[] = [
     slug: "mevn-ly",
     platforms: [],
     description:
-      "Self-hosted URL shortener with GitHub OAuth, owner-scoped link CRUD, dashboard and create/edit forms, and public redirects at /r/{slug}. Built with Nuxt 4, Vuetify, MongoDB/Mongoose, shared Zod validation, and Vitest; reserved slugs and expiry are enforced, with analytics UI ready and click persistence on redirect still pending.",
+      "Self-hosted URL shortener with GitHub OAuth, owner-scoped link CRUD, dashboard and create/edit forms, and public redirects at /r/{slug}. Built with Nuxt 4, Vuetify, MongoDB/Mongoose, shared Zod validation, and Vitest; reserved slugs and expiry are enforced, with analytics UI ready.",
     imgs: ["/images/projects/mevn-ly/image.png"],
     visible: true,
     featured: false,
