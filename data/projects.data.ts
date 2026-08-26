@@ -125,7 +125,7 @@ const projects: Project[] = [
       "Cross-browser extension for encoding, decoding, encrypting, decrypting, and hashing text. Built with a React popup UI, context-menu integration, separate Chrome and Firefox builds, and local-only processing.",
     imgs: ["/images/projects/developer-speaks/image.png"],
     visible: true,
-    featured: true,
+    featured: false,
     types: [categories.webapp],
     tech: [
       skills.reactjs.name,
@@ -144,8 +144,8 @@ const projects: Project[] = [
     description:
       "Frontend-only debt and credit tracker with contacts, transaction filtering, per-currency balance views, safeguards, currency settings, and dark/light themes. Built calculated balances with Redux selectors rather than storing derived totals in state.",
     imgs: ["/images/projects/owetrack/image.png"],
-    visible: true,
-    featured: true,
+    visible: false,
+    featured: false,
     types: [categories.webapp],
     tech: [
       skills.reactjs.name,
@@ -162,8 +162,8 @@ const projects: Project[] = [
     description:
       "CV and resume builder with reusable form components, client-side validation, and layouts designed for printing and export.",
     imgs: ["/images/projects/cvwind/image.png"],
-    visible: true,
-    featured: true,
+    visible: false,
+    featured: false,
     types: [categories.webapp],
     tech: [
       skills.reactjs.name,
@@ -225,7 +225,7 @@ const projects: Project[] = [
     description:
       "Node.js authentication microservice demonstrating local and OAuth providers, session management, password hashing, and MongoDB persistence.",
     imgs: ["/images/projects/passport-basic-app/image.png"],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [
@@ -286,8 +286,8 @@ const projects: Project[] = [
     description:
       "Cross-platform application for sending WhatsApp messages without first saving a contact.",
     imgs: ["/images/projects/whatsapp-unsaved/Pasted image.png"],
-    visible: true,
-    featured: true,
+    visible: false,
+    featured: false,
     types: [categories.webapp, categories.mobile],
     tech: [
       skills.vuejs.name,
@@ -317,8 +317,8 @@ const projects: Project[] = [
       "/images/projects/meet-nass/Pasted image 4.png",
       "/images/projects/meet-nass/Pasted image 5.png",
     ],
-    visible: true,
-    featured: true,
+    visible: false,
+    featured: false,
     types: [categories.meeting, categories.webapp, categories.mobile],
     tech: [
       skills.vuejs.name,
@@ -348,8 +348,8 @@ const projects: Project[] = [
       "/images/projects/blogify/Pasted image 10.png",
       "/images/projects/blogify/Pasted image 11.png",
     ],
-    visible: true,
-    featured: true,
+    visible: false,
+    featured: false,
     types: [categories.blog, categories.webapp],
     tech: [
       skills.vuejs.name,
@@ -382,8 +382,8 @@ const projects: Project[] = [
       "/images/projects/moroccovid/Pasted image 2.png",
       "/images/projects/moroccovid/Pasted image 3.png",
     ],
-    visible: true,
-    featured: true,
+    visible: false,
+    featured: false,
     types: [categories.webapp, categories.listing],
     tech: [skills.vuejs.name, skills.vuetify.name, skills.javascript.name],
   },
@@ -405,8 +405,8 @@ const projects: Project[] = [
       "/images/projects/chhiwat/chhiwat-2.png",
       "/images/projects/chhiwat/chhiwat-3.png",
     ],
-    visible: true,
-    featured: true,
+    visible: false,
+    featured: false,
     types: [categories.cooking, categories.webapp, categories.mobile],
     tech: [
       skills.vuejs.name,
@@ -438,7 +438,7 @@ const projects: Project[] = [
       "/images/projects/vuiz/Pasted image 1.png",
       "/images/projects/vuiz/Pasted image 2.png",
     ],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.quiz, categories.webapp],
     tech: [
@@ -471,7 +471,7 @@ const projects: Project[] = [
       "/images/projects/vetrah/Pasted image 1.png",
       "/images/projects/vetrah/Pasted image 2.png",
     ],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [skills.vuejs.name, skills.tailwindcss.name, skills.javascript.name],
@@ -496,7 +496,7 @@ const projects: Project[] = [
       "/images/projects/veather/Pasted image 3.png",
       "/images/projects/veather/Pasted image 4.png",
     ],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.weather, categories.webapp, categories.mobile],
     tech: [skills.vuejs.name, skills.quasar.name, skills.javascript.name],
@@ -509,7 +509,7 @@ const projects: Project[] = [
     description:
       "Single-page React product catalogue that fetches API data, displays responsive product cards, and uses client-side routing.",
     imgs: ["/images/projects/products-app/image.png"],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.listing, categories.webapp],
     tech: [
@@ -527,7 +527,7 @@ const projects: Project[] = [
     description:
       "Laravel-based learning-management system integrating React into the frontend build pipeline through Laravel Mix and webpack.",
     imgs: ["/images/projects/ulearn/image.png"],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.education, categories.webapp],
     tech: [
@@ -546,7 +546,7 @@ const projects: Project[] = [
       "Self-hosted URL shortener with GitHub OAuth, owner-scoped link CRUD, dashboard and create/edit forms, and public redirects at /r/{slug}. Built with Nuxt 4, Vuetify, MongoDB/Mongoose, shared Zod validation, and Vitest; reserved slugs and expiry are enforced, with analytics UI ready.",
     imgs: ["/images/projects/mevn-ly/image.png"],
     visible: true,
-    featured: false,
+    featured: true,
     types: [categories.webapp],
     tech: [
       skills.nuxtjs.name,
@@ -573,7 +573,7 @@ const projects: Project[] = [
     description:
       "Node.js command-line tool with an interactive terminal workflow for retrieving media content from a web source, distributed through npm and Yarn.",
     imgs: ["/images/projects/akwam-cli/image.png"],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [
@@ -592,7 +592,7 @@ const projects: Project[] = [
       "Laravel 11 e-commerce platform with a custom PC configurator, storefront and account system, checkout and order handling, plus a Filament-powered admin panel.",
     imgs: ["/images/projects/digitalmania/image.png"],
     visible: true,
-    featured: true,
+    featured: false,
     types: [categories.webapp],
     tech: [
       skills.php.name,
@@ -611,7 +611,7 @@ const projects: Project[] = [
       "Laravel and Filament application for creating, managing, and sharing professional CV and portfolio websites with public templates and shareable content.",
     imgs: ["/images/projects/filacv/image.png"],
     visible: true,
-    featured: true,
+    featured: false,
     types: [categories.webapp],
     tech: [skills.php.name, skills.laravel.name, skills.filamentphp.name],
   },
@@ -676,7 +676,7 @@ const projects: Project[] = [
       "/images/projects/kech/Pasted image 3.png",
       "/images/projects/kech/Pasted image 4.png",
     ],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [
@@ -718,7 +718,7 @@ const projects: Project[] = [
       "/images/projects/zerda/Pasted image 5.png",
       "/images/projects/zerda/Pasted image 6.png",
     ],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [
@@ -759,7 +759,7 @@ const projects: Project[] = [
       "/images/projects/zeta/Pasted image 5.png",
       "/images/projects/zeta/Pasted image 6.png",
     ],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [
@@ -798,7 +798,7 @@ const projects: Project[] = [
       "/images/projects/alpha/Pasted image 4.png",
       "/images/projects/alpha/Pasted image 5.png",
     ],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [
@@ -824,7 +824,7 @@ const projects: Project[] = [
     description:
       "Festive SVG fireworks animation implemented with JavaScript and CSS.",
     imgs: ["/images/projects/fireworks/fireworks-preview.png"],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [
@@ -848,7 +848,7 @@ const projects: Project[] = [
     description:
       "Login and registration interface created programmatically with structure, styling, animation, and validation.",
     imgs: ["/images/projects/forms/form-purejs-preview.png"],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [skills.javascript.name],
@@ -867,7 +867,7 @@ const projects: Project[] = [
     description:
       "Registration form with real-time validation, interactive feedback, and a responsive Materialize CSS interface.",
     imgs: ["/images/projects/forms/form-vuejs-preview.png"],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [
@@ -892,7 +892,7 @@ const projects: Project[] = [
     description:
       "Responsive animated circular-progress component rendered with JavaScript and Canvas.",
     imgs: ["/images/projects/progress/circular-progress-preview.png"],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [skills.html.name, skills.javascript.name, skills.canvas.name],
@@ -911,7 +911,7 @@ const projects: Project[] = [
     description:
       "Collection of lightweight loading indicators for visual feedback while content loads.",
     imgs: ["/images/projects/loading/loading-preview.png"],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [skills.html.name, skills.css.name, skills.javascript.name],
@@ -935,7 +935,7 @@ const projects: Project[] = [
     description:
       "Movie-discovery application with search, browsing, and detailed information about films, actors, and directors.",
     imgs: ["/images/projects/vue-movies-db/image.png"],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [
@@ -970,7 +970,7 @@ const projects: Project[] = [
       "/images/projects/cube/Pasted image.png",
       "/images/projects/cube/Pasted image 1.png",
     ],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [skills.html.name, skills.css.name],
@@ -983,7 +983,7 @@ const projects: Project[] = [
     description:
       "React demo illustrating component state management and list operations with Bootstrap UI components.",
     imgs: ["/images/projects/birthday-reminder/image.png"],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [skills.reactjs.name, skills.javascript.name, skills.bootstrap.name],
@@ -997,7 +997,7 @@ const projects: Project[] = [
       "TypeScript Twitch chat bot that generates context-aware replies and manages conversation history in SQLite.",
     imgs: ["/images/projects/saleetbot/image.png"],
     visible: true,
-    featured: true,
+    featured: false,
     types: [categories.webapp],
     tech: [skills.typescript.name, skills.sqlite.name],
   },
@@ -1009,8 +1009,8 @@ const projects: Project[] = [
     description:
       "Quran-competition management platform for registrations, schedules, examinations, results, prizes, and grievance inquiries.",
     imgs: ["/images/projects/almihi-quran/image.png"],
-    visible: true,
-    featured: true,
+    visible: false,
+    featured: false,
     types: [categories.webapp],
     tech: [],
   },
@@ -1023,7 +1023,7 @@ const projects: Project[] = [
       "Laravel 10 accommodation-management platform for hosting, reservations, guest check-in and check-out, and a Filament dashboard.",
     imgs: ["/images/projects/checkinpro-web/image.png"],
     visible: true,
-    featured: true,
+    featured: false,
     types: [categories.webapp],
     tech: [skills.php.name, skills.laravel.name, skills.filamentphp.name],
   },
@@ -1035,8 +1035,8 @@ const projects: Project[] = [
     description:
       "TypeScript Telegram bot for controlled, time-consuming conversations with suspected scammers for anti-fraud experimentation.",
     imgs: ["/images/projects/waste-scammer/image.png"],
-    visible: true,
-    featured: true,
+    visible: false,
+    featured: false,
     types: [categories.webapp],
     tech: [skills.typescript.name],
   },
@@ -1048,8 +1048,8 @@ const projects: Project[] = [
     description:
       "Web-based datacentre management system for centralised administration and operational oversight of datacentre resources.",
     imgs: ["/images/projects/dc-manager/image.png"],
-    visible: true,
-    featured: true,
+    visible: false,
+    featured: false,
     types: [categories.webapp],
     tech: [],
   },
@@ -1062,7 +1062,7 @@ const projects: Project[] = [
       "Laravel 10 and Filament travel-management application for transport requests, driver profiles, approvals, and role-based workflows.",
     imgs: ["/images/projects/me-travel/image.png"],
     visible: true,
-    featured: true,
+    featured: false,
     types: [categories.webapp],
     tech: [skills.php.name, skills.laravel.name, skills.filamentphp.name],
   },
@@ -1074,8 +1074,8 @@ const projects: Project[] = [
     description:
       "Web-based locks-management system for centralising administration and oversight of lock-related operations.",
     imgs: ["/images/projects/doock/image.png"],
-    visible: true,
-    featured: true,
+    visible: false,
+    featured: false,
     types: [categories.webapp],
     tech: [],
   },
@@ -1088,7 +1088,7 @@ const projects: Project[] = [
       "Laravel business and content-management platform with a Filament dashboard for courses, projects, rentals, rooms, locations, materials, jobs, and files.",
     imgs: ["/images/projects/brokel/image.png"],
     visible: true,
-    featured: true,
+    featured: false,
     types: [categories.webapp],
     tech: [
       skills.php.name,
@@ -1106,7 +1106,7 @@ const projects: Project[] = [
     description:
       "Interactive bar-chart visualisation demonstrating data-driven rendering, chart layout, and responsive browser presentation.",
     imgs: ["/images/projects/d3js-chart/image.png"],
-    visible: true,
+    visible: false,
     featured: false,
     types: [categories.webapp],
     tech: [
@@ -1125,7 +1125,7 @@ const projects: Project[] = [
       "Laravel and Nuxt.js invoicing and client-management application for invoices, clients, purchases, sales, permissions, and dashboard administration.",
     imgs: ["/images/projects/fatura/image.png"],
     visible: true,
-    featured: true,
+    featured: false,
     types: [categories.webapp],
     tech: [
       skills.php.name,
@@ -1142,8 +1142,8 @@ const projects: Project[] = [
     description:
       "AI-powered investment-analyst dashboard for assessing business concepts across market potential, financial viability, competition, and investment readiness.",
     imgs: ["/images/projects/smart-investor/image.png"],
-    visible: true,
-    featured: true,
+    visible: false,
+    featured: false,
     types: [categories.webapp],
     tech: [skills.vuejs.name, skills.typescript.name],
   },
