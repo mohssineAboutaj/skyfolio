@@ -98,6 +98,8 @@ export interface Project {
   tech: string[]
   show?: boolean
   platforms?: ProjectPlatform[]
+  /** Shown when there is no public link (client NDA or offline). */
+  status?: "private" | "offline"
 }
 
 export interface Skill {
