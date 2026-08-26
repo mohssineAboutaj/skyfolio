@@ -104,6 +104,22 @@ function goToContacts() {
             >
               {{ user.fullName }}
             </h1>
+            <div v-if="user.availableForWork" class="mt-4">
+              <v-chip
+                color="success"
+                variant="tonal"
+                prepend-icon="mdi-circle"
+                class="text-none"
+                data-magnetic
+                role="button"
+                tabindex="0"
+                aria-label="Available for freelance work — go to contacts"
+                @click="goToContacts"
+                @keydown.enter="goToContacts"
+              >
+                Available for freelance work
+              </v-chip>
+            </div>
           </div>
           <div ref="jobRef" class="v-card-title text-h5 mb-8 text-capitalize">
             <div class="title">I'm a</div>

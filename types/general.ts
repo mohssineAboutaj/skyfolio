@@ -39,6 +39,8 @@ export interface AboutInfo {
   jobs: string[]
   shortDescription: string
   description: string
+  /** Toggle hero availability badge without touching components. */
+  availableForWork?: boolean
 }
 
 export interface AboutBasicInfo {

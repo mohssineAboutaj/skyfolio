@@ -19,6 +19,7 @@ const info: AboutInfo = {
     "Full-stack web developer with 7+ years of experience building production web and mobile apps with Vue, Nuxt, Laravel, and Node.js.",
   description:
     "I am <b>Mohssine Aboutaj</b>, a <b>Full-stack Developer</b> based in Marrakech with over <i>7</i> years of hands-on experience shipping production web and mobile applications.<br>I work across <b>Front-End</b> and <b>Back-End</b>, with a focus on <b>Vue.js / Nuxt</b>, <b>Laravel</b>, and <b>Node.js</b>. Recent client work includes AI recruitment platforms, secure workplace apps, and full-stack products from API design through deployment.<br>My day-to-day toolkit includes TypeScript, Vue/Nuxt, Vuetify, Laravel/PHP, Node/Express, MySQL, MongoDB, and hybrid mobile (Ionic/Capacitor). I care about clear APIs, maintainable UI, and reliable delivery.",
+  availableForWork: true,
 }
 
 export default info
