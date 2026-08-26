@@ -124,79 +124,74 @@ watch(
 
 <template>
   <v-app>
-    <v-layout>
-      <v-navigation-drawer
-        v-model="drawer"
-        temporary
-        class="hidden-md-and-up"
-        disable-resize-watcher
-      >
-        <div class="d-flex align-center justify-center mt-16 mb-8">
-          <v-avatar :size="80">
-            <v-img :src="drawerAvatar" :alt="`${user.fullName} avatar`"></v-img>
-          </v-avatar>
-        </div>
-        <h3 class="text-h5 mb-8 text-center text-capitalize">
-          {{ user.fullName }}
-        </h3>
+    <v-navigation-drawer
+      v-model="drawer"
+      temporary
+      class="hidden-md-and-up"
+      disable-resize-watcher
+    >
+      <div class="d-flex align-center justify-center mt-16 mb-8">
+        <v-avatar :size="80">
+          <v-img :src="drawerAvatar" :alt="`${user.fullName} avatar`"></v-img>
+        </v-avatar>
+      </div>
+      <h3 class="text-h5 mb-8 text-center text-capitalize">
+        {{ user.fullName }}
+      </h3>
 
-        <div class="d-flex align-center justify-space-around mb-8">
-          <v-btn
-            v-for="social in socials"
-            :key="social.icon"
-            :href="social.link"
-            target="_blank"
-            icon
-            data-magnetic
-          >
-            <Icon :name="social.icon" size="24" />
-          </v-btn>
-        </div>
-
-        <v-list
-          density="comfortable"
-          class="pr-0"
-          nav
-          aria-label="Main navigation"
+      <div class="d-flex align-center justify-space-around mb-8">
+        <v-btn
+          v-for="social in socials"
+          :key="social.icon"
+          :href="social.link"
+          target="_blank"
+          icon
+          data-magnetic
         >
-          <v-list-item
-            v-for="link in links"
-            :key="link.value"
-            :prepend-icon="link.icon"
-            :title="link.title"
-            :value="link.value"
-            active-class="bg-primary"
-            :active="link.isCurrent"
-            @click="goToTarget(link)"
-          ></v-list-item>
-          <v-divider class="my-2"></v-divider>
-          <v-list-item
-            prepend-icon="mdi-handshake"
-            title="Hire me"
-            @click="goToContacts"
-          ></v-list-item>
-          <v-list-item
-            :prepend-icon="themeToggleIcon"
-            :title="isDark ? 'Light mode' : 'Dark mode'"
-            @click="toggleTheme"
-          ></v-list-item>
-          <v-list-item
-            prepend-icon="mdi-download"
-            title="Download Resume"
-            :disabled="isGeneratingPDF"
-            @click="handleDownloadResume"
-          >
-            <template v-slot:append v-if="isGeneratingPDF">
-              <v-progress-circular
-                indeterminate
-                size="20"
-                color="primary"
-              ></v-progress-circular>
-            </template>
-          </v-list-item>
-        </v-list>
-      </v-navigation-drawer>
+          <Icon :name="social.icon" size="24" />
+        </v-btn>
+      </div>
 
+      <v-list
+        density="comfortable"
+        class="pr-0"
+        nav
+        aria-label="Main navigation"
+      >
+        <v-list-item
+          v-for="link in links"
+          :key="link.value"
+          :prepend-icon="link.icon"
+          :title="link.title"
+          :value="link.value"
+          active-class="bg-primary"
+          :active="link.isCurrent"
+          @click="goToTarget(link)"
+        ></v-list-item>
+        <v-divider class="my-2"></v-divider>
+        <v-list-item
+          prepend-icon="mdi-handshake"
+          title="Hire me"
+          @click="goToContacts"
+        ></v-list-item>
+        <v-list-item
+          prepend-icon="mdi-download"
+          title="Download Resume"
+          :disabled="isGeneratingPDF"
+          @click="handleDownloadResume"
+        >
+          <template v-slot:append v-if="isGeneratingPDF">
+            <v-progress-circular
+              indeterminate
+              size="20"
+              color="primary"
+            ></v-progress-circular>
+          </template>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-layout>
       <v-toolbar color="primary" class="position-fixed" style="z-index: 999">
         <v-app-bar-nav-icon v-if="showHomeBtn" aria-label="Home" to="/">
           <v-icon>mdi-home</v-icon>
@@ -209,17 +204,6 @@ watch(
         ></v-app-bar-nav-icon>
 
         <v-toolbar-title class="font-weight-bold">{{ title }}</v-toolbar-title>
-
-        <v-spacer class="hidden-md-and-up"></v-spacer>
-        <v-btn
-          class="hidden-md-and-up"
-          icon
-          :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-          data-magnetic
-          @click="toggleTheme"
-        >
-          <v-icon>{{ themeToggleIcon }}</v-icon>
-        </v-btn>
 
         <v-toolbar-items v-if="hideToolbarLinks" class="hidden-sm-and-down">
           <v-tabs v-model="activeLink" align-tabs="center" stacked>
@@ -234,35 +218,34 @@ watch(
               <v-icon>{{ link.icon }}</v-icon>
               {{ link.title }}
             </v-tab>
-            <v-tab
-              data-magnetic
-              hide-slider
-              @click="goToContacts"
-            >
+            <v-tab data-magnetic hide-slider @click="goToContacts">
               <v-icon>mdi-handshake</v-icon>
               Hire me
-            </v-tab>
-            <v-tab
-              data-magnetic
-              hide-slider
-              :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-              @click="toggleTheme"
-            >
-              <v-icon>{{ themeToggleIcon }}</v-icon>
-              Theme
             </v-tab>
             <v-tab
               :loading="isGeneratingPDF"
               :disabled="isGeneratingPDF"
               data-magnetic
-              @click="handleDownloadResume"
               hide-slider
+              @click="handleDownloadResume"
             >
               <v-icon>mdi-download</v-icon>
               Resume
             </v-tab>
           </v-tabs>
         </v-toolbar-items>
+
+        <v-spacer></v-spacer>
+        <v-btn
+          icon
+          class="me-2"
+          :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+          :title="isDark ? 'Light mode' : 'Dark mode'"
+          data-magnetic
+          @click="toggleTheme"
+        >
+          <v-icon>{{ themeToggleIcon }}</v-icon>
+        </v-btn>
       </v-toolbar>
 
       <v-main>
