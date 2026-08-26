@@ -6,11 +6,7 @@ import { skillsTab, type SkillsTabKey } from "~/data/skillsTab.data"
 const skillsStore = useSkillsStore()
 const { revealSection } = useGsap()
 
-// data
-/// static
-const skillsCountToDisplay = 12
 const tabs = skillsTab
-/// reactive
 const activeTab = ref<SkillsTabKey>("top")
 const skills = computed<Skill[]>(() => skillsStore.getByTab(activeTab.value))
 let motionWired = false
@@ -52,55 +48,27 @@ watch(
         </v-tab>
       </v-tabs>
 
-      <v-row v-if="skills.length == 0">
-        <v-col
-          v-for="n in skillsCountToDisplay"
-          :key="`skills-skeleton-${n}`"
-          cols="12"
-          md="6"
-          class="my-8"
-        >
-          <v-skeleton-loader type="list-item-avatar"></v-skeleton-loader>
-        </v-col>
-      </v-row>
-
-      <v-row v-else>
+      <v-row>
         <v-col
           v-for="skill in skills"
           :key="`${activeTab}-${skill.id}`"
-          cols="12"
-          sm="6"
-          md="4"
-          lg="3"
+          cols="6"
+          sm="4"
+          md="3"
+          lg="2"
         >
-          <v-card elevation="4" class="my-0-force" data-animate-child>
-            <v-card-text>
-              <v-row>
-                <v-col cols="auto" class="d-flex">
-                  <Icon
-                    :name="skill.icon"
-                    size="50"
-                    :color="skill.color"
-                    class="my-auto"
-                  />
-                </v-col>
-                <v-col>
-                  <v-card-title class="ml-0 text-left pl-1">
-                    {{ skill.name }}
-                  </v-card-title>
-                  <v-rating
-                    :model-value="scoreToStars(skill.score)"
-                    :length="5"
-                    density="compact"
-                    size="small"
-                    color="secondary"
-                    active-color="secondary"
-                    readonly
-                  />
-                </v-col>
-              </v-row>
-            </v-card-text>
-          </v-card>
+          <div
+            class="skill-chip d-flex align-center ga-3 pa-3 rounded-lg"
+            data-animate-child
+            data-magnetic
+          >
+            <Icon
+              :name="skill.icon"
+              size="28"
+              :color="skill.color"
+            />
+            <span class="text-body-1">{{ skill.name }}</span>
+          </div>
         </v-col>
       </v-row>
     </v-card-text>
@@ -108,11 +76,9 @@ watch(
 </template>
 
 <style scoped>
-.my-0-force {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-:deep(.v-card-title) {
-  margin-bottom: 0 !important;
+.skill-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 56px;
 }
 </style>

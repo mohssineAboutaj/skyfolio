@@ -6,7 +6,7 @@ import { scoreToStars } from "~/utils/scoreToStars"
 
 describe("skillsTab data", () => {
   it("includes top, all, and category tabs including testing", () => {
-    expect(skillsTab.top).toBe("Top")
+    expect(skillsTab.top).toBe("Core stack")
     expect(skillsTab.all).toBe("All")
     expect(skillsTab.frontend).toBe("Frontend")
     expect(skillsTab.backend).toBe("Backend")

@@ -33,7 +33,7 @@ export const mockSkillsStore = {
     return all.filter(s => s.categories.includes(tab as any))
   }),
   getTabs: vi.fn(() => ({
-    top: 'Top',
+    top: 'Core stack',
     all: 'All',
     frontend: 'Frontend',
     backend: 'Backend',

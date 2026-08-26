@@ -8,7 +8,7 @@ setupVuetifyMocks()
 
 const { skillCategories, skillsTab } = vi.hoisted(() => {
   const skillsTab = {
-    top: 'Top',
+    top: 'Core stack',
     all: 'All',
     frontend: 'Frontend',
     backend: 'Backend',

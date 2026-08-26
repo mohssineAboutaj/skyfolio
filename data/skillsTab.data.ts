@@ -1,5 +1,5 @@
 export const skillsTab = {
-  top: "Top",
+  top: "Core stack",
   all: "All",
   frontend: "Frontend",
   backend: "Backend",
