@@ -32,9 +32,11 @@ watch(
 <template>
   <v-card
     id="skills"
+    variant="text"
+    elevation="0"
     title="Skills"
     subtitle="Technologies I use in production — grouped by where they fit in the stack."
-    class="bg-transparent"
+    class="section-shell bg-transparent my-16"
   >
     <v-card-text>
       <v-tabs

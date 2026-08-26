@@ -23,6 +23,9 @@ watch(
 <template>
   <v-card
     id="contacts"
+    variant="text"
+    elevation="0"
+    class="section-shell my-16"
     title="Contacts"
     subtitle="Have a project in mind or a question? Reach out — I am open to freelance and full-time opportunities."
   >

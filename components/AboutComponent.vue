@@ -71,7 +71,7 @@ watch(
 </script>
 
 <template>
-  <v-card id="about">
+  <v-card id="about" variant="text" class="section-shell my-16" elevation="0">
     <v-row>
       <v-col cols="12" md="4" data-animate-child>
         <FlatCard title="About Me">

@@ -249,11 +249,22 @@ watch(
 }
 
 .v-card-title,
-.v-card-subtitle,
 .title {
-  font-family: "Charm", cursive !important;
-  font-weight: 400;
+  font-family: "Space Grotesk", sans-serif !important;
+  font-weight: 600 !important;
   font-style: normal;
+  letter-spacing: -0.02em;
+}
+
+.v-card-subtitle {
+  font-family: "Quicksand", sans-serif !important;
+  font-weight: 400 !important;
+  opacity: 0.75;
+}
+
+.section-shell {
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 p {

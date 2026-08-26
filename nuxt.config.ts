@@ -33,7 +33,7 @@ export default defineNuxtConfig({
 
   /// extend the nuxt modules
   googleFonts: {
-    families: { Quicksand: true, Charm: true },
+    families: { Quicksand: true, "Space Grotesk": [400, 500, 600, 700] },
     display: "swap", // 'auto' | 'block' | 'swap' | 'fallback' | 'optional'
   },
 
