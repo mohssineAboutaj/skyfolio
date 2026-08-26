@@ -2,7 +2,7 @@
 import type { Project } from "~/types/general"
 
 // store
-const { getAll, getProjectsTypes } = useProjectsStore()
+const { getAll, getProjectsTypesWithProjects } = useProjectsStore()
 const { updateTitle } = useSettingsStore()
 
 // data
@@ -16,7 +16,7 @@ const ALL = "all"
 /// reactive
 const projects: Project[] = reactive([])
 const activeType = ref("")
-const types = [ALL, ...getProjectsTypes]
+const types = [ALL, ...getProjectsTypesWithProjects]
 
 const visibleProjects = computed(() =>
   projects.filter((project) => project.show !== false),
