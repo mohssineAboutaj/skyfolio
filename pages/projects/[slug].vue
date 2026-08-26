@@ -186,24 +186,6 @@ onMounted(async () => {
             <v-card title="Description" variant="plain" class="elevation-0">
               <v-card-text>{{ project.description }}</v-card-text>
             </v-card>
-            <v-alert
-              v-if="project.status === 'private'"
-              class="mb-4"
-              type="info"
-              variant="tonal"
-              density="comfortable"
-            >
-              Private client project — live link not published.
-            </v-alert>
-            <v-alert
-              v-else-if="project.status === 'offline'"
-              class="mb-4"
-              type="warning"
-              variant="tonal"
-              density="comfortable"
-            >
-              No longer online — description and screenshots document the work.
-            </v-alert>
             <v-divider></v-divider>
             <!-- categories -->
             <v-card title="Categories" variant="plain" class="elevation-0">
@@ -237,11 +219,36 @@ onMounted(async () => {
                 </v-chip-group>
               </v-card-text>
             </v-card>
-            <template v-if="project.platforms && project.platforms.length">
+            <template
+              v-if="
+                (project.platforms && project.platforms.length) ||
+                project.status === 'private' ||
+                project.status === 'offline'
+              "
+            >
               <v-divider></v-divider>
               <v-card title="Related Links" variant="text" class="elevation-0">
                 <v-card-text>
-                  <v-row>
+                  <v-alert
+                    v-if="project.status === 'private'"
+                    type="info"
+                    variant="tonal"
+                    density="comfortable"
+                    class="mb-2"
+                  >
+                    Private client project — live link not published.
+                  </v-alert>
+                  <v-alert
+                    v-else-if="project.status === 'offline'"
+                    type="warning"
+                    variant="tonal"
+                    density="comfortable"
+                    class="mb-2"
+                  >
+                    No longer online — description and screenshots document the
+                    work.
+                  </v-alert>
+                  <v-row v-if="project.platforms && project.platforms.length">
                     <v-col cols="auto">
                       <v-btn
                         v-for="(platform, n) in project.platforms"
