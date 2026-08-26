@@ -68,8 +68,8 @@ A modern, responsive portfolio website built with Vue.js, Nuxt.js, and Vuetify. 
 
 - **Header**: Navigation with smooth scrolling and mobile menu
 - **Hero Section**: Eye-catching introduction with typewriter effect
-- **About**: Personal information, education, and certifications
-- **Skills**: Visual skill cards with progress bars and colored icons
+- **About**: Personal information, experience, education, and certifications
+- **Skills**: Grouped skill chips (core stack and categories)
 - **Projects**: Portfolio showcase with filtering and detailed views
 - **Services**: Professional services offered
 - **Statistics**: GitHub repositories and coding activity
@@ -80,8 +80,8 @@ A modern, responsive portfolio website built with Vue.js, Nuxt.js, and Vuetify. 
 - **TypeScript**: Full type safety and better development experience
 - **Pinia Store**: State management for data and settings
 - **Composables**: Reusable logic for API calls and data fetching
-- **SEO Optimized**: Meta tags, structured data, and performance
-- **PWA Ready**: Progressive Web App capabilities
+- **SEO Optimized**: Meta tags, OG image, and static generation
+- **Static Site**: Pre-rendered with Nuxt for fast hosting (e.g. Netlify)
 
 ### **Testing Infrastructure**
 

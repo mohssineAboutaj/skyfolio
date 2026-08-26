@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { Link } from "~/types/general"
-import { useGoTo } from "vuetify"
+import { useGoTo, useTheme } from "vuetify"
 
 const goTo = useGoTo()
+const theme = useTheme()
 
 // stores
 const infoStore = useAboutInfoStore().getInfo
@@ -27,6 +28,11 @@ const activeLink = ref(null)
 const isGeneratingPDF = ref(false)
 let cleanupMagnetic = () => {}
 
+const isDark = computed(() => theme.global.current.value.dark)
+const themeToggleIcon = computed(() =>
+  isDark.value ? "mdi-weather-sunny" : "mdi-weather-night",
+)
+
 const drawerAvatar = computed(() =>
   optimize(user.value.avatar, { width: 80, height: 80 }),
 )
@@ -39,6 +45,12 @@ const hideToolbarLinks = computed(() => {
 })
 
 onMounted(() => {
+  if (import.meta.client) {
+    const saved = localStorage.getItem("skyfolio-theme")
+    if (saved === "light" || saved === "dark") {
+      theme.change(saved)
+    }
+  }
   nextTick(() => {
     cleanupMagnetic = bindMagneticAll(document.body, "[data-magnetic]")
   })
@@ -48,6 +60,13 @@ onBeforeUnmount(() => {
   cleanupMagnetic()
 })
 
+function toggleTheme() {
+  const next = isDark.value ? "light" : "dark"
+  theme.change(next)
+  if (import.meta.client) {
+    localStorage.setItem("skyfolio-theme", next)
+  }
+}
 function goToTarget(link: Link) {
   const toolbarHeight = document.querySelector(".v-toolbar")?.clientHeight || 0
 
@@ -157,6 +176,11 @@ watch(
             @click="goToContacts"
           ></v-list-item>
           <v-list-item
+            :prepend-icon="themeToggleIcon"
+            :title="isDark ? 'Light mode' : 'Dark mode'"
+            @click="toggleTheme"
+          ></v-list-item>
+          <v-list-item
             prepend-icon="mdi-download"
             title="Download Resume"
             :disabled="isGeneratingPDF"
@@ -186,6 +210,17 @@ watch(
 
         <v-toolbar-title class="font-weight-bold">{{ title }}</v-toolbar-title>
 
+        <v-spacer class="hidden-md-and-up"></v-spacer>
+        <v-btn
+          class="hidden-md-and-up"
+          icon
+          :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+          data-magnetic
+          @click="toggleTheme"
+        >
+          <v-icon>{{ themeToggleIcon }}</v-icon>
+        </v-btn>
+
         <v-toolbar-items v-if="hideToolbarLinks" class="hidden-sm-and-down">
           <v-tabs v-model="activeLink" align-tabs="center" stacked>
             <v-tab
@@ -206,6 +241,15 @@ watch(
             >
               <v-icon>mdi-handshake</v-icon>
               Hire me
+            </v-tab>
+            <v-tab
+              data-magnetic
+              hide-slider
+              :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+              @click="toggleTheme"
+            >
+              <v-icon>{{ themeToggleIcon }}</v-icon>
+              Theme
             </v-tab>
             <v-tab
               :loading="isGeneratingPDF"
