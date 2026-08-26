@@ -39,6 +39,7 @@ export const useResumePDF = () => {
     const contactsStore = useContactStore()
 
     const info = aboutStore.getInfo
+    const experiences = aboutStore.getExperiences
     const educations = aboutStore.getEducations
     const certifications = aboutStore.getCertifications
     const projects = pickProjects(projectsStore.getAll())
@@ -188,7 +189,30 @@ export const useResumePDF = () => {
       writeLines(skillNames.join(", "), { size: 10, after: 2 })
     }
 
-    // ─── PROJECTS (stand-in for experience when no work history store) ───
+    // ─── EXPERIENCE ───
+    if (experiences.length > 0) {
+      section("Experience")
+      experiences.forEach((job) => {
+        ensureSpace(24)
+        writeLines(job.title, { size: 11, bold: true, after: 1.5 })
+        const companyLine = [job.company, job.location, job.period]
+          .filter(Boolean)
+          .join(" | ")
+        writeLines(companyLine, { size: 9, color: muted, after: 2 })
+        job.bullets?.forEach((bullet) => {
+          writeLines(`• ${bullet}`, { size: 9, indent: 2, after: 1.5 })
+        })
+        if (job.stack?.length) {
+          writeLines(`Technologies: ${job.stack.join(", ")}`, {
+            size: 9,
+            after: 2,
+          })
+        }
+        y += 2
+      })
+    }
+
+    // ─── PROJECTS ───
     if (projects.length > 0) {
       section("Projects")
       projects.forEach((project) => {

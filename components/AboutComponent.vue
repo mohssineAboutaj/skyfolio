@@ -4,28 +4,42 @@ import type {
   AboutBasicInfo,
   AboutEducation,
   AboutCertification,
+  AboutExperience,
   AboutInfo,
 } from "~/types/general"
 import FlatCard from "./FlatCard.vue"
 
 // stores
-const { getInfo, getEducations, getCertifications } = useAboutInfoStore()
+const { getInfo, getEducations, getCertifications, getExperiences } =
+  useAboutInfoStore()
 const { revealSection } = useGsap()
 
 // data
-/// static
-const tabs: AboutTab[] = [
-  { name: "Information", value: "info", icon: "mdi-information" },
-  { name: "Education", value: "education", icon: "mdi-school" },
-  { name: "Certificates", value: "certificates", icon: "mdi-certificate" },
-]
-/// reactive
 const tab = ref(null)
 const info: AboutInfo = reactive({} as AboutInfo)
 const educations: AboutEducation[] = reactive([])
 const certificates: AboutCertification[] = reactive([])
+const experiences: AboutExperience[] = reactive([])
 const aboutBasicInfos: AboutBasicInfo[] = reactive([])
 let motionWired = false
+
+const tabs = computed<AboutTab[]>(() => {
+  const list: AboutTab[] = [
+    { name: "Information", value: "info", icon: "mdi-information" },
+  ]
+  if (experiences.length > 0) {
+    list.push({
+      name: "Experience",
+      value: "experience",
+      icon: "mdi-briefcase",
+    })
+  }
+  list.push(
+    { name: "Education", value: "education", icon: "mdi-school" },
+    { name: "Certificates", value: "certificates", icon: "mdi-certificate" },
+  )
+  return list
+})
 
 // hooks
 onMounted(() => {
@@ -33,6 +47,7 @@ onMounted(() => {
 
   getEducations.forEach((education) => educations.push(education))
   getCertifications.forEach((certificate) => certificates.push(certificate))
+  getExperiences.forEach((item) => experiences.push(item))
 
   aboutBasicInfos.push(
     {
@@ -109,13 +124,13 @@ watch(
           class="mb-4"
         >
           <v-tab
-            v-for="tab in tabs"
-            :key="tab.value"
-            :value="tab.value"
-            :aria-label="tab.name"
+            v-for="tabItem in tabs"
+            :key="tabItem.value"
+            :value="tabItem.value"
+            :aria-label="tabItem.name"
           >
-            <v-icon class="hidden-md-and-up">{{ tab.icon }}</v-icon>
-            <span class="hidden-md-and-down">{{ tab.name }}</span>
+            <v-icon class="hidden-md-and-up">{{ tabItem.icon }}</v-icon>
+            <span class="hidden-md-and-down">{{ tabItem.name }}</span>
           </v-tab>
         </v-tabs>
 
@@ -130,6 +145,60 @@ watch(
 
             <p class="text-sm-h5 text-md-h6" v-html="info.description"></p>
           </v-window-item>
+
+          <v-window-item v-if="experiences.length > 0" value="experience">
+            <v-container fluid>
+              <v-timeline align="start">
+                <v-timeline-item
+                  v-for="job in experiences"
+                  :key="job.id"
+                  size="small"
+                  dot-color="primary"
+                >
+                  <template v-slot:opposite>
+                    <div class="pt-1 headline font-weight-bold">
+                      {{ job.period }}
+                    </div>
+                  </template>
+                  <div>
+                    <h2
+                      class="mt-n1 headline font-weight-regular mb-2 text-primary"
+                    >
+                      {{ job.company }}
+                    </h2>
+                    <h4 class="mb-2">{{ job.title }}</h4>
+                    <p
+                      v-if="job.location"
+                      class="text-medium-emphasis mb-3 text-body-2"
+                    >
+                      {{ job.location }}
+                    </p>
+                    <ul class="mb-3 pl-4">
+                      <li
+                        v-for="(bullet, idx) in job.bullets"
+                        :key="`${job.id}-b-${idx}`"
+                        class="mb-1"
+                      >
+                        {{ bullet }}
+                      </li>
+                    </ul>
+                    <div v-if="job.stack?.length" class="d-flex flex-wrap ga-1">
+                      <v-chip
+                        v-for="tech in job.stack"
+                        :key="`${job.id}-${tech}`"
+                        size="small"
+                        variant="tonal"
+                        color="primary"
+                      >
+                        {{ tech }}
+                      </v-chip>
+                    </div>
+                  </div>
+                </v-timeline-item>
+              </v-timeline>
+            </v-container>
+          </v-window-item>
+
           <v-window-item value="education">
             <v-container fluid>
               <v-skeleton-loader
@@ -166,7 +235,7 @@ watch(
           <v-window-item value="certificates">
             <v-container fluid>
               <v-skeleton-loader
-                v-if="educations.length == 0"
+                v-if="certificates.length == 0"
                 v-for="n in 3"
                 :key="`about-certificates-skeleton-${n}`"
                 type="list-item-three-line"

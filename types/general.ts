@@ -62,6 +62,17 @@ export interface AboutCertification {
   year: number
 }
 
+export interface AboutExperience {
+  id: string
+  title: string
+  company: string
+  location?: string
+  /** Display period, e.g. "Mar 2025 – May 2025" */
+  period: string
+  stack?: string[]
+  bullets: string[]
+}
+
 export interface Statistic {
   title: string
   value: number
