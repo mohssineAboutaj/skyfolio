@@ -7,7 +7,7 @@ const contacts: Contact[] = [
     icon: "simple-icons:gmail",
     color: "#111",
     link: "mailto:mohssineaboutaj1995@gmail.com",
-    isFeatured: false,
+    isFeatured: true,
     label: "Gmail",
   },
   {
@@ -20,12 +20,21 @@ const contacts: Contact[] = [
     label: "LinkedIn",
   },
   {
+    id: "e0e10545-ef29-471e-9487-cc7c040ca79b",
+    headline: "follow me on github",
+    icon: "simple-icons:github",
+    color: "#333",
+    link: "https://github.com/mohssineAboutaj",
+    isFeatured: true,
+    label: "GitHub",
+  },
+  {
     id: "c5a6c991-1a57-4071-805f-d617a4d69950",
     headline: "follow me on twitter",
     icon: "simple-icons:twitter",
     color: "#1da1f2",
     link: "https://twitter.com/mohssineAboutaj",
-    isFeatured: true,
+    isFeatured: false,
     label: "Twitter",
   },
   {
@@ -36,15 +45,6 @@ const contacts: Contact[] = [
     link: "https://t.me/mohssineAboutaj",
     isFeatured: false,
     label: "Telegram",
-  },
-  {
-    id: "e0e10545-ef29-471e-9487-cc7c040ca79b",
-    headline: "follow me on github",
-    icon: "simple-icons:github",
-    color: "#333",
-    link: "https://github.com/mohssineAboutaj",
-    isFeatured: true,
-    label: "GitHub",
   },
   {
     id: "d2ef6a01-8dbe-433c-97b9-add15fbadfd5",
@@ -63,15 +63,6 @@ const contacts: Contact[] = [
     link: "https://codepen.io/MohssineAboutajWeb",
     isFeatured: false,
     label: "CodePen",
-  },
-  {
-    id: "74640199-df34-49ea-a21c-ad64fa5f32e9",
-    headline: "follow me on facebook (personal)",
-    icon: "simple-icons:facebook",
-    color: "#3b5998",
-    link: "https://www.facebook.com/vive.mouhssine",
-    isFeatured: false,
-    label: "Facebook",
   },
   {
     id: "f5b2d1f1-4b5c-4c3f-9e7a-4b7f4f1f7d1e",
