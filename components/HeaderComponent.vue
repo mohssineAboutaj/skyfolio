@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useGoTo, useDisplay } from "vuetify"
-import type { AboutInfo, Contact } from "~/types/general"
 import TypewriterComponent from "~/components/TypewriterComponent.vue"
 
 // store
@@ -12,10 +11,9 @@ const { playHeroEntrance, bindSpotlight } = useGsap()
 const { optimize } = useOptimizedImage()
 const { mdAndDown } = useDisplay()
 
-// data
-/// reactive
-const user: AboutInfo = reactive({} as AboutInfo)
-const contacts: Contact[] = reactive([])
+const user = computed(() => getInfo)
+const contacts = computed(() => getFeatured)
+
 const heroRef = ref<HTMLElement | null>(null)
 const nameRef = ref<HTMLElement | null>(null)
 const jobRef = ref<HTMLElement | null>(null)
@@ -27,13 +25,12 @@ let cleanupSpotlight = () => {}
 
 const avatarSize = computed(() => (mdAndDown.value ? 150 : 250))
 const optimizedAvatar = computed(() =>
-  optimize(user.avatar || getInfo.avatar, {
+  optimize(user.value.avatar, {
     width: avatarSize.value,
     height: avatarSize.value,
   }),
 )
 
-// LCP: discover hero image early (optimized Netlify CDN URL)
 useHead({
   link: computed(() => {
     const href = optimizedAvatar.value
@@ -49,20 +46,12 @@ useHead({
   }),
 })
 
-// fill data
-onMounted(() => {
-  Object.assign(user, getInfo)
-  getFeatured.forEach((contact) => {
-    contacts.push(contact)
-  })
-})
-
 onBeforeUnmount(() => {
   cleanupSpotlight()
 })
 
 watch(
-  () => user.fullName,
+  () => user.value.fullName,
   async (fullName) => {
     if (!fullName || heroPlayed) return
     await nextTick()
@@ -76,18 +65,16 @@ watch(
     })
     cleanupSpotlight = bindSpotlight(heroRef.value)
   },
+  { immediate: true },
 )
 
-// methods
 function goToAbout() {
   const toolbarHeight = document.querySelector(".v-toolbar")?.clientHeight || 0
-
   goTo("#about", { offset: -toolbarHeight })
 }
 
 function goToContacts() {
   const toolbarHeight = document.querySelector(".v-toolbar")?.clientHeight || 0
-
   goTo("#contacts", { offset: -toolbarHeight })
 }
 </script>
@@ -107,73 +94,61 @@ function goToContacts() {
         style="min-height: 80vh"
       >
         <v-col cols="12" md="6" class="font-weight-light">
-          <template v-if="!user.fullName">
-            <v-skeleton-loader type="heading" />
-            <v-skeleton-loader type="heading" />
-          </template>
-
-          <template v-else>
-            <div
-              ref="nameRef"
-              class="v-card-title text-h4 mb-8 text-capitalize"
+          <div
+            ref="nameRef"
+            class="v-card-title text-h4 mb-8 text-capitalize"
+          >
+            <div class="title">Hi, I'm</div>
+            <h1
+              class="d-sm-block d-lg-inline d-block text-wrap text-secondary"
             >
-              <div class="title">Hi, I'm</div>
-              <h1
-                class="d-sm-block d-lg-inline d-block text-wrap text-secondary"
-              >
-                {{ user.fullName }}
-              </h1>
-            </div>
-            <div ref="jobRef" class="v-card-title text-h5 mb-8 text-capitalize">
-              <div class="title">I'm a</div>
-              <h2 v-if="user.jobs.length == 1" class="font-weight-bold">
-                {{ user.jobs[0] }}
-              </h2>
-              <TypewriterComponent
-                v-else
-                :strings="user.jobs"
-                class="font-weight-bold d-sm-block d-lg-inline-block text-wrap text-secondary"
-                :typeSpeed="50"
-                :eraseSpeed="25"
-              />
-            </div>
+              {{ user.fullName }}
+            </h1>
+          </div>
+          <div ref="jobRef" class="v-card-title text-h5 mb-8 text-capitalize">
+            <div class="title">I'm a</div>
+            <h2 v-if="user.jobs.length == 1" class="font-weight-bold">
+              {{ user.jobs[0] }}
+            </h2>
+            <TypewriterComponent
+              v-else
+              :strings="user.jobs"
+              class="font-weight-bold d-sm-block d-lg-inline-block text-wrap text-secondary"
+              :typeSpeed="50"
+              :eraseSpeed="25"
+            />
+          </div>
 
-            <v-row v-if="contacts.length == 0">
-              <v-col v-for="n in 3" :key="`contact-skeleton-${n}`">
-                <v-skeleton-loader type="button"></v-skeleton-loader>
-              </v-col>
-            </v-row>
-            <v-row v-else ref="socialsRef" class="mt-4">
-              <v-col
-                v-for="contact in contacts"
-                :key="contact.id"
-                cols="auto"
-                data-hero-social
-                data-magnetic
+          <v-row ref="socialsRef" class="mt-4">
+            <v-col
+              v-for="contact in contacts"
+              :key="contact.id"
+              cols="auto"
+              data-hero-social
+              data-magnetic
+            >
+              <v-btn
+                :color="contact.color"
+                :href="contact.link"
+                target="_blank"
+                :title="contact.label"
+                :aria-label="contact.label"
+                icon
               >
-                <v-btn
-                  :color="contact.color"
-                  :href="contact.link"
-                  target="_blank"
-                  :title="contact.label"
-                  :aria-label="contact.label"
-                  icon
-                >
-                  <Icon :name="contact.icon" size="20" />
-                </v-btn>
-              </v-col>
-              <v-col cols="auto" data-hero-social data-magnetic>
-                <v-btn
-                  color="secondary"
-                  variant="flat"
-                  aria-label="Hire me"
-                  @click="goToContacts"
-                >
-                  Hire me
-                </v-btn>
-              </v-col>
-            </v-row>
-          </template>
+                <Icon :name="contact.icon" size="20" />
+              </v-btn>
+            </v-col>
+            <v-col cols="auto" data-hero-social data-magnetic>
+              <v-btn
+                color="secondary"
+                variant="flat"
+                aria-label="Hire me"
+                @click="goToContacts"
+              >
+                Hire me
+              </v-btn>
+            </v-col>
+          </v-row>
         </v-col>
         <v-col cols="12" md="6" class="text-center">
           <div ref="avatarRef" class="d-inline-block" data-magnetic>

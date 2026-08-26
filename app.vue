@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Link } from "~/types/general"
-import type { AboutInfo, Contact } from "~/types/general"
 import { useGoTo } from "vuetify"
 
 const goTo = useGoTo()
@@ -19,23 +18,19 @@ const { optimize } = useOptimizedImage()
 const route = useRoute()
 const router = useRouter()
 
-// data
-/// static
 const title = ref(getTitle)
-/// reactive
-const user: AboutInfo = reactive({} as AboutInfo)
 const drawer = ref(false)
-const socials: Contact[] = reactive([])
-const links: Link[] = reactive([] as Link[])
+const user = computed(() => infoStore)
+const socials = computed(() => getFeatured)
+const links = computed(() => getLinks)
 const activeLink = ref(null)
 const isGeneratingPDF = ref(false)
 let cleanupMagnetic = () => {}
 
 const drawerAvatar = computed(() =>
-  optimize(user.avatar || infoStore.avatar, { width: 80, height: 80 }),
+  optimize(user.value.avatar, { width: 80, height: 80 }),
 )
 
-// computed
 const showHomeBtn = computed(() => {
   return route.path === "/404"
 })
@@ -43,18 +38,7 @@ const hideToolbarLinks = computed(() => {
   return showHomeBtn.value || route.path === "/"
 })
 
-// hooks
 onMounted(() => {
-  getFeatured.forEach((contact) => {
-    socials.push(contact)
-  })
-
-  getLinks.forEach((link: Link) => {
-    links.push(link)
-  })
-
-  Object.assign(user, infoStore)
-
   nextTick(() => {
     cleanupMagnetic = bindMagneticAll(document.body, "[data-magnetic]")
   })
@@ -64,17 +48,14 @@ onBeforeUnmount(() => {
   cleanupMagnetic()
 })
 
-// methods
 function goToTarget(link: Link) {
   const toolbarHeight = document.querySelector(".v-toolbar")?.clientHeight || 0
 
   goTo(link.targetId, { offset: -toolbarHeight })
 
-  links.forEach((l) => (l.isCurrent = false))
-
+  getLinks.forEach((l) => (l.isCurrent = false))
   link.isCurrent = true
 
-  // navigation drawer is open
   if (drawer.value) {
     drawer.value = false
   }
@@ -86,7 +67,7 @@ function goToContacts() {
     router.push({ path: "/", hash: "#contacts" })
     return
   }
-  const contactsLink = links.find((l) => l.value === "contacts")
+  const contactsLink = links.value.find((l) => l.value === "contacts")
   if (contactsLink) {
     goToTarget(contactsLink)
     return

@@ -1,22 +1,13 @@
 <script setup lang="ts">
-import type { Service } from "~/types/general"
-
 // store
 const { getAll } = useServicesStore()
 const { revealSection } = useGsap()
 
-// data
-/// reactive
-const services: Service[] = reactive([])
+const services = computed(() => getAll)
 let motionWired = false
 
-// hooks
-onMounted(() => {
-  getAll.forEach((service) => services.push(service))
-})
-
 watch(
-  () => services.length,
+  () => services.value.length,
   async (len) => {
     if (!len || motionWired) return
     motionWired = true
@@ -26,6 +17,7 @@ watch(
       stagger: 0.1,
     })
   },
+  { immediate: true },
 )
 </script>
 
@@ -35,20 +27,7 @@ watch(
     title="Services"
     subtitle="How I can help — from interface and APIs to deployment and ongoing care."
   >
-    <v-row v-if="services.length == 0">
-      <v-col
-        v-for="n in 3"
-        :key="`services-skeleton-${n}`"
-        cols="12"
-        sm="12"
-        :md="n < 2 ? 6 : 4"
-        xl="3"
-      >
-        <v-skeleton-loader type="card"></v-skeleton-loader>
-      </v-col>
-    </v-row>
-
-    <v-row v-else>
+    <v-row>
       <v-col
         v-for="service in services"
         :key="service.id"

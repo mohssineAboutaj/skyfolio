@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Project } from "~/types/general"
-
 // store
 const { getFeatured } = useProjectsStore()
 const { revealSection } = useGsap()
@@ -8,8 +6,6 @@ const { revealSection } = useGsap()
 // vuetify
 const { thresholds } = useDisplay()
 
-// data
-/// static
 const swiperOptions = {
   slidesPerView: 1,
   breakpoints: {
@@ -19,25 +15,19 @@ const swiperOptions = {
   },
   autoplay: { delay: 2500 },
 }
-/// reactive
-const projects: Project[] = reactive([])
+
+const projects = computed(() => getFeatured())
 let motionWired = false
 
-// hooks
-onMounted(() => {
-  getFeatured().forEach((project) => {
-    projects.push(project)
-  })
-})
-
 watch(
-  () => projects.length,
+  () => projects.value.length,
   async (len) => {
     if (!len || motionWired) return
     motionWired = true
     await nextTick()
     revealSection("#projects")
   },
+  { immediate: true },
 )
 </script>
 
@@ -62,19 +52,7 @@ watch(
       Selected work I can share — commercial products and personal builds.
     </v-card-subtitle>
     <v-card-text>
-      <v-row v-if="projects.length == 0">
-        <v-col
-          v-for="n in 4"
-          :key="`featured-projects-skeleton-${n}`"
-          cols="12"
-          md="6"
-          lg="3"
-        >
-          <v-skeleton-loader type="card"></v-skeleton-loader>
-        </v-col>
-      </v-row>
-
-      <swiper-container v-else v-bind="swiperOptions">
+      <swiper-container v-bind="swiperOptions">
         <swiper-slide v-for="project in projects" :key="project.id">
           <ProjectPreviewCard :project="project" />
         </swiper-slide>

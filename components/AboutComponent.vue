@@ -1,12 +1,5 @@
 <script setup lang="ts">
-import type {
-  AboutTab,
-  AboutBasicInfo,
-  AboutEducation,
-  AboutCertification,
-  AboutExperience,
-  AboutInfo,
-} from "~/types/general"
+import type { AboutTab, AboutBasicInfo } from "~/types/general"
 import FlatCard from "./FlatCard.vue"
 
 // stores
@@ -14,20 +7,42 @@ const { getInfo, getEducations, getCertifications, getExperiences } =
   useAboutInfoStore()
 const { revealSection } = useGsap()
 
-// data
 const tab = ref(null)
-const info: AboutInfo = reactive({} as AboutInfo)
-const educations: AboutEducation[] = reactive([])
-const certificates: AboutCertification[] = reactive([])
-const experiences: AboutExperience[] = reactive([])
-const aboutBasicInfos: AboutBasicInfo[] = reactive([])
 let motionWired = false
+
+const info = computed(() => getInfo)
+const educations = computed(() => getEducations)
+const certificates = computed(() => getCertifications)
+const experiences = computed(() => getExperiences)
+
+const aboutBasicInfos = computed<AboutBasicInfo[]>(() => [
+  {
+    title: "Full Name",
+    subtitle: getInfo.fullName,
+    icon: "mdi-account",
+  },
+  {
+    title: "Email",
+    subtitle: getInfo.email,
+    icon: "mdi-email",
+  },
+  {
+    title: "Jobs",
+    subtitle: getInfo.jobs.join(", "),
+    icon: "mdi-briefcase",
+  },
+  {
+    title: "Address",
+    subtitle: getInfo.address,
+    icon: "mdi-map-marker",
+  },
+])
 
 const tabs = computed<AboutTab[]>(() => {
   const list: AboutTab[] = [
     { name: "Information", value: "info", icon: "mdi-information" },
   ]
-  if (experiences.length > 0) {
+  if (experiences.value.length > 0) {
     list.push({
       name: "Experience",
       value: "experience",
@@ -41,40 +56,8 @@ const tabs = computed<AboutTab[]>(() => {
   return list
 })
 
-// hooks
-onMounted(() => {
-  Object.assign(info, getInfo)
-
-  getEducations.forEach((education) => educations.push(education))
-  getCertifications.forEach((certificate) => certificates.push(certificate))
-  getExperiences.forEach((item) => experiences.push(item))
-
-  aboutBasicInfos.push(
-    {
-      title: "Full Name",
-      subtitle: getInfo.fullName,
-      icon: "mdi-account",
-    },
-    {
-      title: "Email",
-      subtitle: getInfo.email,
-      icon: "mdi-email",
-    },
-    {
-      title: "Jobs",
-      subtitle: getInfo.jobs.join(", "),
-      icon: "mdi-briefcase",
-    },
-    {
-      title: "Address",
-      subtitle: getInfo.address,
-      icon: "mdi-map-marker",
-    },
-  )
-})
-
 watch(
-  () => aboutBasicInfos.length,
+  () => aboutBasicInfos.value.length,
   async (len) => {
     if (!len || motionWired) return
     motionWired = true
@@ -83,6 +66,7 @@ watch(
       childSelector: "[data-animate-child]",
     })
   },
+  { immediate: true },
 )
 </script>
 
@@ -91,14 +75,7 @@ watch(
     <v-row>
       <v-col cols="12" md="4" data-animate-child>
         <FlatCard title="About Me">
-          <v-skeleton-loader
-            v-if="aboutBasicInfos.length == 0"
-            v-for="n in 4"
-            :key="`about-basic-info-sketon-${n}`"
-            type="list-item-avatar-two-line"
-          ></v-skeleton-loader>
-
-          <v-list v-else lines="two">
+          <v-list lines="two">
             <v-list-item
               v-for="basic in aboutBasicInfos"
               :key="basic.title"
@@ -136,13 +113,6 @@ watch(
 
         <v-window v-model="tab" class="px-2">
           <v-window-item value="info">
-            <v-skeleton-loader
-              v-if="!info.description"
-              v-for="n in 5"
-              :key="`about-info-skeleton-${n}`"
-              type="text"
-            ></v-skeleton-loader>
-
             <p class="text-sm-h5 text-md-h6" v-html="info.description"></p>
           </v-window-item>
 
@@ -201,14 +171,7 @@ watch(
 
           <v-window-item value="education">
             <v-container fluid>
-              <v-skeleton-loader
-                v-if="educations.length == 0"
-                v-for="n in 3"
-                :key="`about-education-skeleton-${n}`"
-                type="list-item-three-line"
-              ></v-skeleton-loader>
-
-              <v-timeline v-else align="start">
+              <v-timeline align="start">
                 <v-timeline-item
                   v-for="education in educations"
                   :key="education.id"
@@ -234,14 +197,7 @@ watch(
           </v-window-item>
           <v-window-item value="certificates">
             <v-container fluid>
-              <v-skeleton-loader
-                v-if="certificates.length == 0"
-                v-for="n in 3"
-                :key="`about-certificates-skeleton-${n}`"
-                type="list-item-three-line"
-              ></v-skeleton-loader>
-
-              <v-timeline v-else align="start" side="end">
+              <v-timeline align="start" side="end">
                 <v-timeline-item
                   v-for="certificate in certificates"
                   :key="certificate.id"
