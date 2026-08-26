@@ -72,7 +72,7 @@ export const useSettingsStore = defineStore("settings", {
       this.title = title
     },
     resetTitle() {
-      this.title = name
+      this.title = info.fullName
     },
   },
 })

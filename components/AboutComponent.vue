@@ -16,7 +16,7 @@ const { revealSection } = useGsap()
 /// static
 const tabs: AboutTab[] = [
   { name: "Information", value: "info", icon: "mdi-information" },
-  { name: "Educations", value: "education", icon: "mdi-school" },
+  { name: "Education", value: "education", icon: "mdi-school" },
   { name: "Certificates", value: "certificates", icon: "mdi-certificate" },
 ]
 /// reactive

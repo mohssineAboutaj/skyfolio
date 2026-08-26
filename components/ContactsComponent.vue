@@ -33,8 +33,8 @@ watch(
 <template>
   <v-card
     id="contacts"
-    title="contacts"
-    subtitle="If you have any questions or want to work together, feel free to contact me."
+    title="Contacts"
+    subtitle="Have a project in mind or a question? Reach out — I am open to freelance and full-time opportunities."
   >
     <v-card-text>
       <v-card-text class="text-h6">

@@ -59,7 +59,7 @@ watch(
       ></v-btn>
     </v-card-title>
     <v-card-subtitle>
-      Some of my projects and projects that I'm allowed to share.
+      Selected work I can share — commercial products and personal builds.
     </v-card-subtitle>
     <v-card-text>
       <v-row v-if="projects.length == 0">

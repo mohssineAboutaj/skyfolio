@@ -33,7 +33,7 @@ watch(
   <FlatCard
     id="services"
     title="Services"
-    subtitle="Some of the services that I can offer."
+    subtitle="How I can help — from interface and APIs to deployment and ongoing care."
   >
     <v-row v-if="services.length == 0">
       <v-col

@@ -4,44 +4,44 @@ const services: Service[] = [
   {
     id: "uud2c8701e-2c75-49ee-9cad-501d4ab6c09c",
     icon: "mdi-desktop-mac",
-    title: "web developement",
+    title: "Web Development",
     description:
-      "Creating and building great websites, with full and comprehensive features for everything a regular user and webmaster would need",
+      "End-to-end websites and web products — from structure and UI to backend and launch — built for real users and maintainable growth.",
   },
   {
     id: "uu43ed7193-55bc-4e76-b930-bd2d79fd0b67",
     icon: "mdi-palette",
-    title: "front end",
+    title: "Front End",
     description:
-      "imagine and execute the ideas with the perfect UI (User Interface) to let visitor browse and use the service easily ",
+      "Clear, responsive interfaces with Vue/Nuxt (and modern CSS) so visitors can browse and complete tasks without friction.",
   },
   {
     id: "uub763c4af-dc65-4dec-af9c-712e61d9a91e",
     icon: "mdi-server",
-    title: "back end",
+    title: "Back End",
     description:
-      "Manage the application from behind the scenes in a secure manner and control the course of events",
+      "Secure APIs, data models, and integrations (Laravel, Node.js) that keep your product reliable behind the scenes.",
   },
   {
     id: "uub892e520-a2b2-442c-b142-5de84ea694f5",
     icon: "mdi-tablet-android",
-    title: "web apps",
+    title: "Web Apps",
     description:
-      "Create modern apps with modern ways and technologies to achieve the greatest percentage of compatibility",
+      "Modern web and hybrid apps with strong compatibility across devices, using frameworks that fit your product goals.",
   },
   {
-    id: "uub763c4af-dc65-4dec-af9c-712e61d9a91e",
+    id: "uu9a1b2c3d-4e5f-6789-abcd-ef0123456789",
     icon: "mdi-cloud-upload",
-    title: "deployment",
+    title: "Deployment",
     description:
-      "Deploy the application to the server and make it available to the public and the world",
+      "Ship to production with a stable setup — hosting, environment config, and a release path your team can repeat.",
   },
   {
-    id: "uub763c4af-dc65-4dec-af9c-712e61d9a91e",
+    id: "uu0f1e2d3c-4b5a-6978-90ab-cdef12345678",
     icon: "mdi-wrench",
-    title: "maintenance",
+    title: "Maintenance",
     description:
-      "Maintain and repair the application and keep it up to date and secure",
+      "Keep apps updated, secure, and performant after launch — fixes, dependency updates, and ongoing improvements.",
   },
 ]
 

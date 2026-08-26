@@ -119,7 +119,7 @@ function goToAbout() {
               </h1>
             </div>
             <div ref="jobRef" class="v-card-title text-h5 mb-8 text-capitalize">
-              <div class="title">I'am a</div>
+              <div class="title">I'm a</div>
               <h2 v-if="user.jobs.length == 1" class="font-weight-bold">
                 {{ user.jobs[0] }}
               </h2>

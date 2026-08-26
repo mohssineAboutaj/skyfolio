@@ -33,7 +33,7 @@ watch(
   <v-card
     id="skills"
     title="Skills"
-    subtitle="Some of the skills that I have learned and used."
+    subtitle="Technologies I use in production — grouped by where they fit in the stack."
     class="bg-transparent"
   >
     <v-card-text>

@@ -10,17 +10,15 @@ const info: AboutInfo = {
   address: "Marrakech, Morocco",
   phone: "+212606328203",
   jobs: [
-    "Front-End Vuejs Developer",
-    "Back-End Nodejs Developer",
-    "Back-End Laravel Developer",
     "Full-Stack Web Developer",
-    "Mobile WebApp Developer",
-    "Real experienced developer",
+    "Vue.js / Nuxt Developer",
+    "Laravel & Node.js Backend Developer",
+    "Mobile Web App Developer",
   ],
   shortDescription:
-    "Am a full-stack web developer, I have a passion for creating beautiful and functional websites. I am always looking for new opportunities to learn and grow.",
+    "Full-stack web developer with 7+ years of experience building production web and mobile apps with Vue, Nuxt, Laravel, and Node.js.",
   description:
-    "I am <b>Mohssine Aboutaj</b>, a seasoned <b>Full-stack Developer</b> with over <i>6</i> years of hands-on experience. My expertise spans across both <b>Front-End</b> and <b>Back-End</b> development, with proficiency in crafting versatile <b>Mobile applications</b> encompassing both <b>Hybrid</b> and <b>Web app</b> formats.<br>In my practice, I leverage a comprehensive arsenal of cutting-edge programming languages and frameworks to deliver robust solutions. My toolkit includes HTML 5, CSS 3, JavaScript, jQuery, Bootstrap Framework, Sass Pre-processor, Less Pre-processor, Ajax, PHP, MySQL, Vue.js Framework, Node.js, Vuetify.js Framework, Ionic Framework, ES6+, MaterializeCss Framework, Webpack, Gulp.js, among others.<br>My commitment to staying abreast of the latest technologies ensures that my work remains at the forefront of innovation, empowering me to engineer scalable and efficient solutions for diverse projects.",
+    "I am <b>Mohssine Aboutaj</b>, a <b>Full-stack Developer</b> based in Marrakech with over <i>7</i> years of hands-on experience shipping production web and mobile applications.<br>I work across <b>Front-End</b> and <b>Back-End</b>, with a focus on <b>Vue.js / Nuxt</b>, <b>Laravel</b>, and <b>Node.js</b>. Recent client work includes AI recruitment platforms, secure workplace apps, and full-stack products from API design through deployment.<br>My day-to-day toolkit includes TypeScript, Vue/Nuxt, Vuetify, Laravel/PHP, Node/Express, MySQL, MongoDB, and hybrid mobile (Ionic/Capacitor). I care about clear APIs, maintainable UI, and reliable delivery.",
 }
 
 export default info

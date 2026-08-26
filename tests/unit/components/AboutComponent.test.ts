@@ -120,7 +120,7 @@ describe('AboutComponent Unit Tests', () => {
     it('should have meaningful tab names', () => {
       const tabNames = mockAboutTabs.map(tab => tab.name)
       expect(tabNames).toContain('Information')
-      expect(tabNames).toContain('Educations')
+      expect(tabNames).toContain('Education')
       expect(tabNames).toContain('Certificates')
     })
   })
