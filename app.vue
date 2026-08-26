@@ -30,7 +30,7 @@ let cleanupMagnetic = () => {}
 
 const isDark = computed(() => theme.global.current.value.dark)
 const themeToggleIcon = computed(() =>
-  isDark.value ? "mdi-weather-sunny" : "mdi-weather-night",
+  isDark.value ? "mdi:weather-sunny" : "mdi:weather-night",
 )
 
 const drawerAvatar = computed(() =>
