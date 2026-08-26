@@ -18,6 +18,22 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/',
     buildAssetsDir: '_nuxt/',
+    head: {
+      meta: [
+        {
+          property: "og:image",
+          content: "https://mohssineaboutaj.com/og.png",
+        },
+        {
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          name: "twitter:image",
+          content: "https://mohssineaboutaj.com/og.png",
+        },
+      ],
+    },
   },
 
   modules: [
