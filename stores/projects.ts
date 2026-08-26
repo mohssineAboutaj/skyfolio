@@ -13,6 +13,17 @@ export const useProjectsStore = defineStore("projects", {
     getProjectsTypes() {
       return Object.values(categores)
     },
+    getProjectsTypesWithProjects(): string[] {
+      const visible = this.getVisible
+      return Object.values(categores).filter((type) =>
+        visible.some((project) => project.types.includes(type)),
+      )
+    },
+    getProjectCountByType() {
+      return (type: string) =>
+        this.getVisible.filter((project) => project.types.includes(type))
+          .length
+    },
   },
   actions: {
     getAll(): Project[] {
