@@ -17,6 +17,7 @@ const { optimize } = useOptimizedImage()
 
 // router
 const route = useRoute()
+const router = useRouter()
 
 // data
 /// static
@@ -77,6 +78,21 @@ function goToTarget(link: Link) {
   if (drawer.value) {
     drawer.value = false
   }
+}
+
+function goToContacts() {
+  if (drawer.value) drawer.value = false
+  if (route.path !== "/") {
+    router.push({ path: "/", hash: "#contacts" })
+    return
+  }
+  const contactsLink = links.find((l) => l.value === "contacts")
+  if (contactsLink) {
+    goToTarget(contactsLink)
+    return
+  }
+  const toolbarHeight = document.querySelector(".v-toolbar")?.clientHeight || 0
+  goTo("#contacts", { offset: -toolbarHeight })
 }
 
 async function handleDownloadResume() {
@@ -155,6 +171,11 @@ watch(
           ></v-list-item>
           <v-divider class="my-2"></v-divider>
           <v-list-item
+            prepend-icon="mdi-handshake"
+            title="Hire me"
+            @click="goToContacts"
+          ></v-list-item>
+          <v-list-item
             prepend-icon="mdi-download"
             title="Download Resume"
             :disabled="isGeneratingPDF"
@@ -196,6 +217,14 @@ watch(
             >
               <v-icon>{{ link.icon }}</v-icon>
               {{ link.title }}
+            </v-tab>
+            <v-tab
+              data-magnetic
+              hide-slider
+              @click="goToContacts"
+            >
+              <v-icon>mdi-handshake</v-icon>
+              Hire me
             </v-tab>
             <v-tab
               :loading="isGeneratingPDF"

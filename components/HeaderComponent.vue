@@ -84,6 +84,12 @@ function goToAbout() {
 
   goTo("#about", { offset: -toolbarHeight })
 }
+
+function goToContacts() {
+  const toolbarHeight = document.querySelector(".v-toolbar")?.clientHeight || 0
+
+  goTo("#contacts", { offset: -toolbarHeight })
+}
 </script>
 
 <template>
@@ -154,6 +160,16 @@ function goToAbout() {
                   icon
                 >
                   <Icon :name="contact.icon" size="20" />
+                </v-btn>
+              </v-col>
+              <v-col cols="auto" data-hero-social data-magnetic>
+                <v-btn
+                  color="secondary"
+                  variant="flat"
+                  aria-label="Hire me"
+                  @click="goToContacts"
+                >
+                  Hire me
                 </v-btn>
               </v-col>
             </v-row>
