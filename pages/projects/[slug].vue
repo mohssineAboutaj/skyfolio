@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Project } from "~/types/general"
+import { truncateMetaDescription } from "~/utils/portfolioSeo"
 
 // store
 const { getBySlug } = useProjectsStore()
@@ -39,6 +40,14 @@ const thumbsSwiperRef = ref(null)
 const imageCount = computed(() => project.imgs?.length ?? 0)
 const hasGallery = computed(() => imageCount.value > 1)
 const hasSingleImage = computed(() => imageCount.value === 1)
+const projectMetaDescription = computed(() =>
+  truncateMetaDescription(project.description),
+)
+
+useSeoMeta({
+  title: () => project.title || "Project",
+  description: () => projectMetaDescription.value,
+})
 
 const { instance: mainSwiper } = useSwiper(mainSwiperRef, {
   slidesPerView: 1,
