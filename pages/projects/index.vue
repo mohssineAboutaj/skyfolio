@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import type { Project } from "~/types/general"
+import { portfolioSiteDescription } from "~/utils/portfolioSeo"
 
 // store
 const { getAll, getProjectsTypesWithProjects } = useProjectsStore()
 const { updateTitle } = useSettingsStore()
+
+useSeoMeta({
+  title: "Projects",
+  description: `Production and personal projects — ${portfolioSiteDescription}`,
+})
 
 // data
 /// static

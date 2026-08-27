@@ -1,0 +1,15 @@
+# Mohssine Aboutaj
+
+> Freelance full-stack developer based in Marrakech, Morocco — Vue, Nuxt, Laravel, Node.js — available for remote work.
+
+## Contact
+- Email: mohssineaboutaj1995@gmail.com
+- LinkedIn: https://www.linkedin.com/in/mohssineAboutaj
+- GitHub: https://github.com/mohssineAboutaj
+
+## Hire
+- https://mohssineaboutaj.com/#contacts
+
+## Work
+- Portfolio projects: https://mohssineaboutaj.com/projects
+- Core stack: Vue.js, Nuxt, TypeScript, Laravel, PHP, Node.js, MySQL, MongoDB

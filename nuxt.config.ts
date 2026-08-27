@@ -1,6 +1,12 @@
-import aboutInfo from "./data/about/info.data"
 import projects from "./data/projects.data"
 import vuetifyMdiClientIcons from "./iconsets/client-icons.json"
+import {
+  PORTFOLIO_SITE_URL,
+  portfolioKeywords,
+  portfolioPersonIdentity,
+  portfolioSiteDescription,
+  portfolioSiteName,
+} from "./utils/portfolioSeo"
 
 // Generate all project routes for prerendering
 const projectRoutes = projects
@@ -94,17 +100,12 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: "https://mohssineaboutaj.com/",
-    name: `${aboutInfo.fullName} Portfolio`,
-    description: aboutInfo.shortDescription,
-    defaultLocale: "en", // not needed if you have @nuxtjs/i18n installed
-    keywords: [
-      "Mohssine Aboutaj",
-      "Mohssine",
-      "Aboutaj",
-      "Portfolio",
-      ...aboutInfo.jobs,
-    ],
+    url: PORTFOLIO_SITE_URL,
+    name: portfolioSiteName,
+    description: portfolioSiteDescription,
+    defaultLocale: "en",
+    identity: portfolioPersonIdentity,
+    keywords: portfolioKeywords,
   },
 
   gtag: {
