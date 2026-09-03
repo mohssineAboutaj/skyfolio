@@ -1,5 +1,5 @@
 import type { Link } from "~/types/general"
-import { useGoTo, useTheme } from "vuetify"
+import { useGoTo } from "vuetify"
 
 const drawer = ref(false)
 const isGeneratingPDF = ref(false)
@@ -11,7 +11,6 @@ let routeWatched = false
 
 export function useAppShell() {
   const goTo = useGoTo()
-  const theme = useTheme()
   const route = useRoute()
   const router = useRouter()
 
@@ -30,11 +29,6 @@ export function useAppShell() {
   const socials = computed(() => getFeatured)
   const links = computed(() => getLinks)
 
-  const isDark = computed(() => theme.global.current.value.dark)
-  const themeToggleIcon = computed(() =>
-    isDark.value ? "mdi:weather-sunny" : "mdi:weather-night",
-  )
-
   const drawerAvatar = computed(() =>
     optimize(user.value.avatar, { width: 80, height: 80 }),
   )
@@ -43,22 +37,6 @@ export function useAppShell() {
   const hideToolbarLinks = computed(
     () => showHomeBtn.value || route.path === "/",
   )
-
-  function initTheme() {
-    if (!import.meta.client) return
-    const saved = localStorage.getItem("skyfolio-theme")
-    if (saved === "light" || saved === "dark") {
-      theme.change(saved)
-    }
-  }
-
-  function toggleTheme() {
-    const next = isDark.value ? "light" : "dark"
-    theme.change(next)
-    if (import.meta.client) {
-      localStorage.setItem("skyfolio-theme", next)
-    }
-  }
 
   function closeDrawer() {
     if (drawer.value) drawer.value = false
@@ -135,13 +113,9 @@ export function useAppShell() {
     user,
     socials,
     links,
-    isDark,
-    themeToggleIcon,
     drawerAvatar,
     showHomeBtn,
     hideToolbarLinks,
-    initTheme,
-    toggleTheme,
     toggleDrawer,
     goToTarget,
     goToContacts,

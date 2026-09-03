@@ -6,13 +6,10 @@ const {
   showHomeBtn,
   hideToolbarLinks,
   isGeneratingPDF,
-  isDark,
-  themeToggleIcon,
   toggleDrawer,
   goToTarget,
   goToContacts,
   handleDownloadResume,
-  toggleTheme,
 } = useAppShell()
 </script>
 
@@ -59,17 +56,5 @@ const {
         </v-tab>
       </v-tabs>
     </v-toolbar-items>
-
-    <v-spacer></v-spacer>
-    <v-btn
-      icon
-      class="me-2"
-      :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
-      :title="isDark ? 'Light mode' : 'Dark mode'"
-      data-magnetic
-      @click="toggleTheme"
-    >
-      <v-icon>{{ themeToggleIcon }}</v-icon>
-    </v-btn>
   </v-toolbar>
 </template>

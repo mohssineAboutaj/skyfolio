@@ -61,7 +61,7 @@ A modern, responsive portfolio website built with Vue.js, Nuxt.js, and Vuetify. 
 
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile
 - **Material Design**: Beautiful Vuetify components with smooth animations
-- **Dark/Light Theme**: Toggle between themes for better user experience
+- **Dark Theme**: Dark Vuetify theme by default
 - **Interactive Elements**: Hover effects, transitions, and micro-interactions
 
 ### **Components**
