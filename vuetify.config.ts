@@ -18,10 +18,6 @@ export default defineVuetifyConfiguration({
         colors: { ...colorPalette },
         dark: true,
       },
-      light: {
-        colors: { ...colorPalette },
-        dark: false,
-      },
     },
   },
   defaults: {

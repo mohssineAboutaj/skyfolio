@@ -1,15 +1,10 @@
 <script setup lang="ts">
 const { bindMagneticAll } = useGsap()
-const {
-  initTheme,
-  syncTitleFromStore,
-  watchRouteTitle,
-} = useAppShell()
+const { syncTitleFromStore, watchRouteTitle } = useAppShell()
 
 let cleanupMagnetic = () => {}
 
 onMounted(() => {
-  initTheme()
   nextTick(() => {
     cleanupMagnetic = bindMagneticAll(document.body, "[data-magnetic]")
   })
