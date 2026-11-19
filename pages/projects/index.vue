@@ -35,6 +35,7 @@ updateTitle(title)
 
 <template>
   <v-container>
+    <h1 class="d-sr-only">{{ title }}</h1>
     <v-breadcrumbs :items="breadcrumbItems" divider="-"></v-breadcrumbs>
 
     <v-tabs

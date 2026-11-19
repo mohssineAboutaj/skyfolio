@@ -35,6 +35,7 @@ watchRouteTitle()
         </div>
 
         <AppFooter />
+        <ConsentBanner />
       </v-main>
     </v-layout>
   </v-app>

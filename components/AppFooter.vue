@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { user } = useAppShell()
+const { consent, reset } = useAnalyticsConsent()
 </script>
 
 <template>
@@ -9,5 +10,16 @@ const { user } = useAppShell()
   >
     <span>&copy; {{ new Date().getFullYear() }}</span>
     <b>{{ user.fullName }}</b>
+    <ClientOnly>
+      <v-btn
+        v-if="consent"
+        variant="text"
+        size="small"
+        class="text-none ml-2"
+        @click="reset"
+      >
+        Cookie settings
+      </v-btn>
+    </ClientOnly>
   </v-footer>
 </template>

@@ -131,7 +131,7 @@ onMounted(async () => {
     <v-breadcrumbs :items="breadcrumbItems" divider="-"></v-breadcrumbs>
 
     <v-card>
-      <v-card-title class="text-center">{{ title }}</v-card-title>
+      <v-card-title tag="h1" class="text-center">{{ title }}</v-card-title>
 
       <v-card-text>
         <v-row>
@@ -141,7 +141,7 @@ onMounted(async () => {
               <v-img
                 v-if="hasSingleImage"
                 :src="optimizedGallerySrc(project.imgs[0], 400)"
-                :alt="title"
+                :alt="`${title} screenshot`"
                 max-height="400"
                 cover
                 class="rounded-lg"
@@ -160,7 +160,7 @@ onMounted(async () => {
                   >
                     <v-img
                       :src="optimizedGallerySrc(image, 400)"
-                      :alt="title"
+                      :alt="`${title} screenshot ${n + 1} of ${imageCount}`"
                       max-height="400"
                       cover
                     />
@@ -178,7 +178,7 @@ onMounted(async () => {
                   >
                     <v-img
                       :src="optimizedGallerySrc(image, 100)"
-                      :alt="title"
+                      alt=""
                       max-height="100"
                       cover
                     />
