@@ -1,4 +1,3 @@
-import jsPDF from "jspdf"
 import type { Contact, Project } from "~/types/general"
 
 /** Strip HTML / entities so ATS parsers get plain text. */
@@ -37,6 +36,8 @@ export const useResumePDF = () => {
     const projectsStore = useProjectsStore()
     const skillsStore = useSkillsStore()
     const contactsStore = useContactStore()
+    // Loaded on demand so jsPDF stays out of the initial page bundle
+    const { jsPDF } = await import("jspdf")
 
     const info = aboutStore.getInfo
     const experiences = aboutStore.getExperiences

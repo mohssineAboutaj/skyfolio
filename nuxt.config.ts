@@ -15,7 +15,7 @@ const projectRoutes = projects
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: process.env.NODE_ENV !== "production" },
 
   // Enable SSG (Static Site Generation) - generates static HTML files
   ssr: true,
@@ -89,14 +89,6 @@ export default defineNuxtConfig({
       prefixComposables: ["useLayout"],
     },
     vuetifyOptions: "./vuetify.config.ts",
-  },
-
-  swiper: {
-    // Swiper options
-    //----------------------
-    // prefix: 'Swiper',
-    // styleLang: 'css',
-    // modules: ['navigation', 'pagination'], // all modules are imported by default
   },
 
   site: {
