@@ -42,12 +42,8 @@ tests/
 │   │   └── statistics.test.ts
 │   └── types/               # Types unit tests
 │       └── general.test.ts
-├── e2e/                      # End-to-end tests
-│   ├── skills.spec.ts       # Skills page E2E tests
-│   ├── reusable-components.spec.ts  # Reusable components E2E tests
-│   ├── main-components.spec.ts      # Main components E2E tests
-│   ├── pages.spec.ts        # Pages E2E tests
-│   └── data-stores-composables.spec.ts # Data, stores, composables E2E tests
+├── e2e/                      # Playwright tests against the generated site
+│   └── site.spec.ts         # Home, navigation, resume, projects, 404
 ├── utils/                    # Test utilities
 │   └── test-utils.ts        # Common testing utilities
 ├── setup.ts                  # Global test setup
@@ -65,10 +61,10 @@ tests/
 
 ### E2E Tests (`tests/e2e/`)
 
-- **Purpose**: Test complete user workflows and page interactions
-- **Focus**: Page rendering, user interactions, responsive behavior
-- **Location**: `tests/e2e/`
-- **Example**: `skills.spec.ts`
+- **Purpose**: Test the real generated site in a browser (Playwright, Chromium)
+- **Focus**: Page rendering, navigation, downloads, HTTP status codes, desktop and mobile
+- **Location**: `tests/e2e/` (run with `npm run test:e2e` after `npm run generate`)
+- **Example**: `site.spec.ts`
 
 ## 🎭 Mocks (`tests/mocks/`)
 
@@ -343,13 +339,12 @@ describe("NewComponent", () => {
 
 ```typescript
 // tests/e2e/new-page.spec.ts
-import { describe, it, expect, vi } from "vitest"
-import { mount } from "@vue/test-utils"
+import { expect, test } from "@playwright/test"
 
-describe("New Page E2E", () => {
-  it("should load the page successfully", async () => {
-    // Your E2E test logic
-  })
+test("new page loads", async ({ page }) => {
+  const response = await page.goto("/new-page")
+  expect(response?.status()).toBe(200)
+  await expect(page.locator("h1")).toBeVisible()
 })
 ```
 

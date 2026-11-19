@@ -129,7 +129,9 @@ export default defineNuxtConfig({
         ...projectRoutes, // All project detail pages
       ],
       crawlLinks: true, // Automatically discover and prerender linked pages
-      failOnError: false, // Don't fail build if some routes can't be prerendered
+      failOnError: true, // A page that fails to prerender should fail the build
+      // Netlify Image CDN URLs only exist on Netlify; don't crawl them
+      ignore: ["/.netlify/"],
     },
     // Ensure static assets are properly generated
     output: {
