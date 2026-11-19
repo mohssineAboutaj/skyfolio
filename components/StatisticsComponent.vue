@@ -3,7 +3,7 @@ import {
   ESTIMATED_LINES_PER_HOUR,
   getCodingActivity,
   getReposCount,
-} from "~/composables/StatisticsCompasables"
+} from "~/utils/statistics"
 import type { Statistic } from "~/types/general"
 
 const CAREER_START_YEAR = 2018

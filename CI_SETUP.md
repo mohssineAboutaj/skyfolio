@@ -127,7 +127,7 @@ npm run test:all     # Run complete test suite
 
 ### **Composables (1)**
 
-- ✅ StatisticsCompasables
+- ✅ statistics utils
 
 ### **Types (1)**
 

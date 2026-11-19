@@ -4,7 +4,7 @@ const {
   links,
   activeLink,
   showHomeBtn,
-  hideToolbarLinks,
+  showToolbarLinks,
   isGeneratingPDF,
   toggleDrawer,
   goToTarget,
@@ -27,13 +27,13 @@ const {
 
     <v-toolbar-title class="font-weight-bold">{{ title }}</v-toolbar-title>
 
-    <v-toolbar-items v-if="hideToolbarLinks" class="hidden-sm-and-down">
+    <v-toolbar-items v-if="showToolbarLinks" class="hidden-sm-and-down">
       <v-tabs v-model="activeLink" align-tabs="center" stacked>
         <v-tab
           v-for="link in links"
           :key="link.value"
           :value="link.value"
-          :active="link.isCurrent"
+          :active="activeLink === link.value"
           hide-slider
           @click="goToTarget(link)"
         >

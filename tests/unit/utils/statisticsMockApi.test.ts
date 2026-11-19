@@ -11,7 +11,7 @@ import {
   mockWakatimeErrorResponse
 } from '~/tests/mocks/composables.mock'
 
-describe('StatisticsCompasables', () => {
+describe('statistics (mock API)', () => {
   beforeEach(() => {
     vi.clearAllMocks()
   })

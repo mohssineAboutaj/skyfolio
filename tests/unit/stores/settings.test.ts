@@ -12,9 +12,8 @@ describe("Settings Store", () => {
   })
 
   describe("Store structure", () => {
-    it("should expose links and title getters", () => {
+    it("should expose the title getter", () => {
       const store = useSettingsStore()
-      expect(store.getLinks.length).toBeGreaterThan(0)
       expect(store.getTitle).toBe(info.fullName)
     })
   })

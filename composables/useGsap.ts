@@ -1,3 +1,4 @@
+import { getToolbarHeight } from "~/utils/toolbar"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -15,8 +16,7 @@ function prefersReducedMotion() {
 }
 
 function toolbarScrollStart() {
-  const toolbarHeight =
-    document.querySelector(".v-toolbar")?.clientHeight || 64
+  const toolbarHeight = getToolbarHeight(64)
   return `top ${80 + Math.round((toolbarHeight / window.innerHeight) * 100)}%`
 }
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { bindMagneticAll } = useGsap()
-const { syncTitleFromStore, watchRouteTitle } = useAppShell()
+const { watchRouteTitle } = useAppShell()
 
 let cleanupMagnetic = () => {}
 
@@ -14,7 +14,6 @@ onBeforeUnmount(() => {
   cleanupMagnetic()
 })
 
-syncTitleFromStore()
 watchRouteTitle()
 </script>
 

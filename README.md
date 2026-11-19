@@ -159,8 +159,9 @@ skyfolio/
 │   ├── skills.data.ts      # Skills data
 │   ├── services.data.ts    # Services data
 │   └── about/              # About data
-├── composables/             # Reusable logic
-│   └── StatisticsCompasables.ts # GitHub/Wakatime API
+├── composables/             # Reusable logic (useAppShell, useGsap, ...)
+├── utils/                   # Pure helpers
+│   └── statistics.ts       # GitHub/WakaTime API fetchers
 ├── tests/                   # Test files
 │   ├── unit/               # Unit tests
 │   ├── e2e/                # E2E tests

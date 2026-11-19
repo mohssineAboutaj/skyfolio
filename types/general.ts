@@ -13,7 +13,6 @@ export interface Link {
   title: string
   value: string
   targetId: string
-  isCurrent: boolean
 }
 
 export interface Social {

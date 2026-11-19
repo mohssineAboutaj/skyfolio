@@ -3,7 +3,7 @@ import {
   ESTIMATED_LINES_PER_HOUR,
   getCodingActivity,
   getReposCount,
-} from "~/composables/StatisticsCompasables"
+} from "~/utils/statistics"
 
 function jsonResponse(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), {
