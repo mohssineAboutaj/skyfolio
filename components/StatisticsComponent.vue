@@ -1,70 +1,82 @@
 <script setup lang="ts">
 import {
-  getReposCount,
+  ESTIMATED_LINES_PER_HOUR,
   getCodingActivity,
+  getReposCount,
 } from "~/composables/StatisticsCompasables"
 import type { Statistic } from "~/types/general"
+
+const CAREER_START_YEAR = 2018
 
 // store
 const { getProjectsCount } = useProjectsStore()
 const { revealSection } = useGsap()
 
-const statistics: Statistic[] = reactive([])
-let motionWired = false
-
-onMounted(() => {
-  // for now push static projects count
-  statistics.push({
-    title: "Projects Count",
-    subtitle: "Total projects available in my portfolio.",
-    value: getProjectsCount,
-    icon: "mdi-folder-multiple",
-  })
-
-  getReposCount().then((res) => {
-    statistics.push({
-      title: "Repos Count",
-      subtitle: "Total public repositories on my GitHub.",
-      value: res,
-      icon: "mdi-source-branch",
-    })
-  })
-
-  getCodingActivity().then((res) => {
-    statistics.push({
-      title: "Total Worked Hours",
-      subtitle: "Total hours spent on coding coming from WakaTime.",
-      value: res.totalHours,
-      icon: "mdi-clock-time-four-outline",
-    })
-    statistics.push({
-      title: "Total Coded Lines",
-      subtitle: "Total lines of code written based on working hours.",
-      value: res.totalCodedLines,
-      icon: "mdi-code-tags",
-    })
-  })
-
-  // experience in years since 2018
-  statistics.push({
-    title: "Experience in Years",
-    subtitle: "Real experience in years since 2018.",
-    value: new Date().getFullYear() - 2018,
-    icon: "mdi-calendar-check-outline",
-  })
+// Fetched during prerender and stored in the page payload, so visitors never
+// hit the GitHub/WakaTime APIs. Each source fails independently to null.
+const { data: remote } = await useAsyncData("portfolio-statistics", async () => {
+  const { githubToken } = useRuntimeConfig()
+  const [repos, activity] = await Promise.all([
+    getReposCount(githubToken || undefined),
+    getCodingActivity(),
+  ])
+  return { repos, activity }
 })
 
-watch(
-  () => statistics.length,
-  async (len) => {
-    if (len < 2 || motionWired) return
-    motionWired = true
-    await nextTick()
-    revealSection("#statistics", {
-      childSelector: "[data-animate-child]",
+const statistics = computed<Statistic[]>(() => {
+  const stats: Statistic[] = [
+    {
+      title: "Projects Count",
+      subtitle: "Total projects available in my portfolio.",
+      value: getProjectsCount,
+      icon: "mdi-folder-multiple",
+    },
+  ]
+
+  const repos = remote.value?.repos
+  if (repos != null) {
+    stats.push({
+      title: "Repos Count",
+      subtitle: "Total public repositories on my GitHub.",
+      value: repos,
+      icon: "mdi-source-branch",
     })
-  },
-)
+  }
+
+  const activity = remote.value?.activity
+  if (activity) {
+    stats.push(
+      {
+        title: "Total Worked Hours",
+        subtitle: "Total hours spent on coding, tracked by WakaTime.",
+        value: activity.totalHours,
+        icon: "mdi-clock-time-four-outline",
+      },
+      {
+        title: "Estimated Lines of Code",
+        subtitle: `Estimate: WakaTime coding hours x ${ESTIMATED_LINES_PER_HOUR} lines per hour.`,
+        value: activity.estimatedLines,
+        icon: "mdi-code-tags",
+      },
+    )
+  }
+
+  stats.push({
+    title: "Experience in Years",
+    subtitle: `Professional experience since ${CAREER_START_YEAR}.`,
+    value: new Date().getFullYear() - CAREER_START_YEAR,
+    icon: "mdi-calendar-check-outline",
+  })
+
+  return stats
+})
+
+onMounted(async () => {
+  await nextTick()
+  revealSection("#statistics", {
+    childSelector: "[data-animate-child]",
+  })
+})
 </script>
 
 <template>
@@ -73,19 +85,7 @@ watch(
     title="Statistics"
     subtitle="A snapshot of projects, open-source activity, and time invested in shipping software."
   >
-    <v-row v-if="statistics.length == 0">
-      <v-col
-        v-for="n in 3"
-        :key="`about-statistics-skeleton-${n}`"
-        cols="12"
-        sm="6"
-        md="4"
-      >
-        <v-skeleton-loader type="card"></v-skeleton-loader>
-      </v-col>
-    </v-row>
-
-    <v-row v-else justify="space-around">
+    <v-row justify="space-around">
       <v-col
         v-for="stat in statistics"
         :key="stat.title"

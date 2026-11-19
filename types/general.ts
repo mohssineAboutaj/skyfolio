@@ -33,7 +33,6 @@ export interface AboutInfo {
   lastName: string
   fullName: string
   email: string
-  birth: string
   address: string
   phone: string
   jobs: string[]
@@ -77,6 +76,7 @@ export interface AboutExperience {
 
 export interface Statistic {
   title: string
+  subtitle?: string
   value: number
   icon: string
 }
