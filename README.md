@@ -3,12 +3,13 @@
 A modern, responsive portfolio website built with Vue.js, Nuxt.js, and Vuetify. Showcase your projects, skills, and professional information with a beautiful, interactive design.
 
 <div style="text-align: center;">
+  <a href="https://github.com/mohssineAboutaj/skyfolio/actions/workflows/test.yml"><img src="https://github.com/mohssineAboutaj/skyfolio/actions/workflows/test.yml/badge.svg" alt="Test Suite" /></a>
   <img src="https://img.shields.io/badge/Vue.js-3.x-4FC08D?logo=vue.js&logoColor=white" alt="Vue.js" />
-  <img src="https://img.shields.io/badge/Nuxt.js-3.x-00DC82?logo=nuxt.js&logoColor=white" alt="Nuxt.js" />
+  <img src="https://img.shields.io/badge/Nuxt-4.x-00DC82?logo=nuxt.js&logoColor=white" alt="Nuxt" />
   <img src="https://img.shields.io/badge/Vuetify-3.x-1867C0?logo=vuetify&logoColor=white" alt="Vuetify" />
   <img src="https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Vitest-1.x-6E9F18?logo=vitest&logoColor=white" alt="Vitest" />
-  <img src="https://img.shields.io/badge/Node.js-%3E%3D18.0.0-brightgreen" alt="Node.js" />
+  <img src="https://img.shields.io/badge/Vitest-4.x-6E9F18?logo=vitest&logoColor=white" alt="Vitest" />
+  <img src="https://img.shields.io/badge/Node.js-22-brightgreen" alt="Node.js" />
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="License" />
 </div>
 
@@ -95,8 +96,8 @@ A modern, responsive portfolio website built with Vue.js, Nuxt.js, and Vuetify. 
 
 ### Prerequisites
 
-- Node.js >= 18.0.0
-- npm or yarn
+- Node.js 22 (same as Netlify and CI)
+- npm
 
 ### Installation
 
@@ -128,8 +129,7 @@ npm run test:e2e     # Run E2E tests only
 npm run test:coverage # Run tests with coverage
 npm run test:all     # Run complete test suite
 
-# Linting & Type Checking
-npm run lint         # Lint code
+# Type checking
 npm run typecheck    # Check TypeScript types
 ```
 
@@ -242,6 +242,8 @@ npm run test:coverage
 - **`test.yml`**: Main test suite for all pushes/PRs
 - **`pr-check.yml`**: Enhanced PR experience with comments
 
+See [docs/CI.md](docs/CI.md) for branches, workflows, branch protection, Netlify settings and environment variables.
+
 ## Customization
 
 ### **Personal Information**
@@ -293,13 +295,14 @@ Configure your skills in `data/skills.data.ts`:
 
 ### **Environment Variables**
 
-```bash
-# GitHub API (for statistics)
-GITHUB_TOKEN=your_github_token
+All optional. See [docs/CI.md](docs/CI.md#environment-variables).
 
-# Wakatime API (for coding activity)
-WAKATIME_API_KEY=your_wakatime_key
+```bash
+# Authenticates the build-time GitHub API call for the statistics section
+NUXT_GITHUB_TOKEN=your_github_token
 ```
+
+WakaTime data comes from a public share link and needs no key.
 
 ### **Nuxt Configuration**
 
@@ -337,10 +340,7 @@ npm run preview
 
 ### **Deployment Platforms**
 
-- **Vercel**: Zero-config deployment
-- **Netlify**: Drag-and-drop deployment
-- **GitHub Pages**: Free hosting for open source
-- **Any Static Host**: Compatible with any static hosting
+Production is deployed to **Netlify** from the `release` branch (see `netlify.toml` and [docs/CI.md](docs/CI.md#netlify)). The generated `.output/public` folder also works on any static host.
 
 ## Contributing
 
