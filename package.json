@@ -17,8 +17,8 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:unit": "vitest run tests/unit",
-    "test:e2e": "vitest run tests/e2e",
-    "test:all": "vitest run && vitest run --coverage && vitest run tests/unit && vitest run tests/e2e",
+    "test:e2e": "playwright test",
+    "test:all": "vitest run --coverage",
     "test:watch": "vitest --watch"
   },
   "dependencies": {
@@ -39,6 +39,7 @@
     "@nuxt/test-utils": "^4.1.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/seo": "^5.3.6",
+    "@playwright/test": "^1.65.1",
     "@vitejs/plugin-vue": "^6.0.8",
     "@vitest/coverage-v8": "4.1.10",
     "@vitest/ui": "4.1.10",

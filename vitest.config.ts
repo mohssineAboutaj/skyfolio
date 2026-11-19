@@ -6,6 +6,8 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./tests/setup.ts'],
+    // tests/e2e holds Playwright specs (npm run test:e2e)
+    include: ['tests/unit/**/*.{test,spec}.ts'],
     root: fileURLToPath(new URL('./', import.meta.url)),
     css: true,
     deps: {

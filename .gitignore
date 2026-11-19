@@ -34,5 +34,7 @@ plans
 
 # Testing
 coverage
+playwright-report
+test-results
 *.lcov
 .nyc_output

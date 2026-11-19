@@ -86,9 +86,8 @@ A modern, responsive portfolio website built with Vue.js, Nuxt.js, and Vuetify. 
 
 ### **Testing Infrastructure**
 
-- **620+ Tests**: Comprehensive test coverage
-- **Unit Tests**: Component logic and data validation
-- **E2E Tests**: Integration and data structure validation
+- **Unit Tests**: Vitest for components, stores, data and utils
+- **E2E Tests**: Playwright against the generated static site (desktop and mobile)
 - **CI/CD Pipeline**: Automated testing on GitHub Actions
 - **Coverage Reports**: Detailed test coverage analysis
 
@@ -200,10 +199,8 @@ skyfolio/
 
 ### **Test Coverage**
 
-- **620 Tests**: Comprehensive test suite
-- **508 Unit Tests**: Component logic and data validation
-- **112 E2E Tests**: Integration and data structure validation
-- **25 Test Files**: Organized by component and feature
+- **Unit tests** (`tests/unit/`, Vitest): components, pages, stores, data and utils
+- **E2E tests** (`tests/e2e/`, Playwright): run in Chromium at desktop and mobile sizes against the generated site, served the way Netlify serves it (`scripts/serve-static.mjs`). They cover the home page, statistics, toolbar/drawer navigation, resume download, the prerendered project list, project pages and real 404 responses.
 
 ### **What's Tested**
 
@@ -217,30 +214,29 @@ skyfolio/
 ### **Running Tests**
 
 ```bash
-# Run all tests
+# Unit tests (with coverage)
 npm run test:all
 
-# Run specific test types
+# Unit tests only, no coverage
 npm run test:unit
-npm run test:e2e
 
-# Generate coverage report
-npm run test:coverage
+# E2E tests: generate the site first, then run Playwright
+npx playwright install chromium   # once
+npm run generate
+npm run test:e2e
 ```
 
 ## CI/CD Pipeline
 
 ### **GitHub Actions**
 
-- **Automated Testing**: Runs on every push and pull request
-- **Quality Checks**: Prevents broken code from merging
-- **Coverage Reports**: Tracks test coverage trends
-- **PR Comments**: Automated feedback on pull requests
+- **Runs on**: pushes and pull requests to `master` and `release`
+- **Typecheck + unit tests**: coverage summary shown on the workflow run page
+- **Build + e2e**: `nuxt generate` with the Netlify preset (fails on any prerender error), then Playwright
 
 ### **Workflows**
 
-- **`test.yml`**: Main test suite for all pushes/PRs
-- **`pr-check.yml`**: Enhanced PR experience with comments
+- **`test.yml`**: two jobs, "Typecheck and unit tests" and "Build and e2e tests"
 
 See [docs/CI.md](docs/CI.md) for branches, workflows, branch protection, Netlify settings and environment variables.
 
