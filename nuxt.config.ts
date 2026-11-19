@@ -129,7 +129,6 @@ export default defineNuxtConfig({
         '/',
         '/projects',
         ...projectRoutes, // All project detail pages
-        '/404'
       ],
       crawlLinks: true, // Automatically discover and prerender linked pages
       failOnError: false, // Don't fail build if some routes can't be prerendered

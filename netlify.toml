@@ -29,8 +29,5 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# SPA fallback for client-side routes that were not prerendered
-[[redirects]]
-  from = "/*"
-  to = "/200.html"
-  status = 200
+# Unknown routes fall through to the generated _redirects rule
+# (/* -> /404.html with status 404), so missing pages return a real 404.

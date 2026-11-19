@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { Project } from "~/types/general"
-import { truncateMetaDescription } from "~/utils/portfolioSeo"
+import {
+  absoluteSiteUrl,
+  buildProjectSchema,
+  truncateMetaDescription,
+} from "~/utils/portfolioSeo"
 
 // store
 const { getBySlug } = useProjectsStore()
@@ -9,30 +13,32 @@ const { gsap, reducedMotion, getScrollStart, ScrollTrigger } = useGsap()
 
 // route
 const route = useRoute()
-const router = useRouter()
 
 // data
-/// reactive
-const project = reactive<Project>({
-  id: "",
-  title: "",
-  slug: "",
-  description: "",
-  imgs: [],
-  visible: false,
-  featured: false,
-  types: [],
-  tech: [],
-  platforms: [],
-  status: undefined,
-})
-const slug = ref("")
-const title = ref("")
-const breadcrumbItems = reactive([
+const slug = route.params.slug as string
+const found = getBySlug(slug)
+
+if (!found) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Project not found",
+    fatal: true,
+  })
+}
+
+const project: Project = {
+  ...found,
+  imgs: [...(found.imgs ?? [])],
+  platforms: [...(found.platforms ?? [])],
+}
+const title = project.title
+const breadcrumbItems = [
   { title: "Home", disabled: false, to: "/" },
   { title: "Projects", disabled: false, to: "/projects" },
-  { title: "", disabled: true },
-])
+  { title, disabled: true },
+]
+updateTitle(title)
+
 const galleryRef = ref<HTMLElement | null>(null)
 const mainSwiperRef = ref(null)
 const thumbsSwiperRef = ref(null)
@@ -40,14 +46,34 @@ const thumbsSwiperRef = ref(null)
 const imageCount = computed(() => project.imgs?.length ?? 0)
 const hasGallery = computed(() => imageCount.value > 1)
 const hasSingleImage = computed(() => imageCount.value === 1)
-const projectMetaDescription = computed(() =>
-  truncateMetaDescription(project.description),
-)
+const projectMetaDescription = truncateMetaDescription(project.description)
+const projectUrl = absoluteSiteUrl(`/projects/${project.slug}`)
+const projectImage = project.imgs[0]
+  ? absoluteSiteUrl(project.imgs[0])
+  : undefined
 
 useSeoMeta({
-  title: () => project.title || "Project",
-  description: () => projectMetaDescription.value,
+  title: project.title,
+  description: projectMetaDescription,
+  ogTitle: project.title,
+  ogDescription: projectMetaDescription,
+  ogUrl: projectUrl,
+  ...(projectImage && {
+    ogImage: projectImage,
+    ogImageAlt: project.title,
+    twitterImage: projectImage,
+  }),
 })
+
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: breadcrumbItems.map((item) => ({
+      name: item.title,
+      ...(item.to && { item: item.to }),
+    })),
+  }),
+  buildProjectSchema(project),
+])
 
 const { instance: mainSwiper } = useSwiper(mainSwiperRef, {
   slidesPerView: 1,
@@ -76,36 +102,6 @@ watch([mainSwiper, thumbsSwiper], ([main, thumbs]) => {
   main.params.thumbs = { swiper: thumbs }
   main.thumbs?.init()
   main.thumbs?.update(true)
-})
-
-function loadProject() {
-  slug.value = route.params.slug as string
-  const projectFromStore = getBySlug(slug.value)
-
-  if (projectFromStore) {
-    Object.assign(project, {
-      ...projectFromStore,
-      imgs: [...(projectFromStore.imgs ?? [])],
-      platforms: [...(projectFromStore.platforms ?? [])],
-    })
-    title.value = project.title
-    updateTitle(title.value)
-    breadcrumbItems[2].title = title.value
-    return true
-  }
-
-  return false
-}
-
-// Load during setup so SSR has imgs defined
-if (!loadProject() && import.meta.client) {
-  router.push("/404")
-}
-
-onBeforeMount(() => {
-  if (!project.id && !loadProject()) {
-    router.push("/404")
-  }
 })
 
 onMounted(async () => {

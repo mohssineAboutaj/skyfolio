@@ -1,6 +1,7 @@
 import aboutInfo from "../data/about/info.data"
 import contacts from "../data/contacts.data"
 import skills from "../data/skills.data"
+import type { Project } from "../types/general"
 
 export const PORTFOLIO_SITE_URL = "https://mohssineaboutaj.com/"
 
@@ -44,6 +45,33 @@ export function truncateMetaDescription(text: string, maxLength = 160): string {
 
   if (plain.length <= maxLength) return plain
   return `${plain.slice(0, maxLength - 1).trimEnd()}…`
+}
+
+/** Resolve a site-relative path (e.g. "/images/x.png") to an absolute URL. */
+export function absoluteSiteUrl(path: string): string {
+  return new URL(path, PORTFOLIO_SITE_URL).toString()
+}
+
+/** schema.org CreativeWork node describing a portfolio project. */
+export function buildProjectSchema(project: Project) {
+  const liveUrl = project.platforms?.find((p) => p.url.startsWith("http"))?.url
+
+  return {
+    "@type": "CreativeWork",
+    name: project.title,
+    description: truncateMetaDescription(project.description, 300),
+    url: absoluteSiteUrl(`/projects/${project.slug}`),
+    ...(project.imgs.length && {
+      image: project.imgs.map((img) => absoluteSiteUrl(img)),
+    }),
+    keywords: [...project.types, ...project.tech].join(", "),
+    ...(liveUrl && { sameAs: liveUrl }),
+    creator: {
+      "@type": "Person",
+      name: aboutInfo.fullName,
+      url: PORTFOLIO_SITE_URL,
+    },
+  }
 }
 
 export const portfolioPersonIdentity = {
