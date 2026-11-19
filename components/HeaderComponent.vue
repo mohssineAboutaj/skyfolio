@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useGoTo, useDisplay } from "vuetify"
+import { useGoTo } from "vuetify"
 import TypewriterComponent from "~/components/TypewriterComponent.vue"
 
 // store
@@ -9,7 +9,6 @@ const { getFeatured } = useContactStore()
 const goTo = useGoTo()
 const { playHeroEntrance, bindSpotlight } = useGsap()
 const { optimize } = useOptimizedImage()
-const { mdAndDown } = useDisplay()
 
 const user = computed(() => getInfo)
 const contacts = computed(() => getFeatured)
@@ -23,23 +22,30 @@ const chevronRef = ref<HTMLElement | null>(null)
 let heroPlayed = false
 let cleanupSpotlight = () => {}
 
-const avatarSize = computed(() => (mdAndDown.value ? 150 : 250))
-const optimizedAvatar = computed(() =>
-  optimize(user.value.avatar, {
-    width: avatarSize.value,
-    height: avatarSize.value,
-  }),
+// One responsive image for every viewport: CSS sets the rendered size
+// (150px below lg, 250px from lg up) and the browser picks the best width
+// from srcset, so server and client output match and only one file loads.
+const AVATAR_WIDTHS = [150, 250, 300, 500]
+const AVATAR_SIZES = "(max-width: 1279.98px) 150px, 250px"
+const avatarSrcset = computed(() =>
+  AVATAR_WIDTHS.map(
+    (w) => `${optimize(user.value.avatar, { width: w, height: w })} ${w}w`,
+  ).join(", "),
+)
+const avatarSrc = computed(() =>
+  optimize(user.value.avatar, { width: 250, height: 250 }),
 )
 
 useHead({
   link: computed(() => {
-    const href = optimizedAvatar.value
-    if (!href) return []
+    if (!avatarSrc.value) return []
     return [
       {
         rel: "preload",
         as: "image",
-        href,
+        href: avatarSrc.value,
+        imagesrcset: avatarSrcset.value,
+        imagesizes: AVATAR_SIZES,
         fetchpriority: "high",
       },
     ]
@@ -168,12 +174,11 @@ function goToContacts() {
         </v-col>
         <v-col cols="12" md="6" class="text-center">
           <div ref="avatarRef" class="d-inline-block" data-magnetic>
-            <v-avatar
-              :size="$vuetify.display.mdAndDown ? 150 : 250"
-              class="elevation-12 mx-auto mb-8"
-            >
+            <v-avatar class="hero-avatar elevation-12 mx-auto mb-8">
               <v-img
-                :src="optimizedAvatar"
+                :src="avatarSrc"
+                :srcset="avatarSrcset"
+                :sizes="AVATAR_SIZES"
                 :alt="`${user.fullName} avatar`"
                 color="primary"
               ></v-img>
@@ -229,6 +234,18 @@ function goToContacts() {
 .hero-stage > .v-container {
   position: relative;
   z-index: 1;
+}
+
+.hero-avatar {
+  width: 150px;
+  height: 150px;
+}
+
+@media (min-width: 1280px) {
+  .hero-avatar {
+    width: 250px;
+    height: 250px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
