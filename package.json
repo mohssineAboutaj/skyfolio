@@ -30,7 +30,6 @@
     "nuxt": "^4.5.1",
     "nuxt-swiper": "^2.0.2",
     "pinia": "^4.0.2",
-    "playwright-core": "^1.62.1",
     "vue": "^3.5.40",
     "vue-router": "^5.2.0"
   },
@@ -40,7 +39,6 @@
     "@nuxt/test-utils": "^4.1.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/seo": "^5.3.6",
-    "@types/jspdf": "^2.0.0",
     "@vitejs/plugin-vue": "^6.0.8",
     "@vitest/coverage-v8": "4.1.10",
     "@vitest/ui": "4.1.10",

@@ -9,10 +9,14 @@ dist
 # Node dependencies
 node_modules
 
+# npm is the package manager; ignore other lockfiles
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+
 # Logs
 logs
 *.log
-*.lock
 
 # Misc
 .DS_Store
