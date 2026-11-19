@@ -80,16 +80,16 @@ describe('ProjectDetailPage Unit Tests', () => {
     })
 
     it('should have correct breadcrumb items', () => {
-      expect(mockProjectDetailBreadcrumbs[0].title).toBe('Home')
-      expect(mockProjectDetailBreadcrumbs[0].to).toBe('/')
-      expect(mockProjectDetailBreadcrumbs[0].disabled).toBe(false)
+      expect(mockProjectDetailBreadcrumbs[0]!.title).toBe('Home')
+      expect(mockProjectDetailBreadcrumbs[0]!.to).toBe('/')
+      expect(mockProjectDetailBreadcrumbs[0]!.disabled).toBe(false)
 
-      expect(mockProjectDetailBreadcrumbs[1].title).toBe('Projects')
-      expect(mockProjectDetailBreadcrumbs[1].to).toBe('/projects')
-      expect(mockProjectDetailBreadcrumbs[1].disabled).toBe(false)
+      expect(mockProjectDetailBreadcrumbs[1]!.title).toBe('Projects')
+      expect(mockProjectDetailBreadcrumbs[1]!.to).toBe('/projects')
+      expect(mockProjectDetailBreadcrumbs[1]!.disabled).toBe(false)
 
-      expect(mockProjectDetailBreadcrumbs[2].title).toBe('E-commerce Platform')
-      expect(mockProjectDetailBreadcrumbs[2].disabled).toBe(true)
+      expect(mockProjectDetailBreadcrumbs[2]!.title).toBe('E-commerce Platform')
+      expect(mockProjectDetailBreadcrumbs[2]!.disabled).toBe(true)
     })
   })
 

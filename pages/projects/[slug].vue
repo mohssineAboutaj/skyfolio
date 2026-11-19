@@ -93,7 +93,7 @@ const { instance: thumbsSwiper } = useSwiper(thumbsSwiperRef, {
 
 const { optimize } = useOptimizedImage()
 
-function optimizedGallerySrc(src: string, height: number) {
+function optimizedGallerySrc(src: string | undefined, height: number) {
   return optimize(src, { height, quality: 75 })
 }
 

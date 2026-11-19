@@ -31,7 +31,6 @@ describe('AboutComponent Unit Tests', () => {
       expect(mockAboutInfo).toHaveProperty('lastName')
       expect(mockAboutInfo).toHaveProperty('fullName')
       expect(mockAboutInfo).toHaveProperty('email')
-      expect(mockAboutInfo).toHaveProperty('birth')
       expect(mockAboutInfo).toHaveProperty('address')
       expect(mockAboutInfo).toHaveProperty('phone')
       expect(mockAboutInfo).toHaveProperty('jobs')
@@ -66,14 +65,14 @@ describe('AboutComponent Unit Tests', () => {
 
     it('should have valid education data', () => {
       expect(mockAboutEducations.length).toBe(2)
-      expect(mockAboutEducations[0].title).toBe('Bachelor of Computer Science')
-      expect(mockAboutEducations[0].enterprise).toBe('University of Technology')
-      expect(mockAboutEducations[0].year).toBe(2015)
+      expect(mockAboutEducations[0]!.title).toBe('Bachelor of Computer Science')
+      expect(mockAboutEducations[0]!.enterprise).toBe('University of Technology')
+      expect(mockAboutEducations[0]!.year).toBe(2015)
     })
 
     it('should have chronological education order', () => {
       const years = mockAboutEducations.map(edu => edu.year)
-      expect(years[0]).toBeLessThan(years[1])
+      expect(years[0]!).toBeLessThan(years[1]!)
     })
   })
 
@@ -90,9 +89,9 @@ describe('AboutComponent Unit Tests', () => {
 
     it('should have valid certification data', () => {
       expect(mockAboutCertifications.length).toBe(2)
-      expect(mockAboutCertifications[0].title).toBe('AWS Certified Developer')
-      expect(mockAboutCertifications[0].enterprise).toBe('Amazon Web Services')
-      expect(mockAboutCertifications[0].year).toBe(2022)
+      expect(mockAboutCertifications[0]!.title).toBe('AWS Certified Developer')
+      expect(mockAboutCertifications[0]!.enterprise).toBe('Amazon Web Services')
+      expect(mockAboutCertifications[0]!.year).toBe(2022)
     })
 
     it('should have valid certification URLs', () => {

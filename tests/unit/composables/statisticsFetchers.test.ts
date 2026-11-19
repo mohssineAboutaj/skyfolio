@@ -24,7 +24,7 @@ describe("statistics fetchers", () => {
     it("sends the token as a bearer header when provided", async () => {
       const fetchImpl = vi.fn().mockResolvedValue(jsonResponse({ public_repos: 1 }))
       await getReposCount("secret", fetchImpl)
-      const init = fetchImpl.mock.calls[0][1] as RequestInit
+      const init = fetchImpl.mock.calls[0]![1] as RequestInit
       expect((init.headers as Record<string, string>).Authorization).toBe(
         "Bearer secret",
       )

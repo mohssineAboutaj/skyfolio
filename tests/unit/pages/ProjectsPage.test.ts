@@ -36,10 +36,10 @@ describe('ProjectsPage Unit Tests', () => {
 
     it('should have correct breadcrumb items', () => {
       expect(mockProjectsPageData.breadcrumbItems).toHaveLength(2)
-      expect(mockProjectsPageData.breadcrumbItems[0].title).toBe('Home')
-      expect(mockProjectsPageData.breadcrumbItems[0].to).toBe('/')
-      expect(mockProjectsPageData.breadcrumbItems[1].title).toBe('Projects')
-      expect(mockProjectsPageData.breadcrumbItems[1].disabled).toBe(true)
+      expect(mockProjectsPageData.breadcrumbItems[0]!.title).toBe('Home')
+      expect(mockProjectsPageData.breadcrumbItems[0]!.to).toBe('/')
+      expect(mockProjectsPageData.breadcrumbItems[1]!.title).toBe('Projects')
+      expect(mockProjectsPageData.breadcrumbItems[1]!.disabled).toBe(true)
     })
 
     it('should have correct ALL constant', () => {
@@ -129,8 +129,8 @@ describe('ProjectsPage Unit Tests', () => {
         project.types.includes('web')
       )
       expect(webProjects.length).toBe(2)
-      expect(webProjects[0].title).toBe('E-commerce Platform')
-      expect(webProjects[1].title).toBe('Web Dashboard')
+      expect(webProjects[0]!.title).toBe('E-commerce Platform')
+      expect(webProjects[1]!.title).toBe('Web Dashboard')
     })
 
     it('should filter mobile projects correctly', () => {
@@ -138,7 +138,7 @@ describe('ProjectsPage Unit Tests', () => {
         project.types.includes('mobile')
       )
       expect(mobileProjects.length).toBe(1)
-      expect(mobileProjects[0].title).toBe('Mobile App')
+      expect(mobileProjects[0]!.title).toBe('Mobile App')
     })
 
     it('should filter desktop projects correctly', () => {
@@ -146,7 +146,7 @@ describe('ProjectsPage Unit Tests', () => {
         project.types.includes('desktop')
       )
       expect(desktopProjects.length).toBe(1)
-      expect(desktopProjects[0].title).toBe('Desktop Application')
+      expect(desktopProjects[0]!.title).toBe('Desktop Application')
     })
 
     it('should show all projects when type is "all"', () => {

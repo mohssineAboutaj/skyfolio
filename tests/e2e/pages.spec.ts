@@ -62,10 +62,10 @@ describe('Pages E2E Tests', () => {
 
     it('should have valid breadcrumb navigation', () => {
       expect(mockProjectsPageData.breadcrumbItems).toHaveLength(2)
-      expect(mockProjectsPageData.breadcrumbItems[0].title).toBe('Home')
-      expect(mockProjectsPageData.breadcrumbItems[0].to).toBe('/')
-      expect(mockProjectsPageData.breadcrumbItems[1].title).toBe('Projects')
-      expect(mockProjectsPageData.breadcrumbItems[1].disabled).toBe(true)
+      expect(mockProjectsPageData.breadcrumbItems[0]!.title).toBe('Home')
+      expect(mockProjectsPageData.breadcrumbItems[0]!.to).toBe('/')
+      expect(mockProjectsPageData.breadcrumbItems[1]!.title).toBe('Projects')
+      expect(mockProjectsPageData.breadcrumbItems[1]!.disabled).toBe(true)
     })
 
     it('should integrate projects data correctly', () => {
@@ -131,9 +131,9 @@ describe('Pages E2E Tests', () => {
 
     it('should have valid breadcrumb navigation', () => {
       expect(mockProjectDetailBreadcrumbs).toHaveLength(3)
-      expect(mockProjectDetailBreadcrumbs[0].title).toBe('Home')
-      expect(mockProjectDetailBreadcrumbs[1].title).toBe('Projects')
-      expect(mockProjectDetailBreadcrumbs[2].title).toBe('E-commerce Platform')
+      expect(mockProjectDetailBreadcrumbs[0]!.title).toBe('Home')
+      expect(mockProjectDetailBreadcrumbs[1]!.title).toBe('Projects')
+      expect(mockProjectDetailBreadcrumbs[2]!.title).toBe('E-commerce Platform')
     })
 
     it('should have proper swiper configuration', () => {
@@ -198,14 +198,14 @@ describe('Pages E2E Tests', () => {
 
     it('should maintain breadcrumb consistency', () => {
       // Projects page breadcrumbs
-      expect(mockProjectsPageData.breadcrumbItems[0].title).toBe('Home')
-      expect(mockProjectsPageData.breadcrumbItems[0].to).toBe('/')
+      expect(mockProjectsPageData.breadcrumbItems[0]!.title).toBe('Home')
+      expect(mockProjectsPageData.breadcrumbItems[0]!.to).toBe('/')
 
       // Project detail breadcrumbs
-      expect(mockProjectDetailBreadcrumbs[0].title).toBe('Home')
-      expect(mockProjectDetailBreadcrumbs[0].to).toBe('/')
-      expect(mockProjectDetailBreadcrumbs[1].title).toBe('Projects')
-      expect(mockProjectDetailBreadcrumbs[1].to).toBe('/projects')
+      expect(mockProjectDetailBreadcrumbs[0]!.title).toBe('Home')
+      expect(mockProjectDetailBreadcrumbs[0]!.to).toBe('/')
+      expect(mockProjectDetailBreadcrumbs[1]!.title).toBe('Projects')
+      expect(mockProjectDetailBreadcrumbs[1]!.to).toBe('/projects')
     })
   })
 

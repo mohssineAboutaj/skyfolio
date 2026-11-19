@@ -1,7 +1,7 @@
 import type { Skill } from "../types/general"
 import { skillCategories as categories } from "./skillsTab.data"
 
-const skills: Record<string, Skill> = {
+const skills = {
   html: {
     id: "f752b0d3-81ef-4fd7-af7b-0dd9da6a4c8c",
     name: "HTML",
@@ -531,6 +531,6 @@ const skills: Record<string, Skill> = {
     icon: "simple-icons:openai",
     categories: [categories.ai],
   },
-}
+} satisfies Record<string, Skill>
 
 export default skills

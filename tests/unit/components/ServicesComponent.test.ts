@@ -100,7 +100,7 @@ describe('ServicesComponent Unit Tests', () => {
     it('should have consistent data between store and mock', () => {
       const storeServices = mockServicesStore.getAll
       expect(storeServices.length).toBe(mockServices.length)
-      expect(storeServices[0].id).toBe(mockServices[0].id)
+      expect(storeServices[0]!.id).toBe(mockServices[0]!.id)
     })
   })
 

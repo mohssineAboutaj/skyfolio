@@ -412,7 +412,7 @@ export function useGsap() {
     if (!import.meta.client || reducedMotion) return () => {}
 
     const el = resolveEl(container)
-    if (!el) return () => {}
+    if (!(el instanceof HTMLElement)) return () => {}
 
     const isCoarse = window.matchMedia("(pointer: coarse)").matches
     if (isCoarse) return () => {}

@@ -17,7 +17,6 @@ export const mockAboutInfo: AboutInfo = {
   lastName: 'Doe',
   fullName: 'John Doe',
   email: 'john.doe@example.com',
-  birth: '1990-01-01',
   address: 'New York, USA',
   phone: '+1-234-567-8900',
   jobs: ['Frontend Developer', 'UI/UX Designer'],
