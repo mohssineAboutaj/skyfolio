@@ -33,7 +33,8 @@ export function useAppShell() {
     optimize(user.value.avatar, { width: 80, height: 80 }),
   )
 
-  const showHomeBtn = computed(() => route.path === "/404")
+  const error = useError()
+  const showHomeBtn = computed(() => Boolean(error.value))
   const hideToolbarLinks = computed(
     () => showHomeBtn.value || route.path === "/",
   )

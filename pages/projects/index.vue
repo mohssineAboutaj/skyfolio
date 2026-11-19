@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import type { Project } from "~/types/general"
 import { portfolioSiteDescription } from "~/utils/portfolioSeo"
 
 // store
-const { getAll, getProjectsTypesWithProjects } = useProjectsStore()
+const projectsStore = useProjectsStore()
 const { updateTitle } = useSettingsStore()
 
 useSeoMeta({
@@ -19,31 +18,19 @@ const breadcrumbItems = [
   { title: "Projects", disabled: true },
 ]
 const ALL = "all"
+const types = [ALL, ...projectsStore.getProjectsTypesWithProjects]
+
 /// reactive
-const projects: Project[] = reactive([])
-const activeType = ref("")
-const types = [ALL, ...getProjectsTypesWithProjects]
+const activeType = ref(ALL)
 
-const visibleProjects = computed(() =>
-  projects.filter((project) => project.show !== false),
-)
-
-// hooks
-onMounted(() => {
-  getAll().forEach((project) => {
-    projects.push({ ...project, show: true })
-  })
-
-  updateTitle(title)
-  activeType.value = ALL
+// Derived during setup so the list is part of the prerendered HTML
+const visibleProjects = computed(() => {
+  const all = projectsStore.getAll()
+  if (activeType.value === ALL) return all
+  return all.filter((project) => project.types.includes(activeType.value))
 })
 
-// methods
-watch(activeType, (newType) => {
-  projects.forEach((project) => {
-    project.show = newType === "all" || project.types.includes(newType)
-  })
-})
+updateTitle(title)
 </script>
 
 <template>
@@ -63,20 +50,7 @@ watch(activeType, (newType) => {
       </v-tab>
     </v-tabs>
 
-    <v-row v-if="projects.length == 0">
-      <v-col
-        v-for="n in 12"
-        :key="`featured-projects-skeleton-${n}`"
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3"
-      >
-        <v-skeleton-loader type="card"></v-skeleton-loader>
-      </v-col>
-    </v-row>
-
-    <v-row v-else>
+    <v-row>
       <v-col
         v-for="project in visibleProjects"
         :key="project.id"
