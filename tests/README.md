@@ -39,7 +39,7 @@ tests/
 │   ├── stores/              # Stores unit tests
 │   │   └── about.test.ts
 │   ├── composables/         # Composables unit tests
-│   │   └── StatisticsCompasables.test.ts
+│   │   └── statistics.test.ts
 │   └── types/               # Types unit tests
 │       └── general.test.ts
 ├── e2e/                      # End-to-end tests
@@ -438,7 +438,7 @@ The testing structure provides comprehensive coverage:
 
 **Business Logic:**
 
-- **StatisticsCompasables**: GitHub API integration, Wakatime API integration, error handling
+- **statistics utils**: GitHub API integration, Wakatime API integration, error handling
 
 ### **Types Tested** ✅
 

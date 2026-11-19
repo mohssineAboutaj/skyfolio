@@ -22,7 +22,6 @@ describe('Type Definitions Validation', () => {
         title: "Home",
         value: "home",
         targetId: "#home",
-        isCurrent: false,
       }
 
       expect(link).toMatchObject({
@@ -30,7 +29,6 @@ describe('Type Definitions Validation', () => {
         title: expect.any(String),
         value: expect.any(String),
         targetId: expect.any(String),
-        isCurrent: expect.any(Boolean),
       })
     })
 
@@ -40,14 +38,12 @@ describe('Type Definitions Validation', () => {
         title: "Home",
         value: "home",
         targetId: "#home",
-        isCurrent: false,
       }
 
       expect(typeof link.icon).toBe('string')
       expect(typeof link.title).toBe('string')
       expect(typeof link.value).toBe('string')
       expect(typeof link.targetId).toBe('string')
-      expect(typeof link.isCurrent).toBe('boolean')
     })
   })
 
@@ -479,8 +475,8 @@ describe('Type Definitions Validation', () => {
   describe('Type Compatibility', () => {
     it('should allow arrays of interface types', () => {
       const links: Link[] = [
-        { icon: "mdi-home", title: "Home", value: "home", targetId: "#home", isCurrent: false },
-        { icon: "mdi-account", title: "About", value: "about", targetId: "#about", isCurrent: false },
+        { icon: "mdi-home", title: "Home", value: "home", targetId: "#home" },
+        { icon: "mdi-account", title: "About", value: "about", targetId: "#about" },
       ]
 
       const skills: Skill[] = [

@@ -1,33 +1,31 @@
+import { storeToRefs } from "pinia"
+import navLinks from "~/data/navLinks.data"
 import type { Link } from "~/types/general"
-import { useGoTo } from "vuetify"
 
-const drawer = ref(false)
-const isGeneratingPDF = ref(false)
-const activeLink = ref(null)
-const title = ref("")
-let shellReady = false
-let titleSynced = false
-let routeWatched = false
-
+/**
+ * Shared state and actions for the app chrome (toolbar + drawer).
+ * State lives in useState so it is per-request on the server and shared
+ * across every component that calls this composable on the client.
+ */
 export function useAppShell() {
-  const goTo = useGoTo()
   const route = useRoute()
   const router = useRouter()
+  const { scrollToSection } = useScrollToSection()
 
-  const infoStore = useAboutInfoStore().getInfo
-  const { getFeatured } = useContactStore()
-  const { getLinks, getTitle, $subscribe, resetTitle } = useSettingsStore()
+  const drawer = useState("app-shell:drawer", () => false)
+  const isGeneratingPDF = useState("app-shell:generating-pdf", () => false)
+  const activeLink = useState<string | null>("app-shell:active-link", () => null)
+
+  const settingsStore = useSettingsStore()
+  const { title } = storeToRefs(settingsStore)
+  const aboutStore = useAboutInfoStore()
+  const contactStore = useContactStore()
   const { generatePDF } = useResumePDF()
   const { optimize } = useOptimizedImage()
 
-  if (!shellReady) {
-    title.value = getTitle
-    shellReady = true
-  }
-
-  const user = computed(() => infoStore)
-  const socials = computed(() => getFeatured)
-  const links = computed(() => getLinks)
+  const user = computed(() => aboutStore.getInfo)
+  const socials = computed(() => contactStore.getFeatured)
+  const links = navLinks
 
   const drawerAvatar = computed(() =>
     optimize(user.value.avatar, { width: 80, height: 80 }),
@@ -35,12 +33,12 @@ export function useAppShell() {
 
   const error = useError()
   const showHomeBtn = computed(() => Boolean(error.value))
-  const hideToolbarLinks = computed(
+  const showToolbarLinks = computed(
     () => showHomeBtn.value || route.path === "/",
   )
 
   function closeDrawer() {
-    if (drawer.value) drawer.value = false
+    drawer.value = false
   }
 
   function toggleDrawer() {
@@ -48,13 +46,8 @@ export function useAppShell() {
   }
 
   function goToTarget(link: Link) {
-    const toolbarHeight =
-      document.querySelector(".v-toolbar")?.clientHeight || 0
-
-    goTo(link.targetId, { offset: -toolbarHeight })
-
-    getLinks.forEach((l) => (l.isCurrent = false))
-    link.isCurrent = true
+    scrollToSection(link.targetId)
+    activeLink.value = link.value
     closeDrawer()
   }
 
@@ -64,14 +57,12 @@ export function useAppShell() {
       router.push({ path: "/", hash: "#contacts" })
       return
     }
-    const contactsLink = links.value.find((l) => l.value === "contacts")
+    const contactsLink = links.find((l) => l.value === "contacts")
     if (contactsLink) {
       goToTarget(contactsLink)
       return
     }
-    const toolbarHeight =
-      document.querySelector(".v-toolbar")?.clientHeight || 0
-    goTo("#contacts", { offset: -toolbarHeight })
+    scrollToSection("#contacts")
   }
 
   async function handleDownloadResume() {
@@ -85,23 +76,12 @@ export function useAppShell() {
     }
   }
 
-  function syncTitleFromStore() {
-    if (titleSynced) return
-    titleSynced = true
-    $subscribe((_mutate, state) => {
-      title.value = state.title
-    })
-  }
-
+  /** Reset the toolbar title when returning home. Call once from app.vue. */
   function watchRouteTitle() {
-    if (routeWatched) return
-    routeWatched = true
     watch(
       () => route.path,
-      () => {
-        if (route.path === "/") {
-          resetTitle()
-        }
+      (path) => {
+        if (path === "/") settingsStore.resetTitle()
       },
     )
   }
@@ -116,12 +96,11 @@ export function useAppShell() {
     links,
     drawerAvatar,
     showHomeBtn,
-    hideToolbarLinks,
+    showToolbarLinks,
     toggleDrawer,
     goToTarget,
     goToContacts,
     handleDownloadResume,
-    syncTitleFromStore,
     watchRouteTitle,
   }
 }

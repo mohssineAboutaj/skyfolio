@@ -1,5 +1,5 @@
 import { vi } from 'vitest'
-import type { Project, Skill, Service, Contact, AboutInfo, AboutEducation, AboutCertification, Link } from '~/types/general'
+import type { Project, Skill, Service, Contact, AboutInfo, AboutEducation, AboutCertification } from '~/types/general'
 import { mockProjectsData, mockSkillsData, mockServicesData, mockContactsData, mockAboutInfoData, mockAboutEducationData, mockAboutCertificationData } from './data.mock'
 
 // About Store Mock
@@ -60,62 +60,8 @@ export const mockContactsStore = {
 }
 
 // Settings Store Mock
-export const mockSettingsLinks: Link[] = [
-  {
-    icon: "mdi-home",
-    title: "Home",
-    value: "home",
-    targetId: "#home",
-    isCurrent: false,
-  },
-  {
-    icon: "mdi-account",
-    title: "About",
-    value: "about",
-    targetId: "#about",
-    isCurrent: false,
-  },
-  {
-    icon: "mdi-chart-bar",
-    title: "Statistics",
-    value: "statistics",
-    targetId: "#statistics",
-    isCurrent: false,
-  },
-  {
-    icon: "mdi-view-list",
-    title: "Services",
-    value: "services",
-    targetId: "#services",
-    isCurrent: false,
-  },
-  {
-    icon: "mdi-code-tags",
-    title: "Skills",
-    value: "skills",
-    targetId: "#skills",
-    isCurrent: false,
-  },
-  {
-    icon: "mdi-folder-multiple",
-    title: "Projects",
-    value: "projects",
-    targetId: "#projects",
-    isCurrent: false,
-  },
-  {
-    icon: "mdi-email",
-    title: "Contacts",
-    value: "contacts",
-    targetId: "#contacts",
-    isCurrent: false,
-  },
-]
-
 export const mockSettingsStore = {
-  links: mockSettingsLinks,
   title: mockAboutInfoData.fullName,
-  getLinks: vi.fn(() => mockSettingsLinks),
   getTitle: vi.fn(() => mockAboutInfoData.fullName),
   updateTitle: vi.fn((title: string) => {
     mockSettingsStore.title = title

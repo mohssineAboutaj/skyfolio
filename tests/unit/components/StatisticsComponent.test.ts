@@ -17,7 +17,7 @@ vi.mock('~/stores/projects', () => ({
 }))
 
 // Mock the statistics composables
-vi.mock('~/composables/StatisticsCompasables', () => mockStatisticsComposables)
+vi.mock('~/utils/statistics', () => mockStatisticsComposables)
 
 // Mock CSS imports
 vi.mock('*.css', () => ({}))

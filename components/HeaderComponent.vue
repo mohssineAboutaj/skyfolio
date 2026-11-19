@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { useGoTo } from "vuetify"
 import TypewriterComponent from "~/components/TypewriterComponent.vue"
 
 // store
 const { getInfo } = useAboutInfoStore()
 const { getFeatured } = useContactStore()
 
-const goTo = useGoTo()
+const { scrollToSection } = useScrollToSection()
 const { playHeroEntrance, bindSpotlight } = useGsap()
 const { optimize } = useOptimizedImage()
 
@@ -75,13 +74,11 @@ watch(
 )
 
 function goToAbout() {
-  const toolbarHeight = document.querySelector(".v-toolbar")?.clientHeight || 0
-  goTo("#about", { offset: -toolbarHeight })
+  scrollToSection("#about")
 }
 
 function goToContacts() {
-  const toolbarHeight = document.querySelector(".v-toolbar")?.clientHeight || 0
-  goTo("#contacts", { offset: -toolbarHeight })
+  scrollToSection("#contacts")
 }
 </script>
 

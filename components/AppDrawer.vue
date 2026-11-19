@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const {
   drawer,
+  activeLink,
   user,
   socials,
   links,
@@ -54,7 +55,7 @@ const {
         :title="link.title"
         :value="link.value"
         active-class="bg-primary"
-        :active="link.isCurrent"
+        :active="activeLink === link.value"
         @click="goToTarget(link)"
       ></v-list-item>
       <v-divider class="my-2"></v-divider>
