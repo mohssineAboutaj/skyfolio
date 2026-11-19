@@ -12,37 +12,35 @@
 
 Workflows live in `.github/workflows/`.
 
-| Workflow | File | Runs on | What it does |
-| --- | --- | --- | --- |
-| Test Suite | `test.yml` | push and PR to `main`, `master`, `develop` | `npm ci`, `npm run test:all`, uploads `coverage/` as an artifact (30 days) |
-| Pull Request Check | `pr-check.yml` | PR to `main`, `master`, `develop` | `npm ci`, unit tests, e2e tests, coverage, then comments on the PR |
+One workflow, **Test Suite** (`test.yml`), runs on pushes and pull requests to `master` and `release`, with two jobs (Node.js 22, same as Netlify):
 
-Both use Node.js 22 (same as Netlify) and the npm cache.
+| Job | Steps |
+| --- | --- |
+| **Typecheck and unit tests** | `npm ci`, `npm run typecheck`, Vitest with coverage. A coverage table is added to the run summary and `coverage/` is uploaded as an artifact (14 days). |
+| **Build and e2e tests** | `npm ci`, `nuxt generate` with the `netlify_static` preset (any prerender error fails the build), then Playwright e2e tests in Chromium. The Playwright report and traces are uploaded when it fails. |
 
 ### Recommended branch protection
 
 In **Settings -> Branches**, protect `master` (and `release`):
 
 - Require a pull request before merging
-- Require status checks to pass: **Run Tests** and **Code Quality Check**
+- Require status checks to pass: **Typecheck and unit tests** and **Build and e2e tests**
 - Require branches to be up to date before merging
 
 ## Running the checks locally
 
 ```bash
 npm ci
-npm run test:run       # all tests once
-npm run test:unit      # tests/unit only
-npm run test:e2e       # tests/e2e only
-npm run test:coverage  # coverage report in coverage/
-npm run generate       # static build in .output/public
-```
+npm run typecheck      # vue-tsc via nuxi typecheck
+npm run test:all       # unit tests with coverage (coverage/)
 
-To reproduce the exact Netlify output (including `_redirects`):
-
-```bash
+# e2e: build the site the way Netlify does, then run Playwright against it
+npx playwright install chromium   # once
 NITRO_PRESET=netlify_static npm run generate
+npm run test:e2e
 ```
+
+The e2e tests serve `.output/public` with `scripts/serve-static.mjs`, which mimics Netlify: unknown paths get `404.html` with a real 404 status.
 
 ## Netlify
 
