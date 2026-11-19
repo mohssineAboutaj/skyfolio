@@ -108,6 +108,12 @@ export default defineNuxtConfig({
     keywords: portfolioKeywords,
   },
 
+  runtimeConfig: {
+    // Optional, server/build only (NUXT_GITHUB_TOKEN): avoids the 60 req/h
+    // unauthenticated GitHub API limit on shared build IPs.
+    githubToken: "",
+  },
+
   gtag: {
     id: "G-KRLF8VEECK",
   },

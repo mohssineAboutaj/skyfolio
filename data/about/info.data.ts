@@ -6,7 +6,6 @@ const info: AboutInfo = {
   lastName: "Aboutaj",
   fullName: "Mohssine Aboutaj",
   email: "mohssineaboutaj1995@gmail.com",
-  birth: "1995-07-06",
   address: "Marrakech, Morocco",
   phone: "+212606328203",
   jobs: [
