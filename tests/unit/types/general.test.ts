@@ -111,7 +111,6 @@ describe('Type Definitions Validation', () => {
         lastName: "Doe",
         fullName: "John Doe",
         email: "john@example.com",
-        birth: "1990-01-01",
         address: "123 Street, City",
         phone: "+1234567890",
         jobs: ["Developer", "Designer"],
@@ -125,7 +124,6 @@ describe('Type Definitions Validation', () => {
         lastName: expect.any(String),
         fullName: expect.any(String),
         email: expect.any(String),
-        birth: expect.any(String),
         address: expect.any(String),
         phone: expect.any(String),
         jobs: expect.any(Array),
@@ -141,7 +139,6 @@ describe('Type Definitions Validation', () => {
         lastName: "Doe",
         fullName: "John Doe",
         email: "john@example.com",
-        birth: "1990-01-01",
         address: "123 Street, City",
         phone: "+1234567890",
         jobs: ["Developer", "Designer"],
@@ -154,7 +151,6 @@ describe('Type Definitions Validation', () => {
       expect(typeof info.lastName).toBe('string')
       expect(typeof info.fullName).toBe('string')
       expect(typeof info.email).toBe('string')
-      expect(typeof info.birth).toBe('string')
       expect(typeof info.address).toBe('string')
       expect(typeof info.phone).toBe('string')
       expect(Array.isArray(info.jobs)).toBe(true)

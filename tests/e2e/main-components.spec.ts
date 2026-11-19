@@ -37,14 +37,14 @@ describe('Main Components E2E Tests', () => {
 
     it('should have consistent tab configuration', () => {
       expect(mockAboutTabs.length).toBe(3)
-      expect(mockAboutTabs[0].value).toBe('info')
-      expect(mockAboutTabs[1].value).toBe('education')
-      expect(mockAboutTabs[2].value).toBe('certificates')
+      expect(mockAboutTabs[0]!.value).toBe('info')
+      expect(mockAboutTabs[1]!.value).toBe('education')
+      expect(mockAboutTabs[2]!.value).toBe('certificates')
     })
 
     it('should validate education data integrity', () => {
       expect(mockAboutEducations.length).toBe(2)
-      expect(mockAboutEducations[0].year).toBeLessThan(mockAboutEducations[1].year)
+      expect(mockAboutEducations[0]!.year).toBeLessThan(mockAboutEducations[1]!.year)
       mockAboutEducations.forEach(edu => {
         expect(edu.id).toBeDefined()
         expect(edu.title.length).toBeGreaterThan(0)
@@ -191,10 +191,10 @@ describe('Main Components E2E Tests', () => {
   describe('StatisticsComponent Data Integration', () => {
     it('should integrate statistics data correctly', () => {
       expect(mockStatistics.length).toBe(4)
-      expect(mockStatistics[0].title).toBe('Projects Count')
-      expect(mockStatistics[1].title).toBe('Repos Count')
-      expect(mockStatistics[2].title).toBe('Total Worked Hours')
-      expect(mockStatistics[3].title).toBe('Total Coded Lines')
+      expect(mockStatistics[0]!.title).toBe('Projects Count')
+      expect(mockStatistics[1]!.title).toBe('Repos Count')
+      expect(mockStatistics[2]!.title).toBe('Total Worked Hours')
+      expect(mockStatistics[3]!.title).toBe('Total Coded Lines')
     })
 
     it('should validate statistics data integrity', () => {

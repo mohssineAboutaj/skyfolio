@@ -41,7 +41,6 @@ describe('About Store', () => {
         lastName: expect.any(String),
         fullName: expect.any(String),
         email: expect.any(String),
-        birth: expect.any(String),
         address: expect.any(String),
         phone: expect.any(String),
         jobs: expect.any(Array),
@@ -57,7 +56,6 @@ describe('About Store', () => {
       expect(result.lastName).toBeTruthy()
       expect(result.fullName).toBeTruthy()
       expect(result.email).toBeTruthy()
-      expect(result.birth).toBeTruthy()
       expect(result.address).toBeTruthy()
       expect(result.phone).toBeTruthy()
       expect(result.jobs.length).toBeGreaterThan(0)
@@ -217,7 +215,6 @@ describe('About Store', () => {
       expect(info.lastName.trim()).toBeTruthy()
       expect(info.fullName.trim()).toBeTruthy()
       expect(info.email.trim()).toBeTruthy()
-      expect(info.birth.trim()).toBeTruthy()
       expect(info.address.trim()).toBeTruthy()
       expect(info.phone.trim()).toBeTruthy()
       expect(info.shortDescription.trim()).toBeTruthy()

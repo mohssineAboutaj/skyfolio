@@ -1,17 +1,14 @@
 <script setup lang="ts">
-// props
-const { project } = defineProps({
-  project: { type: Object, required: true },
-})
+import type { Project } from "~/types/general"
+
+const props = defineProps<{ project: Project }>()
 
 const { bindProjectCard } = useGsap()
 const { optimizeSizes } = useOptimizedImage()
 const cardRef = ref<{ $el?: Element } | null>(null)
 
-// computed
-const projectImg = project.imgs[0]
 const optimizedCover = computed(() =>
-  optimizeSizes(projectImg, "100vw sm:50vw md:400px", {
+  optimizeSizes(props.project.imgs[0], "100vw sm:50vw md:400px", {
     height: 200,
     quality: 75,
   }),
@@ -44,12 +41,14 @@ onMounted(async () => {
       </v-img>
     </div>
 
-    <v-card-text class="pa-0">
-      <v-btn block color="primary" icon="mdi-chevron-right" class="rounded-t-0">
-        <span class="mx-1">see details</span>
-        <v-icon>mdi-chevron-double-right</v-icon>
-      </v-btn>
-    </v-card-text>
+    <!-- Visual call to action only: the whole card is already the link -->
+    <div
+      class="project-card__cta bg-primary d-flex align-center justify-center text-button font-weight-black"
+      aria-hidden="true"
+    >
+      <span class="mx-1">see details</span>
+      <v-icon>mdi-chevron-double-right</v-icon>
+    </div>
   </v-card>
 </template>
 
@@ -58,6 +57,10 @@ onMounted(async () => {
   overflow: hidden;
   width: 100%;
   will-change: transform;
+}
+
+.project-card__cta {
+  min-height: 36px;
 }
 
 .project-card__media {

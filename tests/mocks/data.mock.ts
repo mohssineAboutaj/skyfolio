@@ -111,7 +111,6 @@ export const mockAboutInfoData: AboutInfo = {
   lastName: "Doe",
   fullName: "John Doe",
   email: "john.doe@example.com",
-  birth: "1990-01-01",
   address: "123 Test Street, Test City",
   phone: "+1234567890",
   jobs: ["Frontend Developer", "Full Stack Developer"],

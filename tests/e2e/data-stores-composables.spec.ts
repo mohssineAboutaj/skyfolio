@@ -219,7 +219,7 @@ describe('Data, Stores, and Composables Integration', () => {
       const projects = mockProjectsStore.getAll()
       if (projects.length > 0) {
         const firstProject = projects[0]
-        const foundProject = mockProjectsStore.getBySlug(firstProject.slug)
+        const foundProject = mockProjectsStore.getBySlug(firstProject!.slug)
 
         expect(foundProject).toBe(firstProject)
       }
