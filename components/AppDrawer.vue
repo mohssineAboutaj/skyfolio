@@ -35,6 +35,8 @@ const {
         :key="social.icon"
         :href="social.link"
         target="_blank"
+        :title="social.label"
+        :aria-label="social.label"
         icon
         data-magnetic
       >
@@ -53,12 +55,15 @@ const {
         :key="link.value"
         :prepend-icon="link.icon"
         :title="link.title"
-        :value="link.value"
         active-class="bg-primary"
         :active="activeLink === link.value"
         @click="goToTarget(link)"
       ></v-list-item>
-      <v-divider class="my-2"></v-divider>
+    </v-list>
+
+    <v-divider class="my-2"></v-divider>
+
+    <v-list density="comfortable" class="pr-0" nav aria-label="Actions">
       <v-list-item
         prepend-icon="mdi-handshake"
         title="Hire me"

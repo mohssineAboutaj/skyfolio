@@ -38,6 +38,7 @@ function goHome() {
         </v-container>
 
         <AppFooter />
+        <ConsentBanner />
       </v-main>
     </v-layout>
   </v-app>

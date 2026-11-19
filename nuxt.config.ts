@@ -108,6 +108,8 @@ export default defineNuxtConfig({
 
   gtag: {
     id: "G-KRLF8VEECK",
+    // Loaded only after the visitor accepts (see ConsentBanner.vue)
+    initMode: "manual",
   },
 
   // Netlify Image CDN — optimize via useImage(); keep existing v-img UI
